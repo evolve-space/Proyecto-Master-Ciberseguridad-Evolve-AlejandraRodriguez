@@ -6,14 +6,16 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import subprocess
+import os
+import streamlit_authenticator as stauth
+
 from dotenv import load_dotenv
 load_dotenv()
+
 
 HETZNER_TOKEN = os.getenv("HETZNER_TOKEN")
 HETZNER_FIREWALL_ID = os.getenv("HETZNER_FIREWALL_ID")
 API_KEY = os.getenv("API_KEY")
-
-API_KEY = "noctua-2026-secure-key"
 HEADERS = {"X-API-Key": API_KEY}
 
 # ── Configuración ──────────────────────────────────────────────────────────────
@@ -23,6 +25,51 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+
+# ── Autenticación ──────────────────────────────────────────────────────────────
+AUTH_USERNAME = os.getenv("AUTH_USERNAME", "admin")
+AUTH_NAME = os.getenv("AUTH_NAME", "Administrador")
+AUTH_PASSWORD = os.getenv("AUTH_PASSWORD", "noctua2026")
+
+credentials = {
+    "usernames": {
+        AUTH_USERNAME: {
+            "name": AUTH_NAME,
+            "password": stauth.Hasher.hash(AUTH_PASSWORD)
+        }
+    }
+}
+
+authenticator = stauth.Authenticate(
+    credentials,
+    "noctua_cookie",
+    "noctua_key_2026",
+    cookie_expiry_days=1
+)
+
+authenticator.login(location="main")
+name = st.session_state.get("name")
+authentication_status = st.session_state.get("authentication_status")
+username = st.session_state.get("username")
+
+if authentication_status == False:
+    st.error("Usuario o contraseña incorrectos")
+    st.stop()
+
+if authentication_status is None:
+    st.warning("Introduce tus credenciales para acceder")
+    st.stop()
+
+# Botón cerrar sesión en la barra superior
+with st.container():
+    cols = st.columns([11, 1])
+    with cols[1]:
+        if st.button("⏻", key="btn_logout", help="Cerrar sesión"):
+            for key in list(st.session_state.keys()):
+                del st.session_state[key]
+            st.rerun()
+
+st.markdown(f"<small style='color:#95a5a6'>Sesion activa: {name}</small>", unsafe_allow_html=True)
 
 # ── CSS ────────────────────────────────────────────────────────────────────────
 st.markdown("""<style>
@@ -37,18 +84,33 @@ st.markdown("""<style>
     section[data-testid="stSidebar"] { background-color: #ffffff !important; border-right: 1px solid #e0e0e0; }
     section[data-testid="stSidebar"] * { color: #2c3e50 !important; }
     section[data-testid="stSidebar"] label { color: #2c3e50 !important; font-weight: 500; }
-    section[data-testid="stSidebar"] .stButton > button { 
-        background: #2c3e50 !important; 
-        color: white !important; 
-        border: none !important;
-        width: 100%;
+    section[data-testid="stSidebar"] .stButton > button[kind="secondary"] {
+        background: transparent !important;
+        color: #2c3e50 !important;
+        border: 1px solid #e0e0e0 !important;
+        width: 100% !important;
+        text-align: left !important;
+        margin-bottom: 4px !important;
     }
-    section[data-testid="stSidebar"] .stButton > button:hover { 
-      background: #1a252f !important; 
+    section[data-testid="stSidebar"] .stButton > button[kind="secondary"] p {
+        color: #2c3e50 !important;
     }
-    section[data-testid="stSidebar"] .stButton > button p {
+
+    section[data-testid="stSidebar"] .stButton > button[kind="primary"] {
+        background: #1a3a6c !important;
         color: white !important;
+        border: none !important;
+        width: 100% !important;
+        text-align: left !important;
+        margin-bottom: 4px !important;
     }
+    section[data-testid="stSidebar"] .stButton > button[kind="primary"] p {
+        color: white !important;
+    }    
+    section[data-testid="stSidebar"] .stButton > button:hover {
+        opacity: 0.85 !important;
+    }
+
     .metric-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); margin-bottom: 16px; border-top: 3px solid #2c3e50; }
     .metric-card.danger  { border-top-color: #e74c3c; }
     .metric-card.warning { border-top-color: #f39c12; }
@@ -64,6 +126,41 @@ st.markdown("""<style>
     .service-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; color: #2c3e50; }
     .stButton > button { background: #2c3e50; color: white; border: none; border-radius: 6px; font-weight: 600; }
     .stButton > button:hover { background: #1a252f; color: white; }
+    
+    div[data-testid="stMainBlockContainer"] > div:first-child {
+    position: relative;
+    }
+
+    #logout-btn {
+        position: fixed !important;
+        top: 14px !important;
+        right: 20px !important;
+        z-index: 9999 !important;
+    }
+    #logout-btn a {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 50% !important;
+        border: 1.5px solid #e74c3c !important;
+        color: #e74c3c !important;
+        text-decoration: none !important;
+        font-size: 1rem !important;
+        background: white !important;
+    }
+    button[data-testid="baseButton-secondary"]:has(+ div > div > p:contains("⏻")) {
+        background: transparent !important;
+        color: #e74c3c !important;
+        border: 1.5px solid #e74c3c !important;
+        border-radius: 50% !important;
+        width: 36px !important;
+        height: 36px !important;
+        padding: 0 !important;
+        min-width: unset !important;
+    }   
+    
 </style>
 """, unsafe_allow_html=True)
 
@@ -126,7 +223,7 @@ with st.sidebar:
         logo_svg = f.read()
     st.markdown(logo_svg, unsafe_allow_html=True)
     st.markdown("---")
-    pagina = st.radio("", [
+    opciones = [
         "Panel General",
         "Alertas y Eventos",
         "IPs Bloqueadas",
@@ -134,7 +231,31 @@ with st.sidebar:
         "Normativas",
         "Simulador de Ataques",
         "Estado del Sistema"
-    ], label_visibility="collapsed")
+    ]
+
+    if "pagina" not in st.session_state:
+        st.session_state.pagina = "Panel General"
+
+    for opcion in opciones:
+        activo = st.session_state.pagina == opcion
+        if st.button(
+            opcion,
+            key=f"nav_{opcion}",
+            use_container_width=True,
+            type="primary" if activo else "secondary"
+        ):
+            st.session_state.pagina = opcion
+            st.rerun()
+
+    pagina = st.session_state.pagina
+    st.markdown("---")
+    if st.button("Cerrar sesion", key="btn_cerrar_sesion", use_container_width=True, type="secondary"):
+        st.session_state["authentication_status"] = None
+        st.session_state["name"] = None
+        st.session_state["username"] = None
+        st.session_state["noctua_cookie"] = None
+        st.rerun()
+
     st.markdown("---")
     st.markdown(f"**Sesion:** `{datetime.now().strftime('%d/%m/%Y %H:%M')}`")
     if st.button("Actualizar datos"):
@@ -333,10 +454,11 @@ elif pagina == "Estado del Sistema":
             st.markdown(f'<div class="service-row"><span>{nombre}</span>{badge}</div>', unsafe_allow_html=True)
 
     with col2:
-        st.markdown(f"- **Version:** Noctua ASOAR v1.0")
-        st.markdown(f"- **Alertas cargadas:** {len(df)}")
-        st.markdown(f"- **IPs bloqueadas:** {len(ips_bloqueadas)}")
-        st.markdown(f"- **Endpoints activos:** {len(requests.get('http://localhost:8000/agentes', headers=HEADERS, timeout=5).json()) if True else 0}")
+        datos_info = {
+            "Campo": ["Version", "Alertas cargadas", "IPs bloqueadas", "Endpoints activos"],
+            "Valor": ["Noctua ASOAR v1.0", len(df), len(ips_bloqueadas), len(agentes) if (agentes := requests.get("http://localhost:8000/agentes", headers=HEADERS, timeout=5).json()) else 0]
+        }
+        st.dataframe(pd.DataFrame(datos_info), use_container_width=True, hide_index=True)
 
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura del Sistema</div>', unsafe_allow_html=True)
