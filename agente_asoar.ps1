@@ -154,8 +154,8 @@ function Obtener-DatosSeguridad {
 function Enviar-Datos($datos) {
     try {
         $json = $datos | ConvertTo-Json -Depth 10
-        $response = Invoke-RestMethod -Uri $WEBHOOK_URL -Method POST -Body $json -ContentType "application/json"
-        Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Datos enviados - Puntuacion: $($datos.puntuacion_seguridad)/100"
+        $headers = @{"X-API-Key" = "noctua-2026-secure-key"}
+        $response = Invoke-RestMethod -Uri $WEBHOOK_URL -Method POST -Body $json -ContentType "application/json" -Headers $headers        Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Datos enviados - Puntuacion: $($datos.puntuacion_seguridad)/100"
         return $true
     } catch {
         Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Error: $_"

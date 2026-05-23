@@ -5,3 +5,4 @@ agentes.json
 *.log
 .streamlit/
 static/
+.env

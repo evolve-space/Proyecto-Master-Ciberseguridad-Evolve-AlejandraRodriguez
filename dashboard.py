@@ -6,6 +6,15 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import subprocess
+from dotenv import load_dotenv
+load_dotenv()
+
+HETZNER_TOKEN = os.getenv("HETZNER_TOKEN")
+HETZNER_FIREWALL_ID = os.getenv("HETZNER_FIREWALL_ID")
+API_KEY = os.getenv("API_KEY")
+
+API_KEY = "noctua-2026-secure-key"
+HEADERS = {"X-API-Key": API_KEY}
 
 # ── Configuración ──────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -14,8 +23,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-HETZNER_TOKEN = "klNXgMgVkkhNB0jzJHlDdjsAro0vAMWNB44oOpKRoYiFSuRZjhssYdonWG8J3VKy"
-HETZNER_FIREWALL_ID = "10850215"
 
 # ── CSS ────────────────────────────────────────────────────────────────────────
 st.markdown("""<style>
@@ -129,8 +136,6 @@ with st.sidebar:
         "Estado del Sistema"
     ], label_visibility="collapsed")
     st.markdown("---")
-    st.markdown(f"**VPS:** `91.98.126.215`")
-    st.markdown(f"**Modelo IA:** `phi3`")
     st.markdown(f"**Sesion:** `{datetime.now().strftime('%d/%m/%Y %H:%M')}`")
     if st.button("Actualizar datos"):
         st.cache_data.clear()
@@ -279,7 +284,7 @@ elif pagina == "Simulador de Ataques":
             try:
                 r = requests.post("http://localhost:8000/alerta",
                     json={"rule": {"level": nivel, "description": descripcion},
-                          "data": {"srcip": ip_atacante}}, timeout=60)
+                          "data": {"srcip": ip_atacante}}, headers = HEADERS, timeout=60)
                 resultado = r.json()
                 st.markdown("---")
                 if resultado.get("accion") == "BLOQUEADA":
@@ -305,9 +310,9 @@ elif pagina == "Estado del Sistema":
     def check_service(url, method="get", payload=None, timeout=5):
         try:
             if method == "post":
-                r = requests.post(url, json=payload, timeout=timeout)
+                r = requests.post(url, json=payload, headers = HEADERS, timeout=timeout)
             else:
-                r = requests.get(url, timeout=timeout)
+                r = requests.get(url, headers = HEADERS, timeout=timeout)
             return r.status_code < 400
         except:
             return False
@@ -328,14 +333,10 @@ elif pagina == "Estado del Sistema":
             st.markdown(f'<div class="service-row"><span>{nombre}</span>{badge}</div>', unsafe_allow_html=True)
 
     with col2:
-        st.markdown('<div class="section-header">Informacion del Entorno</div>', unsafe_allow_html=True)
-        st.markdown(f"- **VPS:** 91.98.126.215 (Hetzner CPX32)")
-        st.markdown(f"- **OS:** Ubuntu 24.04")
-        st.markdown(f"- **Modelo IA:** phi3 (Ollama v0.18.0)")
-        st.markdown(f"- **Firewall ID:** {HETZNER_FIREWALL_ID}")
-        st.markdown(f"- **Version ASOAR:** 1.0")
+        st.markdown(f"- **Version:** Noctua ASOAR v1.0")
         st.markdown(f"- **Alertas cargadas:** {len(df)}")
         st.markdown(f"- **IPs bloqueadas:** {len(ips_bloqueadas)}")
+        st.markdown(f"- **Endpoints activos:** {len(requests.get('http://localhost:8000/agentes', headers=HEADERS, timeout=5).json()) if True else 0}")
 
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura del Sistema</div>', unsafe_allow_html=True)
@@ -358,7 +359,7 @@ elif pagina == "Endpoints":
     st.markdown("---")
 
     try:
-        r = requests.get("http://localhost:8000/agentes", timeout=5)
+        r = requests.get("http://localhost:8000/agentes", headers = HEADERS, timeout=5)
         agentes = r.json()
     except:
         agentes = {}
@@ -512,7 +513,7 @@ elif pagina == "Normativas":
     st.markdown("---")
 
     try:
-        r = requests.get("http://localhost:8000/agentes", timeout=5)
+        r = requests.get("http://localhost:8000/agentes", headers = HEADERS, timeout=5)
         agentes = r.json()
     except:
         agentes = {}
@@ -523,7 +524,7 @@ elif pagina == "Normativas":
         hostname_sel = st.selectbox("Selecciona un endpoint", list(agentes.keys()))
 
         try:
-            r = requests.get(f"http://localhost:8000/cumplimiento/{hostname_sel}", timeout=5)
+            r = requests.get(f"http://localhost:8000/cumplimiento/{hostname_sel}", headers = HEADERS, timeout=5)
             data = r.json()
         except:
             data = {}
