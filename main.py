@@ -115,6 +115,24 @@ def bloquear_ip_hetzner(ip: str):
         json={"rules": reglas_actuales}
     )
     print(f"[HETZNER] IP {ip} bloqueada - Status: {r.status_code}")
+        # Guardar notificación pendiente
+    notif_file = "/root/asoar/notificaciones.json"
+    notifs = []
+    if os.path.exists(notif_file):
+        try:
+            with open(notif_file, "r") as f:
+                notifs = json.load(f)
+        except:
+            notifs = []
+
+    notifs.append({
+        "ip": ip,
+        "timestamp": datetime.now().isoformat(),
+        "leida": False
+    })
+
+    with open(notif_file, "w") as f:
+        json.dump(notifs, f, indent=2)
     return r.status_code == 201
 
 def cargar_agentes():
