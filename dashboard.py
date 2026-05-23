@@ -5,6 +5,9 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
+def hora_local():
+    return datetime.now() + timedelta(hours=2)
+
 import subprocess
 import os
 import streamlit_authenticator as stauth
@@ -20,11 +23,11 @@ HEADERS = {"X-API-Key": API_KEY}
 
 # ── Configuración ──────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="ASOAR - Centro de Operaciones de Seguridad",
+    page_title="Noctua. — Autonomous Security Operations",
+    page_icon="/root/asoar/static/favicon.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
 
 # ── Autenticación ──────────────────────────────────────────────────────────────
 AUTH_USERNAME = os.getenv("AUTH_USERNAME", "admin")
@@ -71,6 +74,23 @@ with st.container():
 
 st.markdown(f"<small style='color:#95a5a6'>Sesion activa: {name}</small>", unsafe_allow_html=True)
 
+
+# Notificaciones en tiempo real
+notif_file = "/root/asoar/notificaciones.json"
+if os.path.exists(notif_file):
+    try:
+        with open(notif_file, "r") as f:
+            notifs = json.load(f)
+        no_leidas = [n for n in notifs if not n.get("leida")]
+        for n in no_leidas:
+            st.toast(f"IP bloqueada: {n['ip']}", icon="🚨")
+            n["leida"] = True
+        if no_leidas:
+            with open(notif_file, "w") as f:
+                json.dump(notifs, f, indent=2)
+    except:
+        pass
+
 # ── CSS ────────────────────────────────────────────────────────────────────────
 st.markdown("""<style>
     :root { color-scheme: light !important; }
@@ -116,6 +136,26 @@ st.markdown("""<style>
     .metric-card.warning { border-top-color: #f39c12; }
     .metric-card.success { border-top-color: #27ae60; }
     .metric-card.info    { border-top-color: #2980b9; }
+    .metric-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.12) !important;
+    }
+    .metric-value {
+        animation: fadeInUp 0.5s ease;
+    }
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
     .metric-value { font-size: 2rem; font-weight: 700; color: #2c3e50; margin: 4px 0 0 0; }
     .metric-label { font-size: 0.75rem; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; }
     .section-header { font-size: 0.8rem; font-weight: 700; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; padding: 16px 0 8px 0; border-bottom: 1px solid #ecf0f1; margin-bottom: 16px; }
@@ -230,6 +270,7 @@ with st.sidebar:
         "Endpoints",
         "Normativas",
         "Simulador de Ataques",
+        "Informes",
         "Estado del Sistema"
     ]
 
@@ -257,17 +298,45 @@ with st.sidebar:
         st.rerun()
 
     st.markdown("---")
-    st.markdown(f"**Sesion:** `{datetime.now().strftime('%d/%m/%Y %H:%M')}`")
+    st.markdown(f"**Sesion:** `{hora_local().strftime('%d/%m/%Y %H:%M')}`")
     if st.button("Actualizar datos"):
         st.cache_data.clear()
         st.rerun()
+
+# Breadcrumb estilo SOC
+alertas_activas = len(df[df["nivel"] >= 10]) if not df.empty else 0
+color_live = "#e74c3c" if alertas_activas > 0 else "#27ae60"
+
+st.markdown(f"""
+<div style="font-size:0.78rem; color:#7f8c8d; margin-bottom:12px; padding:8px 16px; 
+            background:white; border-radius:6px; border:1px solid #ecf0f1;
+            display:flex; justify-content:space-between; align-items:center;
+            box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+    <div>
+        <span style="color:#1a3a6c; font-weight:700; letter-spacing:1px">NOCTUA.</span>
+        <span style="margin:0 8px; color:#bdc3c7">›</span>
+        <span style="color:#2c3e50; font-weight:500; letter-spacing:0.5px">{pagina.upper()}</span>
+        <span style="margin-left:12px">
+            <span style="display:inline-block; width:7px; height:7px; border-radius:50%; 
+                         background:{color_live}; margin-right:4px; vertical-align:middle"></span>
+            <span style="color:{color_live}; font-weight:600; font-size:0.72rem">LIVE</span>
+        </span>
+    </div>
+    <div style="display:flex; gap:16px; align-items:center;">
+        <span style="background:#f39c12; color:white; padding:2px 8px; border-radius:3px; 
+                     font-size:0.7rem; font-weight:700; letter-spacing:0.5px">TLP:AMBER</span>
+        <span style="color:#7f8c8d">Analista: <strong style="color:#2c3e50">{name}</strong></span>
+        <span style="color:#7f8c8d">{hora_local().strftime('%d/%m/%Y %H:%M')}</span>
+    </div>
+</div>
+""", unsafe_allow_html=True)   
 
 # ══════════════════════════════════════════════════════════════════════════════
 # PANEL GENERAL
 # ══════════════════════════════════════════════════════════════════════════════
 if pagina == "Panel General":
     st.markdown("## Panel General")
-    st.markdown(f"*Ultima actualizacion: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}*")
+    st.markdown(f"*Ultima actualizacion: {hora_local().strftime('%d/%m/%Y %H:%M:%S')}*")
     st.markdown("---")
 
     if df.empty:
@@ -376,6 +445,65 @@ elif pagina == "IPs Bloqueadas":
         st.dataframe(df_ips, use_container_width=True, hide_index=True)
     else:
         st.info("No hay IPs bloqueadas actualmente por ASOAR.")
+
+    # Mapa mundial de IPs bloqueadas
+    import geoip2.database
+
+    st.markdown('<div class="section-header">Mapa de Origen de Ataques</div>', unsafe_allow_html=True)
+
+    try:
+        reader = geoip2.database.Reader('/root/asoar/static/GeoLite2-Country.mmdb')
+        paises = {}
+        for ip in ips_bloqueadas:
+            try:
+                if ip and ip != "0.0.0.0":
+                    response = reader.country(ip)
+                    pais = response.country.name
+                    codigo = response.country.iso_code
+                    if pais:
+                        paises[pais] = paises.get(pais, 0) + 1
+            except:
+                continue
+        reader.close()
+
+        if paises:
+            df_mapa = pd.DataFrame(list(paises.items()), columns=["Pais", "Ataques"])
+            df_mapa = df_mapa.sort_values("Ataques", ascending=False)
+
+            fig_mapa = px.choropleth(
+                df_mapa,
+                locations="Pais",
+                locationmode="country names",
+                color="Ataques",
+                color_continuous_scale=["#f5f6fa", "#2d6aa0", "#0f1f35"],
+                title="",
+                labels={"Ataques": "IPs Bloqueadas"}
+            )
+            fig_mapa.update_layout(
+                plot_bgcolor="white",
+                paper_bgcolor="white",
+                margin=dict(l=0, r=0, t=10, b=0),
+                height=400,
+                coloraxis_colorbar=dict(title="IPs"),
+                geo=dict(
+                    showframe=False,
+                    showcoastlines=True,
+                    coastlinecolor="#ecf0f1",
+                    showland=True,
+                    landcolor="#f5f6fa",
+                    showocean=True,
+                    oceancolor="#eaf2f8",
+                    projection_type="natural earth"
+                )
+            )
+            st.plotly_chart(fig_mapa, use_container_width=True)
+
+            st.markdown('<div class="section-header">Top Paises de Origen</div>', unsafe_allow_html=True)
+            st.dataframe(df_mapa, use_container_width=True, hide_index=True)
+        else:
+            st.info("No se pudo geolocalizar ninguna IP.")
+    except Exception as e:
+        st.error(f"Error cargando el mapa: {e}")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SIMULADOR
@@ -727,3 +855,185 @@ elif pagina == "Normativas":
                     """, unsafe_allow_html=True)
 
                 st.markdown("<br>", unsafe_allow_html=True)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# INFORMES
+# ══════════════════════════════════════════════════════════════════════════════
+elif pagina == "Informes":
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib import colors
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
+    from reportlab.lib.units import cm
+    import io
+
+    st.markdown("## Informes")
+    st.markdown("Genera informes ejecutivos en PDF del estado de seguridad del sistema.")
+    st.markdown("---")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        tipo_informe = st.selectbox("Tipo de informe", [
+            "Informe Ejecutivo de Seguridad",
+            "Informe de IPs Bloqueadas",
+            "Informe de Cumplimiento Normativo"
+        ])
+    with col2:
+        try:
+            r = requests.get("http://localhost:8000/agentes", headers=HEADERS, timeout=5)
+            agentes_disp = list(r.json().keys())
+        except:
+            agentes_disp = []
+        
+        endpoint_sel = st.selectbox("Endpoint", agentes_disp if agentes_disp else ["Sin endpoints"])
+
+    if st.button("Generar Informe PDF", type="primary"):
+        with st.spinner("Generando informe..."):
+            buffer = io.BytesIO()
+            doc = SimpleDocTemplate(buffer, pagesize=A4,
+                                   rightMargin=2*cm, leftMargin=2*cm,
+                                   topMargin=2*cm, bottomMargin=2*cm)
+            
+            styles = getSampleStyleSheet()
+            style_title = ParagraphStyle('title', fontSize=24, fontName='Helvetica-Bold', 
+                                        textColor=colors.HexColor('#0f1f35'), spaceAfter=6)
+            style_subtitle = ParagraphStyle('subtitle', fontSize=11, fontName='Helvetica',
+                                           textColor=colors.HexColor('#4a6fa5'), spaceAfter=20)
+            style_h2 = ParagraphStyle('h2', fontSize=13, fontName='Helvetica-Bold',
+                                     textColor=colors.HexColor('#1a3a6c'), spaceAfter=8, spaceBefore=16)
+            style_body = ParagraphStyle('body', fontSize=10, fontName='Helvetica',
+                                       textColor=colors.HexColor('#2c3e50'), spaceAfter=6)
+            style_small = ParagraphStyle('small', fontSize=8, fontName='Helvetica',
+                                        textColor=colors.HexColor('#7f8c8d'))
+
+            elements = []
+
+            # Cabecera
+            elements.append(Paragraph("NOCTUA.", style_title))
+            elements.append(Spacer(1, 0.3*cm))
+            elements.append(Paragraph("Autonomous Security Operations Platform", style_subtitle))
+            elements.append(Spacer(1, 0.3*cm))
+            elements.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#1a3a6c')))
+            elements.append(Spacer(1, 0.4*cm))
+            elements.append(Paragraph(tipo_informe.upper(), ParagraphStyle('report_type', fontSize=16, 
+                            fontName='Helvetica-Bold', textColor=colors.HexColor('#1a3a6c'), spaceAfter=8)))
+            elements.append(Spacer(1, 0.2*cm))
+            elements.append(Paragraph(f"Generado el {hora_local().strftime('%d/%m/%Y a las %H:%M:%S')}", style_small))
+            elements.append(Spacer(1, 0.5*cm))
+
+            if tipo_informe == "Informe Ejecutivo de Seguridad":
+                elements.append(Paragraph("Resumen Ejecutivo", style_h2))
+                elements.append(Paragraph(
+                    f"Este informe presenta el estado actual de la plataforma de seguridad Noctua ASOAR. "
+                    f"Se han procesado un total de {len(df)} alertas de seguridad, de las cuales "
+                    f"{len(df[df['nivel'] >= 10]) if not df.empty else 0} son de nivel alto o crítico. "
+                    f"El sistema ha bloqueado automáticamente {len(ips_bloqueadas)} direcciones IP maliciosas.",
+                    style_body))
+                elements.append(Spacer(1, 0.3*cm))
+
+                elements.append(Paragraph("Métricas de Seguridad", style_h2))
+                data_tabla = [
+                    ["Métrica", "Valor", "Estado"],
+                    ["Total Alertas", str(len(df)), "—"],
+                    ["Alertas Nivel Alto (10+)", str(len(df[df["nivel"] >= 10]) if not df.empty else 0), "Revisar" if not df.empty and len(df[df["nivel"] >= 10]) > 0 else "OK"],
+                    ["Alertas Nivel Crítico (12+)", str(len(df[df["nivel"] >= 12]) if not df.empty else 0), "Crítico" if not df.empty and len(df[df["nivel"] >= 12]) > 0 else "OK"],
+                    ["IPs Bloqueadas", str(len(ips_bloqueadas)), "Activo"],
+                    ["Endpoints Monitorizados", str(len(agentes_disp)), "Activo"],
+                ]
+                tabla = Table(data_tabla, colWidths=[7*cm, 4*cm, 4*cm])
+                tabla.setStyle(TableStyle([
+                    ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#0f1f35')),
+                    ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                    ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                    ('FONTSIZE', (0,0), (-1,-1), 9),
+                    ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                    ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                    ('PADDING', (0,0), (-1,-1), 6),
+                ]))
+                elements.append(tabla)
+
+            elif tipo_informe == "Informe de IPs Bloqueadas":
+                elements.append(Paragraph("IPs Bloqueadas por ASOAR", style_h2))
+                elements.append(Paragraph(
+                    f"El sistema ha bloqueado automáticamente {len(ips_bloqueadas)} direcciones IP "
+                    f"identificadas como maliciosas mediante análisis con IA.", style_body))
+                elements.append(Spacer(1, 0.3*cm))
+
+                if ips_bloqueadas:
+                    data_ips = [["IP Bloqueada", "Bloqueada por", "Firewall"]]
+                    for ip in ips_bloqueadas:
+                        data_ips.append([ip, "ASOAR - Automatico", "asoar-firewall"])
+                    
+                    tabla_ips = Table(data_ips, colWidths=[6*cm, 5*cm, 4*cm])
+                    tabla_ips.setStyle(TableStyle([
+                        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#0f1f35')),
+                        ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                        ('FONTSIZE', (0,0), (-1,-1), 9),
+                        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                        ('PADDING', (0,0), (-1,-1), 6),
+                    ]))
+                    elements.append(tabla_ips)
+
+            elif tipo_informe == "Informe de Cumplimiento Normativo":
+                if endpoint_sel and endpoint_sel != "Sin endpoints":
+                    try:
+                        r = requests.get(f"http://localhost:8000/cumplimiento/{endpoint_sel}", 
+                                        headers=HEADERS, timeout=5)
+                        data_norm = r.json()
+                    except:
+                        data_norm = {}
+
+                    if data_norm and "score_global" in data_norm:
+                        elements.append(Paragraph(f"Endpoint: {endpoint_sel}", style_h2))
+                        elements.append(Paragraph(
+                            f"Puntuación global de cumplimiento: {data_norm['score_global']}% "
+                            f"basada en 3 marcos normativos (ISO 27001, NIS2, ENS).", style_body))
+                        elements.append(Spacer(1, 0.3*cm))
+
+                        for key, nombre in [("iso27001", "ISO/IEC 27001:2022"), 
+                                           ("nis2", "NIS2 - Directiva UE 2022/2555"),
+                                           ("ens", "Esquema Nacional de Seguridad")]:
+                            elements.append(Paragraph(f"{nombre} — {data_norm[key]['score']}%", style_h2))
+                            data_ctrl = [["Control", "Nombre", "Estado", "Detalle"]]
+                            for ctrl in data_norm[key]["controles"]:
+                                data_ctrl.append([
+                                    ctrl["control"],
+                                    ctrl["nombre"],
+                                    "Cumple" if ctrl["cumple"] else "No cumple",
+                                    ctrl["detalle"]
+                                ])
+                            tabla_ctrl = Table(data_ctrl, colWidths=[2.5*cm, 5*cm, 2.5*cm, 5*cm])
+                            tabla_ctrl.setStyle(TableStyle([
+                                ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#1a3a6c')),
+                                ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                                ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                                ('FONTSIZE', (0,0), (-1,-1), 8),
+                                ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                                ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                                ('PADDING', (0,0), (-1,-1), 5),
+                                ('TEXTCOLOR', (2,1), (2,-1), colors.HexColor('#27ae60')),
+                            ]))
+                            elements.append(tabla_ctrl)
+                            elements.append(Spacer(1, 0.3*cm))
+
+            # Pie de página
+            elements.append(Spacer(1, 1*cm))
+            elements.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#e0e0e0')))
+            elements.append(Spacer(1, 0.2*cm))
+            elements.append(Paragraph(
+                f"Noctua. — Autonomous Security Operations Platform | Informe generado automaticamente | {hora_local().strftime('%d/%m/%Y')}",
+                style_small))
+
+            doc.build(elements)
+            buffer.seek(0)
+
+            st.success("Informe generado correctamente.")
+            st.download_button(
+                label="Descargar PDF",
+                data=buffer,
+                file_name=f"noctua_informe_{hora_local().strftime('%Y%m%d_%H%M')}.pdf",
+                mime="application/pdf",
+                type="primary"
+            )
