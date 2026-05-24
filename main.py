@@ -115,7 +115,29 @@ def bloquear_ip_hetzner(ip: str):
         json={"rules": reglas_actuales}
     )
     print(f"[HETZNER] IP {ip} bloqueada - Status: {r.status_code}")
-        # Guardar notificación pendiente
+
+     # Guardar histórico
+    historico_file = "/root/asoar/historico_ips.json"
+    historico = []
+    if os.path.exists(historico_file):
+        try:
+            with open(historico_file, "r") as f:
+                historico = json.load(f)
+        except:
+            historico = []
+
+    historico.append({
+        "ip": ip,
+        "timestamp": datetime.now().isoformat(),
+        "accion": "BLOQUEADA"
+    })
+
+    with open(historico_file, "w") as f:
+        json.dump(historico, f, indent=2)
+
+
+
+    # Guardar notificación pendiente
     notif_file = "/root/asoar/notificaciones.json"
     notifs = []
     if os.path.exists(notif_file):
@@ -242,6 +264,44 @@ async def calcular_cumplimiento(hostname: str, api_key: str = Depends(verificar_
         "ens": {"score": calcular_score(ens), "controles": ens},
         "score_global": round((calcular_score(iso27001) + calcular_score(nis2) + calcular_score(ens)) / 3)
     }
+
+@app.get("/historico")
+async def obtener_historico(request: Request, api_key: str = Depends(verificar_api_key)):
+    historico_file = "/root/asoar/historico_ips.json"
+    if os.path.exists(historico_file):
+        with open(historico_file, "r") as f:
+            return json.load(f)
+    return []
+
+@app.delete("/desbloquear/{ip}")
+async def desbloquear_ip(ip: str, api_key: str = Depends(verificar_api_key)):
+    headers = {
+        "Authorization": f"Bearer {HETZNER_TOKEN}",
+        "Content-Type": "application/json"
+    }
+    r = requests.get(f"https://api.hetzner.cloud/v1/firewalls/{HETZNER_FIREWALL_ID}", headers=headers)
+    reglas = r.json().get("firewall", {}).get("rules", [])
+    reglas_filtradas = [reg for reg in reglas if f"ASOAR-blocked-{ip}" not in reg.get("description", "")]
+    
+    r = requests.post(
+        f"https://api.hetzner.cloud/v1/firewalls/{HETZNER_FIREWALL_ID}/actions/set_rules",
+        headers=headers,
+        json={"rules": reglas_filtradas}
+    )
+    
+    # Actualizar histórico
+    historico_file = "/root/asoar/historico_ips.json"
+    if os.path.exists(historico_file):
+        with open(historico_file, "r") as f:
+            historico = json.load(f)
+        for h in historico:
+            if h["ip"] == ip:
+                h["accion"] = "DESBLOQUEADA"
+                h["desbloqueada_en"] = datetime.now().isoformat()
+        with open(historico_file, "w") as f:
+            json.dump(historico, f, indent=2)
+    
+    return {"status": "ok", "ip": ip, "accion": "DESBLOQUEADA"}
 
 @app.get("/")
 def health():
