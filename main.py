@@ -13,6 +13,14 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+# Importar detector APT
+try:
+    from apt_detector import detector_apt
+    APT_DISPONIBLE = True
+except Exception as e:
+    print(f"[WARN] Detector APT no disponible: {e}")
+    APT_DISPONIBLE = False
+
 # ── API Key ────────────────────────────────────────────────────────────────────
 HETZNER_TOKEN = os.getenv("HETZNER_TOKEN")
 HETZNER_FIREWALL_ID = os.getenv("HETZNER_FIREWALL_ID")
@@ -177,17 +185,29 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
     ip_atacante = alerta.data.get("srcip", "desconocida")
     nivel = alerta.rule.get("level", 0)
     descripcion = alerta.rule.get("description", "")
-
     print(f"[ALERTA] Nivel {nivel} - {descripcion} - IP: {ip_atacante}")
+
+    # Analisis APT con LSTM — siempre antes de cualquier return
+    apt_resultado = {}
+    if APT_DISPONIBLE:
+        try:
+            apt_resultado = detector_apt.procesar_alerta({
+                "rule_id": str(alerta.rule.get("id", "0")),
+                "nivel":   nivel,
+                "ip":      ip_atacante,
+                "agente":  "master",
+            })
+        except Exception as e:
+            print(f"[APT] Error en detector: {e}")
 
     if nivel >= 10:
         decision = preguntar_ollama(alerta.dict())
         print(f"[OLLAMA] Decision: {decision}")
         if "BLOQUEAR" in decision and ip_atacante != "desconocida":
             bloquear_ip_hetzner(ip_atacante)
-            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision}
+            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, "apt": apt_resultado}
 
-    return {"accion": "IGNORADA", "nivel": nivel, "descripcion": descripcion}
+    return {"accion": "IGNORADA", "nivel": nivel, "descripcion": descripcion, "apt": apt_resultado}
 
 @app.post("/agente")
 @limiter.limit("20/minute")
