@@ -261,6 +261,7 @@ with st.sidebar:
         "IPs Bloqueadas",
         "Endpoints",
         "Normativas",
+        "Deteccion APT",
         "Simulador de Ataques",
         "Informes",
         "Estado del Sistema",
@@ -1020,6 +1021,193 @@ elif pagina == "Informes":
             st.download_button(label="Descargar PDF", data=buffer,
                 file_name=f"noctua_informe_{hora_local().strftime('%Y%m%d_%H%M')}.pdf",
                 mime="application/pdf", type="primary")
+
+# ══════════════════════════════════════════════════════════════════════════════
+# DETECCION APT
+# ══════════════════════════════════════════════════════════════════════════════
+elif pagina == "Deteccion APT":
+    st.markdown("## Deteccion de Campanas APT")
+    st.markdown("Motor predictivo LSTM con Federated Learning y explicabilidad XAI")
+    st.markdown("---")
+
+    # Estado del detector
+    try:
+        estado = requests.get("http://localhost:8000/apt/estado", headers=HEADERS, timeout=5).json()
+    except:
+        estado = {}
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        modelo_ok = estado.get("modelo_cargado", False)
+        color = "#27ae60" if modelo_ok else "#e74c3c"
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid {color};">
+            <p class="metric-label">Motor LSTM</p>
+            <p style="font-size:1.2rem;font-weight:700;color:{color}">
+                {"Activo" if modelo_ok else "Inactivo"}
+            </p>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #6c3483;">
+            <p class="metric-label">Eventos en Buffer</p>
+            <p style="font-size:2rem;font-weight:700;color:#6c3483;">
+                {estado.get("eventos_en_buffer", 0)}
+            </p>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #e74c3c;">
+            <p class="metric-label">Campanas Totales</p>
+            <p style="font-size:2rem;font-weight:700;color:#e74c3c;">
+                {estado.get("campanas_totales", 0)}
+            </p>
+        </div>""", unsafe_allow_html=True)
+    with col4:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #f39c12;">
+            <p class="metric-label">Campanas 24h</p>
+            <p style="font-size:2rem;font-weight:700;color:#f39c12;">
+                {estado.get("campanas_24h", 0)}
+            </p>
+        </div>""", unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # Fases MITRE ATT&CK
+    st.markdown('<div class="section-header">Fases MITRE ATT&CK Monitorizadas</div>', unsafe_allow_html=True)
+    fases_colores = {
+        "reconnaissance":       "#95a5a6",
+        "initial_access":       "#e67e22",
+        "execution":            "#e74c3c",
+        "persistence":          "#c0392b",
+        "privilege_escalation": "#8e44ad",
+        "defense_evasion":      "#6c3483",
+        "credential_access":    "#d35400",
+        "discovery":            "#2980b9",
+        "lateral_movement":     "#c0392b",
+        "collection":           "#922b21",
+        "exfiltration":         "#641e16",
+        "unknown":              "#bdc3c7",
+    }
+    cols = st.columns(6)
+    for i, (fase, color) in enumerate(fases_colores.items()):
+        with cols[i % 6]:
+            st.markdown(f"""
+            <div style="background:{color};color:white;padding:6px 8px;
+                        border-radius:6px;font-size:0.7rem;font-weight:600;
+                        text-align:center;margin-bottom:6px;">
+                {fase.replace("_", " ").upper()}
+            </div>""", unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # Campanas detectadas
+    st.markdown('<div class="section-header">Campanas APT Detectadas</div>', unsafe_allow_html=True)
+    try:
+        campanas = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
+    except:
+        campanas = []
+
+    if campanas:
+        df_apt = pd.DataFrame(campanas)
+        df_apt["timestamp"] = pd.to_datetime(df_apt["timestamp"]).dt.strftime("%d/%m/%Y %H:%M")
+        col_order = ["timestamp", "fase_mitre", "confianza", "nivel_riesgo", "ip", "n_eventos"]
+        col_order = [c for c in col_order if c in df_apt.columns]
+        df_apt = df_apt[col_order]
+        df_apt.columns = [c.replace("_", " ").title() for c in col_order]
+        st.dataframe(df_apt, use_container_width=True, hide_index=True)
+
+        # Grafica de fases detectadas
+        if "Fase Mitre" in df_apt.columns:
+            st.markdown('<div class="section-header">Distribucion de Fases APT</div>', unsafe_allow_html=True)
+            conteo = df_apt["Fase Mitre"].value_counts().reset_index()
+            conteo.columns = ["Fase", "Count"]
+            fig = px.bar(conteo, x="Fase", y="Count", color="Count",
+                        color_continuous_scale="Reds")
+            fig.update_layout(plot_bgcolor="white", paper_bgcolor="white",
+                            margin=dict(l=0,r=0,t=10,b=0), height=250,
+                            showlegend=False, coloraxis_showscale=False)
+            st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.info("No se han detectado campanas APT todavia. El sistema esta monitorizando activamente.")
+        st.markdown(f"""
+        <div style="background:#f5f6fa;padding:16px;border-radius:8px;
+                    border-left:3px solid #27ae60;margin-top:8px;">
+            <p style="font-size:0.9rem;color:#2c3e50;margin:0">
+                El motor LSTM analiza cada alerta recibida y acumula eventos en un buffer
+                deslizante de 32 posiciones. Cuando detecta una secuencia consistente con
+                una campana APT segun el framework MITRE ATT&CK, registra la campana aqui
+                con su fase, confianza y explicacion XAI.
+            </p>
+        </div>""", unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # Explicaciones XAI
+    st.markdown('<div class="section-header">Explicaciones XAI — Cumplimiento EU AI Act</div>', unsafe_allow_html=True)
+    try:
+        explicaciones = requests.get("http://localhost:8000/apt/xai", headers=HEADERS, timeout=5).json()
+    except:
+        explicaciones = []
+
+    if explicaciones:
+        for exp in explicaciones[-3:]:
+            nivel_color = {
+                "CRITICO": "#e74c3c", "ALTO": "#e67e22",
+                "MEDIO": "#f39c12", "BAJO": "#27ae60"
+            }.get(exp.get("nivel_riesgo", "BAJO"), "#bdc3c7")
+
+            st.markdown(f"""
+            <div style="background:white;padding:16px;border-radius:8px;
+                        border-left:4px solid {nivel_color};
+                        box-shadow:0 2px 6px rgba(0,0,0,0.07);margin-bottom:12px;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                    <span style="font-weight:600;color:#2c3e50">
+                        {exp.get("fase_detectada","").replace("_"," ").upper()}
+                    </span>
+                    <span style="color:#7f8c8d;font-size:0.85rem">
+                        Confianza: {exp.get("confianza",0)}%
+                    </span>
+                </div>
+                <p style="font-size:0.85rem;color:#2c3e50;margin:0 0 8px 0">
+                    {exp.get("narrativa","")}
+                </p>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                    {"".join([
+                        f'<span style="background:#f5f6fa;padding:3px 8px;border-radius:4px;font-size:0.75rem;color:#2c3e50">'
+                        f'{f["feature"].replace("_"," ")}: {f["importancia"]}%</span>'
+                        for f in exp.get("top_features",[])
+                    ])}
+                </div>
+            </div>""", unsafe_allow_html=True)
+    else:
+        st.info("Las explicaciones XAI apareceran aqui cuando se detecte una campana APT activa.")
+
+    st.markdown("---")
+
+    # Importancia global de features
+    st.markdown('<div class="section-header">Importancia Global de Features (XAI)</div>', unsafe_allow_html=True)
+    try:
+        importancia = requests.get("http://localhost:8000/apt/importancia", headers=HEADERS, timeout=5).json()
+    except:
+        importancia = {}
+
+    if importancia:
+        df_imp = pd.DataFrame(list(importancia.items()), columns=["Feature", "Importancia"])
+        df_imp = df_imp.sort_values("Importancia", ascending=False)
+        df_imp["Feature"] = df_imp["Feature"].str.replace("_", " ").str.title()
+        fig = px.bar(df_imp, x="Importancia", y="Feature", orientation="h",
+                    color="Importancia", color_continuous_scale="Blues")
+        fig.update_layout(plot_bgcolor="white", paper_bgcolor="white",
+                         margin=dict(l=0,r=0,t=10,b=0), height=300,
+                         showlegend=False, coloraxis_showscale=False)
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.info("La importancia global de features se calculara tras las primeras detecciones APT.")
+
+
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # ABOUT

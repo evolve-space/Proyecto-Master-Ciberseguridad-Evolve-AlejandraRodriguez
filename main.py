@@ -7,6 +7,7 @@ from slowapi.errors import RateLimitExceeded
 from pydantic import BaseModel, validator
 from typing import Optional
 import requests
+import numpy as np
 import json
 from datetime import datetime
 import os
@@ -20,6 +21,15 @@ try:
 except Exception as e:
     print(f"[WARN] Detector APT no disponible: {e}")
     APT_DISPONIBLE = False
+
+# Importar explicador XAI
+try:
+    from apt_xai import obtener_explicador
+    XAI_DISPONIBLE = True
+except Exception as e:
+    print(f"[WARN] XAI no disponible: {e}")
+    XAI_DISPONIBLE = False
+
 
 # ── API Key ────────────────────────────────────────────────────────────────────
 HETZNER_TOKEN = os.getenv("HETZNER_TOKEN")
@@ -199,15 +209,34 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
             })
         except Exception as e:
             print(f"[APT] Error en detector: {e}")
+    
+    # Explicacion XAI si hay deteccion APT activa
+    xai_resultado = {}
+    if XAI_DISPONIBLE and apt_resultado.get("apt_activo"):
+        try:
+            explicador = obtener_explicador()
+            if explicador:
+                ventana = np.array(list(detector_apt.buffer), dtype=np.float32)
+                if len(ventana) < 32:
+                    pad = np.zeros((32 - len(ventana), 9), dtype=np.float32)
+                    ventana = np.vstack([pad, ventana])
+                xai_resultado = explicador.explicar_ventana(
+                    ventana=ventana,
+                    fase_predicha=apt_resultado.get("fase_mitre", "unknown"),
+                    confianza=apt_resultado.get("confianza", 0),
+                    contexto={"ip": ip_atacante, "agente": "master"}
+                )
+        except Exception as e:
+            print(f"[XAI] Error: {e}")
 
     if nivel >= 10:
         decision = preguntar_ollama(alerta.dict())
         print(f"[OLLAMA] Decision: {decision}")
         if "BLOQUEAR" in decision and ip_atacante != "desconocida":
             bloquear_ip_hetzner(ip_atacante)
-            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, "apt": apt_resultado}
+            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, "apt": apt_resultado, "xai": xai_resultado}
 
-    return {"accion": "IGNORADA", "nivel": nivel, "descripcion": descripcion, "apt": apt_resultado}
+    return {"accion": "IGNORADA", "nivel": nivel, "descripcion": descripcion, "apt": apt_resultado, "xai": xai_resultado}
 
 @app.post("/agente")
 @limiter.limit("20/minute")
@@ -322,6 +351,36 @@ async def desbloquear_ip(ip: str, api_key: str = Depends(verificar_api_key)):
             json.dump(historico, f, indent=2)
     
     return {"status": "ok", "ip": ip, "accion": "DESBLOQUEADA"}
+
+@app.get("/apt/campanas")
+async def obtener_campanas_apt(request: Request, api_key: str = Depends(verificar_api_key)):
+    if not APT_DISPONIBLE:
+        return []
+    return detector_apt.obtener_campanas(ultimas_n=50)
+
+@app.get("/apt/estado")
+async def obtener_estado_apt(request: Request, api_key: str = Depends(verificar_api_key)):
+    if not APT_DISPONIBLE:
+        return {"modelo_cargado": False}
+    return detector_apt.obtener_estado()
+
+@app.get("/apt/xai")
+async def obtener_explicaciones_xai(request: Request, api_key: str = Depends(verificar_api_key)):
+    if not XAI_DISPONIBLE:
+        return []
+    explicador = obtener_explicador()
+    if not explicador:
+        return []
+    return explicador.obtener_explicaciones(ultimas_n=20)
+
+@app.get("/apt/importancia")
+async def obtener_importancia_global(request: Request, api_key: str = Depends(verificar_api_key)):
+    if not XAI_DISPONIBLE:
+        return {}
+    explicador = obtener_explicador()
+    if not explicador:
+        return {}
+    return explicador.resumen_importancia_global()
 
 @app.get("/")
 def health():
