@@ -905,6 +905,157 @@ elif pagina == "Deteccion APT":
             <p style="font-size:2rem;font-weight:700;color:#f39c12;">{estado.get("campanas_24h", 0)}</p>
         </div>""", unsafe_allow_html=True)
 
+    # Estado del reentrenamiento automatico
+    st.markdown('<div class="section-header">Reentrenamiento Automatico del Modelo</div>', unsafe_allow_html=True)
+    try:
+        retrain = requests.get("http://localhost:8000/apt/retrain/estado", headers=HEADERS, timeout=5).json()
+    except:
+        retrain = {}
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        activo = retrain.get("activo", False)
+        color = "#27ae60" if activo else "#e74c3c"
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid {color};">
+            <p class="metric-label">Reentrenamiento</p>
+            <p style="font-size:1.2rem;font-weight:700;color:{color}">
+                {"Activo" if activo else "Inactivo"}
+            </p>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #2980b9;">
+            <p class="metric-label">Reentrenamientos</p>
+            <p style="font-size:2rem;font-weight:700;color:#2980b9;">
+                {retrain.get("n_reentrenamientos", 0)}
+            </p>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        mejor_f1 = retrain.get("mejor_f1_historico", 0)
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #27ae60;">
+            <p class="metric-label">Mejor F1 Historico</p>
+            <p style="font-size:2rem;font-weight:700;color:#27ae60;">
+                {mejor_f1:.2f}
+            </p>
+        </div>""", unsafe_allow_html=True)
+    with col4:
+        versiones = retrain.get("versiones_guardadas", 0)
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #f39c12;">
+            <p class="metric-label">Versiones Guardadas</p>
+            <p style="font-size:2rem;font-weight:700;color:#f39c12;">
+                {versiones}
+            </p>
+        </div>""", unsafe_allow_html=True)
+
+    ultimo = retrain.get("ultimo")
+    if ultimo:
+        estado_color = "#27ae60" if "mejora" in ultimo.get("estado","") else "#f39c12"
+        st.markdown(f"""
+        <div style="background:white;padding:12px 16px;border-radius:8px;
+                    border-left:3px solid {estado_color};
+                    box-shadow:0 2px 6px rgba(0,0,0,0.07);margin-bottom:8px;">
+            <div style="display:flex;justify-content:space-between;">
+                <span style="font-size:0.85rem;color:#2c3e50">
+                    Ultimo reentrenamiento: <strong>{ultimo.get("timestamp","")[:16].replace("T"," ")}</strong>
+                </span>
+                <span style="font-size:0.85rem;color:#7f8c8d">
+                    {ultimo.get("n_ventanas",0)} ventanas |
+                    F1: {ultimo.get("f1_anterior",0):.3f} → {ultimo.get("f1_nuevo",0):.3f} |
+                    Estado: <strong style="color:{estado_color}">{ultimo.get("estado","")}</strong>
+                </span>
+            </div>
+        </div>""", unsafe_allow_html=True)
+
+    if st.button("Forzar Reentrenamiento Ahora", key="btn_retrain"):
+        with st.spinner("Reentrenando modelo LSTM..."):
+            try:
+                r = requests.post("http://localhost:8000/apt/retrain/forzar",
+                                  headers=HEADERS, timeout=120)
+                res = r.json()
+                if "error" not in res:
+                    st.success(f"Reentrenamiento completado — Estado: {res.get('estado')} | F1: {res.get('f1_nuevo', 0):.3f}")
+                else:
+                    st.error(f"Error: {res['error']}")
+            except Exception as e:
+                st.error(f"Error: {e}")
+
+    st.markdown("---")
+
+
+    # Movimiento Lateral
+    st.markdown('<div class="section-header">Movimiento Lateral Detectado</div>', unsafe_allow_html=True)
+    try:
+        lateral = requests.get("http://localhost:8000/apt/lateral", headers=HEADERS, timeout=5).json()
+        estado_lateral = requests.get("http://localhost:8000/apt/lateral/estado", headers=HEADERS, timeout=5).json()
+    except:
+        lateral = []
+        estado_lateral = {}
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #8e44ad;">
+            <p class="metric-label">Detecciones Totales</p>
+            <p style="font-size:2rem;font-weight:700;color:#8e44ad;">
+                {estado_lateral.get("detecciones_totales", 0)}
+            </p>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #c0392b;">
+            <p class="metric-label">Detecciones 24h</p>
+            <p style="font-size:2rem;font-weight:700;color:#c0392b;">
+                {estado_lateral.get("detecciones_24h", 0)}
+            </p>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #2980b9;">
+            <p class="metric-label">IPs Monitorizadas</p>
+            <p style="font-size:2rem;font-weight:700;color:#2980b9;">
+                {estado_lateral.get("ips_monitorizadas", 0)}
+            </p>
+        </div>""", unsafe_allow_html=True)
+
+    if lateral:
+        for det in lateral[-3:]:
+            severidad_color = {
+                "CRITICO": "#e74c3c", "ALTO": "#e67e22",
+                "MEDIO": "#f39c12", "BAJO": "#27ae60"
+            }.get(det.get("severidad", "BAJO"), "#bdc3c7")
+            agentes_str = " → ".join(det.get("agentes_afectados", []))
+            st.markdown(f"""
+            <div style="background:white;padding:16px;border-radius:8px;
+                        border-left:4px solid {severidad_color};
+                        box-shadow:0 2px 6px rgba(0,0,0,0.07);margin-bottom:12px;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                    <span style="font-weight:600;color:#2c3e50">
+                        {det.get("patron","").replace("_"," ").upper()}
+                    </span>
+                    <span style="background:{severidad_color};color:white;padding:2px 8px;
+                                border-radius:4px;font-size:0.75rem;font-weight:600;">
+                        {det.get("severidad","")}
+                    </span>
+                </div>
+                <p style="font-size:0.85rem;color:#2c3e50;margin:0 0 6px 0">
+                    {det.get("descripcion","")}
+                </p>
+                <p style="font-size:0.8rem;color:#7f8c8d;margin:0 0 6px 0">
+                    Ruta de ataque: <strong style="color:#2c3e50">{agentes_str}</strong>
+                </p>
+                <div style="display:flex;gap:12px;font-size:0.75rem;color:#7f8c8d;">
+                    <span>MITRE: <strong style="color:#2c3e50">{det.get("mitre_tecnica","")}</strong></span>
+                    <span>Confianza: <strong style="color:#2c3e50">{det.get("confianza",0)}%</strong></span>
+                    <span>Agentes afectados: <strong style="color:#2c3e50">{det.get("n_agentes",0)}</strong></span>
+                    <span>IP origen: <strong style="color:#2c3e50">{det.get("ip_origen","")}</strong></span>
+                </div>
+            </div>""", unsafe_allow_html=True)
+    else:
+        st.info("No se ha detectado movimiento lateral. El sistema correlaciona eventos entre agentes en tiempo real.")
+
     st.markdown("---")
 
     st.markdown('<div class="section-header">Fases MITRE ATT&CK Monitorizadas</div>', unsafe_allow_html=True)
