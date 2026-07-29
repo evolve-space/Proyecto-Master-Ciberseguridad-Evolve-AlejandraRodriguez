@@ -305,6 +305,58 @@ if pagina == "Panel General":
             </div>""", unsafe_allow_html=True)
             if st.button("Ver IPs", key="btn_bloqueadas", use_container_width=True, type="secondary"):
                 st.session_state.pagina = "IPs Bloqueadas"; st.rerun()
+        
+        # Metricas APT
+        try:
+            estado_apt = requests.get("http://localhost:8000/apt/estado", headers=HEADERS, timeout=3).json()
+            estado_lateral = requests.get("http://localhost:8000/apt/lateral/estado", headers=HEADERS, timeout=3).json()
+        except:
+            estado_apt = {}
+            estado_lateral = {}
+
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            campanas_total = estado_apt.get("campanas_totales", 0)
+            color = "#e74c3c" if campanas_total > 0 else "#bdc3c7"
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Campañas APT</p>
+                <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{campanas_total}</p>
+            </div>""", unsafe_allow_html=True)
+            if st.button("Ver APT", key="btn_apt", use_container_width=True, type="secondary"):
+                st.session_state.pagina = "Deteccion APT"; st.rerun()
+        with col2:
+            campanas_24h = estado_apt.get("campanas_24h", 0)
+            color = "#e67e22" if campanas_24h > 0 else "#bdc3c7"
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Campañas APT 24h</p>
+                <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{campanas_24h}</p>
+            </div>""", unsafe_allow_html=True)
+            if st.button("Ver ultimas", key="btn_apt_24h", use_container_width=True, type="secondary"):
+                st.session_state.pagina = "Deteccion APT"; st.rerun()
+        with col3:
+            lateral_total = estado_lateral.get("detecciones_totales", 0)
+            color = "#8e44ad" if lateral_total > 0 else "#bdc3c7"
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Movimiento Lateral</p>
+                <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{lateral_total}</p>
+            </div>""", unsafe_allow_html=True)
+            if st.button("Ver lateral", key="btn_lateral", use_container_width=True, type="secondary"):
+                st.session_state.pagina = "Deteccion APT"; st.rerun()
+        with col4:
+            buffer = estado_apt.get("eventos_en_buffer", 0)
+            color = "#2980b9"
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Eventos en Buffer</p>
+                <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{buffer}</p>
+            </div>""", unsafe_allow_html=True)
+            if st.button("Ver motor", key="btn_buffer", use_container_width=True, type="secondary"):
+                st.session_state.pagina = "Deteccion APT"; st.rerun()
+        st.markdown("---")
+
         col1, col2 = st.columns(2)
         with col1:
             st.markdown('<div class="section-header">Top Tipos de Alerta</div>', unsafe_allow_html=True)
@@ -502,6 +554,7 @@ elif pagina == "Simulador de Ataques":
 elif pagina == "Estado del Sistema":
     st.markdown("## Estado del Sistema")
     st.markdown("---")
+
     def check_service(url, method="get", payload=None, timeout=5):
         try:
             if method == "post":
@@ -511,42 +564,117 @@ elif pagina == "Estado del Sistema":
             return r.status_code < 400
         except:
             return False
+
     servicios = {
-        "ASOAR API (FastAPI)": check_service("http://localhost:8000/"),
-        "Ollama / phi3": check_service("http://localhost:11434/api/tags"),
-        "Wazuh Manager": True,
-        "Wazuh Dashboard": True,
-        "Hetzner Firewall": len(ips_bloqueadas) >= 0
+        "ASOAR API (FastAPI)":  check_service("http://localhost:8000/"),
+        "Ollama / phi3":        check_service("http://localhost:11434/api/tags"),
+        "Wazuh Manager":        True,
+        "Wazuh Dashboard":      True,
+        "Hetzner Firewall":     len(ips_bloqueadas) >= 0,
     }
+
+    # Estado modulos APT
+    try:
+        estado_apt     = requests.get("http://localhost:8000/apt/estado", headers=HEADERS, timeout=3).json()
+        estado_lateral = requests.get("http://localhost:8000/apt/lateral/estado", headers=HEADERS, timeout=3).json()
+        estado_retrain = requests.get("http://localhost:8000/apt/retrain/estado", headers=HEADERS, timeout=3).json()
+    except:
+        estado_apt     = {}
+        estado_lateral = {}
+        estado_retrain = {}
+
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown('<div class="section-header">Servicios</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header">Servicios Core</div>', unsafe_allow_html=True)
         for nombre, estado in servicios.items():
             badge = f'<span class="badge badge-green">Online</span>' if estado else f'<span class="badge badge-red">Offline</span>'
             st.markdown(f'<div class="service-row"><span>{nombre}</span>{badge}</div>', unsafe_allow_html=True)
+
     with col2:
-        st.markdown('<div class="section-header">Informacion del Entorno</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header">Modulos de IA — Noctua Predictive</div>', unsafe_allow_html=True)
+        modulos_ia = {
+            "Motor LSTM":              estado_apt.get("modelo_cargado", False),
+            "Detector APT":            estado_apt.get("modelo_cargado", False),
+            "Detector Movimiento Lateral": True if estado_lateral.get("ips_monitorizadas", 0) >= 0 else False,
+            "Reentrenamiento Automatico": estado_retrain.get("activo", False),
+            "Modulo XAI (SHAP)":       estado_apt.get("modelo_cargado", False),
+            "Federated Learning":      True,
+        }
+        for nombre, estado in modulos_ia.items():
+            badge = f'<span class="badge badge-green">Activo</span>' if estado else f'<span class="badge badge-red">Inactivo</span>'
+            st.markdown(f'<div class="service-row"><span>{nombre}</span>{badge}</div>', unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # Metricas globales
+    st.markdown('<div class="section-header">Metricas Globales del Sistema</div>', unsafe_allow_html=True)
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
         try:
             agentes_count = len(requests.get("http://localhost:8000/agentes", headers=HEADERS, timeout=5).json())
         except:
             agentes_count = 0
-        datos_info = {
-            "Campo": ["Version", "Alertas cargadas", "IPs bloqueadas", "Endpoints activos"],
-            "Valor": ["Noctua ASOAR v1.0", len(df), len(ips_bloqueadas), agentes_count]
-        }
-        st.dataframe(pd.DataFrame(datos_info), use_container_width=True, hide_index=True)
+        st.markdown(f"""
+        <div class="metric-card">
+            <p class="metric-label">Alertas Procesadas</p>
+            <p style="font-size:2rem;font-weight:700;color:#2c3e50;">{len(df)}</p>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        st.markdown(f"""
+        <div class="metric-card">
+            <p class="metric-label">IPs Bloqueadas</p>
+            <p style="font-size:2rem;font-weight:700;color:#6c3483;">{len(ips_bloqueadas)}</p>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        st.markdown(f"""
+        <div class="metric-card">
+            <p class="metric-label">Campanas APT</p>
+            <p style="font-size:2rem;font-weight:700;color:#e74c3c;">{estado_apt.get("campanas_totales", 0)}</p>
+        </div>""", unsafe_allow_html=True)
+    with col4:
+        st.markdown(f"""
+        <div class="metric-card">
+            <p class="metric-label">Detecciones Laterales</p>
+            <p style="font-size:2rem;font-weight:700;color:#8e44ad;">{estado_lateral.get("detecciones_totales", 0)}</p>
+        </div>""", unsafe_allow_html=True)
+
     st.markdown("---")
-    st.markdown('<div class="section-header">Arquitectura del Sistema</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">Arquitectura Completa del Sistema</div>', unsafe_allow_html=True)
     datos_arq = {
-        "Componente": ["Wazuh", "FastAPI", "Ollama (phi3)", "Hetzner API", "Streamlit"],
-        "Funcion": ["Deteccion de amenazas", "Intermediario y orquestador", "Analisis con IA", "Bloqueo automatico", "Panel de control"],
-        "Puerto": ["443 / 55000", "8000", "11434", "HTTPS", "8501"],
-        "Estado": ["Activo" if servicios["Wazuh Manager"] else "Inactivo",
-                   "Activo" if servicios["ASOAR API (FastAPI)"] else "Inactivo",
-                   "Activo" if servicios["Ollama / phi3"] else "Inactivo",
-                   "Conectado", "Activo"]
+        "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "Hetzner API", "Streamlit"],
+        "Capa":        ["Deteccion", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Respuesta", "Visualizacion"],
+        "Puerto":      ["443/55000", "8000", "11434", "—", "8080", "—", "—", "—", "HTTPS", "8501"],
+        "Estado":      [
+            "Activo" if servicios["Wazuh Manager"] else "Inactivo",
+            "Activo" if servicios["ASOAR API (FastAPI)"] else "Inactivo",
+            "Activo" if servicios["Ollama / phi3"] else "Inactivo",
+            "Activo" if estado_apt.get("modelo_cargado") else "Inactivo",
+            "Activo",
+            "Activo" if estado_apt.get("modelo_cargado") else "Inactivo",
+            "Activo",
+            "Activo" if estado_retrain.get("activo") else "Inactivo",
+            "Conectado",
+            "Activo",
+        ]
     }
     st.dataframe(pd.DataFrame(datos_arq), use_container_width=True, hide_index=True)
+
+    st.markdown("---")
+    st.markdown('<div class="section-header">Historial de Reentrenamiento</div>', unsafe_allow_html=True)
+    try:
+        with open("/root/asoar/retrain_historial.json", "r") as f:
+            historial_retrain = json.load(f)
+        if historial_retrain:
+            df_retrain = pd.DataFrame(historial_retrain)
+            df_retrain["timestamp"] = pd.to_datetime(df_retrain["timestamp"]).dt.strftime("%d/%m/%Y %H:%M")
+            cols_show = [c for c in ["timestamp","estado","n_ventanas","f1_anterior","f1_nuevo","mejora"] if c in df_retrain.columns]
+            df_retrain = df_retrain[cols_show]
+            df_retrain.columns = [c.replace("_"," ").title() for c in cols_show]
+            st.dataframe(df_retrain, use_container_width=True, hide_index=True)
+        else:
+            st.info("No hay historial de reentrenamiento todavia.")
+    except:
+        st.info("No hay historial de reentrenamiento todavia.")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # ENDPOINTS
@@ -1230,7 +1358,7 @@ elif pagina == "Deteccion APT":
 # ABOUT
 # ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "About":
-    st.markdown("## Acerca de Noctua.")
+    st.markdown("## Acerca de Noctua Predictive")
     st.markdown("---")
     col1, col2 = st.columns([2, 1])
     with col1:
@@ -1238,17 +1366,30 @@ elif pagina == "About":
         <div class="metric-card">
             <p class="metric-label">Descripcion del Proyecto</p>
             <p style="font-size:0.95rem; color:#2c3e50; line-height:1.7; margin-top:8px">
-                <strong>Noctua.</strong> es una plataforma ASOAR (Autonomous Security Operations,
-                Analysis and Response) diseñada especificamente para PYMEs que no disponen de un
-                equipo de seguridad dedicado.
+                <strong>Noctua Predictive</strong> es un SOC autonomo de deteccion, analisis
+                y respuesta ante Amenazas Persistentes Avanzadas (APT) mediante Inteligencia
+                Artificial Federada. A diferencia de los sistemas de ciberseguridad convencionales,
+                que operan de forma reactiva detectando ataques una vez que ya han ocurrido,
+                Noctua Predictive aprende de los patrones de amenaza de forma distribuida y privada
+                para anticipar y detectar campañas APT completas antes de que materialicen el ataque.
                 <br><br>
-                El sistema combina deteccion de amenazas en tiempo real con inteligencia artificial
-                local para analizar alertas y tomar decisiones de bloqueo automaticas, sin depender
-                de servicios cloud externos ni exponer datos sensibles.
+                El sistema integra un motor de aprendizaje profundo secuencial (LSTM) entrenado
+                mediante Federated Learning entre multiples nodos, que permite detectar patrones
+                de comportamiento anómalo a largo plazo y compartir inteligencia sobre campañas
+                APT activas entre organizaciones sin que ninguna exponga sus datos internos.
+                Cada decision del sistema es explicada mediante el modulo XAI basado en SHAP,
+                cumpliendo el Reglamento Europeo de Inteligencia Artificial (EU AI Act 2024).
                 <br><br>
-                Desarrollado como proyecto de fin de master en ciberseguridad, Noctua. demuestra
-                que es posible implementar un SOC autonomo y economicamente viable para organizaciones
-                de cualquier tamaño.
+                El sistema detecta las cinco fases de una campaña APT segun el framework
+                MITRE ATT&CK: Reconocimiento, Acceso Inicial, Persistencia, Movimiento Lateral
+                y Exfiltracion, correlacionando eventos entre multiples agentes en tiempo real
+                y generando explicaciones auditables de cada decision autonoma.
+                <br><br>
+                Desarrollado como Proyecto de Fin de Grado en Ingenieria de Telecomunicaciones,
+                Noctua Predictive representa la primera implementacion practica open source que
+                combina LSTM, Federated Learning, SIEM real y XAI para deteccion de APTs,
+                cubriendo un gap identificado en la literatura cientifica de IEEE Xplore y
+                ACM Digital Library.
             </p>
         </div>""", unsafe_allow_html=True)
     with col2:
@@ -1257,72 +1398,71 @@ elif pagina == "About":
             <p class="metric-label">Informacion del Proyecto</p>
             <br>
             <p style="font-size:0.85rem; color:#2c3e50; line-height:2">
-                <strong>Version:</strong> 1.0 — Fase 1<br>
-                <strong>Autor:</strong> Alejandra R.<br>
-                <strong>Master:</strong> Ciberseguridad<br>
-                <strong>Año:</strong> 2026<br>
-                <strong>Licencia:</strong> Privada<br>
+                    <strong>Nombre:</strong> Noctua Predictive<br>
+                    <strong>Version:</strong> 2.0<br>
+                    <strong>Autora:</strong> Alejandra Rodríguez Ruíz-Sotomayor<br>
+                    <strong>Año:</strong> 2026<br>
+                    <strong>Licencia:</strong> Open Source<br>
+                    <strong>Cumplimiento:</strong> EU AI Act 2024<br>
+                    ISO/IEC 27001:2022<br>
+                    NIS2 2022/2555<br>
+                    ENS RD 311/2022<br>
             </p>
         </div>""", unsafe_allow_html=True)
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura del Sistema</div>', unsafe_allow_html=True)
     componentes = [
-        {"Componente": "Wazuh", "Rol": "Vigilancia", "Descripcion": "SIEM/XDR open source. Detecta amenazas, analiza logs y genera alertas en tiempo real.", "Tecnologia": "Python / C"},
-        {"Componente": "Ollama / phi3", "Rol": "Cerebro IA", "Descripcion": "Modelo de lenguaje local que analiza cada alerta y decide autonomamente si bloquear o ignorar.", "Tecnologia": "LLM / Python"},
-        {"Componente": "FastAPI", "Rol": "Intermediario", "Descripcion": "API REST que orquesta el flujo entre Wazuh, Ollama y Hetzner.", "Tecnologia": "Python"},
-        {"Componente": "Hetzner API", "Rol": "Accion", "Descripcion": "Ejecuta el bloqueo real de IPs maliciosas modificando las reglas del firewall.", "Tecnologia": "REST API"},
-        {"Componente": "Agente PowerShell", "Rol": "Endpoint", "Descripcion": "Script instalado en equipos Windows que envia telemetria de seguridad cada 5 minutos.", "Tecnologia": "PowerShell"},
-        {"Componente": "Streamlit", "Rol": "Panel Visual", "Descripcion": "Dashboard web profesional con autenticacion, graficas en tiempo real y control de normativas.", "Tecnologia": "Python"},
+        {"Componente": "Wazuh SIEM", "Capa": "Deteccion", "Descripcion": "SIEM/XDR open source de nivel enterprise. Monitoriza eventos de red, sistema y endpoints en tiempo real.", "Tecnologia": "Python / C"},
+        {"Componente": "Ollama / phi3", "Capa": "Analisis autonomo", "Descripcion": "LLM local para clasificacion autonoma de alertas individuales sin dependencia de servicios externos.", "Tecnologia": "LLM 3.8B"},
+        {"Componente": "LSTM Bidireccional", "Capa": "Prediccion APT", "Descripcion": "Modelo de series temporales que detecta campanas APT completas analizando secuencias de 6h, 24h y 7 dias.", "Tecnologia": "PyTorch"},
+        {"Componente": "Federated Learning", "Capa": "Aprendizaje colaborativo", "Descripcion": "Entrena el modelo LSTM entre multiples nodos sin compartir datos. Cada organizacion mantiene su privacidad.", "Tecnologia": "Flower / FedAvg"},
+        {"Componente": "Detector Lateral", "Capa": "Correlacion", "Descripcion": "Correlaciona eventos entre agentes para detectar movimiento lateral entre sistemas de la red.", "Tecnologia": "Python"},
+        {"Componente": "XAI / SHAP", "Capa": "Explicabilidad", "Descripcion": "Genera explicaciones auditables de cada decision del modelo. Cumple el Reglamento Europeo de IA.", "Tecnologia": "SHAP"},
+        {"Componente": "FastAPI", "Capa": "Orquestacion", "Descripcion": "API REST que coordina todos los modulos con autenticacion, rate limiting y validacion de inputs.", "Tecnologia": "Python"},
+        {"Componente": "Hetzner API", "Capa": "Respuesta", "Descripcion": "Ejecuta bloqueos automaticos en el firewall cloud cuando se detecta una amenaza confirmada.", "Tecnologia": "REST API"},
     ]
     st.dataframe(pd.DataFrame(componentes), use_container_width=True, hide_index=True)
     st.markdown("---")
-    st.markdown('<div class="section-header">Flujo de Respuesta Automatica</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div style="background:white; padding:24px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.07);">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-            <div style="text-align:center; flex:1;">
-                <div style="background:#1a3a6c; color:white; padding:12px 16px; border-radius:8px; font-size:0.85rem; font-weight:600">
-                    ATACANTE<br><span style="font-weight:400; font-size:0.75rem">Intento de intrusion</span>
-                </div>
-            </div>
-            <div style="color:#bdc3c7; font-size:1.2rem">→</div>
-            <div style="text-align:center; flex:1;">
-                <div style="background:#2d6aa0; color:white; padding:12px 16px; border-radius:8px; font-size:0.85rem; font-weight:600">
-                    WAZUH<br><span style="font-weight:400; font-size:0.75rem">Deteccion y alerta</span>
-                </div>
-            </div>
-            <div style="color:#bdc3c7; font-size:1.2rem">→</div>
-            <div style="text-align:center; flex:1;">
-                <div style="background:#2d6aa0; color:white; padding:12px 16px; border-radius:8px; font-size:0.85rem; font-weight:600">
-                    OLLAMA IA<br><span style="font-weight:400; font-size:0.75rem">Analisis autonomo</span>
-                </div>
-            </div>
-            <div style="color:#bdc3c7; font-size:1.2rem">→</div>
-            <div style="text-align:center; flex:1;">
-                <div style="background:#2d6aa0; color:white; padding:12px 16px; border-radius:8px; font-size:0.85rem; font-weight:600">
-                    FASTAPI<br><span style="font-weight:400; font-size:0.75rem">Orquestacion</span>
-                </div>
-            </div>
-            <div style="color:#bdc3c7; font-size:1.2rem">→</div>
-            <div style="text-align:center; flex:1;">
-                <div style="background:#c8922a; color:white; padding:12px 16px; border-radius:8px; font-size:0.85rem; font-weight:600">
-                    HETZNER<br><span style="font-weight:400; font-size:0.75rem">Bloqueo automatico</span>
-                </div>
-            </div>
-        </div>
-    </div>""", unsafe_allow_html=True)
+    st.markdown('<div class="section-header">Framework MITRE ATT&CK — Fases Detectadas</div>', unsafe_allow_html=True)
+    fases = [
+        {"Fase": "Reconocimiento", "Tecnica MITRE": "T1595, T1596", "Descripcion": "Recopilacion de informacion sobre el objetivo antes del ataque"},
+        {"Fase": "Acceso Inicial", "Tecnica MITRE": "T1190, T1078", "Descripcion": "Primera entrada no autorizada al sistema objetivo"},
+        {"Fase": "Persistencia", "Tecnica MITRE": "T1053, T1547", "Descripcion": "Mecanismos para mantener el acceso tras reinicios"},
+        {"Fase": "Movimiento Lateral", "Tecnica MITRE": "T1021, T1550", "Descripcion": "Desplazamiento entre sistemas buscando activos de valor"},
+        {"Fase": "Exfiltracion", "Tecnica MITRE": "T1041, T1048", "Descripcion": "Extraccion de datos sensibles del entorno comprometido"},
+    ]
+    st.dataframe(pd.DataFrame(fases), use_container_width=True, hide_index=True)
     st.markdown("---")
-    st.markdown('<div class="section-header">Normativas Soportadas</div>', unsafe_allow_html=True)
-    col1, col2, col3 = st.columns(3)
+    st.markdown('<div class="section-header">Normativas y Cumplimiento</div>', unsafe_allow_html=True)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.markdown("""<div class="metric-card"><p class="metric-label">ISO/IEC 27001:2022</p>
-        <p style="font-size:0.85rem; color:#7f8c8d; margin-top:8px; line-height:1.6">
-        Estandar internacional para la gestion de la seguridad de la informacion.</p></div>""", unsafe_allow_html=True)
+        <p style="font-size:0.85rem;color:#7f8c8d;margin-top:8px;line-height:1.6">
+        Estandar internacional para gestion de seguridad. Evaluacion automatica del Anexo A.</p></div>""",
+        unsafe_allow_html=True)
     with col2:
-        st.markdown("""<div class="metric-card"><p class="metric-label">NIS2 — Directiva UE 2022/2555</p>
-        <p style="font-size:0.85rem; color:#7f8c8d; margin-top:8px; line-height:1.6">
-        Directiva europea de ciberseguridad. Verifica las medidas tecnicas del Articulo 21.</p></div>""", unsafe_allow_html=True)
+        st.markdown("""<div class="metric-card"><p class="metric-label">NIS2 2022/2555</p>
+        <p style="font-size:0.85rem;color:#7f8c8d;margin-top:8px;line-height:1.6">
+        Directiva europea de ciberseguridad. Verifica medidas tecnicas del Articulo 21.</p></div>""",
+        unsafe_allow_html=True)
     with col3:
-        st.markdown("""<div class="metric-card"><p class="metric-label">ENS — RD 311/2022</p>
-        <p style="font-size:0.85rem; color:#7f8c8d; margin-top:8px; line-height:1.6">
-        Esquema Nacional de Seguridad espanol. Evaluacion del Anexo II.</p></div>""", unsafe_allow_html=True)
+        st.markdown("""<div class="metric-card"><p class="metric-label">ENS RD 311/2022</p>
+        <p style="font-size:0.85rem;color:#7f8c8d;margin-top:8px;line-height:1.6">
+        Esquema Nacional de Seguridad espanol. Evaluacion automatica del Anexo II.</p></div>""",
+        unsafe_allow_html=True)
+    with col4:
+        st.markdown("""<div class="metric-card"><p class="metric-label">EU AI Act 2024</p>
+        <p style="font-size:0.85rem;color:#7f8c8d;margin-top:8px;line-height:1.6">
+        Reglamento Europeo de IA. Explicabilidad XAI obligatoria en sistemas de alto riesgo.</p></div>""",
+        unsafe_allow_html=True)
+    st.markdown("---")
+    with st.expander("Referencias Cientificas"):
+        refs = [
+                {"Referencia": "[1] McMahan et al. (2017)", "Descripcion": "Communication-Efficient Learning of Deep Networks from Decentralized Data. AISTATS. (Paper fundacional de Federated Learning y FedAvg)"},
+                {"Referencia": "[2] Hochreiter & Schmidhuber (1997)", "Descripcion": "Long Short-Term Memory. Neural Computation. (Paper original de LSTM)"},
+                {"Referencia": "[3] Lundberg & Lee (2017)", "Descripcion": "A Unified Approach to Interpreting Model Predictions. NeurIPS. (Paper original de SHAP)"},
+                {"Referencia": "[4] Beutel et al. (2022)", "Descripcion": "Flower: A Friendly Federated Learning Research Framework. arXiv:2007.14390"},
+                {"Referencia": "[5] ENISA (2024)", "Descripcion": "ENISA Threat Landscape 2024. European Union Agency for Cybersecurity"},
+                {"Referencia": "[6] MITRE Corporation (2024)", "Descripcion": "MITRE ATT&CK Framework v14. https://attack.mitre.org"},
+        ]
+        st.dataframe(pd.DataFrame(refs), use_container_width=True, hide_index=True)
