@@ -628,7 +628,7 @@ elif pagina == "Estado del Sistema":
     with col3:
         st.markdown(f"""
         <div class="metric-card">
-            <p class="metric-label">Campanas APT</p>
+            <p class="metric-label">Campañas APT</p>
             <p style="font-size:2rem;font-weight:700;color:#e74c3c;">{estado_apt.get("campanas_totales", 0)}</p>
         </div>""", unsafe_allow_html=True)
     with col4:
@@ -643,7 +643,6 @@ elif pagina == "Estado del Sistema":
     datos_arq = {
         "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "Hetzner API", "Streamlit"],
         "Capa":        ["Deteccion", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Respuesta", "Visualizacion"],
-        "Puerto":      ["443/55000", "8000", "11434", "—", "8080", "—", "—", "—", "HTTPS", "8501"],
         "Estado":      [
             "Activo" if servicios["Wazuh Manager"] else "Inactivo",
             "Activo" if servicios["ASOAR API (FastAPI)"] else "Inactivo",
@@ -875,7 +874,8 @@ elif pagina == "Informes":
         tipo_informe = st.selectbox("Tipo de informe", [
             "Informe Ejecutivo de Seguridad",
             "Informe de IPs Bloqueadas",
-            "Informe de Cumplimiento Normativo"
+            "Informe de Cumplimiento Normativo",
+            "Informe de Deteccion APT"
         ])
     with col2:
         try:
@@ -981,6 +981,93 @@ elif pagina == "Informes":
                             ]))
                             elements.append(tabla_ctrl)
                             elements.append(Spacer(1, 0.3*cm))
+          
+            elif tipo_informe == "Informe de Deteccion APT":
+                elements.append(Paragraph("Deteccion de Campanas APT", style_h2))
+                elements.append(Paragraph(
+                    "Este informe recoge las campanas de Amenazas Persistentes Avanzadas (APT) "
+                    "detectadas por el motor LSTM de Noctua Predictive, clasificadas segun el "
+                    "framework MITRE ATT&CK y con explicaciones XAI generadas automaticamente "
+                    "en cumplimiento del Reglamento Europeo de Inteligencia Artificial (EU AI Act 2024).",
+                    style_body))
+                elements.append(Spacer(1, 0.3*cm))
+                try:
+                    campanas_pdf = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
+                except:
+                    campanas_pdf = []
+                elements.append(Paragraph("Campanas APT Detectadas", style_h2))
+                if campanas_pdf:
+                    data_apt = [["Timestamp", "Fase MITRE", "Confianza", "Riesgo", "IP Origen"]]
+                    for c in campanas_pdf[-20:]:
+                        data_apt.append([
+                            str(c.get("timestamp",""))[:16].replace("T"," "),
+                            c.get("fase_mitre","").replace("_"," ").upper(),
+                            f"{c.get('confianza',0)}%",
+                            c.get("nivel_riesgo",""),
+                            c.get("ip",""),
+                        ])
+                    tabla_apt = Table(data_apt, colWidths=[3.5*cm, 4*cm, 2.5*cm, 2.5*cm, 2.5*cm])
+                    tabla_apt.setStyle(TableStyle([
+                        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#0f1f35')),
+                        ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                        ('FONTSIZE', (0,0), (-1,-1), 8),
+                        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                        ('PADDING', (0,0), (-1,-1), 5),
+                    ]))
+                    elements.append(tabla_apt)
+                else:
+                    elements.append(Paragraph("No se han detectado campanas APT todavia.", style_body))
+                elements.append(Spacer(1, 0.4*cm))
+                try:
+                    lateral_pdf = requests.get("http://localhost:8000/apt/lateral", headers=HEADERS, timeout=5).json()
+                except:
+                    lateral_pdf = []
+                elements.append(Paragraph("Detecciones de Movimiento Lateral", style_h2))
+                if lateral_pdf:
+                    data_lat = [["Timestamp", "Patron", "Severidad", "IP Origen", "Agentes", "MITRE"]]
+                    for d in lateral_pdf[-10:]:
+                        data_lat.append([
+                            str(d.get("timestamp",""))[:16].replace("T"," "),
+                            d.get("patron","").replace("_"," ").upper(),
+                            d.get("severidad",""),
+                            d.get("ip_origen",""),
+                            ", ".join(d.get("agentes_afectados",[])),
+                            d.get("mitre_tecnica",""),
+                        ])
+                    tabla_lat = Table(data_lat, colWidths=[3*cm, 3.5*cm, 2*cm, 2.5*cm, 3*cm, 1.5*cm])
+                    tabla_lat.setStyle(TableStyle([
+                        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#6c3483')),
+                        ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                        ('FONTSIZE', (0,0), (-1,-1), 7),
+                        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                        ('PADDING', (0,0), (-1,-1), 5),
+                    ]))
+                    elements.append(tabla_lat)
+                else:
+                    elements.append(Paragraph("No se han detectado movimientos laterales todavia.", style_body))
+                elements.append(Spacer(1, 0.4*cm))
+                try:
+                    xai_pdf = requests.get("http://localhost:8000/apt/xai", headers=HEADERS, timeout=5).json()
+                except:
+                    xai_pdf = []
+                elements.append(Paragraph("Explicaciones XAI — Cumplimiento EU AI Act 2024", style_h2))
+                if xai_pdf:
+                    for exp in xai_pdf[-5:]:
+                        elements.append(Paragraph(
+                            f"Fase: {exp.get('fase_detectada','').upper()} | Confianza: {exp.get('confianza',0)}%",
+                            ParagraphStyle('xai_t', fontSize=9, fontName='Helvetica-Bold',
+                                         textColor=colors.HexColor('#1a3a6c'), spaceAfter=3)))
+                        elements.append(Paragraph(
+                            exp.get("narrativa",""),
+                            ParagraphStyle('xai_b', fontSize=8, fontName='Helvetica',
+                                         textColor=colors.HexColor('#2c3e50'), spaceAfter=8, leading=12)))
+                else:
+                    elements.append(Paragraph("No hay explicaciones XAI disponibles todavia.", style_body))
+
             elements.append(Spacer(1, 1*cm))
             elements.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#e0e0e0')))
             elements.append(Spacer(1, 0.2*cm))
