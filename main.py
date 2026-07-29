@@ -30,6 +30,16 @@ except Exception as e:
     print(f"[WARN] XAI no disponible: {e}")
     XAI_DISPONIBLE = False
 
+# Detector de movimiento lateral — correlaciona eventos entre agentes para
+# identificar cuando un atacante se desplaza entre sistemas de la red
+try:
+    from apt_lateral import detector_lateral
+    LATERAL_DISPONIBLE = True
+except Exception as e:
+    print(f"[WARN] Detector lateral no disponible: {e}")
+    LATERAL_DISPONIBLE = False
+
+
 
 # ── API Key ────────────────────────────────────────────────────────────────────
 HETZNER_TOKEN = os.getenv("HETZNER_TOKEN")
@@ -229,14 +239,27 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
         except Exception as e:
             print(f"[XAI] Error: {e}")
 
+    # Deteccion de movimiento lateral
+    lateral_resultado = {}
+    if LATERAL_DISPONIBLE:
+        try:
+            lateral_resultado = detector_lateral.registrar_evento({
+                "ip":      ip_atacante,
+                "agente":  "master",
+                "rule_id": str(alerta.rule.get("id", "0")),
+                "nivel":   nivel,
+            })
+        except Exception as e:
+            print(f"[LATERAL] Error: {e}")
+
     if nivel >= 10:
         decision = preguntar_ollama(alerta.dict())
         print(f"[OLLAMA] Decision: {decision}")
         if "BLOQUEAR" in decision and ip_atacante != "desconocida":
             bloquear_ip_hetzner(ip_atacante)
-            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, "apt": apt_resultado, "xai": xai_resultado}
+            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, "apt": apt_resultado, "xai": xai_resultado, "lateral": lateral_resultado}
 
-    return {"accion": "IGNORADA", "nivel": nivel, "descripcion": descripcion, "apt": apt_resultado, "xai": xai_resultado}
+    return {"accion": "IGNORADA", "nivel": nivel, "descripcion": descripcion, "apt": apt_resultado, "xai": xai_resultado, "lateral": lateral_resultado}
 
 @app.post("/agente")
 @limiter.limit("20/minute")
@@ -381,6 +404,18 @@ async def obtener_importancia_global(request: Request, api_key: str = Depends(ve
     if not explicador:
         return {}
     return explicador.resumen_importancia_global()
+
+@app.get("/apt/lateral")
+async def obtener_movimiento_lateral(request: Request, api_key: str = Depends(verificar_api_key)):
+    if not LATERAL_DISPONIBLE:
+        return []
+    return detector_lateral.obtener_detecciones(ultimas_n=20)
+
+@app.get("/apt/lateral/estado")
+async def obtener_estado_lateral(request: Request, api_key: str = Depends(verificar_api_key)):
+    if not LATERAL_DISPONIBLE:
+        return {"disponible": False}
+    return detector_lateral.obtener_estado()
 
 @app.get("/")
 def health():
