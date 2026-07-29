@@ -1,0 +1,58 @@
+[
+  {
+    "timestamp": "2026-07-28T10:11:55.483871",
+    "fase_detectada": "initial_access",
+    "confianza": 65.0,
+    "importancia_features": {
+      "nivel_severidad": 1.35,
+      "fase_mitre": 1.19,
+      "agente_origen": 0.0,
+      "ip_origen": 26.07,
+      "hora_del_dia": 51.63,
+      "dia_semana": 6.41,
+      "horario_nocturno": 4.5,
+      "evento_critico": 0.0,
+      "evento_alto": 8.84
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 51.63
+      },
+      {
+        "feature": "ip_origen",
+        "descripcion": "Direccion IP de origen del ataque",
+        "importancia": 26.07
+      },
+      {
+        "feature": "evento_alto",
+        "descripcion": "Evento con nivel >= 10 (alto)",
+        "importancia": 8.84
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 21,
+        "descripcion": "Evento en posicion 22 de la secuencia",
+        "importancia": 8.1
+      },
+      {
+        "posicion": 2,
+        "descripcion": "Evento en posicion 3 de la secuencia",
+        "importancia": 5.01
+      },
+      {
+        "posicion": 3,
+        "descripcion": "Evento en posicion 4 de la secuencia",
+        "importancia": 4.87
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con acceso inicial no autorizado (fase MITRE ATT&CK: initial_access) con una confianza del 65.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 51.6%, seguida de 'ip_origen' con un 26.1%. Los eventos mas determinantes se concentran en la posicion 22 de la secuencia analizada. La actividad proviene de la IP 185.220.101.45. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "185.220.101.45",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  }
+]

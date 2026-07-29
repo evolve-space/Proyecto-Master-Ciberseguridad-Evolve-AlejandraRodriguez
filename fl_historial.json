@@ -1,0 +1,122 @@
+[
+  {
+    "ronda": 1,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:22.723562"
+  },
+  {
+    "ronda": 2,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:22.886854"
+  },
+  {
+    "ronda": 3,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:23.046597"
+  },
+  {
+    "ronda": 4,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:23.259370"
+  },
+  {
+    "ronda": 5,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:23.703700"
+  },
+  {
+    "ronda": 6,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:23.918871"
+  },
+  {
+    "ronda": 7,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:24.146247"
+  },
+  {
+    "ronda": 8,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:24.359812"
+  },
+  {
+    "ronda": 9,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:24.576694"
+  },
+  {
+    "ronda": 10,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:24.791153"
+  },
+  {
+    "ronda": 11,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:25.007736"
+  },
+  {
+    "ronda": 12,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:25.220897"
+  },
+  {
+    "ronda": 13,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:25.438807"
+  },
+  {
+    "ronda": 14,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:25.666331"
+  },
+  {
+    "ronda": 15,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:25.904930"
+  },
+  {
+    "ronda": 16,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:26.154225"
+  },
+  {
+    "ronda": 17,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:26.391053"
+  },
+  {
+    "ronda": 18,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:26.635693"
+  },
+  {
+    "ronda": 19,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:27.006646"
+  },
+  {
+    "ronda": 20,
+    "accuracy": 0.0,
+    "n_clientes": 3,
+    "timestamp": "2026-07-28T09:59:27.324483"
+  }
+]

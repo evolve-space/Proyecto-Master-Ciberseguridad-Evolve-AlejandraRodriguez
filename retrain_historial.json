@@ -1,0 +1,11 @@
+[
+  {
+    "timestamp": "2026-07-29T06:26:56.141854",
+    "estado": "completado",
+    "n_ventanas": 13,
+    "f1_anterior": 0.0,
+    "f1_nuevo": 0.0,
+    "mejora": 0.0,
+    "epochs": 30
+  }
+]
