@@ -52,12 +52,33 @@ PROGRESION_APT = [
     "exfiltration",
 ]
 
+BUFFER_PATH = "/root/asoar/apt_buffer.json"
 
 class DetectorAPT:
     """
     Detector de campanas APT en tiempo real.
     Mantiene un buffer deslizante de eventos y evalua cada nueva alerta.
     """
+
+    def _guardar_buffer(self):
+        """Persiste el buffer en disco para sobrevivir reinicios."""
+        try:
+            with open(BUFFER_PATH, "w") as f:
+                json.dump([v.tolist() for v in self.buffer], f)
+        except Exception:
+            pass
+
+    def _cargar_buffer(self):
+        """Carga el buffer desde disco al arrancar."""
+        if os.path.exists(BUFFER_PATH):
+            try:
+                with open(BUFFER_PATH, "r") as f:
+                    datos = json.load(f)
+                for v in datos:
+                    self.buffer.append(np.array(v, dtype=np.float32))
+                print(f"[APT Detector] Buffer restaurado: {len(self.buffer)} eventos")
+            except Exception:
+                pass
 
     def __init__(self):
         self.modelo    = None
@@ -68,6 +89,7 @@ class DetectorAPT:
         self.cargado   = False
         self._cargar_modelo()
         self._cargar_campanas()
+        self._cargar_buffer()
 
     def _cargar_modelo(self):
         """Carga el modelo LSTM y los preprocesadores desde disco."""
@@ -190,6 +212,7 @@ class DetectorAPT:
         # Anadir al buffer
         vector = self._alerta_a_vector(alerta)
         self.buffer.append(vector)
+        self._guardar_buffer()
 
         # Necesitamos al menos 8 eventos para una prediccion significativa
         if len(self.buffer) < 8:

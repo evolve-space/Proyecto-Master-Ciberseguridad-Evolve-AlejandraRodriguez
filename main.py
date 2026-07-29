@@ -64,6 +64,7 @@ limiter = Limiter(key_func=get_remote_address)
 class AlertaWazuh(BaseModel):
     rule: dict
     data: Optional[dict] = {}
+    simulacion: bool = False
 
     @validator('rule')
     def validar_rule(cls, v):
@@ -251,6 +252,18 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
             })
         except Exception as e:
             print(f"[LATERAL] Error: {e}")
+
+    # En modo simulacion saltamos Ollama para mayor velocidad
+    if alerta.simulacion and nivel >= 10:
+        decision = "BLOQUEAR"
+        if "BLOQUEAR" in decision and ip_atacante != "desconocida":
+            # En simulacion no bloqueamos realmente en Hetzner
+            print(f"[SIMULACION] Bloqueo simulado para IP: {ip_atacante}")
+            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, 
+                    "apt": apt_resultado, "xai": xai_resultado, "lateral": lateral_resultado,
+                    "simulacion": True}
+    elif nivel >= 10:
+        decision = preguntar_ollama(alerta.dict())
 
     if nivel >= 10:
         decision = preguntar_ollama(alerta.dict())

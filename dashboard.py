@@ -514,39 +514,170 @@ elif pagina == "IPs Bloqueadas":
 # ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "Simulador de Ataques":
     st.markdown("## Simulador de Ataques")
-    st.markdown("Envia alertas de prueba al motor ASOAR para verificar el funcionamiento del sistema.")
+    st.markdown("Envia alertas de prueba al motor ASOAR y simula campañas APT completas para verificar el funcionamiento del sistema.")
     st.markdown("---")
-    col1, col2 = st.columns(2)
-    with col1:
-        ip_atacante = st.text_input("IP del atacante", value="5.6.7.8")
-        nivel = st.slider("Nivel de alerta Wazuh", 1, 15, 10)
-    with col2:
-        descripcion = st.selectbox("Tipo de ataque", [
-            "Multiple failed SSH logins", "SQL Injection attempt",
-            "Port scan detected", "Brute force attack",
-            "Malware detected", "Privilege escalation attempt",
-            "Suspicious outbound connection"
-        ])
-    if st.button("Ejecutar Simulacion"):
-        with st.spinner("Procesando con IA..."):
+
+    tab1, tab2 = st.tabs(["Alerta Individual", "Campaña APT Completa"])
+
+    with tab1:
+        st.markdown("### Simular Alerta Individual")
+        col1, col2 = st.columns(2)
+        with col1:
+            ip_atacante = st.text_input("IP del atacante", value="5.6.7.8")
+            nivel = st.slider("Nivel de alerta Wazuh", 1, 15, 10)
+        with col2:
+            descripcion = st.selectbox("Tipo de ataque", [
+                "Multiple failed SSH logins",
+                "SQL Injection attempt",
+                "Port scan detected",
+                "Brute force attack",
+                "Malware detected",
+                "Privilege escalation attempt",
+                "Suspicious outbound connection"
+            ])
+        if st.button("Ejecutar Simulacion", key="btn_sim_individual"):
+            with st.spinner("Procesando con IA..."):
+                try:
+                    r = requests.post("http://localhost:8000/alerta",
+                        json={"rule": {"level": nivel, "description": descripcion},
+                              "data": {"srcip": ip_atacante}}, headers=HEADERS, timeout=60)
+                    resultado = r.json()
+                    st.markdown("---")
+                    if resultado.get("accion") == "BLOQUEADA":
+                        st.error(f"ACCION: IP {ip_atacante} bloqueada en Hetzner firewall")
+                    else:
+                        st.warning("ACCION: Alerta ignorada — nivel insuficiente o falso positivo")
+                    col1, col2, col3 = st.columns(3)
+                    col1.metric("Nivel", nivel)
+                    col2.metric("Accion", resultado.get("accion", "-"))
+                    col3.metric("IP", ip_atacante)
+                    apt = resultado.get("apt", {})
+                    if apt:
+                        st.markdown("**Analisis APT:**")
+                        st.json(apt)
+                    with st.expander("Ver respuesta completa"):
+                        st.json(resultado)
+                except Exception as e:
+                    st.error(f"Error: {e}")
+
+    with tab2:
+        st.markdown("### Simular Campaña APT Completa")
+        st.markdown("""
+        <div style="background:#f5f6fa;padding:12px 16px;border-radius:8px;
+                    border-left:3px solid #e74c3c;margin-bottom:16px;">
+            <p style="font-size:0.85rem;color:#2c3e50;margin:0">
+                Simula una campana APT completa enviando una secuencia de alertas que representan
+                las fases progresivas de un ataque real segun el framework MITRE ATT&CK.
+                El motor LSTM analizara la secuencia y detectara la campana en progreso.
+            </p>
+        </div>""", unsafe_allow_html=True)
+
+        col1, col2 = st.columns(2)
+        with col1:
+            ip_apt = st.text_input("IP del atacante APT", value="185.220.101.45")
+            campana_tipo = st.selectbox("Tipo de campaña APT", [
+                "Campaña Completa (5 fases)",
+                "Acceso Inicial + Persistencia",
+                "Movimiento Lateral",
+                "Exfiltracion de Datos",
+            ])
+        with col2:
+            velocidad = st.selectbox("Velocidad de simulacion", [
+                "Rapida (sin pausas)",
+                "Normal (1s entre eventos)",
+                "Lenta (3s entre eventos)",
+            ])
+            agentes_sim = st.multiselect("Agentes objetivo", 
+                ["master", "workstation-01", "servidor-web", "servidor-bbdd"],
+                default=["master", "workstation-01"])
+
+        # Definir secuencias de campanas
+        campanas_sim = {
+            "Campaña Completa (5 fases)": [
+                {"rule": {"level": 5,  "description": "Port scan detected",              "id": "5501"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 7,  "description": "Multiple failed SSH logins",      "id": "5712"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 10, "description": "Successful SSH login after failures","id": "5710"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 11, "description": "New cron job added",              "id": "5902"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 12, "description": "Privilege escalation attempt",    "id": "5401"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 11, "description": "Lateral movement via SMB",        "id": "5301"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 13, "description": "Suspicious outbound connection",  "id": "5601"}, "data": {"srcip": ip_apt}},
+            ],
+            "Acceso Inicial + Persistencia": [
+                {"rule": {"level": 7,  "description": "Multiple failed SSH logins",      "id": "5712"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 10, "description": "Successful login after brute force","id": "5710"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 11, "description": "New service installed",           "id": "5903"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 11, "description": "Crontab modification detected",   "id": "5902"}, "data": {"srcip": ip_apt}},
+            ],
+            "Movimiento Lateral": [
+                {"rule": {"level": 10, "description": "Remote access attempt",           "id": "5502"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 11, "description": "SMB share access from new host",  "id": "5301"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 12, "description": "Credential reuse detected",       "id": "5711"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 12, "description": "Remote execution attempt",        "id": "5601"}, "data": {"srcip": ip_apt}},
+            ],
+            "Exfiltracion de Datos": [
+                {"rule": {"level": 10, "description": "Large outbound transfer detected","id": "5601"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 12, "description": "DNS tunneling attempt",           "id": "5602"}, "data": {"srcip": ip_apt}},
+                {"rule": {"level": 13, "description": "Data exfiltration pattern",       "id": "5601"}, "data": {"srcip": ip_apt}},
+            ],
+        }
+
+        pausas = {"Rapida (sin pausas)": 0, "Normal (1s entre eventos)": 1, "Lenta (3s entre eventos)": 3}
+
+        if st.button("Lanzar Campaña APT", key="btn_sim_apt", type="primary"):
+            eventos = campanas_sim.get(campana_tipo, [])
+            pausa = pausas.get(velocidad, 0)
+
+            st.markdown("---")
+            st.markdown(f"**Simulando campaña: {campana_tipo}**")
+            st.markdown(f"IP atacante: `{ip_apt}` | Eventos: {len(eventos)}")
+
+            progress = st.progress(0)
+            log_container = st.empty()
+            log_lines = []
+
+            for i, evento in enumerate(eventos):
+                try:
+                    import time
+                    if pausa > 0:
+                        time.sleep(pausa)
+
+                    r = requests.post("http://localhost:8000/alerta",
+                                    json={**evento, "simulacion": True}, headers=HEADERS, timeout=30)
+                    res = r.json()
+                    accion  = res.get("accion", "IGNORADA")
+                    apt_res = res.get("apt", {})
+                    fase    = apt_res.get("fase_mitre", "—")
+                    conf    = apt_res.get("confianza", 0)
+
+                    icono = "🔴" if accion == "BLOQUEADA" else "🟡"
+                    log_lines.append(
+                        f"{icono} Evento {i+1}/{len(eventos)}: "
+                        f"{evento['rule']['description']} | "
+                        f"Accion: {accion} | Fase LSTM: {fase} ({conf}%)"
+                    )
+                    log_container.markdown("\n\n".join(log_lines))
+                    progress.progress((i+1)/len(eventos))
+
+                except Exception as e:
+                    log_lines.append(f"❌ Evento {i+1}: Error — {e}")
+                    log_container.markdown("\n\n".join(log_lines))
+
+            st.success(f"Campaña APT simulada completamente — {len(eventos)} eventos enviados")
+
+            # Mostrar estado APT tras la simulacion
             try:
-                r = requests.post("http://localhost:8000/alerta",
-                    json={"rule": {"level": nivel, "description": descripcion},
-                          "data": {"srcip": ip_atacante}}, headers=HEADERS, timeout=60)
-                resultado = r.json()
-                st.markdown("---")
-                if resultado.get("accion") == "BLOQUEADA":
-                    st.error(f"ACCION: IP {ip_atacante} bloqueada en Hetzner firewall")
-                else:
-                    st.warning("ACCION: Alerta ignorada — nivel insuficiente o falso positivo")
+                estado_post = requests.get("http://localhost:8000/apt/estado",
+                                          headers=HEADERS, timeout=5).json()
                 col1, col2, col3 = st.columns(3)
-                col1.metric("Nivel", nivel)
-                col2.metric("Accion", resultado.get("accion", "-"))
-                col3.metric("IP", ip_atacante)
-                with st.expander("Ver respuesta completa"):
-                    st.json(resultado)
-            except Exception as e:
-                st.error(f"Error: {e}")
+                col1.metric("Eventos en Buffer", estado_post.get("eventos_en_buffer", 0))
+                col2.metric("Campañas Totales", estado_post.get("campañas_totales", 0))
+                col3.metric("Campañas 24h", estado_post.get("campañas_24h", 0))
+            except:
+                pass
+
+            if st.button("Ver detecciones APT", key="btn_ver_apt"):
+                st.session_state.pagina = "Deteccion APT"
+                st.rerun()
 
 # ══════════════════════════════════════════════════════════════════════════════
 # ESTADO DEL SISTEMA
