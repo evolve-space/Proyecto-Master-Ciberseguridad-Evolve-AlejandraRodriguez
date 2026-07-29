@@ -417,6 +417,22 @@ async def obtener_estado_lateral(request: Request, api_key: str = Depends(verifi
         return {"disponible": False}
     return detector_lateral.obtener_estado()
 
+@app.get("/apt/retrain/estado")
+async def obtener_estado_retrain(request: Request, api_key: str = Depends(verificar_api_key)):
+    try:
+        from apt_retrain import obtener_estado_retrain
+        return obtener_estado_retrain()
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.post("/apt/retrain/forzar")
+async def forzar_reentrenamiento(request: Request, api_key: str = Depends(verificar_api_key)):
+    try:
+        from apt_retrain import reentrenar
+        return reentrenar(forzar=True)
+    except Exception as e:
+        return {"error": str(e)}
+
 @app.get("/")
 def health():
     return {"status": "Noctua ASOAR funcionando", "version": "1.0"}
