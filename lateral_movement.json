@@ -1,0 +1,70 @@
+[
+  {
+    "timestamp": "2026-07-29T06:06:17.808428",
+    "ip_origen": "10.0.0.100",
+    "agentes_afectados": [
+      "servidor-web",
+      "servidor-bbdd"
+    ],
+    "n_agentes": 2,
+    "patron": "lateral_smb",
+    "descripcion": "Movimiento lateral via SMB: acceso a recursos compartidos desde sistema comprometido",
+    "severidad": "ALTO",
+    "mitre_tecnica": "T1021.002",
+    "confianza": 100,
+    "tipos_eventos": [
+      "brute_force_exitoso",
+      "acceso_remoto",
+      "recurso_compartido"
+    ],
+    "nivel_max": 10,
+    "n_eventos": 3,
+    "movimiento_lateral": true
+  },
+  {
+    "timestamp": "2026-07-29T06:06:17.808603",
+    "ip_origen": "10.0.0.100",
+    "agentes_afectados": [
+      "servidor-web",
+      "servidor-bbdd"
+    ],
+    "n_agentes": 2,
+    "patron": "lateral_smb",
+    "descripcion": "Movimiento lateral via SMB: acceso a recursos compartidos desde sistema comprometido",
+    "severidad": "ALTO",
+    "mitre_tecnica": "T1021.002",
+    "confianza": 100,
+    "tipos_eventos": [
+      "brute_force_exitoso",
+      "acceso_remoto",
+      "recurso_compartido"
+    ],
+    "nivel_max": 10,
+    "n_eventos": 4,
+    "movimiento_lateral": true
+  },
+  {
+    "timestamp": "2026-07-29T06:06:17.808809",
+    "ip_origen": "10.0.0.100",
+    "agentes_afectados": [
+      "workstation-01",
+      "servidor-web",
+      "servidor-bbdd"
+    ],
+    "n_agentes": 3,
+    "patron": "pass_the_hash",
+    "descripcion": "Posible Pass-the-Hash: autenticacion con hash NTLM en multiples sistemas",
+    "severidad": "CRITICO",
+    "mitre_tecnica": "T1550.002",
+    "confianza": 100,
+    "tipos_eventos": [
+      "escalada_privilegios",
+      "brute_force_exitoso",
+      "acceso_remoto",
+      "recurso_compartido"
+    ],
+    "nivel_max": 11,
+    "n_eventos": 5,
+    "movimiento_lateral": true
+  }
+]
