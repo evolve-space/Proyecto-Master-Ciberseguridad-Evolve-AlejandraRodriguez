@@ -9,7 +9,6 @@ import subprocess
 import os
 import streamlit_authenticator as stauth
 from dotenv import load_dotenv
-
 load_dotenv()
 
 def hora_local():
@@ -20,7 +19,6 @@ HETZNER_FIREWALL_ID = os.getenv("HETZNER_FIREWALL_ID")
 API_KEY = os.getenv("API_KEY")
 HEADERS = {"X-API-Key": API_KEY}
 
-# ── Configuración ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Noctua. — Autonomous Security Operations",
     page_icon="/root/asoar/static/favicon.png",
@@ -42,7 +40,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ── Autenticación ──────────────────────────────────────────────────────────────
 AUTH_USERNAME = os.getenv("AUTH_USERNAME", "admin")
 AUTH_NAME = os.getenv("AUTH_NAME", "Administrador")
 AUTH_PASSWORD = os.getenv("AUTH_PASSWORD", "noctua2026")
@@ -63,7 +60,6 @@ authenticator = stauth.Authenticate(
     cookie_expiry_days=1
 )
 
-# Mostrar logo solo si no está autenticado
 if not st.session_state.get("authentication_status"):
     _, col_center, _ = st.columns([1, 2, 1])
     with col_center:
@@ -77,14 +73,11 @@ authentication_status = st.session_state.get("authentication_status")
 username = st.session_state.get("username")
 
 if authentication_status == False:
-    st.error("Usuario o contraseña incorrectos")
+    st.error("Usuario o contrasena incorrectos")
     st.stop()
-
 if authentication_status is None:
     st.stop()
 
-
-# Notificaciones en tiempo real
 notif_file = "/root/asoar/notificaciones.json"
 if os.path.exists(notif_file):
     try:
@@ -100,7 +93,6 @@ if os.path.exists(notif_file):
     except:
         pass
 
-# ── CSS ────────────────────────────────────────────────────────────────────────
 st.markdown("""<style>
     :root { color-scheme: light !important; }
     html, body, [class*="css"], [data-testid="stAppViewContainer"] {
@@ -114,30 +106,18 @@ st.markdown("""<style>
     section[data-testid="stSidebar"] * { color: #2c3e50 !important; }
     section[data-testid="stSidebar"] label { color: #2c3e50 !important; font-weight: 500; }
     section[data-testid="stSidebar"] .stButton > button[kind="secondary"] {
-        background: transparent !important;
-        color: #2c3e50 !important;
-        border: 1px solid #e0e0e0 !important;
-        width: 100% !important;
-        text-align: left !important;
-        margin-bottom: 4px !important;
+        background: transparent !important; color: #2c3e50 !important;
+        border: 1px solid #e0e0e0 !important; width: 100% !important;
+        text-align: left !important; margin-bottom: 4px !important;
     }
-    section[data-testid="stSidebar"] .stButton > button[kind="secondary"] p {
-        color: #2c3e50 !important;
-    }
+    section[data-testid="stSidebar"] .stButton > button[kind="secondary"] p { color: #2c3e50 !important; }
     section[data-testid="stSidebar"] .stButton > button[kind="primary"] {
-        background: #1a3a6c !important;
-        color: white !important;
-        border: none !important;
-        width: 100% !important;
-        text-align: left !important;
-        margin-bottom: 4px !important;
+        background: #1a3a6c !important; color: white !important;
+        border: none !important; width: 100% !important;
+        text-align: left !important; margin-bottom: 4px !important;
     }
-    section[data-testid="stSidebar"] .stButton > button[kind="primary"] p {
-        color: white !important;
-    }
-    section[data-testid="stSidebar"] .stButton > button:hover {
-        opacity: 0.85 !important;
-    }
+    section[data-testid="stSidebar"] .stButton > button[kind="primary"] p { color: white !important; }
+    section[data-testid="stSidebar"] .stButton > button:hover { opacity: 0.85 !important; }
     .metric-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); margin-bottom: 16px; border-top: 3px solid #2c3e50; transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .metric-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.12) !important; }
     .metric-card.danger  { border-top-color: #e74c3c; }
@@ -145,10 +125,7 @@ st.markdown("""<style>
     .metric-card.success { border-top-color: #27ae60; }
     .metric-card.info    { border-top-color: #2980b9; }
     .metric-value { font-size: 2rem; font-weight: 700; color: #2c3e50; margin: 4px 0 0 0; animation: fadeInUp 0.5s ease; }
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .metric-label { font-size: 0.75rem; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; }
     .section-header { font-size: 0.8rem; font-weight: 700; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; padding: 16px 0 8px 0; border-bottom: 1px solid #ecf0f1; margin-bottom: 16px; }
     .badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; }
@@ -158,45 +135,15 @@ st.markdown("""<style>
     .service-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; color: #2c3e50; }
     .stButton > button { background: #2c3e50; color: white; border: none; border-radius: 6px; font-weight: 600; }
     .stButton > button:hover { background: #1a252f; color: white; }
-    @keyframes parpadeo {
-        0%, 100% { background-color: #fff5f5; }
-        50% { background-color: #ffd5d5; }
-    }
-    .critica-alert {
-        animation: parpadeo 1.2s infinite;
-        border-top: 3px solid #c0392b !important;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-        margin-bottom: 16px;
-    }
+    @keyframes parpadeo { 0%, 100% { background-color: #fff5f5; } 50% { background-color: #ffd5d5; } }
+    .critica-alert { animation: parpadeo 1.2s infinite; border-top: 3px solid #c0392b !important; border-radius: 8px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); margin-bottom: 16px; }
+    div[data-testid="stForm"] { max-width: 420px !important; margin: 0 auto !important; }
+    input[type="text"], input[type="password"] { border: 1px solid #bdc3c7 !important; border-radius: 6px !important; padding: 8px 12px !important; }
+    input[type="text"]:focus, input[type="password"]:focus { border: 1px solid #1a3a6c !important; box-shadow: 0 0 0 2px rgba(26,58,108,0.15) !important; }
+    div[data-baseweb="input"] { border: 1px solid #bdc3c7 !important; border-radius: 6px !important; }
+    div[data-baseweb="base-input"]:hover { border: 1px solid #1a3a6c !important; }
+</style>""", unsafe_allow_html=True)
 
-    div[data-testid="stForm"] {
-        max-width: 420px !important;
-        margin: 0 auto !important;
-    }
-
-    input[type="text"], input[type="password"] {
-        border: 1px solid #bdc3c7 !important;
-        border-radius: 6px !important;
-        padding: 8px 12px !important;
-    }
-    input[type="text"]:focus, input[type="password"]:focus {
-        border: 1px solid #1a3a6c !important;
-        box-shadow: 0 0 0 2px rgba(26,58,108,0.15) !important;
-    }
-    div[data-baseweb="input"] {
-        border: 1px solid #bdc3c7 !important;
-        border-radius: 6px !important;
-    }
-    div[data-baseweb="base-input"]:hover {
-        border: 1px solid #1a3a6c !important;
-    }
-
-</style>
-""", unsafe_allow_html=True)
-
-# ── Leer alertas reales de Wazuh ───────────────────────────────────────────────
 @st.cache_data(ttl=30)
 def cargar_alertas_wazuh():
     try:
@@ -229,7 +176,6 @@ def cargar_alertas_wazuh():
     except Exception as e:
         return pd.DataFrame()
 
-# ── IPs bloqueadas en Hetzner ──────────────────────────────────────────────────
 @st.cache_data(ttl=30)
 def cargar_ips_hetzner():
     try:
@@ -249,39 +195,24 @@ def cargar_ips_hetzner():
 df = cargar_alertas_wazuh()
 ips_bloqueadas = cargar_ips_hetzner()
 
-# ── Sidebar ────────────────────────────────────────────────────────────────────
 with st.sidebar:
     with open("/root/asoar/static/noctua_logo.svg", "r") as f:
         logo_svg = f.read()
     st.markdown(logo_svg, unsafe_allow_html=True)
     st.markdown("---")
     opciones = [
-        "Panel General",
-        "Alertas y Eventos",
-        "IPs Bloqueadas",
-        "Endpoints",
-        "Normativas",
-        "Deteccion APT",
-        "Simulador de Ataques",
-        "Informes",
-        "Estado del Sistema",
-        "About"
+        "Panel General", "Alertas y Eventos", "IPs Bloqueadas",
+        "Endpoints", "Normativas", "Deteccion APT",
+        "Simulador de Ataques", "Informes", "Estado del Sistema", "About"
     ]
-
     if "pagina" not in st.session_state:
         st.session_state.pagina = "Panel General"
-
     for opcion in opciones:
         activo = st.session_state.pagina == opcion
-        if st.button(
-            opcion,
-            key=f"nav_{opcion}",
-            use_container_width=True,
-            type="primary" if activo else "secondary"
-        ):
+        if st.button(opcion, key=f"nav_{opcion}", use_container_width=True,
+                     type="primary" if activo else "secondary"):
             st.session_state.pagina = opcion
             st.rerun()
-
     pagina = st.session_state.pagina
     st.markdown("---")
     if st.session_state.get("authentication_status"):
@@ -292,10 +223,8 @@ with st.sidebar:
         st.cache_data.clear()
         st.rerun()
 
-# Breadcrumb estilo SOC
 alertas_activas = len(df[df["nivel"] >= 10]) if not df.empty else 0
 color_live = "#e74c3c" if alertas_activas > 0 else "#27ae60"
-
 st.markdown(f"""
 <div style="font-size:0.78rem; color:#7f8c8d; margin-bottom:12px; padding:8px 16px;
             background:white; border-radius:6px; border:1px solid #ecf0f1;
@@ -327,7 +256,6 @@ if pagina == "Panel General":
     st.markdown("## Panel General")
     st.markdown(f"*Ultima actualizacion: {hora_local().strftime('%d/%m/%Y %H:%M:%S')}*")
     st.markdown("---")
-
     if df.empty:
         st.warning("No se encontraron alertas en Wazuh. Verifica que el servicio este activo.")
     else:
@@ -335,9 +263,7 @@ if pagina == "Panel General":
         criticas = len(df[df["nivel"] >= 12])
         altas = len(df[df["nivel"] >= 10])
         bloqueadas_count = len(ips_bloqueadas)
-
         col1, col2, col3, col4 = st.columns(4)
-
         with col1:
             st.markdown(f"""
             <div class="metric-card" style="border-top:3px solid #5d6d7e;">
@@ -345,9 +271,7 @@ if pagina == "Panel General":
                 <p style="font-size:3rem; font-weight:700; color:#2c3e50; margin:4px 0 0 0;">{total}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver alertas", key="btn_total", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "Alertas y Eventos"
-                st.rerun()
-
+                st.session_state.pagina = "Alertas y Eventos"; st.rerun()
         with col2:
             color_alto = "#27ae60" if altas == 0 else "#f39c12"
             bg_alto = "#f9f9f9" if altas == 0 else "#fffbf0"
@@ -357,9 +281,7 @@ if pagina == "Panel General":
                 <p style="font-size:3rem; font-weight:700; color:{color_alto}; margin:4px 0 0 0;">{altas}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver nivel alto", key="btn_altas", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "Alertas y Eventos"
-                st.rerun()
-
+                st.session_state.pagina = "Alertas y Eventos"; st.rerun()
         with col3:
             if criticas > 0:
                 st.markdown(f"""
@@ -374,9 +296,7 @@ if pagina == "Panel General":
                     <p style="font-size:3rem; font-weight:700; color:#bdc3c7; margin:4px 0 0 0;">{criticas}</p>
                 </div>""", unsafe_allow_html=True)
             if st.button("Ver criticos", key="btn_criticas", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "Alertas y Eventos"
-                st.rerun()
-
+                st.session_state.pagina = "Alertas y Eventos"; st.rerun()
         with col4:
             st.markdown(f"""
             <div class="metric-card" style="border-top:3px solid #6c3483; background:#faf5ff;">
@@ -384,9 +304,7 @@ if pagina == "Panel General":
                 <p style="font-size:3rem; font-weight:700; color:#6c3483; margin:4px 0 0 0;">{bloqueadas_count}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver IPs", key="btn_bloqueadas", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "IPs Bloqueadas"
-                st.rerun()
-
+                st.session_state.pagina = "IPs Bloqueadas"; st.rerun()
         col1, col2 = st.columns(2)
         with col1:
             st.markdown('<div class="section-header">Top Tipos de Alerta</div>', unsafe_allow_html=True)
@@ -397,7 +315,6 @@ if pagina == "Panel General":
                             coloraxis_showscale=False, margin=dict(l=0,r=0,t=10,b=0), height=300,
                             yaxis_title="", xaxis_title="")
             st.plotly_chart(fig, use_container_width=True)
-
         with col2:
             st.markdown('<div class="section-header">Distribucion por Nivel</div>', unsafe_allow_html=True)
             niveles = df["nivel"].value_counts().sort_index().reset_index()
@@ -406,7 +323,6 @@ if pagina == "Panel General":
             fig2.update_layout(plot_bgcolor="white", paper_bgcolor="white", showlegend=False,
                              coloraxis_showscale=False, margin=dict(l=0,r=0,t=10,b=0), height=300)
             st.plotly_chart(fig2, use_container_width=True)
-
         st.markdown('<div class="section-header">Actividad Reciente (Timeline)</div>', unsafe_allow_html=True)
         df_time = df.copy()
         df_time["hora"] = df_time["timestamp"].dt.floor("h")
@@ -416,7 +332,6 @@ if pagina == "Panel General":
                           margin=dict(l=0,r=0,t=10,b=0), height=180,
                           xaxis_title="", yaxis_title="Alertas")
         st.plotly_chart(fig3, use_container_width=True)
-
         st.markdown('<div class="section-header">Ultimas Alertas</div>', unsafe_allow_html=True)
         df_show = df.head(10)[["timestamp","tipo","ip","nivel","agente","accion"]].copy()
         df_show["timestamp"] = df_show["timestamp"].dt.strftime("%d/%m %H:%M")
@@ -429,7 +344,6 @@ if pagina == "Panel General":
 elif pagina == "Alertas y Eventos":
     st.markdown("## Alertas y Eventos")
     st.markdown("---")
-
     if df.empty:
         st.warning("No hay alertas disponibles.")
     else:
@@ -441,7 +355,6 @@ elif pagina == "Alertas y Eventos":
             filtro_accion = st.selectbox("Estado", opciones_accion)
         with col3:
             filtro_texto = st.text_input("Buscar por tipo o IP", "")
-
         df_f = df[df["nivel"] >= filtro_nivel]
         if filtro_accion != "Todas":
             df_f = df_f[df_f["accion"] == filtro_accion]
@@ -449,7 +362,6 @@ elif pagina == "Alertas y Eventos":
             mask = df_f["tipo"].str.contains(filtro_texto, case=False, na=False) | \
                    df_f["ip"].str.contains(filtro_texto, case=False, na=False)
             df_f = df_f[mask]
-
         st.markdown(f"**{len(df_f)} eventos encontrados**")
         df_show = df_f[["timestamp","tipo","ip","nivel","agente","id_regla","accion"]].copy()
         df_show["timestamp"] = df_show["timestamp"].dt.strftime("%d/%m/%Y %H:%M")
@@ -462,11 +374,9 @@ elif pagina == "Alertas y Eventos":
 elif pagina == "IPs Bloqueadas":
     st.markdown("## IPs Bloqueadas en Hetzner Firewall")
     st.markdown("---")
-
     col1, col2 = st.columns([1, 3])
     with col1:
         st.markdown(f'<div class="metric-card danger"><p class="metric-label">IPs Bloqueadas Activas</p><p class="metric-value">{len(ips_bloqueadas)}</p></div>', unsafe_allow_html=True)
-
     if ips_bloqueadas:
         st.markdown('<div class="section-header">Lista de IPs Bloqueadas por ASOAR</div>', unsafe_allow_html=True)
         df_ips = pd.DataFrame(ips_bloqueadas, columns=["IP Bloqueada"])
@@ -475,10 +385,8 @@ elif pagina == "IPs Bloqueadas":
         st.dataframe(df_ips, use_container_width=True, hide_index=True)
     else:
         st.info("No hay IPs bloqueadas actualmente por ASOAR.")
-
     import geoip2.database
     st.markdown('<div class="section-header">Mapa de Origen de Ataques</div>', unsafe_allow_html=True)
-
     try:
         reader = geoip2.database.Reader('/root/asoar/static/GeoLite2-Country.mmdb')
         paises = {}
@@ -492,7 +400,6 @@ elif pagina == "IPs Bloqueadas":
             except:
                 continue
         reader.close()
-
         if paises:
             df_mapa = pd.DataFrame(list(paises.items()), columns=["Pais", "Ataques"])
             df_mapa = df_mapa.sort_values("Ataques", ascending=False)
@@ -515,14 +422,12 @@ elif pagina == "IPs Bloqueadas":
             st.info("No se pudo geolocalizar ninguna IP.")
     except Exception as e:
         st.error(f"Error cargando el mapa: {e}")
-
     st.markdown('<div class="section-header">Historico de IPs</div>', unsafe_allow_html=True)
     try:
         r = requests.get("http://localhost:8000/historico", headers=HEADERS, timeout=5)
         historico = r.json()
     except:
         historico = []
-
     if historico:
         df_hist = pd.DataFrame(historico)
         df_hist["timestamp"] = pd.to_datetime(df_hist["timestamp"]).dt.strftime("%d/%m/%Y %H:%M")
@@ -532,7 +437,6 @@ elif pagina == "IPs Bloqueadas":
         st.dataframe(df_hist, use_container_width=True, hide_index=True)
     else:
         st.info("No hay historico de IPs todavia.")
-
     st.markdown('<div class="section-header">Desbloquear IP</div>', unsafe_allow_html=True)
     col1, col2 = st.columns([3, 1])
     with col1:
@@ -545,8 +449,7 @@ elif pagina == "IPs Bloqueadas":
                     r = requests.delete(f"http://localhost:8000/desbloquear/{ip_desbloquear}", headers=HEADERS, timeout=10)
                     if r.status_code == 200:
                         st.success(f"IP {ip_desbloquear} desbloqueada correctamente")
-                        st.cache_data.clear()
-                        st.rerun()
+                        st.cache_data.clear(); st.rerun()
                     else:
                         st.error("Error al desbloquear la IP")
                 except Exception as e:
@@ -561,22 +464,17 @@ elif pagina == "Simulador de Ataques":
     st.markdown("## Simulador de Ataques")
     st.markdown("Envia alertas de prueba al motor ASOAR para verificar el funcionamiento del sistema.")
     st.markdown("---")
-
     col1, col2 = st.columns(2)
     with col1:
         ip_atacante = st.text_input("IP del atacante", value="5.6.7.8")
         nivel = st.slider("Nivel de alerta Wazuh", 1, 15, 10)
     with col2:
         descripcion = st.selectbox("Tipo de ataque", [
-            "Multiple failed SSH logins",
-            "SQL Injection attempt",
-            "Port scan detected",
-            "Brute force attack",
-            "Malware detected",
-            "Privilege escalation attempt",
+            "Multiple failed SSH logins", "SQL Injection attempt",
+            "Port scan detected", "Brute force attack",
+            "Malware detected", "Privilege escalation attempt",
             "Suspicious outbound connection"
         ])
-
     if st.button("Ejecutar Simulacion"):
         with st.spinner("Procesando con IA..."):
             try:
@@ -604,7 +502,6 @@ elif pagina == "Simulador de Ataques":
 elif pagina == "Estado del Sistema":
     st.markdown("## Estado del Sistema")
     st.markdown("---")
-
     def check_service(url, method="get", payload=None, timeout=5):
         try:
             if method == "post":
@@ -614,7 +511,6 @@ elif pagina == "Estado del Sistema":
             return r.status_code < 400
         except:
             return False
-
     servicios = {
         "ASOAR API (FastAPI)": check_service("http://localhost:8000/"),
         "Ollama / phi3": check_service("http://localhost:11434/api/tags"),
@@ -622,14 +518,12 @@ elif pagina == "Estado del Sistema":
         "Wazuh Dashboard": True,
         "Hetzner Firewall": len(ips_bloqueadas) >= 0
     }
-
     col1, col2 = st.columns(2)
     with col1:
         st.markdown('<div class="section-header">Servicios</div>', unsafe_allow_html=True)
         for nombre, estado in servicios.items():
             badge = f'<span class="badge badge-green">Online</span>' if estado else f'<span class="badge badge-red">Offline</span>'
             st.markdown(f'<div class="service-row"><span>{nombre}</span>{badge}</div>', unsafe_allow_html=True)
-
     with col2:
         st.markdown('<div class="section-header">Informacion del Entorno</div>', unsafe_allow_html=True)
         try:
@@ -641,7 +535,6 @@ elif pagina == "Estado del Sistema":
             "Valor": ["Noctua ASOAR v1.0", len(df), len(ips_bloqueadas), agentes_count]
         }
         st.dataframe(pd.DataFrame(datos_info), use_container_width=True, hide_index=True)
-
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura del Sistema</div>', unsafe_allow_html=True)
     datos_arq = {
@@ -661,33 +554,23 @@ elif pagina == "Estado del Sistema":
 elif pagina == "Endpoints":
     st.markdown("## Endpoints Monitorizados")
     st.markdown("---")
-
     try:
         r = requests.get("http://localhost:8000/agentes", headers=HEADERS, timeout=5)
         agentes = r.json()
     except:
         agentes = {}
-
     if not agentes:
         st.info("No hay endpoints registrados. Ejecuta el agente PowerShell en un equipo Windows.")
     else:
         st.markdown(f"**{len(agentes)} equipo(s) registrado(s)**")
         st.markdown("---")
-
         for hostname, info in agentes.items():
             datos = info.get("datos", {})
             seg = datos.get("seguridad", {})
             rend = datos.get("rendimiento", {})
             puntuacion = datos.get("puntuacion_seguridad", 0)
             ultima_conexion = info.get("ultima_conexion", "N/A")
-
-            if puntuacion >= 80:
-                color = "#27ae60"
-            elif puntuacion >= 50:
-                color = "#f39c12"
-            else:
-                color = "#e74c3c"
-
+            color = "#27ae60" if puntuacion >= 80 else "#f39c12" if puntuacion >= 50 else "#e74c3c"
             st.markdown(f"""
             <div class="metric-card">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -705,9 +588,7 @@ elif pagina == "Endpoints":
                         <p style="font-size:0.75rem; color:#7f8c8d; margin:0">PUNTUACION</p>
                     </div>
                 </div>
-            </div>
-            """, unsafe_allow_html=True)
-
+            </div>""", unsafe_allow_html=True)
             col1, col2, col3, col4 = st.columns(4)
             with col1:
                 estado = "Activo" if seg.get("defender_activo") else "Inactivo"
@@ -726,7 +607,6 @@ elif pagina == "Endpoints":
                 admins = seg.get("usuarios_admin", [])
                 badge = "badge-yellow" if len(admins) > 2 else "badge-green"
                 st.markdown(f'<div class="metric-card"><p class="metric-label">Admins Locales</p><span class="badge {badge}">{len(admins)} usuarios</span></div>', unsafe_allow_html=True)
-
             col1, col2 = st.columns(2)
             with col1:
                 cpu = rend.get("cpu_porcentaje", 0)
@@ -746,14 +626,12 @@ elif pagina == "Endpoints":
                 ))
                 fig.update_layout(height=250, margin=dict(l=30,r=30,t=60,b=30), paper_bgcolor="white")
                 st.plotly_chart(fig, use_container_width=True)
-
             col_exp1, col_exp2, col_exp3 = st.columns(3)
             with col_exp1:
                 with st.expander(f"Puertos en escucha ({len(seg.get('puertos_escucha', []))})"):
                     puertos = seg.get("puertos_escucha", [])
                     if puertos:
-                        df_puertos = pd.DataFrame({"Puerto": [str(p) for p in puertos]})
-                        st.dataframe(df_puertos, use_container_width=True, hide_index=True)
+                        st.dataframe(pd.DataFrame({"Puerto": [str(p) for p in puertos]}), use_container_width=True, hide_index=True)
             with col_exp2:
                 procesos_sospechosos = seg.get("procesos_sospechosos", [])
                 with st.expander(f"Procesos sospechosos ({len(procesos_sospechosos)})"):
@@ -774,21 +652,14 @@ elif pagina == "Endpoints":
                             st.dataframe(df_ev, use_container_width=True, hide_index=True)
                     else:
                         st.info("Sin eventos recientes")
-
             with st.expander(f"Software instalado ({len(seg.get('software_instalado', []))})"):
                 software = seg.get("software_instalado", [])
                 if software:
                     df_sw = pd.DataFrame(software)
                     if not df_sw.empty:
-                        df_sw = df_sw.rename(columns={
-                            "nombre": "Nombre", "version": "Version",
-                            "publisher": "Publisher", "fecha_instalacion": "Fecha instalacion"
-                        })
-                        df_sw["Fecha instalacion"] = pd.to_datetime(
-                            df_sw["Fecha instalacion"], format="%Y%m%d", errors="coerce"
-                        ).dt.strftime("%d/%m/%Y")
+                        df_sw = df_sw.rename(columns={"nombre": "Nombre", "version": "Version", "publisher": "Publisher", "fecha_instalacion": "Fecha instalacion"})
+                        df_sw["Fecha instalacion"] = pd.to_datetime(df_sw["Fecha instalacion"], format="%Y%m%d", errors="coerce").dt.strftime("%d/%m/%Y")
                         st.dataframe(df_sw, use_container_width=True, hide_index=True)
-
             st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -798,28 +669,23 @@ elif pagina == "Normativas":
     st.markdown("## Control de Normativas")
     st.markdown("Evaluacion automatica de cumplimiento basada en los datos de los endpoints.")
     st.markdown("---")
-
     try:
         r = requests.get("http://localhost:8000/agentes", headers=HEADERS, timeout=5)
         agentes = r.json()
     except:
         agentes = {}
-
     if not agentes:
         st.info("No hay endpoints registrados. Ejecuta el agente PowerShell en un equipo Windows.")
     else:
         hostname_sel = st.selectbox("Selecciona un endpoint", list(agentes.keys()))
-
         try:
             r = requests.get(f"http://localhost:8000/cumplimiento/{hostname_sel}", headers=HEADERS, timeout=5)
             data = r.json()
         except:
             data = {}
-
         if data and "score_global" in data:
             score_global = data["score_global"]
             color_global = "#27ae60" if score_global >= 80 else "#f39c12" if score_global >= 50 else "#e74c3c"
-
             col1, col2, col3, col4 = st.columns(4)
             with col1:
                 st.markdown(f"""
@@ -831,30 +697,16 @@ elif pagina == "Normativas":
             with col2:
                 score = data["iso27001"]["score"]
                 color = "#27ae60" if score >= 80 else "#f39c12" if score >= 50 else "#e74c3c"
-                st.markdown(f"""
-                <div class="metric-card">
-                    <p class="metric-label">ISO/IEC 27001:2022</p>
-                    <p class="metric-value" style="color:{color}">{score}%</p>
-                </div>""", unsafe_allow_html=True)
+                st.markdown(f'<div class="metric-card"><p class="metric-label">ISO/IEC 27001:2022</p><p class="metric-value" style="color:{color}">{score}%</p></div>', unsafe_allow_html=True)
             with col3:
                 score = data["nis2"]["score"]
                 color = "#27ae60" if score >= 80 else "#f39c12" if score >= 50 else "#e74c3c"
-                st.markdown(f"""
-                <div class="metric-card">
-                    <p class="metric-label">NIS2 2022/2555</p>
-                    <p class="metric-value" style="color:{color}">{score}%</p>
-                </div>""", unsafe_allow_html=True)
+                st.markdown(f'<div class="metric-card"><p class="metric-label">NIS2 2022/2555</p><p class="metric-value" style="color:{color}">{score}%</p></div>', unsafe_allow_html=True)
             with col4:
                 score = data["ens"]["score"]
                 color = "#27ae60" if score >= 80 else "#f39c12" if score >= 50 else "#e74c3c"
-                st.markdown(f"""
-                <div class="metric-card">
-                    <p class="metric-label">ENS RD 311/2022</p>
-                    <p class="metric-value" style="color:{color}">{score}%</p>
-                </div>""", unsafe_allow_html=True)
-
+                st.markdown(f'<div class="metric-card"><p class="metric-label">ENS RD 311/2022</p><p class="metric-value" style="color:{color}">{score}%</p></div>', unsafe_allow_html=True)
             st.markdown("---")
-
             for key, nombre in [("iso27001", "ISO/IEC 27001:2022"), ("nis2", "NIS2 - Directiva UE 2022/2555"), ("ens", "Esquema Nacional de Seguridad")]:
                 st.markdown(f'<div class="section-header">{nombre}</div>', unsafe_allow_html=True)
                 for ctrl in data[key]["controles"]:
@@ -874,8 +726,7 @@ elif pagina == "Normativas":
                                 {badge}
                             </div>
                         </div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                    </div>""", unsafe_allow_html=True)
                 st.markdown("<br>", unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -888,11 +739,9 @@ elif pagina == "Informes":
     from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
     from reportlab.lib.units import cm
     import io
-
     st.markdown("## Informes")
     st.markdown("Genera informes ejecutivos en PDF del estado de seguridad del sistema.")
     st.markdown("---")
-
     col1, col2 = st.columns(2)
     with col1:
         tipo_informe = st.selectbox("Tipo de informe", [
@@ -907,7 +756,6 @@ elif pagina == "Informes":
         except:
             agentes_disp = []
         endpoint_sel = st.selectbox("Endpoint", agentes_disp if agentes_disp else ["Sin endpoints"])
-
     if st.button("Generar Informe PDF", type="primary"):
         with st.spinner("Generando informe..."):
             buffer = io.BytesIO()
@@ -919,7 +767,6 @@ elif pagina == "Informes":
             style_body = ParagraphStyle('body', fontSize=10, fontName='Helvetica', textColor=colors.HexColor('#2c3e50'), spaceAfter=6)
             style_small = ParagraphStyle('small', fontSize=8, fontName='Helvetica', textColor=colors.HexColor('#7f8c8d'))
             elements = []
-
             elements.append(Paragraph("NOCTUA.", style_title))
             elements.append(Spacer(1, 0.3*cm))
             elements.append(Paragraph("Autonomous Security Operations Platform", style_subtitle))
@@ -930,7 +777,6 @@ elif pagina == "Informes":
             elements.append(Spacer(1, 0.2*cm))
             elements.append(Paragraph(f"Generado el {hora_local().strftime('%d/%m/%Y a las %H:%M:%S')}", style_small))
             elements.append(Spacer(1, 0.5*cm))
-
             if tipo_informe == "Informe Ejecutivo de Seguridad":
                 elements.append(Paragraph("Resumen Ejecutivo", style_h2))
                 elements.append(Paragraph(
@@ -960,7 +806,6 @@ elif pagina == "Informes":
                     ('PADDING', (0,0), (-1,-1), 6),
                 ]))
                 elements.append(tabla)
-
             elif tipo_informe == "Informe de IPs Bloqueadas":
                 elements.append(Paragraph("IPs Bloqueadas por ASOAR", style_h2))
                 elements.append(Paragraph(f"El sistema ha bloqueado automaticamente {len(ips_bloqueadas)} IPs identificadas como maliciosas mediante IA.", style_body))
@@ -980,7 +825,6 @@ elif pagina == "Informes":
                         ('PADDING', (0,0), (-1,-1), 6),
                     ]))
                     elements.append(tabla_ips)
-
             elif tipo_informe == "Informe de Cumplimiento Normativo":
                 if endpoint_sel and endpoint_sel != "Sin endpoints":
                     try:
@@ -1009,12 +853,10 @@ elif pagina == "Informes":
                             ]))
                             elements.append(tabla_ctrl)
                             elements.append(Spacer(1, 0.3*cm))
-
             elements.append(Spacer(1, 1*cm))
             elements.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#e0e0e0')))
             elements.append(Spacer(1, 0.2*cm))
             elements.append(Paragraph(f"Noctua. — Autonomous Security Operations Platform | {hora_local().strftime('%d/%m/%Y')}", style_small))
-
             doc.build(elements)
             buffer.seek(0)
             st.success("Informe generado correctamente.")
@@ -1030,7 +872,6 @@ elif pagina == "Deteccion APT":
     st.markdown("Motor predictivo LSTM con Federated Learning y explicabilidad XAI")
     st.markdown("---")
 
-    # Estado del detector
     try:
         estado = requests.get("http://localhost:8000/apt/estado", headers=HEADERS, timeout=5).json()
     except:
@@ -1043,38 +884,29 @@ elif pagina == "Deteccion APT":
         st.markdown(f"""
         <div class="metric-card" style="border-top:3px solid {color};">
             <p class="metric-label">Motor LSTM</p>
-            <p style="font-size:1.2rem;font-weight:700;color:{color}">
-                {"Activo" if modelo_ok else "Inactivo"}
-            </p>
+            <p style="font-size:1.2rem;font-weight:700;color:{color}">{"Activo" if modelo_ok else "Inactivo"}</p>
         </div>""", unsafe_allow_html=True)
     with col2:
         st.markdown(f"""
         <div class="metric-card" style="border-top:3px solid #6c3483;">
             <p class="metric-label">Eventos en Buffer</p>
-            <p style="font-size:2rem;font-weight:700;color:#6c3483;">
-                {estado.get("eventos_en_buffer", 0)}
-            </p>
+            <p style="font-size:2rem;font-weight:700;color:#6c3483;">{estado.get("eventos_en_buffer", 0)}</p>
         </div>""", unsafe_allow_html=True)
     with col3:
         st.markdown(f"""
         <div class="metric-card" style="border-top:3px solid #e74c3c;">
             <p class="metric-label">Campanas Totales</p>
-            <p style="font-size:2rem;font-weight:700;color:#e74c3c;">
-                {estado.get("campanas_totales", 0)}
-            </p>
+            <p style="font-size:2rem;font-weight:700;color:#e74c3c;">{estado.get("campanas_totales", 0)}</p>
         </div>""", unsafe_allow_html=True)
     with col4:
         st.markdown(f"""
         <div class="metric-card" style="border-top:3px solid #f39c12;">
             <p class="metric-label">Campanas 24h</p>
-            <p style="font-size:2rem;font-weight:700;color:#f39c12;">
-                {estado.get("campanas_24h", 0)}
-            </p>
+            <p style="font-size:2rem;font-weight:700;color:#f39c12;">{estado.get("campanas_24h", 0)}</p>
         </div>""", unsafe_allow_html=True)
 
     st.markdown("---")
 
-    # Fases MITRE ATT&CK
     st.markdown('<div class="section-header">Fases MITRE ATT&CK Monitorizadas</div>', unsafe_allow_html=True)
     fases_colores = {
         "reconnaissance":       "#95a5a6",
@@ -1094,15 +926,13 @@ elif pagina == "Deteccion APT":
     for i, (fase, color) in enumerate(fases_colores.items()):
         with cols[i % 6]:
             st.markdown(f"""
-            <div style="background:{color};color:white;padding:6px 8px;
-                        border-radius:6px;font-size:0.7rem;font-weight:600;
-                        text-align:center;margin-bottom:6px;">
+            <div style="background:{color};color:white;padding:6px 8px;border-radius:6px;
+                        font-size:0.7rem;font-weight:600;text-align:center;margin-bottom:6px;">
                 {fase.replace("_", " ").upper()}
             </div>""", unsafe_allow_html=True)
 
     st.markdown("---")
 
-    # Campanas detectadas
     st.markdown('<div class="section-header">Campanas APT Detectadas</div>', unsafe_allow_html=True)
     try:
         campanas = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
@@ -1118,20 +948,66 @@ elif pagina == "Deteccion APT":
         df_apt.columns = [c.replace("_", " ").title() for c in col_order]
         st.dataframe(df_apt, use_container_width=True, hide_index=True)
 
-        # Grafica de fases detectadas
         if "Fase Mitre" in df_apt.columns:
             st.markdown('<div class="section-header">Distribucion de Fases APT</div>', unsafe_allow_html=True)
             conteo = df_apt["Fase Mitre"].value_counts().reset_index()
             conteo.columns = ["Fase", "Count"]
-            fig = px.bar(conteo, x="Fase", y="Count", color="Count",
-                        color_continuous_scale="Reds")
+            fig = px.bar(conteo, x="Fase", y="Count", color="Count", color_continuous_scale="Reds")
             fig.update_layout(plot_bgcolor="white", paper_bgcolor="white",
                             margin=dict(l=0,r=0,t=10,b=0), height=250,
                             showlegend=False, coloraxis_showscale=False)
             st.plotly_chart(fig, use_container_width=True)
+
+        if len(campanas) > 1:
+            st.markdown('<div class="section-header">Timeline de Campana APT</div>', unsafe_allow_html=True)
+            df_timeline = pd.DataFrame(campanas)
+            df_timeline["timestamp"] = pd.to_datetime(df_timeline["timestamp"])
+            df_timeline = df_timeline.sort_values("timestamp")
+            df_timeline["hora"] = df_timeline["timestamp"].dt.strftime("%d/%m %H:%M")
+            fig_tl = px.scatter(
+                df_timeline, x="timestamp", y="fase_mitre",
+                color="fase_mitre", size="confianza",
+                hover_data=["hora", "confianza", "nivel_riesgo", "ip"],
+                color_discrete_map=fases_colores,
+                labels={"timestamp": "Fecha/Hora", "fase_mitre": "Fase MITRE ATT&CK"},
+            )
+            fig_tl.update_traces(marker=dict(line=dict(width=1, color="#ffffff")))
+            fig_tl.update_layout(
+                plot_bgcolor="white", paper_bgcolor="white",
+                margin=dict(l=0, r=0, t=10, b=0), height=350, showlegend=False,
+                xaxis=dict(showgrid=True, gridcolor="#f0f0f0"),
+                yaxis=dict(showgrid=True, gridcolor="#f0f0f0",
+                           categoryorder="array", categoryarray=list(fases_colores.keys())),
+            )
+            st.plotly_chart(fig_tl, use_container_width=True)
+            st.markdown('<p style="font-size:0.75rem;color:#7f8c8d;text-align:center">Cada punto representa una campana APT detectada. El tamano indica la confianza del modelo.</p>', unsafe_allow_html=True)
+
+            st.markdown('<div class="section-header">Progresion de la Campana</div>', unsafe_allow_html=True)
+            fases_orden = ["reconnaissance","initial_access","execution","persistence",
+                           "privilege_escalation","defense_evasion","credential_access",
+                           "discovery","lateral_movement","collection","exfiltration"]
+            fases_detectadas = df_timeline["fase_mitre"].unique().tolist()
+            fases_progresion = [f for f in fases_orden if f in fases_detectadas]
+            if fases_progresion:
+                html_prog = '<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:12px;background:white;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.07);">'
+                for i, fase in enumerate(fases_progresion):
+                    color = fases_colores.get(fase, "#bdc3c7")
+                    html_prog += f'<div style="background:{color};color:white;padding:6px 12px;border-radius:6px;font-size:0.75rem;font-weight:600;">{fase.replace("_"," ").upper()}</div>'
+                    if i < len(fases_progresion) - 1:
+                        html_prog += '<span style="color:#bdc3c7;font-size:1.2rem">→</span>'
+                html_prog += '</div>'
+                st.markdown(html_prog, unsafe_allow_html=True)
+                nivel_escalada = len(fases_progresion)
+                if nivel_escalada >= 4:
+                    st.error(f"ALERTA: Campana APT avanzada detectada con {nivel_escalada} fases progresivas")
+                elif nivel_escalada >= 2:
+                    st.warning(f"Progresion APT detectada: {nivel_escalada} fases identificadas")
+                else:
+                    st.info("Fase inicial de posible campana APT")
+
     else:
         st.info("No se han detectado campanas APT todavia. El sistema esta monitorizando activamente.")
-        st.markdown(f"""
+        st.markdown("""
         <div style="background:#f5f6fa;padding:16px;border-radius:8px;
                     border-left:3px solid #27ae60;margin-top:8px;">
             <p style="font-size:0.9rem;color:#2c3e50;margin:0">
@@ -1144,7 +1020,6 @@ elif pagina == "Deteccion APT":
 
     st.markdown("---")
 
-    # Explicaciones XAI
     st.markdown('<div class="section-header">Explicaciones XAI — Cumplimiento EU AI Act</div>', unsafe_allow_html=True)
     try:
         explicaciones = requests.get("http://localhost:8000/apt/xai", headers=HEADERS, timeout=5).json()
@@ -1157,7 +1032,6 @@ elif pagina == "Deteccion APT":
                 "CRITICO": "#e74c3c", "ALTO": "#e67e22",
                 "MEDIO": "#f39c12", "BAJO": "#27ae60"
             }.get(exp.get("nivel_riesgo", "BAJO"), "#bdc3c7")
-
             st.markdown(f"""
             <div style="background:white;padding:16px;border-radius:8px;
                         border-left:4px solid {nivel_color};
@@ -1166,13 +1040,9 @@ elif pagina == "Deteccion APT":
                     <span style="font-weight:600;color:#2c3e50">
                         {exp.get("fase_detectada","").replace("_"," ").upper()}
                     </span>
-                    <span style="color:#7f8c8d;font-size:0.85rem">
-                        Confianza: {exp.get("confianza",0)}%
-                    </span>
+                    <span style="color:#7f8c8d;font-size:0.85rem">Confianza: {exp.get("confianza",0)}%</span>
                 </div>
-                <p style="font-size:0.85rem;color:#2c3e50;margin:0 0 8px 0">
-                    {exp.get("narrativa","")}
-                </p>
+                <p style="font-size:0.85rem;color:#2c3e50;margin:0 0 8px 0">{exp.get("narrativa","")}</p>
                 <div style="display:flex;gap:8px;flex-wrap:wrap;">
                     {"".join([
                         f'<span style="background:#f5f6fa;padding:3px 8px;border-radius:4px;font-size:0.75rem;color:#2c3e50">'
@@ -1186,7 +1056,6 @@ elif pagina == "Deteccion APT":
 
     st.markdown("---")
 
-    # Importancia global de features
     st.markdown('<div class="section-header">Importancia Global de Features (XAI)</div>', unsafe_allow_html=True)
     try:
         importancia = requests.get("http://localhost:8000/apt/importancia", headers=HEADERS, timeout=5).json()
@@ -1206,16 +1075,12 @@ elif pagina == "Deteccion APT":
     else:
         st.info("La importancia global de features se calculara tras las primeras detecciones APT.")
 
-
-
-
 # ══════════════════════════════════════════════════════════════════════════════
 # ABOUT
 # ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "About":
     st.markdown("## Acerca de Noctua.")
     st.markdown("---")
-
     col1, col2 = st.columns([2, 1])
     with col1:
         st.markdown("""
@@ -1233,17 +1098,8 @@ elif pagina == "About":
                 Desarrollado como proyecto de fin de master en ciberseguridad, Noctua. demuestra
                 que es posible implementar un SOC autonomo y economicamente viable para organizaciones
                 de cualquier tamaño.
-                <br><br>
-                Esta primera fase establece los cimientos de la plataforma: deteccion, analisis con IA,
-                respuesta automatica y control normativo basico. Las siguientes fases contemplaran
-                mejoras en el motor de IA, integracion con bases de datos para historico avanzado,
-                soporte multi-tenant para gestionar multiples clientes PYME, y un sistema de
-                notificaciones avanzado con integracion en canales corporativos. Todo ello sin coste
-                adicional, aprovechando herramientas open source y gratuitas.
             </p>
-        </div>
-        """, unsafe_allow_html=True)
-
+        </div>""", unsafe_allow_html=True)
     with col2:
         st.markdown(f"""
         <div class="metric-card">
@@ -1256,21 +1112,18 @@ elif pagina == "About":
                 <strong>Año:</strong> 2026<br>
                 <strong>Licencia:</strong> Privada<br>
             </p>
-        </div>
-        """, unsafe_allow_html=True)
-
+        </div>""", unsafe_allow_html=True)
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura del Sistema</div>', unsafe_allow_html=True)
     componentes = [
         {"Componente": "Wazuh", "Rol": "Vigilancia", "Descripcion": "SIEM/XDR open source. Detecta amenazas, analiza logs y genera alertas en tiempo real.", "Tecnologia": "Python / C"},
         {"Componente": "Ollama / phi3", "Rol": "Cerebro IA", "Descripcion": "Modelo de lenguaje local que analiza cada alerta y decide autonomamente si bloquear o ignorar.", "Tecnologia": "LLM / Python"},
-        {"Componente": "FastAPI", "Rol": "Intermediario", "Descripcion": "API REST que orquesta el flujo entre Wazuh, Ollama y Hetzner. Incluye autenticacion y rate limiting.", "Tecnologia": "Python"},
-        {"Componente": "Hetzner API", "Rol": "Accion", "Descripcion": "Ejecuta el bloqueo real de IPs maliciosas modificando las reglas del firewall en la nube.", "Tecnologia": "REST API"},
-        {"Componente": "Agente PowerShell", "Rol": "Endpoint", "Descripcion": "Script instalado en equipos Windows que envia telemetria de seguridad al servidor cada 5 minutos.", "Tecnologia": "PowerShell"},
+        {"Componente": "FastAPI", "Rol": "Intermediario", "Descripcion": "API REST que orquesta el flujo entre Wazuh, Ollama y Hetzner.", "Tecnologia": "Python"},
+        {"Componente": "Hetzner API", "Rol": "Accion", "Descripcion": "Ejecuta el bloqueo real de IPs maliciosas modificando las reglas del firewall.", "Tecnologia": "REST API"},
+        {"Componente": "Agente PowerShell", "Rol": "Endpoint", "Descripcion": "Script instalado en equipos Windows que envia telemetria de seguridad cada 5 minutos.", "Tecnologia": "PowerShell"},
         {"Componente": "Streamlit", "Rol": "Panel Visual", "Descripcion": "Dashboard web profesional con autenticacion, graficas en tiempo real y control de normativas.", "Tecnologia": "Python"},
     ]
     st.dataframe(pd.DataFrame(componentes), use_container_width=True, hide_index=True)
-
     st.markdown("---")
     st.markdown('<div class="section-header">Flujo de Respuesta Automatica</div>', unsafe_allow_html=True)
     st.markdown("""
@@ -1306,24 +1159,19 @@ elif pagina == "About":
                 </div>
             </div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
-
+    </div>""", unsafe_allow_html=True)
     st.markdown("---")
     st.markdown('<div class="section-header">Normativas Soportadas</div>', unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown("""<div class="metric-card"><p class="metric-label">ISO/IEC 27001:2022</p>
         <p style="font-size:0.85rem; color:#7f8c8d; margin-top:8px; line-height:1.6">
-        Estandar internacional para la gestion de la seguridad de la informacion.
-        Noctua evalua automaticamente los controles del Anexo A.</p></div>""", unsafe_allow_html=True)
+        Estandar internacional para la gestion de la seguridad de la informacion.</p></div>""", unsafe_allow_html=True)
     with col2:
         st.markdown("""<div class="metric-card"><p class="metric-label">NIS2 — Directiva UE 2022/2555</p>
         <p style="font-size:0.85rem; color:#7f8c8d; margin-top:8px; line-height:1.6">
-        Directiva europea de ciberseguridad. Noctua verifica las medidas
-        tecnicas del Articulo 21 en tiempo real.</p></div>""", unsafe_allow_html=True)
+        Directiva europea de ciberseguridad. Verifica las medidas tecnicas del Articulo 21.</p></div>""", unsafe_allow_html=True)
     with col3:
         st.markdown("""<div class="metric-card"><p class="metric-label">ENS — RD 311/2022</p>
         <p style="font-size:0.85rem; color:#7f8c8d; margin-top:8px; line-height:1.6">
-        Esquema Nacional de Seguridad espanol. Evaluacion automatica
-        de las medidas del Anexo II.</p></div>""", unsafe_allow_html=True)
+        Esquema Nacional de Seguridad espanol. Evaluacion del Anexo II.</p></div>""", unsafe_allow_html=True)
