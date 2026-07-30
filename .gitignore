@@ -6,3 +6,13 @@ agentes.json
 .streamlit/
 static/
 .env
+mfa_config.json
+apt_buffer.json
+apt_campanas.json
+xai_explicaciones.json
+lateral_movement.json
+fl_historial.json
+retrain_historial.json
+retrain_config.json
+notificaciones.json
+historico_ips.json
