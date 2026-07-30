@@ -406,7 +406,9 @@ def cargar_ips_hetzner():
             return [
                 reg.get("source_ips", [""])[0].replace("/32", "")
                 for reg in reglas
-                if reg.get("direction") == "in" and "ASOAR" in reg.get("description", "")
+                if reg.get("direction") == "in" 
+                and "ASOAR" in reg.get("description", "")
+                and reg.get("source_ips", [""])[0] not in ["0.0.0.0/0", "::/0", ""]
             ]
     except:
         pass
