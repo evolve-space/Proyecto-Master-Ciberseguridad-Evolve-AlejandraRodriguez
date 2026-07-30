@@ -21,7 +21,7 @@ API_KEY = os.getenv("API_KEY")
 HEADERS = {"X-API-Key": API_KEY}
 
 st.set_page_config(
-    page_title="Noctua. — Autonomous Security Operations",
+    page_title="Noctua Predictive. — Autonomous Security Operations",
     page_icon="/root/asoar/static/favicon.png",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -381,7 +381,7 @@ def cargar_alertas_wazuh():
                     "tipo": a.get("rule", {}).get("description", "Desconocido"),
                     "nivel": int(a.get("rule", {}).get("level", 0)),
                     "ip": a.get("data", {}).get("srcip", a.get("agent", {}).get("ip", "N/A")),
-                    "agente": a.get("agent", {}).get("name", "master"),
+                    "agente": a.get("agent", {}).get("name", "master").replace("soc-autonomo-master", "Noctua-Server"),
                     "id_regla": str(a.get("rule", {}).get("id", "")),
                     "accion": "BLOQUEADA" if int(a.get("rule", {}).get("level", 0)) >= 10 else "MONITOREADA"
                 })
@@ -453,7 +453,7 @@ st.markdown(f"""
             display:flex; justify-content:space-between; align-items:center;
             box-shadow:0 1px 3px rgba(0,0,0,0.05);">
     <div>
-        <span style="color:#1a3a6c; font-weight:700; letter-spacing:1px">NOCTUA.</span>
+        <span style="color:#1a3a6c; font-weight:700; letter-spacing:1px">NOCTUA PREDICTIVE.</span>
         <span style="margin:0 8px; color:#bdc3c7">›</span>
         <span style="color:#2c3e50; font-weight:500; letter-spacing:0.5px">{pagina.upper()}</span>
         <span style="margin-left:12px">
@@ -654,11 +654,11 @@ elif pagina == "IPs Bloqueadas":
     if ips_bloqueadas:
         st.markdown('<div class="section-header">Lista de IPs Bloqueadas por ASOAR</div>', unsafe_allow_html=True)
         df_ips = pd.DataFrame(ips_bloqueadas, columns=["IP Bloqueada"])
-        df_ips["Bloqueada por"] = "ASOAR - Automatico"
+        df_ips["Bloqueada por"] = "Noctua Predictive - Automatico"
         df_ips["Firewall"] = "asoar-firewall"
         st.dataframe(df_ips, use_container_width=True, hide_index=True)
     else:
-        st.info("No hay IPs bloqueadas actualmente por ASOAR.")
+        st.info("No hay IPs bloqueadas actualmente por Noctua Predictive.")
     import geoip2.database
     st.markdown('<div class="section-header">Mapa de Origen de Ataques</div>', unsafe_allow_html=True)
     try:
@@ -736,7 +736,7 @@ elif pagina == "IPs Bloqueadas":
 # ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "Simulador de Ataques":
     st.markdown("## Simulador de Ataques")
-    st.markdown("Envia alertas de prueba al motor ASOAR y simula campañas APT completas para verificar el funcionamiento del sistema.")
+    st.markdown("Envia alertas de prueba al motor Noctua Predictive y simula campañas APT completas para verificar el funcionamiento del sistema.")
     st.markdown("---")
 
     tab1, tab2 = st.tabs(["Alerta Individual", "Campaña APT Completa"])
@@ -956,42 +956,8 @@ elif pagina == "Estado del Sistema":
         for nombre, estado in modulos_ia.items():
             badge = f'<span class="badge badge-green">Activo</span>' if estado else f'<span class="badge badge-red">Inactivo</span>'
             st.markdown(f'<div class="service-row"><span>{nombre}</span>{badge}</div>', unsafe_allow_html=True)
-
     st.markdown("---")
 
-    # Metricas globales
-    st.markdown('<div class="section-header">Metricas Globales del Sistema</div>', unsafe_allow_html=True)
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        try:
-            agentes_count = len(requests.get("http://localhost:8000/agentes", headers=HEADERS, timeout=5).json())
-        except:
-            agentes_count = 0
-        st.markdown(f"""
-        <div class="metric-card">
-            <p class="metric-label">Alertas Procesadas</p>
-            <p style="font-size:2rem;font-weight:700;color:#2c3e50;">{len(df)}</p>
-        </div>""", unsafe_allow_html=True)
-    with col2:
-        st.markdown(f"""
-        <div class="metric-card">
-            <p class="metric-label">IPs Bloqueadas</p>
-            <p style="font-size:2rem;font-weight:700;color:#6c3483;">{len(ips_bloqueadas)}</p>
-        </div>""", unsafe_allow_html=True)
-    with col3:
-        st.markdown(f"""
-        <div class="metric-card">
-            <p class="metric-label">Campañas APT</p>
-            <p style="font-size:2rem;font-weight:700;color:#e74c3c;">{estado_apt.get("campanas_totales", 0)}</p>
-        </div>""", unsafe_allow_html=True)
-    with col4:
-        st.markdown(f"""
-        <div class="metric-card">
-            <p class="metric-label">Detecciones Laterales</p>
-            <p style="font-size:2rem;font-weight:700;color:#8e44ad;">{estado_lateral.get("detecciones_totales", 0)}</p>
-        </div>""", unsafe_allow_html=True)
-
-    st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura Completa del Sistema</div>', unsafe_allow_html=True)
     datos_arq = {
         "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "Hetzner API", "Streamlit"],
@@ -1087,6 +1053,13 @@ elif pagina == "Endpoints":
                 admins = seg.get("usuarios_admin", [])
                 badge = "badge-yellow" if len(admins) > 2 else "badge-green"
                 st.markdown(f'<div class="metric-card"><p class="metric-label">Admins Locales</p><span class="badge {badge}">{len(admins)} usuarios</span></div>', unsafe_allow_html=True)
+                
+            lista_updates = seg.get("lista_actualizaciones", [])
+            if lista_updates:
+                with st.expander(f"Ver {len(lista_updates)} actualizaciones pendientes"):
+                    df_updates = pd.DataFrame(lista_updates)
+                    df_updates.columns = [c.replace("_", " ").title() for c in df_updates.columns]
+                    st.dataframe(df_updates, use_container_width=True, hide_index=True)
             col1, col2 = st.columns(2)
             with col1:
                 cpu = rend.get("cpu_porcentaje", 0)
@@ -1111,7 +1084,63 @@ elif pagina == "Endpoints":
                 with st.expander(f"Puertos en escucha ({len(seg.get('puertos_escucha', []))})"):
                     puertos = seg.get("puertos_escucha", [])
                     if puertos:
-                        st.dataframe(pd.DataFrame({"Puerto": [str(p) for p in puertos]}), use_container_width=True, hide_index=True)
+                        # Puertos estandar conocidos
+                        puertos_seguros = {80, 443, 22, 3389, 8080, 8443, 135, 139, 445, 53}
+                        rows = []
+                        for p in puertos:
+                            try:
+                                num = int(p)
+                                if num in puertos_seguros:
+                                    estado = "✓ Estandar"
+                                    color = "#27ae60"
+                                elif num < 1024:
+                                    estado = "⚠ Sistema"
+                                    color = "#f39c12"
+                                else:
+                                    estado = "⚠ No estandar"
+                                    color = "#e74c3c"
+                            except:
+                                estado = "Desconocido"
+                                color = "#bdc3c7"
+                            rows.append({"Puerto": str(p), "Clasificacion": estado})
+
+                        df_puertos = pd.DataFrame(rows)
+                        st.dataframe(df_puertos, use_container_width=True, hide_index=True)
+
+                        # Boton para registrar cierre de puerto
+                        puerto_cerrar = st.selectbox(
+                            "Registrar puerto cerrado",
+                            ["Seleccionar..."] + [str(p) for p in puertos],
+                            key=f"sel_puerto_{hostname}"
+                        )
+                        if puerto_cerrar != "Seleccionar...":
+                            if st.button(f"Registrar cierre de puerto {puerto_cerrar}", key=f"btn_cerrar_{hostname}_{puerto_cerrar}"):
+                                import json
+                                historial_path = "/root/asoar/puertos_cerrados.json"
+                                try:
+                                    with open(historial_path, "r") as f:
+                                        hist = json.load(f)
+                                except:
+                                    hist = []
+                                hist.append({
+                                    "timestamp": hora_local().strftime("%d/%m/%Y %H:%M"),
+                                    "hostname": hostname,
+                                    "puerto": puerto_cerrar,
+                                    "accion": "Cerrado manualmente"
+                                })
+                                with open(historial_path, "w") as f:
+                                    json.dump(hist, f, indent=2)
+                                st.success(f"Puerto {puerto_cerrar} registrado como cerrado")
+
+                        # Historial de puertos cerrados
+                        historial_path = "/root/asoar/puertos_cerrados.json"
+                        if os.path.exists(historial_path):
+                            with open(historial_path, "r") as f:
+                                hist = json.load(f)
+                            hist_host = [h for h in hist if h["hostname"] == hostname]
+                            if hist_host:
+                                st.markdown("**Historial de puertos cerrados:**")
+                                st.dataframe(pd.DataFrame(hist_host), use_container_width=True, hide_index=True)
             with col_exp2:
                 procesos_sospechosos = seg.get("procesos_sospechosos", [])
                 with st.expander(f"Procesos sospechosos ({len(procesos_sospechosos)})"):
@@ -1253,7 +1282,7 @@ elif pagina == "Informes":
             style_body = ParagraphStyle('body', fontSize=10, fontName='Helvetica', textColor=colors.HexColor('#2c3e50'), spaceAfter=6)
             style_small = ParagraphStyle('small', fontSize=8, fontName='Helvetica', textColor=colors.HexColor('#7f8c8d'))
             elements = []
-            elements.append(Paragraph("NOCTUA.", style_title))
+            elements.append(Paragraph("NOCTUA PREDICTIVE.", style_title))
             elements.append(Spacer(1, 0.3*cm))
             elements.append(Paragraph("Autonomous Security Operations Platform", style_subtitle))
             elements.append(Spacer(1, 0.3*cm))
@@ -1266,7 +1295,7 @@ elif pagina == "Informes":
             if tipo_informe == "Informe Ejecutivo de Seguridad":
                 elements.append(Paragraph("Resumen Ejecutivo", style_h2))
                 elements.append(Paragraph(
-                    f"Este informe presenta el estado actual de la plataforma Noctua ASOAR. "
+                    f"Este informe presenta el estado actual de la plataforma Noctua Predictive. "
                     f"Se han procesado {len(df)} alertas de seguridad, de las cuales "
                     f"{len(df[df['nivel'] >= 10]) if not df.empty else 0} son de nivel alto o critico. "
                     f"El sistema ha bloqueado automaticamente {len(ips_bloqueadas)} direcciones IP maliciosas.",
@@ -1299,7 +1328,7 @@ elif pagina == "Informes":
                 if ips_bloqueadas:
                     data_ips = [["IP Bloqueada", "Bloqueada por", "Firewall"]]
                     for ip in ips_bloqueadas:
-                        data_ips.append([ip, "ASOAR - Automatico", "asoar-firewall"])
+                        data_ips.append([ip, "Noctua Predictive - Automatico", "asoar-firewall"])
                     tabla_ips = Table(data_ips, colWidths=[6*cm, 5*cm, 4*cm])
                     tabla_ips.setStyle(TableStyle([
                         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#0f1f35')),
@@ -1429,7 +1458,7 @@ elif pagina == "Informes":
             elements.append(Spacer(1, 1*cm))
             elements.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#e0e0e0')))
             elements.append(Spacer(1, 0.2*cm))
-            elements.append(Paragraph(f"Noctua. — Autonomous Security Operations Platform | {hora_local().strftime('%d/%m/%Y')}", style_small))
+            elements.append(Paragraph(f"Noctua Predictive. — Autonomous Security Operations Platform | {hora_local().strftime('%d/%m/%Y')}", style_small))
             doc.build(elements)
             buffer.seek(0)
             st.success("Informe generado correctamente.")

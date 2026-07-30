@@ -23,15 +23,29 @@ function Obtener-DatosSeguridad {
         $firewallActivo = $false
     }
 
+    $actualizacionesPendientes = -1
+    $actualizacionesCriticas = -1
+    $listaActualizaciones = @()
     try {
         $updateSession = New-Object -ComObject Microsoft.Update.Session
         $updateSearcher = $updateSession.CreateUpdateSearcher()
         $updates = $updateSearcher.Search("IsInstalled=0 and Type='Software'")
         $actualizacionesPendientes = $updates.Updates.Count
         $actualizacionesCriticas = ($updates.Updates | Where-Object { $_.MsrcSeverity -eq "Critical" }).Count
+        $listaActualizaciones = @($updates.Updates | ForEach-Object {
+            $titulo = ($_.Title -replace '[^\x00-\x7F]', '') -replace '"', "'"
+            $kb = if ($_.KBArticleIDs.Count -gt 0) { "KB" + $_.KBArticleIDs[0] } else { "N/A" }
+            $sev = if ($_.MsrcSeverity) { $_.MsrcSeverity } else { "Desconocida" }
+            [PSCustomObject]@{
+                titulo    = $titulo
+                kb        = $kb
+                severidad = $sev
+            }
+        })
     } catch {
         $actualizacionesPendientes = -1
         $actualizacionesCriticas = -1
+        $listaActualizaciones = @()
     }
 
     try {
@@ -57,46 +71,46 @@ function Obtener-DatosSeguridad {
         $ramUsada = -1
     }
 
-    # Procesos sospechosos
     try {
         $procesosSospechosos = @("mimikatz","meterpreter","netcat","nc","psexec","pwdump","wce","fgdump","gsecdump","procdump","cobaltstrike","beacon","empire","powersploit","nishang","metasploit")
         $procesosActivos = Get-Process | Select-Object Name, Id, CPU, WorkingSet
-        $sospechosos = @($procesosActivos | Where-Object { $nombre = $_.Name.ToLower(); $procesosSospechosos | Where-Object { $nombre -like "*$_*" } } | ForEach-Object {
-            @{ nombre = $_.Name; pid = $_.Id; cpu = [math]::Round($_.CPU, 2); memoria_mb = [math]::Round($_.WorkingSet / 1MB, 2) }
+        $sospechosos = @($procesosActivos | Where-Object {
+            $nombre = $_.Name.ToLower()
+            $procesosSospechosos | Where-Object { $nombre -like "*$_*" }
+        } | ForEach-Object {
+            [PSCustomObject]@{ nombre = $_.Name; pid = $_.Id; cpu = [math]::Round($_.CPU, 2); memoria_mb = [math]::Round($_.WorkingSet / 1MB, 2) }
         })
         $todosProcesos = @($procesosActivos | Select-Object -First 20 | ForEach-Object {
-            @{ nombre = $_.Name; pid = $_.Id; cpu = [math]::Round($_.CPU, 2); memoria_mb = [math]::Round($_.WorkingSet / 1MB, 2) }
+            [PSCustomObject]@{ nombre = $_.Name; pid = $_.Id; cpu = [math]::Round($_.CPU, 2); memoria_mb = [math]::Round($_.WorkingSet / 1MB, 2) }
         })
     } catch {
         $sospechosos = @()
         $todosProcesos = @()
     }
 
-    # Eventos de seguridad
     try {
         $eventos = @(Get-EventLog -LogName Security -Newest 10 -ErrorAction SilentlyContinue | ForEach-Object {
-            @{
-                tiempo = $_.TimeGenerated.ToString("yyyy-MM-dd HH:mm:ss")
-                id = $_.EventID
-                mensaje = $_.Message.Substring(0, [Math]::Min(100, $_.Message.Length))
-                tipo = switch ($_.EventID) {
-                    4624 { "Login exitoso" }
-                    4625 { "Login fallido" }
-                    4634 { "Logout" }
-                    4648 { "Login con credenciales explicitas" }
-                    4720 { "Usuario creado" }
-                    4726 { "Usuario eliminado" }
-                    4732 { "Usuario añadido a grupo admin" }
-                    4756 { "Miembro añadido a grupo" }
-                    default { "Evento $($_.EventID)" }
-                }
+            $tipo = switch ($_.EventID) {
+                4624 { "Login exitoso" }
+                4625 { "Login fallido" }
+                4634 { "Logout" }
+                4648 { "Login con credenciales explicitas" }
+                4720 { "Usuario creado" }
+                4726 { "Usuario eliminado" }
+                4732 { "Usuario anadido a grupo admin" }
+                4756 { "Miembro anadido a grupo" }
+                default { "Evento $($_.EventID)" }
+            }
+            [PSCustomObject]@{
+                tiempo  = $_.TimeGenerated.ToString("yyyy-MM-dd HH:mm:ss")
+                id      = $_.EventID
+                tipo    = $tipo
             }
         })
     } catch {
         $eventos = @()
     }
 
-    # Software instalado
     try {
         $software = @(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* -ErrorAction SilentlyContinue |
             Where-Object { $_.DisplayName -ne $null } |
@@ -104,11 +118,11 @@ function Obtener-DatosSeguridad {
             Sort-Object DisplayName |
             Select-Object -First 30 |
             ForEach-Object {
-                @{
-                    nombre = $_.DisplayName
-                    version = $_.DisplayVersion
-                    publisher = $_.Publisher
-                    fecha_instalacion = $_.InstallDate
+                [PSCustomObject]@{
+                    nombre             = $_.DisplayName
+                    version            = $_.DisplayVersion
+                    publisher          = $_.Publisher
+                    fecha_instalacion  = $_.InstallDate
                 }
             })
     } catch {
@@ -116,46 +130,47 @@ function Obtener-DatosSeguridad {
     }
 
     $puntuacion = 0
-    if ($defenderActivo) { $puntuacion += 25 }
-    if ($defenderActualizado) { $puntuacion += 20 }
-    if ($firewallActivo) { $puntuacion += 25 }
+    if ($defenderActivo)          { $puntuacion += 25 }
+    if ($defenderActualizado)     { $puntuacion += 20 }
+    if ($firewallActivo)          { $puntuacion += 25 }
     if ($actualizacionesCriticas -eq 0) { $puntuacion += 20 }
-    if ($usuariosAdmin.Count -le 2) { $puntuacion += 10 }
+    if ($usuariosAdmin.Count -le 2)     { $puntuacion += 10 }
 
-    $datos = @{
-        hostname = $hostname
-        usuario = $usuario
-        os = $os
-        ip = $ip
-        timestamp = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss")
-        seguridad = @{
-            defender_activo = $defenderActivo
-            defender_actualizado = $defenderActualizado
-            firewall_activo = $firewallActivo
+    $datos = [PSCustomObject]@{
+        hostname            = $hostname
+        usuario             = $usuario
+        os                  = $os
+        ip                  = $ip
+        timestamp           = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss")
+        seguridad           = [PSCustomObject]@{
+            defender_activo           = $defenderActivo
+            defender_actualizado      = $defenderActualizado
+            firewall_activo           = $firewallActivo
             actualizaciones_pendientes = $actualizacionesPendientes
-            actualizaciones_criticas = $actualizacionesCriticas
-            usuarios_admin = $usuariosAdmin
-            puertos_escucha = $puertos
-            procesos_sospechosos = $sospechosos
-            todos_procesos = $todosProcesos
-            eventos_seguridad = $eventos
-            software_instalado = $software
+            actualizaciones_criticas  = $actualizacionesCriticas
+            lista_actualizaciones     = $listaActualizaciones
+            usuarios_admin            = $usuariosAdmin
+            puertos_escucha           = $puertos
+            procesos_sospechosos      = $sospechosos
+            todos_procesos            = $todosProcesos
+            eventos_seguridad         = $eventos
+            software_instalado        = $software
         }
-        rendimiento = @{
+        rendimiento         = [PSCustomObject]@{
             cpu_porcentaje = $cpu
             ram_porcentaje = $ramUsada
         }
         puntuacion_seguridad = $puntuacion
     }
-
     return $datos
 }
 
 function Enviar-Datos($datos) {
     try {
-        $json = $datos | ConvertTo-Json -Depth 10
+        $json = $datos | ConvertTo-Json -Depth 10 -Compress
         $headers = @{"X-API-Key" = "noctua-2026-secure-key"}
-        $response = Invoke-RestMethod -Uri $WEBHOOK_URL -Method POST -Body $json -ContentType "application/json" -Headers $headers        Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Datos enviados - Puntuacion: $($datos.puntuacion_seguridad)/100"
+        $response = Invoke-RestMethod -Uri $WEBHOOK_URL -Method POST -Body $json -ContentType "application/json; charset=utf-8" -Headers $headers
+        Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Datos enviados - Puntuacion: $($datos.puntuacion_seguridad)/100"
         return $true
     } catch {
         Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Error: $_"
