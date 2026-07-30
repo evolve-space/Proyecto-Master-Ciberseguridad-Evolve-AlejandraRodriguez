@@ -78,6 +78,38 @@ if authentication_status == False:
 if authentication_status is None:
     st.stop()
 
+# ── Verificacion MFA ──────────────────────────────────────────────────────────
+try:
+    from mfa import mfa_activo, verificar_codigo, generar_qr_bytes, generar_secreto, guardar_config_mfa, obtener_secreto
+    MFA_DISPONIBLE = True
+except Exception:
+    MFA_DISPONIBLE = False
+
+if MFA_DISPONIBLE and mfa_activo(username):
+    if not st.session_state.get("mfa_verificado"):
+        st.markdown("---")
+        _, col_center, _ = st.columns([1, 2, 1])
+        with col_center:
+            st.markdown("""
+            <div style="background:white;padding:32px;border-radius:12px;
+                        box-shadow:0 4px 20px rgba(0,0,0,0.1);
+                        border-top:3px solid #1a3a6c;text-align:center;">
+                <p style="font-size:1.1rem;font-weight:700;color:#1a3a6c;margin-bottom:8px">
+                    Verificacion MFA
+                </p>
+                <p style="font-size:0.85rem;color:#7f8c8d;margin-bottom:16px">
+                    Introduce el codigo de 6 digitos de tu app autenticadora
+                </p>
+            </div>""", unsafe_allow_html=True)
+            codigo_mfa = st.text_input("Codigo MFA", max_chars=6, placeholder="000000")
+            if st.button("Verificar", type="primary", use_container_width=True):
+                if verificar_codigo(username, codigo_mfa):
+                    st.session_state.mfa_verificado = True
+                    st.rerun()
+                else:
+                    st.error("Codigo incorrecto. Intentalo de nuevo.")
+        st.stop()
+
 notif_file = "/root/asoar/notificaciones.json"
 if os.path.exists(notif_file):
     try:
@@ -217,6 +249,45 @@ with st.sidebar:
     st.markdown("---")
     if st.session_state.get("authentication_status"):
         authenticator.logout("Cerrar sesion", "sidebar", key="logout_sidebar")
+    st.markdown("---")
+    st.markdown("---")
+    with st.expander("Configuracion MFA"):
+        if MFA_DISPONIBLE:
+            activo = mfa_activo(username)
+            st.markdown(f"**Estado:** {'Activo' if activo else 'Inactivo'}")
+            if not activo:
+                if "mfa_secreto_nuevo" not in st.session_state:
+                    if st.button("Activar MFA", key="btn_activar_mfa"):
+                        secreto_nuevo = generar_secreto()
+                        guardar_config_mfa(username, secreto_nuevo, activo=True)
+                        st.session_state.mfa_secreto_nuevo = secreto_nuevo
+                        st.session_state.mostrar_qr = True
+                        st.rerun()
+                if st.session_state.get("mostrar_qr") and "mfa_secreto_nuevo" in st.session_state:
+                    st.markdown("**Escanea este QR con Aegis o Google Authenticator:**")
+                    qr_bytes = generar_qr_bytes(username, st.session_state.mfa_secreto_nuevo)
+                    st.image(qr_bytes, width=200)
+                    st.code(st.session_state.mfa_secreto_nuevo)
+                    st.warning("Guarda el secreto antes de cerrar.")
+            if activo:
+                if st.session_state.get("mostrar_qr") and "mfa_secreto_nuevo" in st.session_state:
+                    st.markdown("**QR de configuracion:**")
+                    qr_bytes = generar_qr_bytes(username, st.session_state.mfa_secreto_nuevo)
+                    st.image(qr_bytes, width=200)
+                    st.code(st.session_state.mfa_secreto_nuevo)
+                    st.warning("Guarda el secreto antes de cerrar.")
+                    if st.button("He escaneado el QR", key="btn_qr_ok"):
+                        st.session_state.pop("mfa_secreto_nuevo", None)
+                        st.session_state.pop("mostrar_qr", None)
+                        st.rerun()
+                if st.button("Desactivar MFA", key="btn_desactivar_mfa"):
+                    guardar_config_mfa(username, obtener_secreto(username), activo=False)
+                    st.session_state.pop("mfa_verificado", None)
+                    st.session_state.pop("mfa_secreto_nuevo", None)
+                    st.session_state.pop("mostrar_qr", None)
+                    st.rerun()
+        else:
+            st.info("MFA no disponible.")
     st.markdown("---")
     st.markdown(f"**Sesion:** `{hora_local().strftime('%d/%m/%Y %H:%M')}`")
     if st.button("Actualizar datos", key="btn_actualizar"):
