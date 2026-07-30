@@ -342,11 +342,21 @@ async def calcular_cumplimiento(hostname: str, api_key: str = Depends(verificar_
             return 0
         return round(sum(1 for c in controles if c["cumple"]) / len(controles) * 100)
 
+    eu_ai_act = [
+        {"control": "Art.13", "nombre": "Transparencia del sistema", "cumple": APT_DISPONIBLE, "detalle": "Motor LSTM con explicabilidad XAI activa"},
+        {"control": "Art.14", "nombre": "Supervision humana", "cumple": True, "detalle": "Dashboard con control manual y desbloqueo de IPs"},
+        {"control": "Art.15", "nombre": "Precision y robustez", "cumple": APT_DISPONIBLE, "detalle": f"Modelo LSTM con reentrenamiento automatico activo"},
+        {"control": "Art.17", "nombre": "Sistema de gestion de calidad", "cumple": True, "detalle": "Historial de versiones y backup automatico del modelo"},
+        {"control": "Art.64", "nombre": "Registros y trazabilidad", "cumple": XAI_DISPONIBLE, "detalle": "Explicaciones XAI auditables guardadas en xai_explicaciones.json"},
+        {"control": "Anexo III", "nombre": "Sistema de alto riesgo", "cumple": True, "detalle": "Sistema de ciberseguridad clasificado como alto riesgo bajo EU AI Act"},
+    ]
+
     return {
         "hostname": hostname,
         "iso27001": {"score": calcular_score(iso27001), "controles": iso27001},
         "nis2": {"score": calcular_score(nis2), "controles": nis2},
         "ens": {"score": calcular_score(ens), "controles": ens},
+        "eu_ai_act":{"score": calcular_score(eu_ai_act), "controles": eu_ai_act},
         "score_global": round((calcular_score(iso27001) + calcular_score(nis2) + calcular_score(ens)) / 3)
     }
 

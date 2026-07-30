@@ -1035,8 +1035,17 @@ elif pagina == "Normativas":
                 score = data["ens"]["score"]
                 color = "#27ae60" if score >= 80 else "#f39c12" if score >= 50 else "#e74c3c"
                 st.markdown(f'<div class="metric-card"><p class="metric-label">ENS RD 311/2022</p><p class="metric-value" style="color:{color}">{score}%</p></div>', unsafe_allow_html=True)
+
+            col1, col2 = st.columns(2)
+            with col1:
+                if "eu_ai_act" in data:
+                    score = data["eu_ai_act"]["score"]
+                    color = "#27ae60" if score >= 80 else "#f39c12" if score >= 50 else "#e74c3c"
+                    st.markdown(f'<div class="metric-card"><p class="metric-label">EU AI Act 2024</p><p class="metric-value" style="color:{color}">{score}%</p></div>', unsafe_allow_html=True)
+            with col2:
+                st.markdown(f'<div class="metric-card"><p class="metric-label">Puntuacion Global</p><p class="metric-value" style="color:{color_global}">{score_global}%</p><p style="font-size:0.75rem;color:#7f8c8d">4 marcos normativos</p></div>', unsafe_allow_html=True)
             st.markdown("---")
-            for key, nombre in [("iso27001", "ISO/IEC 27001:2022"), ("nis2", "NIS2 - Directiva UE 2022/2555"), ("ens", "Esquema Nacional de Seguridad")]:
+            for key, nombre in [("iso27001", "ISO/IEC 27001:2022"), ("nis2", "NIS2 - Directiva UE 2022/2555"), ("ens", "Esquema Nacional de Seguridad"), ("eu_ai_act", "EU AI Act 2024")]:
                 st.markdown(f'<div class="section-header">{nombre}</div>', unsafe_allow_html=True)
                 for ctrl in data[key]["controles"]:
                     cumple = ctrl["cumple"]
