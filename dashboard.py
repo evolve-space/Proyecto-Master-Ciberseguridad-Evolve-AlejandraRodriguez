@@ -7,6 +7,7 @@ import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import subprocess
 import os
+import sys
 import streamlit_authenticator as stauth
 from dotenv import load_dotenv
 load_dotenv()
@@ -79,10 +80,12 @@ if authentication_status is None:
     st.stop()
 
 # ── Verificacion MFA ──────────────────────────────────────────────────────────
+sys.path.insert(0, '/root/asoar')
 try:
     from mfa import mfa_activo, verificar_codigo, generar_qr_bytes, generar_secreto, guardar_config_mfa, obtener_secreto
     MFA_DISPONIBLE = True
-except Exception:
+except Exception as e:
+    print(f"MFA error: {e}")
     MFA_DISPONIBLE = False
 
 if MFA_DISPONIBLE and mfa_activo(username):
@@ -101,14 +104,199 @@ if MFA_DISPONIBLE and mfa_activo(username):
                     Introduce el codigo de 6 digitos de tu app autenticadora
                 </p>
             </div>""", unsafe_allow_html=True)
-            codigo_mfa = st.text_input("Codigo MFA", max_chars=6, placeholder="000000")
-            if st.button("Verificar", type="primary", use_container_width=True):
-                if verificar_codigo(username, codigo_mfa):
-                    st.session_state.mfa_verificado = True
-                    st.rerun()
-                else:
-                    st.error("Codigo incorrecto. Intentalo de nuevo.")
+            with st.form("form_mfa"):
+                codigo_mfa = st.text_input("Codigo MFA", max_chars=6, placeholder="000000")
+                submitted = st.form_submit_button("Verificar", use_container_width=True, type="primary")
+                if submitted:
+                    if verificar_codigo(username, codigo_mfa):
+                        st.session_state.mfa_verificado = True
+                        st.rerun()
+                    else:
+                        st.error("Codigo incorrecto. Intentalo de nuevo.")
         st.stop()
+
+# ── Wizard MFA ────────────────────────────────────────────────────────────────
+if st.session_state.get("mfa_wizard"):
+    paso = st.session_state.get("mfa_paso", 1)
+    _, col_center, _ = st.columns([1, 2, 1])
+    with col_center:
+        if paso == 1:
+            st.markdown("""
+            <div style="background:white;padding:40px 32px;border-radius:16px;
+                        box-shadow:0 8px 32px rgba(0,0,0,0.15);
+                        border-top:4px solid #1a3a6c;text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:16px">🔐</div>
+                <p style="font-size:1.3rem;font-weight:700;color:#1a3a6c;margin-bottom:12px">
+                    Autenticacion de Doble Factor
+                </p>
+                <p style="font-size:0.95rem;color:#7f8c8d;line-height:1.6;margin-bottom:24px">
+                    Vamos a garantizar la seguridad de tu cuenta activando
+                    la autenticacion de doble factor (2FA). Este proceso
+                    solo tarda 2 minutos.
+                </p>
+                <p style="font-size:0.8rem;color:#bdc3c7;">Paso 1 de 5</p>
+            </div>""", unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("Cancelar", key="mfa_cancel_1", use_container_width=True):
+                    st.session_state.pop("mfa_wizard", None)
+                    st.session_state.pop("mfa_paso", None)
+                    st.rerun()
+            with col2:
+                if st.button("Siguiente →", key="mfa_next_1", use_container_width=True, type="primary"):
+                    st.session_state.mfa_paso = 2
+                    st.rerun()
+
+        elif paso == 2:
+            st.markdown("""
+            <div style="background:white;padding:40px 32px;border-radius:16px;
+                        box-shadow:0 8px 32px rgba(0,0,0,0.15);
+                        border-top:4px solid #1a3a6c;text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:16px">📱</div>
+                <p style="font-size:1.3rem;font-weight:700;color:#1a3a6c;margin-bottom:12px">
+                    Instala la App Autenticadora
+                </p>
+                <p style="font-size:0.9rem;color:#7f8c8d;line-height:1.6;margin-bottom:20px">
+                    Necesitas una aplicacion de autenticacion en tu movil.
+                    Si ya la tienes instalada, pulsa Siguiente.
+                </p>
+                <div style="display:flex;gap:16px;justify-content:center;margin-bottom:20px;">
+                    <a href="https://play.google.com/store/apps/details?id=com.beemdevelopment.aegis"
+                       target="_blank"
+                       style="background:#1a3a6c;color:white;padding:12px 20px;border-radius:8px;
+                              text-decoration:none;font-size:0.85rem;font-weight:600;">
+                        🤖 Android — Aegis
+                    </a>
+                    <a href="https://apps.apple.com/app/google-authenticator/id388497605"
+                       target="_blank"
+                       style="background:#2d6aa0;color:white;padding:12px 20px;border-radius:8px;
+                              text-decoration:none;font-size:0.85rem;font-weight:600;">
+                        🍎 iPhone — Google Auth
+                    </a>
+                </div>
+                <p style="font-size:0.8rem;color:#bdc3c7;">Paso 2 de 5</p>
+            </div>""", unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("← Atrás", key="mfa_back_2", use_container_width=True):
+                    st.session_state.mfa_paso = 1
+                    st.rerun()
+            with col2:
+                if st.button("Siguiente →", key="mfa_next_2", use_container_width=True, type="primary"):
+                    st.session_state.mfa_paso = 3
+                    st.rerun()
+
+        elif paso == 3:
+            st.markdown("""
+            <div style="background:white;padding:40px 32px;border-radius:16px;
+                        box-shadow:0 8px 32px rgba(0,0,0,0.15);
+                        border-top:4px solid #1a3a6c;text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:16px">⚙️</div>
+                <p style="font-size:1.3rem;font-weight:700;color:#1a3a6c;margin-bottom:12px">
+                    Configurar la Cuenta en la Aplicacion
+                </p>
+                <p style="font-size:0.9rem;color:#7f8c8d;line-height:1.6;margin-bottom:20px">
+                    En el siguiente paso vamos a generar un codigo QR unico
+                    para vincular tu cuenta de Noctua Predictive con la
+                    aplicacion autenticadora. Asegurate de tener el movil
+                    a mano antes de continuar.
+                </p>
+                <p style="font-size:0.8rem;color:#bdc3c7;">Paso 3 de 5</p>
+            </div>""", unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("← Atrás", key="mfa_back_3", use_container_width=True):
+                    st.session_state.mfa_paso = 2
+                    st.rerun()
+            with col2:
+                if st.button("Siguiente →", key="mfa_next_3", use_container_width=True, type="primary"):
+                    secreto_nuevo = generar_secreto()
+                    guardar_config_mfa(username, secreto_nuevo, activo=True)
+                    st.session_state.mfa_secreto_nuevo = secreto_nuevo
+                    st.session_state.mfa_paso = 4
+                    st.rerun()
+
+        elif paso == 4:
+            st.markdown("""
+            <div style="background:white;padding:40px 32px;border-radius:16px;
+                        box-shadow:0 8px 32px rgba(0,0,0,0.15);
+                        border-top:4px solid #1a3a6c;text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:8px">📷</div>
+                <p style="font-size:1.3rem;font-weight:700;color:#1a3a6c;margin-bottom:8px">
+                    Digitalizacion del Codigo QR
+                </p>
+                <p style="font-size:0.9rem;color:#7f8c8d;line-height:1.6;margin-bottom:16px">
+                    Usa la aplicacion para escanear el codigo QR,
+                    despues vuelve y selecciona Siguiente.
+                </p>
+            </div>""", unsafe_allow_html=True)
+            if "mfa_secreto_nuevo" in st.session_state:
+                qr_bytes = generar_qr_bytes(username, st.session_state.mfa_secreto_nuevo)
+                _, col_qr, _ = st.columns([1, 2, 1])
+                with col_qr:
+                    st.image(qr_bytes, width=220)
+                st.markdown(f"""
+                <p style="text-align:center;font-size:0.8rem;color:#7f8c8d;margin-top:8px">
+                    O introduce el secreto manualmente:<br>
+                    <code style="background:#f5f6fa;padding:4px 8px;border-radius:4px;
+                                 font-size:0.75rem;color:#1a3a6c">
+                        {st.session_state.mfa_secreto_nuevo}
+                    </code>
+                </p>
+                <p style="text-align:center;font-size:0.75rem;color:#bdc3c7;margin-top:8px">
+                    Paso 4 de 5
+                </p>""", unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("← Atrás", key="mfa_back_4", use_container_width=True):
+                    st.session_state.mfa_paso = 3
+                    st.rerun()
+            with col2:
+                if st.button("Siguiente →", key="mfa_next_4", use_container_width=True, type="primary"):
+                    st.session_state.mfa_paso = 5
+                    st.rerun()
+
+        elif paso == 5:
+            st.markdown("""
+            <div style="background:white;padding:40px 32px;border-radius:16px;
+                        box-shadow:0 8px 32px rgba(0,0,0,0.15);
+                        border-top:4px solid #27ae60;text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:16px">✅</div>
+                <p style="font-size:1.3rem;font-weight:700;color:#1a3a6c;margin-bottom:12px">
+                    Verificacion Final
+                </p>
+                <p style="font-size:0.9rem;color:#7f8c8d;line-height:1.6;margin-bottom:20px">
+                    Introduce el codigo de 6 digitos que aparece en tu
+                    aplicacion autenticadora para completar la configuracion.
+                </p>
+                <p style="font-size:0.8rem;color:#bdc3c7;">Paso 5 de 5</p>
+            </div>""", unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)
+            codigo_verificacion = st.text_input(
+                "Codigo de verificacion", max_chars=6,
+                placeholder="000000", key="mfa_codigo_verify"
+            )
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("← Atrás", key="mfa_back_5", use_container_width=True):
+                    st.session_state.mfa_paso = 4
+                    st.rerun()
+            with col2:
+                if st.button("Activar MFA", key="mfa_activar", use_container_width=True, type="primary"):
+                    if verificar_codigo(username, codigo_verificacion):
+                        st.session_state.pop("mfa_wizard", None)
+                        st.session_state.pop("mfa_paso", None)
+                        st.session_state.pop("mfa_secreto_nuevo", None)
+                        st.session_state.mfa_verificado = True
+                        st.success("MFA activado correctamente.")
+                        st.rerun()
+                    else:
+                        st.error("Codigo incorrecto. Verifica la app e intentalo de nuevo.")
+    st.stop()
 
 notif_file = "/root/asoar/notificaciones.json"
 if os.path.exists(notif_file):
@@ -250,49 +438,10 @@ with st.sidebar:
     if st.session_state.get("authentication_status"):
         authenticator.logout("Cerrar sesion", "sidebar", key="logout_sidebar")
     st.markdown("---")
-    st.markdown("---")
-    with st.expander("Configuracion MFA"):
-        if MFA_DISPONIBLE:
-            activo = mfa_activo(username)
-            st.markdown(f"**Estado:** {'Activo' if activo else 'Inactivo'}")
-            if not activo:
-                if "mfa_secreto_nuevo" not in st.session_state:
-                    if st.button("Activar MFA", key="btn_activar_mfa"):
-                        secreto_nuevo = generar_secreto()
-                        guardar_config_mfa(username, secreto_nuevo, activo=True)
-                        st.session_state.mfa_secreto_nuevo = secreto_nuevo
-                        st.session_state.mostrar_qr = True
-                        st.rerun()
-                if st.session_state.get("mostrar_qr") and "mfa_secreto_nuevo" in st.session_state:
-                    st.markdown("**Escanea este QR con Aegis o Google Authenticator:**")
-                    qr_bytes = generar_qr_bytes(username, st.session_state.mfa_secreto_nuevo)
-                    st.image(qr_bytes, width=200)
-                    st.code(st.session_state.mfa_secreto_nuevo)
-                    st.warning("Guarda el secreto antes de cerrar.")
-            if activo:
-                if st.session_state.get("mostrar_qr") and "mfa_secreto_nuevo" in st.session_state:
-                    st.markdown("**QR de configuracion:**")
-                    qr_bytes = generar_qr_bytes(username, st.session_state.mfa_secreto_nuevo)
-                    st.image(qr_bytes, width=200)
-                    st.code(st.session_state.mfa_secreto_nuevo)
-                    st.warning("Guarda el secreto antes de cerrar.")
-                    if st.button("He escaneado el QR", key="btn_qr_ok"):
-                        st.session_state.pop("mfa_secreto_nuevo", None)
-                        st.session_state.pop("mostrar_qr", None)
-                        st.rerun()
-                if st.button("Desactivar MFA", key="btn_desactivar_mfa"):
-                    guardar_config_mfa(username, obtener_secreto(username), activo=False)
-                    st.session_state.pop("mfa_verificado", None)
-                    st.session_state.pop("mfa_secreto_nuevo", None)
-                    st.session_state.pop("mostrar_qr", None)
-                    st.rerun()
-        else:
-            st.info("MFA no disponible.")
-    st.markdown("---")
-    st.markdown(f"**Sesion:** `{hora_local().strftime('%d/%m/%Y %H:%M')}`")
-    if st.button("Actualizar datos", key="btn_actualizar"):
-        st.cache_data.clear()
-        st.rerun()
+    if st.button("Configurar MFA", key="btn_abrir_mfa", use_container_width=True, type="secondary"):
+        st.session_state.mfa_wizard = True
+        st.session_state.mfa_paso = 1
+        st.rerun()    
 
 alertas_activas = len(df[df["nivel"] >= 10]) if not df.empty else 0
 color_live = "#e74c3c" if alertas_activas > 0 else "#27ae60"
@@ -1015,13 +1164,13 @@ elif pagina == "Normativas":
         if data and "score_global" in data:
             score_global = data["score_global"]
             color_global = "#27ae60" if score_global >= 80 else "#f39c12" if score_global >= 50 else "#e74c3c"
-            col1, col2, col3, col4 = st.columns(4)
+            col1, col2, col3, col4, col5 = st.columns(5)
             with col1:
                 st.markdown(f"""
                 <div class="metric-card">
                     <p class="metric-label">Puntuacion Global</p>
                     <p class="metric-value" style="color:{color_global}">{score_global}%</p>
-                    <p style="font-size:0.75rem;color:#7f8c8d">3 marcos normativos</p>
+                    <p style="font-size:0.75rem;color:#7f8c8d">4 marcos normativos</p>
                 </div>""", unsafe_allow_html=True)
             with col2:
                 score = data["iso27001"]["score"]
@@ -1035,15 +1184,11 @@ elif pagina == "Normativas":
                 score = data["ens"]["score"]
                 color = "#27ae60" if score >= 80 else "#f39c12" if score >= 50 else "#e74c3c"
                 st.markdown(f'<div class="metric-card"><p class="metric-label">ENS RD 311/2022</p><p class="metric-value" style="color:{color}">{score}%</p></div>', unsafe_allow_html=True)
-
-            col1, col2 = st.columns(2)
-            with col1:
+            with col5:
                 if "eu_ai_act" in data:
                     score = data["eu_ai_act"]["score"]
                     color = "#27ae60" if score >= 80 else "#f39c12" if score >= 50 else "#e74c3c"
                     st.markdown(f'<div class="metric-card"><p class="metric-label">EU AI Act 2024</p><p class="metric-value" style="color:{color}">{score}%</p></div>', unsafe_allow_html=True)
-            with col2:
-                st.markdown(f'<div class="metric-card"><p class="metric-label">Puntuacion Global</p><p class="metric-value" style="color:{color_global}">{score_global}%</p><p style="font-size:0.75rem;color:#7f8c8d">4 marcos normativos</p></div>', unsafe_allow_html=True)
             st.markdown("---")
             for key, nombre in [("iso27001", "ISO/IEC 27001:2022"), ("nis2", "NIS2 - Directiva UE 2022/2555"), ("ens", "Esquema Nacional de Seguridad"), ("eu_ai_act", "EU AI Act 2024")]:
                 st.markdown(f'<div class="section-header">{nombre}</div>', unsafe_allow_html=True)
