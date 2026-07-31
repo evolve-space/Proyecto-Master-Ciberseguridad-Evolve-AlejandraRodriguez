@@ -45,6 +45,7 @@ except Exception as e:
 HETZNER_TOKEN = os.getenv("HETZNER_TOKEN")
 HETZNER_FIREWALL_ID = os.getenv("HETZNER_FIREWALL_ID")
 API_KEY = os.getenv("API_KEY")
+ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY", "")
 
 API_KEY_NAME = "X-API-Key"
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=False)
