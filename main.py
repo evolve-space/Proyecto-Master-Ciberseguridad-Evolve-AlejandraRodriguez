@@ -258,9 +258,9 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
     if alerta.simulacion and nivel >= 10:
         decision = "BLOQUEAR"
         if "BLOQUEAR" in decision and ip_atacante != "desconocida":
-            # En simulacion no bloqueamos realmente en Hetzner
-            print(f"[SIMULACION] Bloqueo simulado para IP: {ip_atacante}")
-            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, 
+            bloquear_ip_hetzner(ip_atacante)
+            print(f"[SIMULACION] Bloqueo real en Hetzner para IP: {ip_atacante}")
+            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision,
                     "apt": apt_resultado, "xai": xai_resultado, "lateral": lateral_resultado,
                     "simulacion": True}
     elif nivel >= 10:
