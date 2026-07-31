@@ -19,6 +19,7 @@ HETZNER_TOKEN = os.getenv("HETZNER_TOKEN")
 HETZNER_FIREWALL_ID = os.getenv("HETZNER_FIREWALL_ID")
 API_KEY = os.getenv("API_KEY")
 HEADERS = {"X-API-Key": API_KEY}
+ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY", "")
 
 st.set_page_config(
     page_title="Noctua. — Autonomous Security Operations",
@@ -306,6 +307,11 @@ if os.path.exists(notif_file):
         no_leidas = [n for n in notifs if not n.get("leida")]
         for n in no_leidas:
             st.toast(f"IP bloqueada: {n['ip']}")
+            
+            # Verificar reputacion en AbuseIPDB
+            abuse = consultar_abuseipdb(n['ip'])
+            if abuse.get("score", 0) >= 80:
+                st.toast(f"ALERTA: IP {n['ip']} con reputacion maliciosa {abuse.get('score')}% en AbuseIPDB", icon="🚨")
             n["leida"] = True
         if no_leidas:
             with open(notif_file, "w") as f:
@@ -413,6 +419,33 @@ def cargar_ips_hetzner():
     except:
         pass
     return []
+
+@st.cache_data(ttl=3600)
+def consultar_abuseipdb(ip: str) -> dict:
+    """Consulta la reputacion de una IP en AbuseIPDB."""
+    if not ABUSEIPDB_API_KEY or ip in ["0.0.0.0", "127.0.0.1", ""]:
+        return {}
+    try:
+        r = requests.get(
+            "https://api.abuseipdb.com/api/v2/check",
+            headers={"Key": ABUSEIPDB_API_KEY, "Accept": "application/json"},
+            params={"ipAddress": ip, "maxAgeInDays": 90},
+            timeout=5
+        )
+        if r.status_code == 200:
+            data = r.json().get("data", {})
+            return {
+                "score":        data.get("abuseConfidenceScore", 0),
+                "pais":         data.get("countryCode", ""),
+                "reportes":     data.get("totalReports", 0),
+                "ultimo_reporte": data.get("lastReportedAt", ""),
+                "dominio":      data.get("domain", ""),
+                "isp":          data.get("isp", ""),
+                "es_tor":       data.get("isTor", False),
+            }
+    except Exception:
+        pass
+    return {}
 
 df = cargar_alertas_wazuh()
 ips_bloqueadas = cargar_ips_hetzner()
@@ -646,15 +679,34 @@ elif pagina == "IPs Bloqueadas":
     st.markdown("---")
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.markdown(f'<div class="metric-card danger"><p class="metric-label">IPs Bloqueadas Activas</p><p class="metric-value">{len(ips_bloqueadas)}</p></div>', unsafe_allow_html=True)
-    if ips_bloqueadas:
-        st.markdown('<div class="section-header">Lista de IPs Bloqueadas por ASOAR</div>', unsafe_allow_html=True)
-        df_ips = pd.DataFrame(ips_bloqueadas, columns=["IP Bloqueada"])
-        df_ips["Bloqueada por"] = "ASOAR - Automatico"
-        df_ips["Firewall"] = "asoar-firewall"
-        st.dataframe(df_ips, use_container_width=True, hide_index=True)
-    else:
-        st.info("No hay IPs bloqueadas actualmente por ASOAR.")
+        st.markdown('<div class="section-header">IPs Bloqueadas — Noctua Predictive</div>', unsafe_allow_html=True)
+        if ips_bloqueadas:
+            rows = []
+            for ip in ips_bloqueadas:
+                abuse = consultar_abuseipdb(ip)
+                score = abuse.get("score", 0)
+                if score >= 80:
+                    badge = f'<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% MALICIOSA</span>'
+                    st.toast(f"IP maliciosa detectada: {ip} — Reputacion {score}%", icon="🚨")
+                elif score >= 40:
+                    badge = f'<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% SOSPECHOSA</span>'
+                elif score > 0:
+                    badge = f'<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% BAJA</span>'
+                else:
+                    badge = '<span style="background:#bdc3c7;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem">Desconocida</span>'
+                rows.append({
+                    "IP":        ip,
+                    "Reputacion": score,
+                    "Pais":      abuse.get("pais", "—"),
+                    "ISP":       abuse.get("isp", "—"),
+                    "Reportes":  abuse.get("reportes", 0),
+                    "TOR":       "Si" if abuse.get("es_tor") else "No",
+                    "Bloqueada por": "Noctua Predictive",
+                })
+            df_ips = pd.DataFrame(rows)
+            st.dataframe(df_ips, use_container_width=True, hide_index=True)
+        else:
+            st.info("No hay IPs bloqueadas actualmente.")
     import geoip2.database
     st.markdown('<div class="section-header">Mapa de Origen de Ataques</div>', unsafe_allow_html=True)
     try:
