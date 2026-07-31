@@ -126,7 +126,7 @@ if st.session_state.get("mfa_wizard"):
             <div style="background:white;padding:40px 32px;border-radius:16px;
                         box-shadow:0 8px 32px rgba(0,0,0,0.15);
                         border-top:4px solid #1a3a6c;text-align:center;">
-                <div style="font-size:2.5rem;margin-bottom:16px">🔐</div>
+                <div style="font-size:2.5rem;margin-bottom:16px"></div>
                 <p style="font-size:1.3rem;font-weight:700;color:#1a3a6c;margin-bottom:12px">
                     Autenticacion de Doble Factor
                 </p>
@@ -266,7 +266,7 @@ if st.session_state.get("mfa_wizard"):
             <div style="background:white;padding:40px 32px;border-radius:16px;
                         box-shadow:0 8px 32px rgba(0,0,0,0.15);
                         border-top:4px solid #27ae60;text-align:center;">
-                <div style="font-size:2.5rem;margin-bottom:16px">✅</div>
+                <div style="font-size:2.5rem;margin-bottom:16px"></div>
                 <p style="font-size:1.3rem;font-weight:700;color:#1a3a6c;margin-bottom:12px">
                     Verificacion Final
                 </p>
@@ -305,17 +305,13 @@ if os.path.exists(notif_file):
         with open(notif_file, "r") as f:
             notifs = json.load(f)
         no_leidas = [n for n in notifs if not n.get("leida")]
-        for n in no_leidas:
-            st.toast(f"IP bloqueada: {n['ip']}")
-            
-            # Verificar reputacion en AbuseIPDB
-            abuse = consultar_abuseipdb(n['ip'])
-            if abuse.get("score", 0) >= 80:
-                st.toast(f"ALERTA: IP {n['ip']} con reputacion maliciosa {abuse.get('score')}% en AbuseIPDB", icon="🚨")
-            n["leida"] = True
         if no_leidas:
+            for n in notifs:
+                n["leida"] = True
             with open(notif_file, "w") as f:
                 json.dump(notifs, f, indent=2)
+            for n in no_leidas:
+                st.toast(f"IP bloqueada: {n['ip']}", icon="🔒")
     except:
         pass
 
@@ -687,7 +683,6 @@ elif pagina == "IPs Bloqueadas":
                 score = abuse.get("score", 0)
                 if score >= 80:
                     badge = f'<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% MALICIOSA</span>'
-                    st.toast(f"IP maliciosa detectada: {ip} — Reputacion {score}%", icon="🚨")
                 elif score >= 40:
                     badge = f'<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% SOSPECHOSA</span>'
                 elif score > 0:
@@ -805,7 +800,7 @@ elif pagina == "Simulador de Ataques":
                 "Privilege escalation attempt",
                 "Suspicious outbound connection"
             ])
-        if st.button("Ejecutar Simulacion", key="btn_sim_individual"):
+        if st.button("Ejecutar Simulación", key="btn_sim_individual"):
             with st.spinner("Procesando con IA..."):
                 try:
                     r = requests.post("http://localhost:8000/alerta",
