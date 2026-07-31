@@ -22,7 +22,7 @@ HEADERS = {"X-API-Key": API_KEY}
 ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY", "")
 
 st.set_page_config(
-    page_title="Noctua. — Autonomous Security Operations",
+    page_title="Noctua Predictive. — Autonomous Security Operations",
     page_icon="/root/asoar/static/favicon.png",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -779,7 +779,7 @@ elif pagina == "IPs Bloqueadas":
 # ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "Simulador de Ataques":
     st.markdown("## Simulador de Ataques")
-    st.markdown("Envia alertas de prueba al motor ASOAR y simula campañas APT completas para verificar el funcionamiento del sistema.")
+    st.markdown("Envia alertas de prueba al motor Noctua Predictive y simula campañas APT completas para verificar el funcionamiento del sistema.")
     st.markdown("---")
 
     tab1, tab2 = st.tabs(["Alerta Individual", "Campaña APT Completa"])
@@ -1295,7 +1295,7 @@ elif pagina == "Informes":
             if tipo_informe == "Informe Ejecutivo de Seguridad":
                 elements.append(Paragraph("Resumen Ejecutivo", style_h2))
                 elements.append(Paragraph(
-                    f"Este informe presenta el estado actual de la plataforma Noctua ASOAR. "
+                    f"Este informe presenta el estado actual de la plataforma Noctua Predictive. "
                     f"Se han procesado {len(df)} alertas de seguridad, de las cuales "
                     f"{len(df[df['nivel'] >= 10]) if not df.empty else 0} son de nivel alto o critico. "
                     f"El sistema ha bloqueado automaticamente {len(ips_bloqueadas)} direcciones IP maliciosas.",
@@ -1322,7 +1322,7 @@ elif pagina == "Informes":
                 ]))
                 elements.append(tabla)
             elif tipo_informe == "Informe de IPs Bloqueadas":
-                elements.append(Paragraph("IPs Bloqueadas por ASOAR", style_h2))
+                elements.append(Paragraph("IPs Bloqueadas por Noctua Predictive", style_h2))
                 elements.append(Paragraph(f"El sistema ha bloqueado automaticamente {len(ips_bloqueadas)} IPs identificadas como maliciosas mediante IA.", style_body))
                 elements.append(Spacer(1, 0.3*cm))
                 if ips_bloqueadas:
