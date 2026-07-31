@@ -21,7 +21,7 @@ API_KEY = os.getenv("API_KEY")
 HEADERS = {"X-API-Key": API_KEY}
 
 st.set_page_config(
-    page_title="Noctua Predictive. — Autonomous Security Operations",
+    page_title="Noctua. — Autonomous Security Operations",
     page_icon="/root/asoar/static/favicon.png",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -424,7 +424,7 @@ with st.sidebar:
     st.markdown("---")
     opciones = [
         "Panel General", "Alertas y Eventos", "IPs Bloqueadas",
-        "Endpoints", "Normativas", "Deteccion APT",
+        "Endpoints", "Normativas", "Detección APT",
         "Simulador de Ataques", "Informes", "Estado del Sistema", "About"
     ]
     if "pagina" not in st.session_state:
@@ -439,11 +439,7 @@ with st.sidebar:
     st.markdown("---")
     if st.session_state.get("authentication_status"):
         authenticator.logout("Cerrar sesion", "sidebar", key="logout_sidebar")
-    st.markdown("---")
-    if st.button("Configurar MFA", key="btn_abrir_mfa", use_container_width=True, type="secondary"):
-        st.session_state.mfa_wizard = True
-        st.session_state.mfa_paso = 1
-        st.rerun()    
+    st.markdown("---")   
 
 alertas_activas = len(df[df["nivel"] >= 10]) if not df.empty else 0
 color_live = "#e74c3c" if alertas_activas > 0 else "#27ae60"
@@ -546,7 +542,7 @@ if pagina == "Panel General":
                 <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{campanas_total}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver APT", key="btn_apt", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "Deteccion APT"; st.rerun()
+                st.session_state.pagina = "Detección APT"; st.rerun()
         with col2:
             campanas_24h = estado_apt.get("campanas_24h", 0)
             color = "#e67e22" if campanas_24h > 0 else "#bdc3c7"
@@ -556,7 +552,7 @@ if pagina == "Panel General":
                 <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{campanas_24h}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver ultimas", key="btn_apt_24h", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "Deteccion APT"; st.rerun()
+                st.session_state.pagina = "Deteccóon APT"; st.rerun()
         with col3:
             lateral_total = estado_lateral.get("detecciones_totales", 0)
             color = "#8e44ad" if lateral_total > 0 else "#bdc3c7"
@@ -566,7 +562,7 @@ if pagina == "Panel General":
                 <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{lateral_total}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver lateral", key="btn_lateral", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "Deteccion APT"; st.rerun()
+                st.session_state.pagina = "Detección APT"; st.rerun()
         with col4:
             buffer = estado_apt.get("eventos_en_buffer", 0)
             color = "#2980b9"
@@ -576,7 +572,7 @@ if pagina == "Panel General":
                 <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{buffer}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver motor", key="btn_buffer", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "Deteccion APT"; st.rerun()
+                st.session_state.pagina = "Detección APT"; st.rerun()
         st.markdown("---")
 
         col1, col2 = st.columns(2)
@@ -654,11 +650,11 @@ elif pagina == "IPs Bloqueadas":
     if ips_bloqueadas:
         st.markdown('<div class="section-header">Lista de IPs Bloqueadas por ASOAR</div>', unsafe_allow_html=True)
         df_ips = pd.DataFrame(ips_bloqueadas, columns=["IP Bloqueada"])
-        df_ips["Bloqueada por"] = "Noctua Predictive - Automatico"
+        df_ips["Bloqueada por"] = "ASOAR - Automatico"
         df_ips["Firewall"] = "asoar-firewall"
         st.dataframe(df_ips, use_container_width=True, hide_index=True)
     else:
-        st.info("No hay IPs bloqueadas actualmente por Noctua Predictive.")
+        st.info("No hay IPs bloqueadas actualmente por ASOAR.")
     import geoip2.database
     st.markdown('<div class="section-header">Mapa de Origen de Ataques</div>', unsafe_allow_html=True)
     try:
@@ -736,7 +732,7 @@ elif pagina == "IPs Bloqueadas":
 # ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "Simulador de Ataques":
     st.markdown("## Simulador de Ataques")
-    st.markdown("Envia alertas de prueba al motor Noctua Predictive y simula campañas APT completas para verificar el funcionamiento del sistema.")
+    st.markdown("Envia alertas de prueba al motor ASOAR y simula campañas APT completas para verificar el funcionamiento del sistema.")
     st.markdown("---")
 
     tab1, tab2 = st.tabs(["Alerta Individual", "Campaña APT Completa"])
@@ -898,7 +894,7 @@ elif pagina == "Simulador de Ataques":
                 pass
 
             if st.button("Ver detecciones APT", key="btn_ver_apt"):
-                st.session_state.pagina = "Deteccion APT"
+                st.session_state.pagina = "Detección APT"
                 st.rerun()
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -956,8 +952,8 @@ elif pagina == "Estado del Sistema":
         for nombre, estado in modulos_ia.items():
             badge = f'<span class="badge badge-green">Activo</span>' if estado else f'<span class="badge badge-red">Inactivo</span>'
             st.markdown(f'<div class="service-row"><span>{nombre}</span>{badge}</div>', unsafe_allow_html=True)
-    st.markdown("---")
 
+    st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura Completa del Sistema</div>', unsafe_allow_html=True)
     datos_arq = {
         "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "Hetzner API", "Streamlit"],
@@ -994,6 +990,26 @@ elif pagina == "Estado del Sistema":
     except:
         st.info("No hay historial de reentrenamiento todavia.")
 
+    st.markdown("---")
+    st.markdown('<div class="section-header">Seguridad de la Cuenta</div>', unsafe_allow_html=True)
+    col1, col2 = st.columns([5, 1])
+    with col1:
+        activo_mfa = mfa_activo(username) if MFA_DISPONIBLE else False
+        color_mfa = "#27ae60" if activo_mfa else "#e74c3c"
+        estado_txt = "Activo — cuenta protegida con TOTP" if activo_mfa else "Inactivo"
+        st.markdown(f'<div style="background:white;padding:16px;border-radius:8px;border-left:4px solid {color_mfa};box-shadow:0 2px 6px rgba(0,0,0,0.07);"><p style="font-weight:600;color:#2c3e50;margin-bottom:4px">Autenticacion de Doble Factor (MFA)</p><p style="font-size:0.85rem;color:#7f8c8d;margin:0">Estado: <strong style="color:{color_mfa}">{estado_txt}</strong></p></div>', unsafe_allow_html=True)
+    with col2:
+        st.markdown("<br>", unsafe_allow_html=True)
+        mfa_toggle = st.toggle("", value=activo_mfa, key="toggle_mfa")
+        if mfa_toggle != activo_mfa:
+            if mfa_toggle:
+                st.session_state.mfa_wizard = True
+                st.session_state.mfa_paso = 1
+                st.rerun()
+            else:
+                guardar_config_mfa(username, obtener_secreto(username), activo=False)
+                st.session_state.pop("mfa_verificado", None)
+                st.rerun()
 # ══════════════════════════════════════════════════════════════════════════════
 # ENDPOINTS
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1053,13 +1069,6 @@ elif pagina == "Endpoints":
                 admins = seg.get("usuarios_admin", [])
                 badge = "badge-yellow" if len(admins) > 2 else "badge-green"
                 st.markdown(f'<div class="metric-card"><p class="metric-label">Admins Locales</p><span class="badge {badge}">{len(admins)} usuarios</span></div>', unsafe_allow_html=True)
-                
-            lista_updates = seg.get("lista_actualizaciones", [])
-            if lista_updates:
-                with st.expander(f"Ver {len(lista_updates)} actualizaciones pendientes"):
-                    df_updates = pd.DataFrame(lista_updates)
-                    df_updates.columns = [c.replace("_", " ").title() for c in df_updates.columns]
-                    st.dataframe(df_updates, use_container_width=True, hide_index=True)
             col1, col2 = st.columns(2)
             with col1:
                 cpu = rend.get("cpu_porcentaje", 0)
@@ -1084,63 +1093,7 @@ elif pagina == "Endpoints":
                 with st.expander(f"Puertos en escucha ({len(seg.get('puertos_escucha', []))})"):
                     puertos = seg.get("puertos_escucha", [])
                     if puertos:
-                        # Puertos estandar conocidos
-                        puertos_seguros = {80, 443, 22, 3389, 8080, 8443, 135, 139, 445, 53}
-                        rows = []
-                        for p in puertos:
-                            try:
-                                num = int(p)
-                                if num in puertos_seguros:
-                                    estado = "✓ Estandar"
-                                    color = "#27ae60"
-                                elif num < 1024:
-                                    estado = "⚠ Sistema"
-                                    color = "#f39c12"
-                                else:
-                                    estado = "⚠ No estandar"
-                                    color = "#e74c3c"
-                            except:
-                                estado = "Desconocido"
-                                color = "#bdc3c7"
-                            rows.append({"Puerto": str(p), "Clasificacion": estado})
-
-                        df_puertos = pd.DataFrame(rows)
-                        st.dataframe(df_puertos, use_container_width=True, hide_index=True)
-
-                        # Boton para registrar cierre de puerto
-                        puerto_cerrar = st.selectbox(
-                            "Registrar puerto cerrado",
-                            ["Seleccionar..."] + [str(p) for p in puertos],
-                            key=f"sel_puerto_{hostname}"
-                        )
-                        if puerto_cerrar != "Seleccionar...":
-                            if st.button(f"Registrar cierre de puerto {puerto_cerrar}", key=f"btn_cerrar_{hostname}_{puerto_cerrar}"):
-                                import json
-                                historial_path = "/root/asoar/puertos_cerrados.json"
-                                try:
-                                    with open(historial_path, "r") as f:
-                                        hist = json.load(f)
-                                except:
-                                    hist = []
-                                hist.append({
-                                    "timestamp": hora_local().strftime("%d/%m/%Y %H:%M"),
-                                    "hostname": hostname,
-                                    "puerto": puerto_cerrar,
-                                    "accion": "Cerrado manualmente"
-                                })
-                                with open(historial_path, "w") as f:
-                                    json.dump(hist, f, indent=2)
-                                st.success(f"Puerto {puerto_cerrar} registrado como cerrado")
-
-                        # Historial de puertos cerrados
-                        historial_path = "/root/asoar/puertos_cerrados.json"
-                        if os.path.exists(historial_path):
-                            with open(historial_path, "r") as f:
-                                hist = json.load(f)
-                            hist_host = [h for h in hist if h["hostname"] == hostname]
-                            if hist_host:
-                                st.markdown("**Historial de puertos cerrados:**")
-                                st.dataframe(pd.DataFrame(hist_host), use_container_width=True, hide_index=True)
+                        st.dataframe(pd.DataFrame({"Puerto": [str(p) for p in puertos]}), use_container_width=True, hide_index=True)
             with col_exp2:
                 procesos_sospechosos = seg.get("procesos_sospechosos", [])
                 with st.expander(f"Procesos sospechosos ({len(procesos_sospechosos)})"):
@@ -1262,7 +1215,7 @@ elif pagina == "Informes":
             "Informe Ejecutivo de Seguridad",
             "Informe de IPs Bloqueadas",
             "Informe de Cumplimiento Normativo",
-            "Informe de Deteccion APT"
+            "Informe de Detección APT"
         ])
     with col2:
         try:
@@ -1282,7 +1235,7 @@ elif pagina == "Informes":
             style_body = ParagraphStyle('body', fontSize=10, fontName='Helvetica', textColor=colors.HexColor('#2c3e50'), spaceAfter=6)
             style_small = ParagraphStyle('small', fontSize=8, fontName='Helvetica', textColor=colors.HexColor('#7f8c8d'))
             elements = []
-            elements.append(Paragraph("NOCTUA PREDICTIVE.", style_title))
+            elements.append(Paragraph("NOCTUA.", style_title))
             elements.append(Spacer(1, 0.3*cm))
             elements.append(Paragraph("Autonomous Security Operations Platform", style_subtitle))
             elements.append(Spacer(1, 0.3*cm))
@@ -1295,7 +1248,7 @@ elif pagina == "Informes":
             if tipo_informe == "Informe Ejecutivo de Seguridad":
                 elements.append(Paragraph("Resumen Ejecutivo", style_h2))
                 elements.append(Paragraph(
-                    f"Este informe presenta el estado actual de la plataforma Noctua Predictive. "
+                    f"Este informe presenta el estado actual de la plataforma Noctua ASOAR. "
                     f"Se han procesado {len(df)} alertas de seguridad, de las cuales "
                     f"{len(df[df['nivel'] >= 10]) if not df.empty else 0} son de nivel alto o critico. "
                     f"El sistema ha bloqueado automaticamente {len(ips_bloqueadas)} direcciones IP maliciosas.",
@@ -1328,7 +1281,7 @@ elif pagina == "Informes":
                 if ips_bloqueadas:
                     data_ips = [["IP Bloqueada", "Bloqueada por", "Firewall"]]
                     for ip in ips_bloqueadas:
-                        data_ips.append([ip, "Noctua Predictive - Automatico", "asoar-firewall"])
+                        data_ips.append([ip, "ASOAR - Automatico", "asoar-firewall"])
                     tabla_ips = Table(data_ips, colWidths=[6*cm, 5*cm, 4*cm])
                     tabla_ips.setStyle(TableStyle([
                         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#0f1f35')),
@@ -1369,10 +1322,10 @@ elif pagina == "Informes":
                             elements.append(tabla_ctrl)
                             elements.append(Spacer(1, 0.3*cm))
           
-            elif tipo_informe == "Informe de Deteccion APT":
-                elements.append(Paragraph("Deteccion de Campanas APT", style_h2))
+            elif tipo_informe == "Informe de Detección APT":
+                elements.append(Paragraph("Detección de Campañas APT", style_h2))
                 elements.append(Paragraph(
-                    "Este informe recoge las campanas de Amenazas Persistentes Avanzadas (APT) "
+                    "Este informe recoge las campañas de Amenazas Persistentes Avanzadas (APT) "
                     "detectadas por el motor LSTM de Noctua Predictive, clasificadas segun el "
                     "framework MITRE ATT&CK y con explicaciones XAI generadas automaticamente "
                     "en cumplimiento del Reglamento Europeo de Inteligencia Artificial (EU AI Act 2024).",
@@ -1382,7 +1335,7 @@ elif pagina == "Informes":
                     campanas_pdf = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
                 except:
                     campanas_pdf = []
-                elements.append(Paragraph("Campanas APT Detectadas", style_h2))
+                elements.append(Paragraph("Campañas APT Detectadas", style_h2))
                 if campanas_pdf:
                     data_apt = [["Timestamp", "Fase MITRE", "Confianza", "Riesgo", "IP Origen"]]
                     for c in campanas_pdf[-20:]:
@@ -1405,7 +1358,7 @@ elif pagina == "Informes":
                     ]))
                     elements.append(tabla_apt)
                 else:
-                    elements.append(Paragraph("No se han detectado campanas APT todavia.", style_body))
+                    elements.append(Paragraph("No se han detectado campañas APT todavia.", style_body))
                 elements.append(Spacer(1, 0.4*cm))
                 try:
                     lateral_pdf = requests.get("http://localhost:8000/apt/lateral", headers=HEADERS, timeout=5).json()
@@ -1458,7 +1411,7 @@ elif pagina == "Informes":
             elements.append(Spacer(1, 1*cm))
             elements.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#e0e0e0')))
             elements.append(Spacer(1, 0.2*cm))
-            elements.append(Paragraph(f"Noctua Predictive. — Autonomous Security Operations Platform | {hora_local().strftime('%d/%m/%Y')}", style_small))
+            elements.append(Paragraph(f"Noctua. — Autonomous Security Operations Platform | {hora_local().strftime('%d/%m/%Y')}", style_small))
             doc.build(elements)
             buffer.seek(0)
             st.success("Informe generado correctamente.")
@@ -1469,8 +1422,8 @@ elif pagina == "Informes":
 # ══════════════════════════════════════════════════════════════════════════════
 # DETECCION APT
 # ══════════════════════════════════════════════════════════════════════════════
-elif pagina == "Deteccion APT":
-    st.markdown("## Deteccion de Campanas APT")
+elif pagina == "Detección APT":
+    st.markdown("## Detección de Campañas APT")
     st.markdown("Motor predictivo LSTM con Federated Learning y explicabilidad XAI")
     st.markdown("---")
 
@@ -1497,13 +1450,13 @@ elif pagina == "Deteccion APT":
     with col3:
         st.markdown(f"""
         <div class="metric-card" style="border-top:3px solid #e74c3c;">
-            <p class="metric-label">Campanas Totales</p>
+            <p class="metric-label">Campañas Totales</p>
             <p style="font-size:2rem;font-weight:700;color:#e74c3c;">{estado.get("campanas_totales", 0)}</p>
         </div>""", unsafe_allow_html=True)
     with col4:
         st.markdown(f"""
         <div class="metric-card" style="border-top:3px solid #f39c12;">
-            <p class="metric-label">Campanas 24h</p>
+            <p class="metric-label">Campañas 24h</p>
             <p style="font-size:2rem;font-weight:700;color:#f39c12;">{estado.get("campanas_24h", 0)}</p>
         </div>""", unsafe_allow_html=True)
 
@@ -1686,7 +1639,7 @@ elif pagina == "Deteccion APT":
 
     st.markdown("---")
 
-    st.markdown('<div class="section-header">Campanas APT Detectadas</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">Campañas APT Detectadas</div>', unsafe_allow_html=True)
     try:
         campanas = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
     except:
@@ -1759,15 +1712,15 @@ elif pagina == "Deteccion APT":
                     st.info("Fase inicial de posible campana APT")
 
     else:
-        st.info("No se han detectado campanas APT todavia. El sistema esta monitorizando activamente.")
+        st.info("No se han detectado campañas APT todavia. El sistema esta monitorizando activamente.")
         st.markdown("""
         <div style="background:#f5f6fa;padding:16px;border-radius:8px;
                     border-left:3px solid #27ae60;margin-top:8px;">
             <p style="font-size:0.9rem;color:#2c3e50;margin:0">
                 El motor LSTM analiza cada alerta recibida y acumula eventos en un buffer
                 deslizante de 32 posiciones. Cuando detecta una secuencia consistente con
-                una campana APT segun el framework MITRE ATT&CK, registra la campana aqui
-                con su fase, confianza y explicacion XAI.
+                una campana APT segun el framework MITRE ATT&CK, registra la campaña aquí
+                con su fase, confianza y explicación XAI.
             </p>
         </div>""", unsafe_allow_html=True)
 
@@ -1840,7 +1793,7 @@ elif pagina == "About":
         <div class="metric-card">
             <p class="metric-label">Descripcion del Proyecto</p>
             <p style="font-size:0.95rem; color:#2c3e50; line-height:1.7; margin-top:8px">
-                <strong>Noctua Predictive</strong> es un SOC autonomo de deteccion, analisis
+                <strong>Noctua Predictive</strong> es un SOC autonomo de detección, analisis
                 y respuesta ante Amenazas Persistentes Avanzadas (APT) mediante Inteligencia
                 Artificial Federada. A diferencia de los sistemas de ciberseguridad convencionales,
                 que operan de forma reactiva detectando ataques una vez que ya han ocurrido,
@@ -1861,7 +1814,7 @@ elif pagina == "About":
                 <br><br>
                 Desarrollado como Proyecto de Fin de Grado en Ingenieria de Telecomunicaciones,
                 Noctua Predictive representa la primera implementacion practica open source que
-                combina LSTM, Federated Learning, SIEM real y XAI para deteccion de APTs,
+                combina LSTM, Federated Learning, SIEM real y XAI para detección de APTs,
                 cubriendo un gap identificado en la literatura cientifica de IEEE Xplore y
                 ACM Digital Library.
             </p>
@@ -1886,9 +1839,9 @@ elif pagina == "About":
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura del Sistema</div>', unsafe_allow_html=True)
     componentes = [
-        {"Componente": "Wazuh SIEM", "Capa": "Deteccion", "Descripcion": "SIEM/XDR open source de nivel enterprise. Monitoriza eventos de red, sistema y endpoints en tiempo real.", "Tecnologia": "Python / C"},
+        {"Componente": "Wazuh SIEM", "Capa": "Detección", "Descripción": "SIEM/XDR open source de nivel enterprise. Monitoriza eventos de red, sistema y endpoints en tiempo real.", "Tecnologia": "Python / C"},
         {"Componente": "Ollama / phi3", "Capa": "Analisis autonomo", "Descripcion": "LLM local para clasificacion autonoma de alertas individuales sin dependencia de servicios externos.", "Tecnologia": "LLM 3.8B"},
-        {"Componente": "LSTM Bidireccional", "Capa": "Prediccion APT", "Descripcion": "Modelo de series temporales que detecta campanas APT completas analizando secuencias de 6h, 24h y 7 dias.", "Tecnologia": "PyTorch"},
+        {"Componente": "LSTM Bidireccional", "Capa": "Prediccion APT", "Descripcion": "Modelo de series temporales que detecta campañas APT completas analizando secuencias de 6h, 24h y 7 dias.", "Tecnologia": "PyTorch"},
         {"Componente": "Federated Learning", "Capa": "Aprendizaje colaborativo", "Descripcion": "Entrena el modelo LSTM entre multiples nodos sin compartir datos. Cada organizacion mantiene su privacidad.", "Tecnologia": "Flower / FedAvg"},
         {"Componente": "Detector Lateral", "Capa": "Correlacion", "Descripcion": "Correlaciona eventos entre agentes para detectar movimiento lateral entre sistemas de la red.", "Tecnologia": "Python"},
         {"Componente": "XAI / SHAP", "Capa": "Explicabilidad", "Descripcion": "Genera explicaciones auditables de cada decision del modelo. Cumple el Reglamento Europeo de IA.", "Tecnologia": "SHAP"},

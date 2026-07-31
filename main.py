@@ -101,7 +101,7 @@ class DatosAgente(BaseModel):
         return v
 
 # ── App ────────────────────────────────────────────────────────────────────────
-app = FastAPI(title="Noctua ASOAR", version="1.0")
+app = FastAPI(title="Noctua Predictive", version="1.0")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
@@ -458,4 +458,4 @@ async def forzar_reentrenamiento(request: Request, api_key: str = Depends(verifi
 
 @app.get("/")
 def health():
-    return {"status": "Noctua ASOAR funcionando", "version": "1.0"}
+    return {"status": "Noctua Predictive funcionando", "version": "1.0"}
