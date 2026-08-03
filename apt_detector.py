@@ -238,7 +238,7 @@ class DetectorAPT:
         # Determinar si es una campana APT activa
         apt_activo = (
             fase not in ["unknown", "reconnaissance"] and
-            confianza > 30.0
+            confianza > 5.0
         ) or (
             fase in ["lateral_movement", "exfiltration", "privilege_escalation"] and
             confianza > 15.0
@@ -255,8 +255,8 @@ class DetectorAPT:
             "agente":        alerta.get("agente", ""),
         }
 
-        # Registrar campana si es activa y critica
-        if apt_activo and nivel_riesgo in ["ALTO", "CRITICO"]:
+        # Registrar campana si es activa
+        if apt_activo:
             self.campanas.append(analisis)
             self._guardar_campanas()
             print(f"[APT DETECTADO] Fase: {fase} | Confianza: {confianza}% | Riesgo: {nivel_riesgo}")
