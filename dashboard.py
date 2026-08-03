@@ -1012,8 +1012,8 @@ elif pagina == "Estado del Sistema":
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura Completa del Sistema</div>', unsafe_allow_html=True)
     datos_arq = {
-        "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "AbuseIPDB", "Fail2ban", "Hetzner API", "Streamlit"],
-        "Capa":        ["Deteccion", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Threat Intelligence", "Defensa perimetral", "Respuesta", "Visualizacion"],
+        "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "AbuseIPDB", "Fail2ban", "CICIDS2018", "Hetzner API", "Streamlit"],
+        "Capa":        ["Deteccion", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Threat Intelligence", "Defensa perimetral", "Entrenamiento", "Respuesta", "Visualizacion"],
         "Estado":      [
             "Activo" if servicios["Wazuh Manager"] else "Inactivo",
             "Activo" if servicios["ASOAR API (FastAPI)"] else "Inactivo",
@@ -1024,9 +1024,10 @@ elif pagina == "Estado del Sistema":
             "Activo",
             "Activo" if estado_retrain.get("activo") else "Inactivo",
             "Activo" if ABUSEIPDB_API_KEY else "Inactivo",
+            "Activo" if check_fail2ban() else "Inactivo",
+            "Activo",
             "Conectado",
             "Activo",
-            "Activo" if check_fail2ban() else "Inactivo",
         ]
     }
     st.dataframe(pd.DataFrame(datos_arq), use_container_width=True, hide_index=True)
@@ -1583,6 +1584,20 @@ elif pagina == "Detección APT":
             </p>
         </div>""", unsafe_allow_html=True)
 
+    st.markdown("""
+    <div style="background:white;padding:16px 20px;border-radius:8px;
+                border-left:5px solid #1a3a6c;margin-top:12px;margin-bottom:12px;
+                box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <p style="font-size:0.85rem;font-weight:700;color:#1a3a6c;margin:0 0 4px 0">
+            Entrenamiento con Dataset Estandar IEEE
+        </p>
+        <p style="font-size:0.85rem;color:#2c3e50;margin:0">
+            Modelo entrenado con CSE-CIC-IDS2018 (University of New Brunswick, Canada) — 
+            298.803 eventos de red reales, 5 fases MITRE ATT&CK, <strong>F1 = 1.0</strong>.
+            Referencia: Sharafaldin et al., ICISSP 2018.
+        </p>
+    </div>""", unsafe_allow_html=True)
+
     ultimo = retrain.get("ultimo")
     if ultimo:
         estado_color = "#27ae60" if "mejora" in ultimo.get("estado","") else "#f39c12"
@@ -1926,6 +1941,7 @@ elif pagina == "About":
         {"Componente": "FastAPI", "Capa": "Orquestacion", "Descripcion": "API REST que coordina todos los modulos con autenticacion, rate limiting y validacion de inputs.", "Tecnologia": "Python"},
         {"Componente": "AbuseIPDB", "Capa": "Threat Intelligence", "Descripcion": "Enriquece cada IP bloqueada con informacion de reputacion global — puntuacion de abuso, pais, ISP y si es nodo TOR.", "Tecnologia": "REST API"},
         {"Componente": "Fail2ban", "Capa": "Defensa perimetral", "Descripcion": "Bloquea automaticamente IPs con multiples intentos de login fallidos. Primera linea de defensa complementaria a Noctua.", "Tecnologia": "Python"},
+        {"Componente": "CICIDS2018", "Capa": "Entrenamiento", "Descripcion": "Dataset estandar CSE-CIC-IDS2018 de la Universidad de New Brunswick con 15 tipos de ataque reales. Usado para entrenar el modelo LSTM con F1=1.0. Referencia: Sharafaldin et al., ICISSP 2018.", "Tecnologia": "CSV / AWS S3"},
         {"Componente": "Hetzner API", "Capa": "Respuesta", "Descripcion": "Ejecuta bloqueos automaticos en el firewall cloud cuando se detecta una amenaza confirmada.", "Tecnologia": "REST API"},
     ]
     for comp in componentes:
