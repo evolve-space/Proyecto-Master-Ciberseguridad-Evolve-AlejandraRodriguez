@@ -416,7 +416,6 @@ def cargar_ips_hetzner():
         pass
     return []
 
-@st.cache_data(ttl=3600)
 def consultar_abuseipdb(ip: str) -> dict:
     """Consulta la reputacion de una IP en AbuseIPDB."""
     if not ABUSEIPDB_API_KEY or ip in ["0.0.0.0", "127.0.0.1", ""]:
@@ -675,33 +674,34 @@ elif pagina == "IPs Bloqueadas":
     st.markdown("---")
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.markdown('<div class="section-header">IPs Bloqueadas — Noctua Predictive</div>', unsafe_allow_html=True)
-        if ips_bloqueadas:
-            rows = []
-            for ip in ips_bloqueadas:
-                abuse = consultar_abuseipdb(ip)
-                score = abuse.get("score", 0)
-                if score >= 80:
-                    badge = f'<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% MALICIOSA</span>'
-                elif score >= 40:
-                    badge = f'<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% SOSPECHOSA</span>'
-                elif score > 0:
-                    badge = f'<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% BAJA</span>'
-                else:
-                    badge = '<span style="background:#bdc3c7;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem">Desconocida</span>'
-                rows.append({
-                    "IP":        ip,
-                    "Reputacion": score,
-                    "Pais":      abuse.get("pais", "—"),
-                    "ISP":       abuse.get("isp", "—"),
-                    "Reportes":  abuse.get("reportes", 0),
-                    "TOR":       "Si" if abuse.get("es_tor") else "No",
-                    "Bloqueada por": "Noctua Predictive",
-                })
-            df_ips = pd.DataFrame(rows)
-            st.dataframe(df_ips, use_container_width=True, hide_index=True)
-        else:
-            st.info("No hay IPs bloqueadas actualmente.")
+        st.markdown(f'<div class="metric-card danger"><p class="metric-label">IPs Bloqueadas Activas</p><p class="metric-value">{len(ips_bloqueadas)}</p></div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="section-header">IPs Bloqueadas — Noctua Predictive</div>', unsafe_allow_html=True)
+    if ips_bloqueadas:
+        rows = []
+        for ip in ips_bloqueadas:
+            abuse = consultar_abuseipdb(ip)
+            score = abuse.get("score", 0)
+            if score >= 80:
+                badge = f'<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% MALICIOSA</span>'
+            elif score >= 40:
+                badge = f'<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% SOSPECHOSA</span>'
+            elif score > 0:
+                badge = f'<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% BAJA</span>'
+            else:
+                badge = '<span style="background:#bdc3c7;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem">Desconocida</span>'
+            rows.append({
+                "IP":        ip,
+                "Reputacion": str(score) + "%",
+                "Pais":      abuse.get("pais", "—"),
+                "ISP":       abuse.get("isp", "—"),
+                "Reportes":  str(abuse.get("reportes", 0)),
+                "TOR":       "Si" if abuse.get("es_tor") else "No"
+            })
+        df_ips = pd.DataFrame(rows)
+        st.dataframe(df_ips, use_container_width=True, hide_index=True)
+    else:
+        st.info("No hay IPs bloqueadas actualmente.")
     import geoip2.database
     st.markdown('<div class="section-header">Mapa de Origen de Ataques</div>', unsafe_allow_html=True)
     try:
@@ -734,6 +734,7 @@ elif pagina == "IPs Bloqueadas":
             )
             st.plotly_chart(fig_mapa, use_container_width=True)
             st.markdown('<div class="section-header">Top Paises de Origen</div>', unsafe_allow_html=True)
+            df_mapa["Ataques"] = df_mapa["Ataques"].astype(str)
             st.dataframe(df_mapa, use_container_width=True, hide_index=True)
         else:
             st.info("No se pudo geolocalizar ninguna IP.")
@@ -1003,8 +1004,8 @@ elif pagina == "Estado del Sistema":
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura Completa del Sistema</div>', unsafe_allow_html=True)
     datos_arq = {
-        "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "Hetzner API", "Streamlit"],
-        "Capa":        ["Deteccion", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Respuesta", "Visualizacion"],
+        "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "AbuseIPDB", "Hetzner API", "Streamlit"],
+        "Capa":        ["Deteccion", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Threat Intelligence", "Respuesta", "Visualizacion"],
         "Estado":      [
             "Activo" if servicios["Wazuh Manager"] else "Inactivo",
             "Activo" if servicios["ASOAR API (FastAPI)"] else "Inactivo",
@@ -1014,6 +1015,7 @@ elif pagina == "Estado del Sistema":
             "Activo" if estado_apt.get("modelo_cargado") else "Inactivo",
             "Activo",
             "Activo" if estado_retrain.get("activo") else "Inactivo",
+            "Activo" if ABUSEIPDB_API_KEY else "Inactivo",
             "Conectado",
             "Activo",
         ]
@@ -1466,6 +1468,26 @@ elif pagina == "Informes":
                 file_name=f"noctua_informe_{hora_local().strftime('%Y%m%d_%H%M')}.pdf",
                 mime="application/pdf", type="primary")
 
+    # Exportar campañas APT a CSV
+    st.markdown("---")
+    st.markdown("### Exportar datos de Campañas APT a CSV")
+    try:
+        campanas_csv = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
+        if campanas_csv:
+            df_csv = pd.DataFrame(campanas_csv)
+            csv = df_csv.to_csv(index=False).encode('utf-8')
+            st.download_button(
+                label="Exportar datos de Campañas APT a CSV",
+                data=csv,
+                file_name=f"campanas_apt_{hora_local().strftime('%Y%m%d_%H%M')}.csv",
+                mime="text/csv",
+                key="btn_export_apt_csv"
+            )
+        else:
+            st.info("No hay campañas APT para exportar.")
+    except:
+        st.info("No hay campañas APT para exportar.")
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DETECCION APT
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1886,16 +1908,23 @@ elif pagina == "About":
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura del Sistema</div>', unsafe_allow_html=True)
     componentes = [
-        {"Componente": "Wazuh SIEM", "Capa": "Detección", "Descripción": "SIEM/XDR open source de nivel enterprise. Monitoriza eventos de red, sistema y endpoints en tiempo real.", "Tecnologia": "Python / C"},
+        {"Componente": "Wazuh SIEM", "Capa": "Detección", "Descripcion": "SIEM/XDR open source de nivel enterprise. Monitoriza eventos de red, sistema y endpoints en tiempo real.", "Tecnologia": "Python / C"},
         {"Componente": "Ollama / phi3", "Capa": "Analisis autonomo", "Descripcion": "LLM local para clasificacion autonoma de alertas individuales sin dependencia de servicios externos.", "Tecnologia": "LLM 3.8B"},
         {"Componente": "LSTM Bidireccional", "Capa": "Prediccion APT", "Descripcion": "Modelo de series temporales que detecta campañas APT completas analizando secuencias de 6h, 24h y 7 dias.", "Tecnologia": "PyTorch"},
         {"Componente": "Federated Learning", "Capa": "Aprendizaje colaborativo", "Descripcion": "Entrena el modelo LSTM entre multiples nodos sin compartir datos. Cada organizacion mantiene su privacidad.", "Tecnologia": "Flower / FedAvg"},
         {"Componente": "Detector Lateral", "Capa": "Correlacion", "Descripcion": "Correlaciona eventos entre agentes para detectar movimiento lateral entre sistemas de la red.", "Tecnologia": "Python"},
         {"Componente": "XAI / SHAP", "Capa": "Explicabilidad", "Descripcion": "Genera explicaciones auditables de cada decision del modelo. Cumple el Reglamento Europeo de IA.", "Tecnologia": "SHAP"},
         {"Componente": "FastAPI", "Capa": "Orquestacion", "Descripcion": "API REST que coordina todos los modulos con autenticacion, rate limiting y validacion de inputs.", "Tecnologia": "Python"},
+        {"Componente": "AbuseIPDB", "Capa": "Threat Intelligence", "Descripcion": "Enriquece cada IP bloqueada con informacion de reputacion global — puntuacion de abuso, pais, ISP y si es nodo TOR.", "Tecnologia": "REST API"},
         {"Componente": "Hetzner API", "Capa": "Respuesta", "Descripcion": "Ejecuta bloqueos automaticos en el firewall cloud cuando se detecta una amenaza confirmada.", "Tecnologia": "REST API"},
     ]
-    st.dataframe(pd.DataFrame(componentes), use_container_width=True, hide_index=True)
+    for comp in componentes:
+        with st.expander(f"{comp['Componente']} — {comp['Capa']}"):
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                st.markdown(f"<p style='color:#2c3e50;font-size:0.9rem'>{comp['Descripcion']}</p>", unsafe_allow_html=True)
+            with col2:
+                st.markdown(f"<span style='background:#f5f6fa;padding:4px 8px;border-radius:4px;font-size:0.8rem;color:#1a3a6c;font-weight:600'>{comp['Tecnologia']}</span>", unsafe_allow_html=True)
     st.markdown("---")
     st.markdown('<div class="section-header">Framework MITRE ATT&CK — Fases Detectadas</div>', unsafe_allow_html=True)
     fases = [
