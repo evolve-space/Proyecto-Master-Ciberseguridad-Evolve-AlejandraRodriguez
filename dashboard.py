@@ -962,12 +962,20 @@ elif pagina == "Estado del Sistema":
         except:
             return False
 
+    def check_fail2ban():
+        try:
+            result = subprocess.run(["fail2ban-client", "status"], capture_output=True, text=True, timeout=5)
+            return result.returncode == 0
+        except:
+            return False
+
     servicios = {
-        "ASOAR API (FastAPI)":  check_service("http://localhost:8000/"),
+        "ASOAR API (FastAPI)":  check_service("http://localhost:8000/apt/estado"),
         "Ollama / phi3":        check_service("http://localhost:11434/api/tags"),
         "Wazuh Manager":        True,
         "Wazuh Dashboard":      True,
         "Hetzner Firewall":     len(ips_bloqueadas) >= 0,
+        "Fail2ban":             check_fail2ban(),
     }
 
     # Estado modulos APT
@@ -1004,8 +1012,8 @@ elif pagina == "Estado del Sistema":
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura Completa del Sistema</div>', unsafe_allow_html=True)
     datos_arq = {
-        "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "AbuseIPDB", "Hetzner API", "Streamlit"],
-        "Capa":        ["Deteccion", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Threat Intelligence", "Respuesta", "Visualizacion"],
+        "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "AbuseIPDB", "Fail2ban", "Hetzner API", "Streamlit"],
+        "Capa":        ["Deteccion", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Threat Intelligence", "Defensa perimetral", "Respuesta", "Visualizacion"],
         "Estado":      [
             "Activo" if servicios["Wazuh Manager"] else "Inactivo",
             "Activo" if servicios["ASOAR API (FastAPI)"] else "Inactivo",
@@ -1018,6 +1026,7 @@ elif pagina == "Estado del Sistema":
             "Activo" if ABUSEIPDB_API_KEY else "Inactivo",
             "Conectado",
             "Activo",
+            "Activo" if check_fail2ban() else "Inactivo",
         ]
     }
     st.dataframe(pd.DataFrame(datos_arq), use_container_width=True, hide_index=True)
@@ -1916,6 +1925,7 @@ elif pagina == "About":
         {"Componente": "XAI / SHAP", "Capa": "Explicabilidad", "Descripcion": "Genera explicaciones auditables de cada decision del modelo. Cumple el Reglamento Europeo de IA.", "Tecnologia": "SHAP"},
         {"Componente": "FastAPI", "Capa": "Orquestacion", "Descripcion": "API REST que coordina todos los modulos con autenticacion, rate limiting y validacion de inputs.", "Tecnologia": "Python"},
         {"Componente": "AbuseIPDB", "Capa": "Threat Intelligence", "Descripcion": "Enriquece cada IP bloqueada con informacion de reputacion global — puntuacion de abuso, pais, ISP y si es nodo TOR.", "Tecnologia": "REST API"},
+        {"Componente": "Fail2ban", "Capa": "Defensa perimetral", "Descripcion": "Bloquea automaticamente IPs con multiples intentos de login fallidos. Primera linea de defensa complementaria a Noctua.", "Tecnologia": "Python"},
         {"Componente": "Hetzner API", "Capa": "Respuesta", "Descripcion": "Ejecuta bloqueos automaticos en el firewall cloud cuando se detecta una amenaza confirmada.", "Tecnologia": "REST API"},
     ]
     for comp in componentes:
