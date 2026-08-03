@@ -1470,14 +1470,14 @@ elif pagina == "Informes":
 
     # Exportar campañas APT a CSV
     st.markdown("---")
-    st.markdown("### Exportar datos de Campañas APT a CSV")
+    st.markdown("### Exportar datos de Campañas APT")
     try:
         campanas_csv = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
         if campanas_csv:
             df_csv = pd.DataFrame(campanas_csv)
             csv = df_csv.to_csv(index=False).encode('utf-8')
             st.download_button(
-                label="Exportar datos de Campañas APT a CSV",
+                label="Exportar datos a CSV",
                 data=csv,
                 file_name=f"campanas_apt_{hora_local().strftime('%Y%m%d_%H%M')}.csv",
                 mime="text/csv",
