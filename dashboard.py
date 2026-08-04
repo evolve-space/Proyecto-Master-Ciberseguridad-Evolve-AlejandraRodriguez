@@ -453,7 +453,7 @@ with st.sidebar:
     opciones = [
         "Panel General", "Alertas y Eventos", "IPs Bloqueadas",
         "Endpoints", "Normativas", "Detección APT",
-        "Simulador de Ataques", "Informes", "Estado del Sistema", "About"
+        "Simulador de Ataques", "Informes", "Estado del Sistema", "Análisis Forense", "About"
     ]
     if "pagina" not in st.session_state:
         st.session_state.pagina = "Panel General"
@@ -1873,6 +1873,273 @@ elif pagina == "Detección APT":
         st.plotly_chart(fig, use_container_width=True)
     else:
         st.info("La importancia global de features se calculara tras las primeras detecciones APT.")
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ANALISIS FORENSE
+# ══════════════════════════════════════════════════════════════════════════════
+elif pagina == "Análisis Forense":
+    st.markdown("## Análisis Forense de Incidentes")
+    st.markdown("Reconstrucción cronológica de incidentes, correlación de evidencias y exportación de informes con cadena de custodia.")
+    st.markdown("---")
+
+    # ── Busqueda de incidente ──────────────────────────────────────────────
+    st.markdown('<div class="section-header">Busqueda de Incidente</div>', unsafe_allow_html=True)
+    col1, col2 = st.columns([4, 1])
+    with col1:
+        ip_forense = st.text_input("IP a investigar", placeholder="Ej: 185.220.101.45")
+    with col2:
+        st.markdown("<br>", unsafe_allow_html=True)
+        buscar = st.button("Investigar IP", type="primary", use_container_width=True)
+
+    if buscar and ip_forense:
+        st.markdown("---")
+        st.markdown(f"### Investigación forense: `{ip_forense}`")
+
+        # ── 1. Alertas Wazuh relacionadas ──────────────────────────────────
+        st.markdown('<div class="section-header">Eventos Wazuh Detectados</div>', unsafe_allow_html=True)
+        df_ip = df[df["ip"] == ip_forense].copy() if not df.empty else pd.DataFrame()
+        if not df_ip.empty:
+            df_ip["timestamp"] = df_ip["timestamp"].dt.strftime("%d/%m/%Y %H:%M:%S")
+            df_ip = df_ip[["timestamp","tipo","nivel","agente","accion"]].copy()
+            df_ip.columns = ["Timestamp","Tipo de Evento","Nivel","Agente","Accion"]
+            st.dataframe(df_ip, use_container_width=True, hide_index=True)
+            st.markdown(f"**{len(df_ip)} eventos detectados por Wazuh**")
+        else:
+            st.info("No se encontraron eventos Wazuh para esta IP.")
+
+        # ── 2. Campanas APT relacionadas ───────────────────────────────────
+        st.markdown('<div class="section-header">Campanas APT Asociadas</div>', unsafe_allow_html=True)
+        try:
+            campanas = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
+            campanas_ip = [c for c in campanas if c.get("ip") == ip_forense]
+            if campanas_ip:
+                df_camp = pd.DataFrame(campanas_ip)
+                df_camp["timestamp"] = pd.to_datetime(df_camp["timestamp"]).dt.strftime("%d/%m/%Y %H:%M")
+                st.dataframe(df_camp[["timestamp","fase_mitre","confianza","nivel_riesgo","n_eventos"]], 
+                           use_container_width=True, hide_index=True)
+            else:
+                st.info("No se detectaron campanas APT para esta IP.")
+        except:
+            st.info("No hay datos de campanas APT disponibles.")
+
+        # ── 3. Movimiento lateral relacionado ──────────────────────────────
+        st.markdown('<div class="section-header">Movimiento Lateral Detectado</div>', unsafe_allow_html=True)
+        try:
+            lateral = requests.get("http://localhost:8000/apt/lateral", headers=HEADERS, timeout=5).json()
+            lateral_ip = [l for l in lateral if l.get("ip_origen") == ip_forense]
+            if lateral_ip:
+                for det in lateral_ip:
+                    st.markdown(f"""
+                    <div style="background:white;padding:12px 16px;border-radius:8px;
+                                border-left:4px solid #e74c3c;box-shadow:0 2px 6px rgba(0,0,0,0.07);margin-bottom:8px;">
+                        <p style="font-weight:600;color:#2c3e50;margin:0 0 4px 0">
+                            {det.get('patron','').replace('_',' ').upper()} — {det.get('mitre_tecnica','')}
+                        </p>
+                        <p style="font-size:0.85rem;color:#7f8c8d;margin:0">
+                            Agentes afectados: {' → '.join(det.get('agentes_afectados',[]))} | 
+                            Severidad: {det.get('severidad','')} | 
+                            Confianza: {det.get('confianza',0)}%
+                        </p>
+                    </div>""", unsafe_allow_html=True)
+            else:
+                st.info("No se detectó movimiento lateral para esta IP.")
+        except:
+            st.info("No hay datos de movimiento lateral disponibles.")
+
+        # ── 4. Reputacion AbuseIPDB ────────────────────────────────────────
+        st.markdown('<div class="section-header">Inteligencia de Amenazas — AbuseIPDB</div>', unsafe_allow_html=True)
+        abuse = consultar_abuseipdb(ip_forense)
+        if abuse:
+            col1, col2, col3, col4 = st.columns(4)
+            score = abuse.get("score", 0)
+            color = "#e74c3c" if score >= 80 else "#f39c12" if score >= 40 else "#27ae60"
+            with col1:
+                st.markdown(f"""
+                <div class="metric-card" style="border-top:3px solid {color};">
+                    <p class="metric-label">Puntuacion Abuso</p>
+                    <p style="font-size:2rem;font-weight:700;color:{color};">{score}%</p>
+                </div>""", unsafe_allow_html=True)
+            with col2:
+                st.markdown(f"""
+                <div class="metric-card">
+                    <p class="metric-label">Pais</p>
+                    <p style="font-size:1.5rem;font-weight:700;color:#2c3e50;">{abuse.get("pais","—")}</p>
+                </div>""", unsafe_allow_html=True)
+            with col3:
+                st.markdown(f"""
+                <div class="metric-card">
+                    <p class="metric-label">Reportes Totales</p>
+                    <p style="font-size:1.5rem;font-weight:700;color:#2c3e50;">{abuse.get("reportes",0)}</p>
+                </div>""", unsafe_allow_html=True)
+            with col4:
+                tor = "Sí" if abuse.get("es_tor") else "No"
+                color_tor = "#e74c3c" if abuse.get("es_tor") else "#27ae60"
+                st.markdown(f"""
+                <div class="metric-card" style="border-top:3px solid {color_tor};">
+                    <p class="metric-label">Nodo TOR</p>
+                    <p style="font-size:1.5rem;font-weight:700;color:{color_tor};">{tor}</p>
+                </div>""", unsafe_allow_html=True)
+            st.markdown(f"**ISP:** {abuse.get('isp','—')}")
+        else:
+            st.info("No se pudo obtener información de AbuseIPDB para esta IP.")
+
+        # ── 5. Timeline forense ────────────────────────────────────────────
+        st.markdown('<div class="section-header">Timeline Forense del Incidente</div>', unsafe_allow_html=True)
+        eventos_timeline = []
+
+        if not df_ip.empty:
+            for _, row in df[df["ip"] == ip_forense].iterrows():
+                eventos_timeline.append({
+                    "timestamp": row["timestamp"],
+                    "tipo":      "Wazuh",
+                    "descripcion": row["tipo"],
+                    "nivel":     row["nivel"],
+                    "color":     "#e74c3c" if row["nivel"] >= 12 else "#f39c12" if row["nivel"] >= 10 else "#2980b9"
+                })
+
+        if eventos_timeline:
+            eventos_timeline.sort(key=lambda x: x["timestamp"])
+            for ev in eventos_timeline:
+                ts = ev["timestamp"].strftime("%d/%m/%Y %H:%M:%S") if hasattr(ev["timestamp"], "strftime") else str(ev["timestamp"])
+                st.markdown(f"""
+                <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #f0f0f0;">
+                    <span style="background:{ev['color']};color:white;padding:2px 8px;
+                                border-radius:4px;font-size:0.75rem;font-weight:600;min-width:60px;text-align:center">
+                        N{ev['nivel']}
+                    </span>
+                    <span style="color:#7f8c8d;font-size:0.8rem;min-width:140px">{ts}</span>
+                    <span style="background:#f5f6fa;padding:2px 6px;border-radius:3px;
+                                font-size:0.75rem;color:#1a3a6c;font-weight:600">{ev['tipo']}</span>
+                    <span style="color:#2c3e50;font-size:0.85rem">{ev['descripcion']}</span>
+                </div>""", unsafe_allow_html=True)
+        else:
+            st.info("No hay eventos suficientes para construir el timeline.")
+
+        # ── 6. Exportar informe forense ────────────────────────────────────
+        st.markdown("---")
+        st.markdown('<div class="section-header">Exportar Informe Forense</div>', unsafe_allow_html=True)
+
+        # Generar PDF directamente sin boton intermedio
+        if True:
+            from reportlab.lib.pagesizes import A4
+            from reportlab.lib import colors
+            from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+            from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
+            from reportlab.lib.units import cm
+            import io
+
+            buffer = io.BytesIO()
+            doc = SimpleDocTemplate(buffer, pagesize=A4,
+                                   rightMargin=2*cm, leftMargin=2*cm,
+                                   topMargin=2*cm, bottomMargin=2*cm)
+
+            style_title  = ParagraphStyle('t', fontSize=20, fontName='Helvetica-Bold', textColor=colors.HexColor('#0f1f35'), spaceAfter=6)
+            style_h2     = ParagraphStyle('h2', fontSize=13, fontName='Helvetica-Bold', textColor=colors.HexColor('#1a3a6c'), spaceAfter=8, spaceBefore=16)
+            style_body   = ParagraphStyle('b', fontSize=10, fontName='Helvetica', textColor=colors.HexColor('#2c3e50'), spaceAfter=6)
+            style_small  = ParagraphStyle('s', fontSize=8, fontName='Helvetica', textColor=colors.HexColor('#7f8c8d'))
+
+            elements = []
+            elements.append(Paragraph("NOCTUA PREDICTIVE", style_title))
+            elements.append(Paragraph("Informe Forense de Incidente", ParagraphStyle('st', fontSize=14, fontName='Helvetica', textColor=colors.HexColor('#4a6fa5'), spaceAfter=4)))
+            elements.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#1a3a6c')))
+            elements.append(Spacer(1, 0.3*cm))
+            elements.append(Paragraph(f"IP investigada: {ip_forense}", style_h2))
+            elements.append(Paragraph(f"Fecha del informe: {hora_local().strftime('%d/%m/%Y %H:%M:%S')}", style_small))
+            elements.append(Paragraph(f"Analista: {name}", style_small))
+            elements.append(Spacer(1, 0.5*cm))
+
+            # Reputacion
+            elements.append(Paragraph("Inteligencia de Amenazas", style_h2))
+            if abuse:
+                data_abuse = [
+                    ["Parametro", "Valor"],
+                    ["Puntuacion de abuso", f"{abuse.get('score',0)}%"],
+                    ["Pais de origen", abuse.get("pais","—")],
+                    ["ISP", abuse.get("isp","—")],
+                    ["Reportes totales", str(abuse.get("reportes",0))],
+                    ["Nodo TOR", "Si" if abuse.get("es_tor") else "No"],
+                ]
+                tabla = Table(data_abuse, colWidths=[6*cm, 9*cm])
+                tabla.setStyle(TableStyle([
+                    ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#0f1f35')),
+                    ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                    ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                    ('FONTSIZE', (0,0), (-1,-1), 9),
+                    ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                    ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                    ('PADDING', (0,0), (-1,-1), 6),
+                ]))
+                elements.append(tabla)
+
+            # Eventos Wazuh
+            elements.append(Paragraph("Eventos Wazuh Detectados", style_h2))
+            if not df_ip.empty:
+                data_ev = [["Timestamp", "Tipo", "Nivel", "Accion"]]
+                for _, row in df[df["ip"] == ip_forense].head(20).iterrows():
+                    data_ev.append([
+                        str(row["timestamp"])[:16],
+                        row["tipo"][:50],
+                        str(row["nivel"]),
+                        row["accion"]
+                    ])
+                tabla_ev = Table(data_ev, colWidths=[3.5*cm, 8*cm, 2*cm, 2.5*cm])
+                tabla_ev.setStyle(TableStyle([
+                    ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#1a3a6c')),
+                    ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                    ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                    ('FONTSIZE', (0,0), (-1,-1), 8),
+                    ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                    ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                    ('PADDING', (0,0), (-1,-1), 5),
+                ]))
+                elements.append(tabla_ev)
+            else:
+                elements.append(Paragraph("No se encontraron eventos Wazuh.", style_body))
+
+            # Campanas APT en el PDF
+            elements.append(Paragraph("Campanas APT Detectadas", style_h2))
+            try:
+                campanas_pdf = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
+                campanas_ip_pdf = [c for c in campanas_pdf if c.get("ip") == ip_forense]
+                if campanas_ip_pdf:
+                    data_apt = [["Timestamp", "Fase MITRE", "Confianza", "Riesgo"]]
+                    for c in campanas_ip_pdf:
+                        data_apt.append([
+                            str(c.get("timestamp",""))[:16].replace("T"," "),
+                            c.get("fase_mitre","").replace("_"," ").upper(),
+                            f"{c.get('confianza',0)}%",
+                            c.get("nivel_riesgo","")
+                        ])
+                    tabla_apt = Table(data_apt, colWidths=[4*cm, 5*cm, 3*cm, 3*cm])
+                    tabla_apt.setStyle(TableStyle([
+                        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#0f1f35')),
+                        ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                        ('FONTSIZE', (0,0), (-1,-1), 8),
+                        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                        ('PADDING', (0,0), (-1,-1), 5),
+                    ]))
+                    elements.append(tabla_apt)
+                else:
+                    elements.append(Paragraph("No se detectaron campanas APT.", style_body))
+            except:
+                elements.append(Paragraph("No hay datos de campanas APT.", style_body))
+
+            elements.append(Spacer(1, 1*cm))
+            elements.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#e0e0e0')))
+            elements.append(Paragraph(f"Noctua Predictive — Informe Forense | {hora_local().strftime('%d/%m/%Y')}", style_small))
+
+            doc.build(elements)
+            buffer.seek(0)
+            st.success("Informe forense generado.")
+            st.download_button(
+                label="Descargar Informe Forense PDF",
+                data=buffer,
+                file_name=f"forense_{ip_forense.replace('.','_')}_{hora_local().strftime('%Y%m%d_%H%M')}.pdf",
+                mime="application/pdf",
+                type="primary"
+            )
 
 # ══════════════════════════════════════════════════════════════════════════════
 # ABOUT
