@@ -21,6 +21,31 @@ API_KEY = os.getenv("API_KEY")
 HEADERS = {"X-API-Key": API_KEY}
 ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY", "")
 
+def tabla_oscura(df, **kwargs):
+    kwargs.pop("use_container_width", None)
+    kwargs.pop("hide_index", None)
+    html = df.to_html(index=False, border=0)
+    html = f"""
+    <div style="overflow-x:auto;border-radius:8px;border:1px solid #21262d;margin-bottom:16px;">
+    <style>
+    .noctua-table {{ width:100%;border-collapse:collapse;font-size:13px;font-family:sans-serif; }}
+    .noctua-table th {{
+        background:#010409;color:#8b949e;padding:10px 12px;
+        text-align:left;font-size:11px;text-transform:uppercase;
+        letter-spacing:0.5px;border-bottom:1px solid #21262d;font-weight:600;
+    }}
+    .noctua-table td {{
+        background:#161b22;color:#c9d1d9;padding:8px 12px;
+        border-bottom:1px solid #21262d;
+    }}
+    .noctua-table tr:nth-child(even) td {{ background:#0d1117; }}
+    .noctua-table tr:hover td {{ background:#1c2128; }}
+    </style>
+    {html.replace('<table', '<table class="noctua-table"')}
+    </div>
+    """
+    st.markdown(html, unsafe_allow_html=True)
+
 st.set_page_config(
     page_title="Noctua Predictive. — Autonomous Security Operations",
     page_icon="/root/asoar/static/favicon.png",
@@ -34,7 +59,7 @@ st.markdown("""
     max-width: 420px !important;
     margin: 0 auto !important;
     padding: 32px !important;
-    background: white !important;
+    background: #161b22 !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
     border-top: 3px solid #1a3a6c !important;
@@ -45,6 +70,7 @@ st.markdown("""
 AUTH_USERNAME = os.getenv("AUTH_USERNAME", "admin")
 AUTH_NAME = os.getenv("AUTH_NAME", "Administrador")
 AUTH_PASSWORD = os.getenv("AUTH_PASSWORD", "noctua2026")
+
 
 credentials = {
     "usernames": {
@@ -62,6 +88,103 @@ authenticator = stauth.Authenticate(
     cookie_expiry_days=1
 )
 
+st.markdown("""
+<style>
+    [data-testid="stAppViewContainer"],
+    [data-testid="stMain"],
+    [data-testid="stMainBlockContainer"],
+    .main, .stApp { 
+        background-color: #0d1117 !important; 
+        color-scheme: dark !important;
+    }
+    [data-testid="stHeader"] { background-color: #0d1117 !important; }
+    [data-testid="stForm"] {
+        background: #161b22 !important;
+        border: 1px solid #21262d !important;
+        border-top: 3px solid #388bfd !important;
+        border-radius: 12px !important;
+        padding: 32px !important;
+        max-width: 420px !important;
+        margin: 0 auto !important;
+    }
+    [data-testid="stForm"] * { color: #c9d1d9 !important; }
+    [data-testid="stForm"] input {
+        background: #0d1117 !important;
+        color: #e6edf3 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 6px !important;
+    }
+    [data-testid="stForm"] button {
+        background: #21262d !important;
+        color: #e6edf3 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+        width: 100% !important;
+    }
+    [data-testid="stForm"] button:hover {
+        background: #2d333b !important;
+        border-color: #388bfd !important;
+    }
+    [data-testid="stForm"] button[data-testid="stBaseButton-minimal"] {
+        width: auto !important;
+        padding: 4px 8px !important;
+        background: transparent !important;
+        border: none !important;
+    }
+    [data-testid="stForm"] button[data-testid="stBaseButton-minimal"] {
+        width: auto !important;
+        padding: 4px 8px !important;
+        background: transparent !important;
+        border: none !important;
+    }
+    button[aria-label="Show password text"] {
+        width: 32px !important;
+        height: 32px !important;
+        padding: 4px !important;
+        background: transparent !important;
+        border: none !important;
+        min-height: unset !important;
+    }
+    button[aria-label="Show password text"] svg {
+        width: 16px !important;
+        height: 16px !important;
+        fill: #8b949e !important;
+    }
+    [data-baseweb="base-input"] button {
+        width: 32px !important;
+        height: 32px !important;
+        min-height: unset !important;
+        padding: 4px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    [data-baseweb="base-input"] button svg {
+        width: 16px !important;
+        height: 16px !important;
+        fill: #8b949e !important;
+    }
+    button[aria-label="Show password text"],
+    button[aria-label="Hide password text"] {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        width: 36px !important;
+        min-height: unset !important;
+        height: 36px !important;
+        padding: 6px !important;
+    }
+    button[aria-label="Show password text"] svg,
+    button[aria-label="Hide password text"] svg {
+        fill: #8b949e !important;
+        width: 18px !important;
+        height: 18px !important;
+    }
+    label, p, span { color: #c9d1d9 !important; }
+</style>
+""", unsafe_allow_html=True)
+
 if not st.session_state.get("authentication_status"):
     _, col_center, _ = st.columns([1, 2, 1])
     with col_center:
@@ -74,9 +197,10 @@ name = st.session_state.get("name")
 authentication_status = st.session_state.get("authentication_status")
 username = st.session_state.get("username")
 
-if authentication_status == False:
+if authentication_status is False:
     st.error("Usuario o contrasena incorrectos")
     st.stop()
+
 if authentication_status is None:
     st.stop()
 
@@ -95,7 +219,7 @@ if MFA_DISPONIBLE and mfa_activo(username):
         _, col_center, _ = st.columns([1, 2, 1])
         with col_center:
             st.markdown("""
-            <div style="background:white;padding:32px;border-radius:12px;
+            <div style="background:#161b22;padding:32px;border-radius:12px;
                         box-shadow:0 4px 20px rgba(0,0,0,0.1);
                         border-top:3px solid #1a3a6c;text-align:center;">
                 <p style="font-size:1.1rem;font-weight:700;color:#1a3a6c;margin-bottom:8px">
@@ -123,7 +247,7 @@ if st.session_state.get("mfa_wizard"):
     with col_center:
         if paso == 1:
             st.markdown("""
-            <div style="background:white;padding:40px 32px;border-radius:16px;
+            <div style="background:#161b22;padding:40px 32px;border-radius:16px;
                         box-shadow:0 8px 32px rgba(0,0,0,0.15);
                         border-top:4px solid #1a3a6c;text-align:center;">
                 <div style="font-size:2.5rem;margin-bottom:16px"></div>
@@ -151,7 +275,7 @@ if st.session_state.get("mfa_wizard"):
 
         elif paso == 2:
             st.markdown("""
-            <div style="background:white;padding:40px 32px;border-radius:16px;
+            <div style="background:#161b22;padding:40px 32px;border-radius:16px;
                         box-shadow:0 8px 32px rgba(0,0,0,0.15);
                         border-top:4px solid #1a3a6c;text-align:center;">
                 <div style="font-size:2.5rem;margin-bottom:16px">📱</div>
@@ -191,7 +315,7 @@ if st.session_state.get("mfa_wizard"):
 
         elif paso == 3:
             st.markdown("""
-            <div style="background:white;padding:40px 32px;border-radius:16px;
+            <div style="background:#161b22;padding:40px 32px;border-radius:16px;
                         box-shadow:0 8px 32px rgba(0,0,0,0.15);
                         border-top:4px solid #1a3a6c;text-align:center;">
                 <div style="font-size:2.5rem;margin-bottom:16px">⚙️</div>
@@ -222,7 +346,7 @@ if st.session_state.get("mfa_wizard"):
 
         elif paso == 4:
             st.markdown("""
-            <div style="background:white;padding:40px 32px;border-radius:16px;
+            <div style="background:#161b22;padding:40px 32px;border-radius:16px;
                         box-shadow:0 8px 32px rgba(0,0,0,0.15);
                         border-top:4px solid #1a3a6c;text-align:center;">
                 <div style="font-size:2.5rem;margin-bottom:8px">📷</div>
@@ -242,7 +366,7 @@ if st.session_state.get("mfa_wizard"):
                 st.markdown(f"""
                 <p style="text-align:center;font-size:0.8rem;color:#7f8c8d;margin-top:8px">
                     O introduce el secreto manualmente:<br>
-                    <code style="background:#f5f6fa;padding:4px 8px;border-radius:4px;
+                    <code style="background:#161b22;padding:4px 8px;border-radius:4px;
                                  font-size:0.75rem;color:#1a3a6c">
                         {st.session_state.mfa_secreto_nuevo}
                     </code>
@@ -263,7 +387,7 @@ if st.session_state.get("mfa_wizard"):
 
         elif paso == 5:
             st.markdown("""
-            <div style="background:white;padding:40px 32px;border-radius:16px;
+            <div style="background:#161b22;padding:40px 32px;border-radius:16px;
                         box-shadow:0 8px 32px rgba(0,0,0,0.15);
                         border-top:4px solid #27ae60;text-align:center;">
                 <div style="font-size:2.5rem;margin-bottom:16px"></div>
@@ -316,55 +440,422 @@ if os.path.exists(notif_file):
         pass
 
 st.markdown("""<style>
-    :root { color-scheme: light !important; }
-    html, body, [class*="css"], [data-testid="stAppViewContainer"] {
-        color-scheme: light !important;
-        background-color: #f5f6fa !important;
-        color: #2c3e50 !important;
+    /* ── BASE OSCURA ─────────────────────────────────────────────────────── */
+    :root { color-scheme: dark !important; }
+    html, body, [class*="css"],
+    [data-testid="stAppViewContainer"],
+    [data-testid="stMainBlockContainer"] {
+        color-scheme: dark !important;
+        background-color: #0d1117 !important;
+        color: #e6edf3 !important;
     }
-    [data-testid="stHeader"] { background-color: #f5f6fa !important; }
-    .main, .stApp { background-color: #f5f6fa; }
-    section[data-testid="stSidebar"] { background-color: #ffffff !important; border-right: 1px solid #e0e0e0; }
-    section[data-testid="stSidebar"] * { color: #2c3e50 !important; }
-    section[data-testid="stSidebar"] label { color: #2c3e50 !important; font-weight: 500; }
+    [data-testid="stHeader"]      { background-color: #0d1117 !important; border-bottom: 1px solid #21262d; }
+    [data-testid="stMain"]        { background-color: #0d1117 !important; }
+    .main, .stApp                 { background-color: #0d1117 !important; }
+    [data-testid="block-container"]{ background-color: #0d1117 !important; }
+
+    /* ── SIDEBAR ─────────────────────────────────────────────────────────── */
+    section[data-testid="stSidebar"] {
+        background-color: #010409 !important;
+        border-right: 1px solid #21262d !important;
+    }
+    section[data-testid="stSidebar"] * { color: #8b949e !important; }
+    section[data-testid="stSidebar"] label { color: #8b949e !important; font-weight: 500; }
+
     section[data-testid="stSidebar"] .stButton > button[kind="secondary"] {
-        background: transparent !important; color: #2c3e50 !important;
-        border: 1px solid #e0e0e0 !important; width: 100% !important;
-        text-align: left !important; margin-bottom: 4px !important;
+        background: transparent !important;
+        color: #8b949e !important;
+        border: 1px solid #21262d !important;
+        width: 100% !important;
+        text-align: left !important;
+        margin-bottom: 4px !important;
+        border-radius: 6px !important;
+        transition: all 0.15s ease !important;
     }
-    section[data-testid="stSidebar"] .stButton > button[kind="secondary"] p { color: #2c3e50 !important; }
+    section[data-testid="stSidebar"] .stButton > button[kind="secondary"]:hover {
+        background: #161b22 !important;
+        color: #e6edf3 !important;
+        border-color: #388bfd !important;
+    }
+    section[data-testid="stSidebar"] .stButton > button[kind="secondary"] p { color: #8b949e !important; }
+
     section[data-testid="stSidebar"] .stButton > button[kind="primary"] {
-        background: #1a3a6c !important; color: white !important;
-        border: none !important; width: 100% !important;
-        text-align: left !important; margin-bottom: 4px !important;
+        background: linear-gradient(135deg, #1f6feb, #388bfd) !important;
+        color: white !important;
+        border: none !important;
+        width: 100% !important;
+        text-align: left !important;
+        margin-bottom: 4px !important;
+        border-radius: 6px !important;
+        box-shadow: 0 0 12px rgba(56,139,253,0.3) !important;
     }
     section[data-testid="stSidebar"] .stButton > button[kind="primary"] p { color: white !important; }
-    section[data-testid="stSidebar"] .stButton > button:hover { opacity: 0.85 !important; }
-    .metric-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); margin-bottom: 16px; border-top: 3px solid #2c3e50; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .metric-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.12) !important; }
-    .metric-card.danger  { border-top-color: #e74c3c; }
-    .metric-card.warning { border-top-color: #f39c12; }
-    .metric-card.success { border-top-color: #27ae60; }
-    .metric-card.info    { border-top-color: #2980b9; }
-    .metric-value { font-size: 2rem; font-weight: 700; color: #2c3e50; margin: 4px 0 0 0; animation: fadeInUp 0.5s ease; }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .metric-label { font-size: 0.75rem; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; }
-    .section-header { font-size: 0.8rem; font-weight: 700; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; padding: 16px 0 8px 0; border-bottom: 1px solid #ecf0f1; margin-bottom: 16px; }
-    .badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; }
-    .badge-green  { background: #d5f5e3; color: #1e8449; }
-    .badge-red    { background: #fadbd8; color: #922b21; }
-    .badge-yellow { background: #fef9e7; color: #9a7d0a; }
-    .service-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; color: #2c3e50; }
-    .stButton > button { background: #2c3e50; color: white; border: none; border-radius: 6px; font-weight: 600; }
-    .stButton > button:hover { background: #1a252f; color: white; }
-    @keyframes parpadeo { 0%, 100% { background-color: #fff5f5; } 50% { background-color: #ffd5d5; } }
-    .critica-alert { animation: parpadeo 1.2s infinite; border-top: 3px solid #c0392b !important; border-radius: 8px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); margin-bottom: 16px; }
+    section[data-testid="stSidebar"] .stButton > button:hover { opacity: 0.9 !important; }
+
+    /* ── TIPOGRAFIA GLOBAL ───────────────────────────────────────────────── */
+    h1, h2, h3, h4 { color: #e6edf3 !important; letter-spacing: -0.3px; }
+    p, span, div, li { color: #c9d1d9 !important; }
+    .stMarkdown p  { color: #c9d1d9 !important; }
+
+    /* ── METRIC CARDS ────────────────────────────────────────────────────── */
+    .metric-card {
+        background: #161b22;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        margin-bottom: 16px;
+        border: 1px solid #21262d;
+        border-top: 3px solid #388bfd;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+        border-color: #388bfd !important;
+    }
+    .metric-card.danger  { border-top-color: #f85149; }
+    .metric-card.warning { border-top-color: #d29922; }
+    .metric-card.success { border-top-color: #3fb950; }
+    .metric-card.info    { border-top-color: #388bfd; }
+
+    .metric-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #e6edf3 !important;
+        margin: 6px 0 0 0;
+        animation: fadeInUp 0.5s ease;
+        font-variant-numeric: tabular-nums;
+    }
+    .metric-label {
+        font-size: 0.72rem;
+        color: #8b949e !important;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin: 0;
+        font-weight: 600;
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION HEADER ──────────────────────────────────────────────────── */
+    .section-header {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #388bfd !important;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        padding: 16px 0 8px 0;
+        border-bottom: 1px solid #21262d;
+        margin-bottom: 16px;
+    }
+
+    /* ── BADGES ──────────────────────────────────────────────────────────── */
+    .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 600; }
+    .badge-green  { background: #1a4a2e; color: #3fb950; border: 1px solid #2ea043; }
+    .badge-red    { background: #3d1515; color: #f85149; border: 1px solid #8b1a1a; }
+    .badge-yellow { background: #3d2e00; color: #d29922; border: 1px solid #9e6a03; }
+    .badge-blue   { background: #0d2d6b; color: #79c0ff; border: 1px solid #1f6feb; }
+
+    /* ── SERVICE ROW ─────────────────────────────────────────────────────── */
+    .service-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #21262d;
+        font-size: 0.9rem;
+        color: #c9d1d9 !important;
+    }
+
+    /* ── ALERTA CRITICA ──────────────────────────────────────────────────── */
+    @keyframes parpadeo {
+        0%, 100% { background-color: #1a0a0a; border-color: #f85149; }
+        50%       { background-color: #2d0f0f; border-color: #ff6b6b; }
+    }
+    .critica-alert {
+        animation: parpadeo 1.2s infinite;
+        border-top: 3px solid #f85149 !important;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 20px rgba(248,81,73,0.2);
+        margin-bottom: 16px;
+    }
+
+
+    /* ── BOTONES GLOBALES ────────────────────────────────────────────────── */
+    .stButton > button {
+        background: #21262d !important;
+        color: #e6edf3 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+        transition: all 0.15s ease !important;
+    }
+    .stButton > button:hover {
+        background: #388bfd !important;
+        color: white !important;
+        border-color: #388bfd !important;
+        box-shadow: 0 0 12px rgba(56,139,253,0.4) !important;
+    }
+
+    /* ── INPUTS ──────────────────────────────────────────────────────────── */
     div[data-testid="stForm"] { max-width: 420px !important; margin: 0 auto !important; }
-    input[type="text"], input[type="password"] { border: 1px solid #bdc3c7 !important; border-radius: 6px !important; padding: 8px 12px !important; }
-    input[type="text"]:focus, input[type="password"]:focus { border: 1px solid #1a3a6c !important; box-shadow: 0 0 0 2px rgba(26,58,108,0.15) !important; }
-    div[data-baseweb="input"] { border: 1px solid #bdc3c7 !important; border-radius: 6px !important; }
-    div[data-baseweb="base-input"]:hover { border: 1px solid #1a3a6c !important; }
+    input[type="text"], input[type="password"] {
+        background: #161b22 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 6px !important;
+        color: #e6edf3 !important;
+        padding: 8px 12px !important;
+    }
+    input[type="text"]:focus, input[type="password"]:focus {
+        border: 1px solid #388bfd !important;
+        box-shadow: 0 0 0 3px rgba(56,139,253,0.15) !important;
+        outline: none !important;
+    }
+    div[data-baseweb="input"] {
+        background: #161b22 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 6px !important;
+    }
+    div[data-baseweb="base-input"]:hover { border-color: #388bfd !important; }
+
+    /* ── TABLAS STREAMLIT ────────────────────────────────────────────────── */
+    [data-testid="stDataFrame"] table,
+    .stDataFrame table {
+        background: #161b22 !important;
+        color: #c9d1d9 !important;
+        border: 1px solid #21262d !important;
+    }
+    [data-testid="stDataFrame"] th {
+        background: #010409 !important;
+        color: #8b949e !important;
+        border-bottom: 1px solid #21262d !important;
+        font-size: 0.75rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+    }
+    [data-testid="stDataFrame"] td {
+        border-bottom: 1px solid #21262d !important;
+        color: #c9d1d9 !important;
+    }
+    [data-testid="stDataFrame"] tr:hover td { background: #1c2128 !important; }
+
+    /* ── EXPANDERS ───────────────────────────────────────────────────────── */
+    [data-testid="stExpander"] {
+        background: #161b22 !important;
+        border: 1px solid #21262d !important;
+        border-radius: 8px !important;
+    }
+    [data-testid="stExpander"] summary {
+        color: #c9d1d9 !important;
+        font-weight: 600 !important;
+    }
+    [data-testid="stExpander"] summary:hover { color: #388bfd !important; }
+
+    /* ── SELECTBOX / MULTISELECT ─────────────────────────────────────────── */
+    [data-baseweb="select"] > div {
+        background: #161b22 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 6px !important;
+        color: #e6edf3 !important;
+    }
+    [data-baseweb="select"] span { color: #e6edf3 !important; }
+    [data-baseweb="menu"] { background: #161b22 !important; border: 1px solid #30363d !important; }
+    [data-baseweb="option"]:hover { background: #1f6feb !important; }
+
+    /* ── TABS ────────────────────────────────────────────────────────────── */
+    [data-testid="stTabs"] [data-baseweb="tab-list"] {
+        background: transparent !important;
+        border-bottom: 1px solid #21262d !important;
+        gap: 4px !important;
+    }
+    [data-testid="stTabs"] [data-baseweb="tab"] {
+        background: transparent !important;
+        color: #8b949e !important;
+        border-radius: 6px 6px 0 0 !important;
+        font-weight: 500 !important;
+        padding: 8px 16px !important;
+    }
+    [data-testid="stTabs"] [aria-selected="true"] {
+        background: #161b22 !important;
+        color: #e6edf3 !important;
+        border-bottom: 2px solid #388bfd !important;
+    }
+    [data-testid="stTabs"] [data-baseweb="tab"]:hover {
+        color: #e6edf3 !important;
+        background: #1c2128 !important;
+    }
+
+    /* ── MÉTRICAS NATIVAS STREAMLIT ──────────────────────────────────────── */
+    [data-testid="stMetric"] {
+        background: #161b22 !important;
+        border: 1px solid #21262d !important;
+        border-radius: 8px !important;
+        padding: 16px !important;
+    }
+    [data-testid="stMetricValue"] { color: #e6edf3 !important; font-weight: 700 !important; }
+    [data-testid="stMetricLabel"] { color: #8b949e !important; }
+    [data-testid="stMetricDelta"] svg { fill: #3fb950 !important; }
+
+    /* ── SCROLLBAR ───────────────────────────────────────────────────────── */
+    ::-webkit-scrollbar       { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0d1117; }
+    ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #388bfd; }
+
+    /* ── TOASTS / NOTIFICACIONES ─────────────────────────────────────────── */
+    [data-testid="stAlert"] {
+        background: #161b22 !important;
+        border: 1px solid #21262d !important;
+        border-radius: 8px !important;
+        color: #c9d1d9 !important;
+    }
+
+    /* ── GLOW EFFECT EN CARDS CRITICAS ──────────────────────────────────── */
+    .metric-card.danger:hover {
+        box-shadow: 0 0 20px rgba(248,81,73,0.25) !important;
+    }
+    .metric-card.success:hover {
+        box-shadow: 0 0 20px rgba(63,185,80,0.2) !important;
+    }
+
+    /* ── PLOTLY OVERRIDE — ejes y grid oscuros ───────────────────────────── */
+    .js-plotly-plot .plotly .gridlayer path { stroke: #21262d !important; }
+    .js-plotly-plot .plotly text { fill: #8b949e !important; }
+    .js-plotly-plot .plotly .bg { fill: #0d1117 !important; }
+
+    /* ── DATAFRAME HEADERS ───────────────────────────────────────────────── */
+    [data-testid="stDataFrame"] [data-testid="glideDataEditor"] {
+        background-color: #0d1117 !important;
+    }
+    .dvn-scroller { background: #161b22 !important; }
+    [class*="gdg-"] { background: #161b22 !important; color: #c9d1d9 !important; }
+    [class*="gdg-header"] { background: #010409 !important; color: #8b949e !important; }
+
+    /* ── BOTONES PRIMARY EN AZUL ─────────────────────────────────────────── */
+    .main .stButton > button[kind="primary"],
+    .main .stDownloadButton > button {
+        background: linear-gradient(135deg, #1f6feb, #388bfd) !important;
+        color: white !important;
+        border: none !important;
+        box-shadow: 0 0 12px rgba(56,139,253,0.3) !important;
+    }
+    .main .stButton > button[kind="primary"]:hover,
+    .main .stDownloadButton > button:hover {
+        background: linear-gradient(135deg, #388bfd, #58a6ff) !important;
+        box-shadow: 0 0 20px rgba(56,139,253,0.5) !important;
+    }
+
+    /* ── BOTONES SECUNDARIOS CONTENIDO PRINCIPAL ─────────────────────────── */
+    .main .stButton > button[kind="secondary"] {
+        background: #21262d !important;
+        color: #e6edf3 !important;
+        border: 1px solid #30363d !important;
+    }
+    .main .stButton > button[kind="secondary"]:hover {
+        background: #2d333b !important;
+        border-color: #388bfd !important;
+    }
+    /* ── DOWNLOAD BUTTON EN GRIS ─────────────────────────────────────────── */
+    .stDownloadButton > button {
+        background: #21262d !important;
+        color: #e6edf3 !important;
+        border: 1px solid #30363d !important;
+    }
+    .stDownloadButton > button:hover {
+        background: #388bfd !important;
+        border-color: #388bfd !important;
+    }
+
+    /* ── DROPDOWN OPCIONES ───────────────────────────────────────────────── */
+    [data-baseweb="popover"] {
+        background: #161b22 !important;
+        border: 1px solid #21262d !important;
+    }
+    [data-baseweb="menu"] {
+        background: #161b22 !important;
+    }
+    [data-baseweb="option"] {
+        background: #161b22 !important;
+        color: #c9d1d9 !important;
+    }
+    [data-baseweb="option"]:hover {
+        background: #1f6feb !important;
+        color: white !important;
+    }
+    li[role="option"] {
+        background: #161b22 !important;
+        color: #c9d1d9 !important;
+    }
+    li[role="option"]:hover {
+        background: #1f6feb !important;
+        color: white !important;
+    }
+
+    /* ── OJO CONTRASEÑA ─────────────────────────────────────────────────── */
+    button[aria-label="Show password text"],
+    button[aria-label="Hide password text"] {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        width: 36px !important;
+        min-height: unset !important;
+        height: 36px !important;
+        padding: 6px !important;
+    }
+    button[aria-label="Show password text"] svg,
+    button[aria-label="Hide password text"] svg {
+        fill: #8b949e !important;
+        width: 18px !important;
+        height: 18px !important;
+    }
+    button[aria-label="Show password text"]:hover svg,
+    button[aria-label="Hide password text"]:hover svg {
+        fill: #e6edf3 !important;
+    }
+
+    /* ── SPINNER / RECARGA ───────────────────────────────────────────────── */
+    [data-testid="stStatusWidget"] {
+        background: #161b22 !important;
+        color: #c9d1d9 !important;
+        border: 1px solid #21262d !important;
+    }
+    [data-testid="stStatusWidget"] span {
+        color: #c9d1d9 !important;
+    }
+    div[class*="StatusWidget"] {
+        background: #161b22 !important;
+        color: #c9d1d9 !important;
+    }
+    
+    /* ── RUNNING INDICATOR ───────────────────────────────────────────────── */
+    #MainMenu { visibility: hidden !important; }
+    [data-testid="stDecoration"] { display: none !important; }
+    [data-testid="stStatusWidget"] { display: none !important; }
+    
+    /* ── EXPANDER CONTENIDO ──────────────────────────────────────────────── */
+    [data-testid="stExpander"] details {
+        background: #161b22 !important;
+        border: 1px solid #21262d !important;
+    }
+    [data-testid="stExpander"] details div {
+        background: #161b22 !important;
+    }
+    [data-testid="stExpander"] details[open] {
+        background: #161b22 !important;
+    }
+    [data-testid="stExpander"] details[open] > div {
+        background: #161b22 !important;
+    }
+    [data-testid="stExpander"] summary {
+        background: #161b22 !important;
+        color: #c9d1d9 !important;
+    }
+
 </style>""", unsafe_allow_html=True)
+
 
 @st.cache_data(ttl=30)
 def cargar_alertas_wazuh():
@@ -385,7 +876,7 @@ def cargar_alertas_wazuh():
                     "ip": a.get("data", {}).get("srcip", a.get("agent", {}).get("ip", "N/A")),
                     "agente": a.get("agent", {}).get("name", "master").replace("soc-autonomo-master", "Noctua-Server"),
                     "id_regla": str(a.get("rule", {}).get("id", "")),
-                    "accion": "BLOQUEADA" if int(a.get("rule", {}).get("level", 0)) >= 10 else "MONITOREADA"
+                    "accion": "BLOQUEADA" if int(a.get("rule", {}).get("level", 0)) >= 10 else "MONITORIZADA"
                 })
             except:
                 continue
@@ -473,7 +964,7 @@ alertas_activas = len(df[df["nivel"] >= 10]) if not df.empty else 0
 color_live = "#e74c3c" if alertas_activas > 0 else "#27ae60"
 st.markdown(f"""
 <div style="font-size:0.78rem; color:#7f8c8d; margin-bottom:12px; padding:8px 16px;
-            background:white; border-radius:6px; border:1px solid #ecf0f1;
+            background:#161b22; border-radius:6px; border:1px solid #21262d;
             display:flex; justify-content:space-between; align-items:center;
             box-shadow:0 1px 3px rgba(0,0,0,0.05);">
     <div>
@@ -520,13 +1011,13 @@ if pagina == "Panel General":
                 st.session_state.pagina = "Alertas y Eventos"; st.rerun()
         with col2:
             color_alto = "#27ae60" if altas == 0 else "#f39c12"
-            bg_alto = "#f9f9f9" if altas == 0 else "#fffbf0"
+            bg_alto = "#161b22" if altas == 0 else "#1a2a0a"
             st.markdown(f"""
-            <div class="metric-card" style="border-top:3px solid {color_alto}; background:{bg_alto};">
+            <div class="metric-card" style="border-top:3px solid {color_alto}; background:#161b22;">
                 <p class="metric-label">Nivel Alto (10+)</p>
                 <p style="font-size:3rem; font-weight:700; color:{color_alto}; margin:4px 0 0 0;">{altas}</p>
             </div>""", unsafe_allow_html=True)
-            if st.button("Ver nivel alto", key="btn_altas", use_container_width=True, type="secondary"):
+            if st.button("Ver nivel alto", key="btn_altas", use_container_width=True, type="primary"):
                 st.session_state.pagina = "Alertas y Eventos"; st.rerun()
         with col3:
             if criticas > 0:
@@ -545,7 +1036,7 @@ if pagina == "Panel General":
                 st.session_state.pagina = "Alertas y Eventos"; st.rerun()
         with col4:
             st.markdown(f"""
-            <div class="metric-card" style="border-top:3px solid #6c3483; background:#faf5ff;">
+            <div class="metric-card" style="border-top:3px solid #6c3483; background:#161b22;">
                 <p class="metric-label">IPs Bloqueadas</p>
                 <p style="font-size:3rem; font-weight:700; color:#6c3483; margin:4px 0 0 0;">{bloqueadas_count}</p>
             </div>""", unsafe_allow_html=True)
@@ -609,7 +1100,7 @@ if pagina == "Panel General":
             top_tipos = df["tipo"].value_counts().head(8).reset_index()
             top_tipos.columns = ["Tipo", "Count"]
             fig = px.bar(top_tipos, x="Count", y="Tipo", orientation="h", color="Count", color_continuous_scale="Reds")
-            fig.update_layout(plot_bgcolor="white", paper_bgcolor="white", showlegend=False,
+            fig.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117", showlegend=False,
                             coloraxis_showscale=False, margin=dict(l=0,r=0,t=10,b=0), height=300,
                             yaxis_title="", xaxis_title="")
             st.plotly_chart(fig, use_container_width=True)
@@ -618,15 +1109,15 @@ if pagina == "Panel General":
             niveles = df["nivel"].value_counts().sort_index().reset_index()
             niveles.columns = ["Nivel", "Count"]
             fig2 = px.bar(niveles, x="Nivel", y="Count", color="Count", color_continuous_scale="OrRd")
-            fig2.update_layout(plot_bgcolor="white", paper_bgcolor="white", showlegend=False,
+            fig2.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117", showlegend=False,
                              coloraxis_showscale=False, margin=dict(l=0,r=0,t=10,b=0), height=300)
             st.plotly_chart(fig2, use_container_width=True)
         st.markdown('<div class="section-header">Actividad Reciente (Timeline)</div>', unsafe_allow_html=True)
         df_time = df.copy()
         df_time["hora"] = df_time["timestamp"].dt.floor("h")
         timeline = df_time.groupby("hora").size().reset_index(name="alertas")
-        fig3 = px.area(timeline, x="hora", y="alertas", color_discrete_sequence=["#2c3e50"])
-        fig3.update_layout(plot_bgcolor="white", paper_bgcolor="white",
+        fig3 = px.area(timeline, x="hora", y="alertas", color_discrete_sequence=["#388bfd"])
+        fig3.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
                           margin=dict(l=0,r=0,t=10,b=0), height=180,
                           xaxis_title="", yaxis_title="Alertas")
         st.plotly_chart(fig3, use_container_width=True)
@@ -634,7 +1125,7 @@ if pagina == "Panel General":
         df_show = df.head(10)[["timestamp","tipo","ip","nivel","agente","accion"]].copy()
         df_show["timestamp"] = df_show["timestamp"].dt.strftime("%d/%m %H:%M")
         df_show.columns = ["Fecha/Hora","Tipo","IP","Nivel","Agente","Estado"]
-        st.dataframe(df_show, use_container_width=True, hide_index=True)
+        tabla_oscura(df_show, use_container_width=True, hide_index=True)
 
 # ══════════════════════════════════════════════════════════════════════════════
 # ALERTAS Y EVENTOS
@@ -664,7 +1155,7 @@ elif pagina == "Alertas y Eventos":
         df_show = df_f[["timestamp","tipo","ip","nivel","agente","id_regla","accion"]].copy()
         df_show["timestamp"] = df_show["timestamp"].dt.strftime("%d/%m/%Y %H:%M")
         df_show.columns = ["Fecha/Hora","Tipo","IP","Nivel","Agente","Regla","Estado"]
-        st.dataframe(df_show, use_container_width=True, hide_index=True)
+        tabla_oscura(df_show, use_container_width=True, hide_index=True)
 
 # ══════════════════════════════════════════════════════════════════════════════
 # IPs BLOQUEADAS
@@ -699,7 +1190,7 @@ elif pagina == "IPs Bloqueadas":
                 "TOR":       "Si" if abuse.get("es_tor") else "No"
             })
         df_ips = pd.DataFrame(rows)
-        st.dataframe(df_ips, use_container_width=True, hide_index=True)
+        tabla_oscura(df_ips, use_container_width=True, hide_index=True)
     else:
         st.info("No hay IPs bloqueadas actualmente.")
     import geoip2.database
@@ -722,20 +1213,21 @@ elif pagina == "IPs Bloqueadas":
             df_mapa = df_mapa.sort_values("Ataques", ascending=False)
             fig_mapa = px.choropleth(
                 df_mapa, locations="Pais", locationmode="country names",
-                color="Ataques", color_continuous_scale=["#f5f6fa", "#2d6aa0", "#0f1f35"],
+                color="Ataques", color_continuous_scale=["#0d2d6b", "#1f6feb", "#388bfd"],
                 labels={"Ataques": "IPs Bloqueadas"}
             )
             fig_mapa.update_layout(
-                plot_bgcolor="white", paper_bgcolor="white",
+                plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
                 margin=dict(l=0, r=0, t=10, b=0), height=400,
-                geo=dict(showframe=False, showcoastlines=True, coastlinecolor="#ecf0f1",
-                        showland=True, landcolor="#f5f6fa", showocean=True,
-                        oceancolor="#eaf2f8", projection_type="natural earth")
+                geo=dict(showframe=False, showcoastlines=True, coastlinecolor="#30363d",
+                        showland=True, landcolor="#161b22", showocean=True,
+                        oceancolor="#0d1117", projection_type="natural earth",
+                        bgcolor="#0d1117")
             )
             st.plotly_chart(fig_mapa, use_container_width=True)
             st.markdown('<div class="section-header">Top Paises de Origen</div>', unsafe_allow_html=True)
             df_mapa["Ataques"] = df_mapa["Ataques"].astype(str)
-            st.dataframe(df_mapa, use_container_width=True, hide_index=True)
+            tabla_oscura(df_mapa, use_container_width=True, hide_index=True)
         else:
             st.info("No se pudo geolocalizar ninguna IP.")
     except Exception as e:
@@ -752,7 +1244,7 @@ elif pagina == "IPs Bloqueadas":
         if "desbloqueada_en" in df_hist.columns:
             df_hist["desbloqueada_en"] = pd.to_datetime(df_hist["desbloqueada_en"], errors="coerce").dt.strftime("%d/%m/%Y %H:%M")
         df_hist.columns = [c.replace("_", " ").title() for c in df_hist.columns]
-        st.dataframe(df_hist, use_container_width=True, hide_index=True)
+        tabla_oscura(df_hist, use_container_width=True, hide_index=True)
     else:
         st.info("No hay historico de IPs todavia.")
     st.markdown('<div class="section-header">Desbloquear IP</div>', unsafe_allow_html=True)
@@ -829,9 +1321,9 @@ elif pagina == "Simulador de Ataques":
     with tab2:
         st.markdown("### Simular Campaña APT Completa")
         st.markdown("""
-        <div style="background:#f5f6fa;padding:12px 16px;border-radius:8px;
+        <div style="background:#161b22;padding:12px 16px;border-radius:8px;
                     border-left:3px solid #e74c3c;margin-bottom:16px;">
-            <p style="font-size:0.85rem;color:#2c3e50;margin:0">
+            <p style="font-size:0.85rem;color:#c9d1d9;margin:0">
                 Simula una campana APT completa enviando una secuencia de alertas que representan
                 las fases progresivas de un ataque real segun el framework MITRE ATT&CK.
                 El motor LSTM analizara la secuencia y detectara la campana en progreso.
@@ -1030,7 +1522,7 @@ elif pagina == "Estado del Sistema":
             "Activo",
         ]
     }
-    st.dataframe(pd.DataFrame(datos_arq), use_container_width=True, hide_index=True)
+    tabla_oscura(pd.DataFrame(datos_arq), use_container_width=True, hide_index=True)
 
     st.markdown("---")
     st.markdown('<div class="section-header">Historial de Reentrenamiento</div>', unsafe_allow_html=True)
@@ -1043,7 +1535,7 @@ elif pagina == "Estado del Sistema":
             cols_show = [c for c in ["timestamp","estado","n_ventanas","f1_anterior","f1_nuevo","mejora"] if c in df_retrain.columns]
             df_retrain = df_retrain[cols_show]
             df_retrain.columns = [c.replace("_"," ").title() for c in cols_show]
-            st.dataframe(df_retrain, use_container_width=True, hide_index=True)
+            tabla_oscura(df_retrain, use_container_width=True, hide_index=True)
         else:
             st.info("No hay historial de reentrenamiento todavia.")
     except:
@@ -1056,7 +1548,7 @@ elif pagina == "Estado del Sistema":
         activo_mfa = mfa_activo(username) if MFA_DISPONIBLE else False
         color_mfa = "#27ae60" if activo_mfa else "#e74c3c"
         estado_txt = "Activo — cuenta protegida con TOTP" if activo_mfa else "Inactivo"
-        st.markdown(f'<div style="background:white;padding:16px;border-radius:8px;border-left:4px solid {color_mfa};box-shadow:0 2px 6px rgba(0,0,0,0.07);"><p style="font-weight:600;color:#2c3e50;margin-bottom:4px">Autenticacion de Doble Factor (MFA)</p><p style="font-size:0.85rem;color:#7f8c8d;margin:0">Estado: <strong style="color:{color_mfa}">{estado_txt}</strong></p></div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="background:#161b22;padding:16px;border-radius:8px;border-left:4px solid {color_mfa};box-shadow:0 2px 6px rgba(0,0,0,0.07);"><p style="font-weight:600;color:#2c3e50;margin-bottom:4px">Autenticacion de Doble Factor (MFA)</p><p style="font-size:0.85rem;color:#7f8c8d;margin:0">Estado: <strong style="color:{color_mfa}">{estado_txt}</strong></p></div>', unsafe_allow_html=True)
     with col2:
         st.markdown("<br>", unsafe_allow_html=True)
         mfa_toggle = st.toggle("", value=activo_mfa, key="toggle_mfa")
@@ -1131,35 +1623,85 @@ elif pagina == "Endpoints":
             col1, col2 = st.columns(2)
             with col1:
                 cpu = rend.get("cpu_porcentaje", 0)
+                color_cpu = "#f85149" if cpu > 80 else "#d29922" if cpu > 60 else "#3fb950"
                 fig = go.Figure(go.Indicator(
-                    mode="gauge+number", value=cpu, title={"text": "CPU %"},
-                    gauge={"axis": {"range": [0, 100]},
-                           "bar": {"color": "#e74c3c" if cpu > 80 else "#f39c12" if cpu > 60 else "#27ae60"}}
+                    mode="gauge+number",
+                    value=cpu,
+                    title={"text": "CPU %", "font": {"color": "#8b949e", "size": 20}},
+                    number={"font": {"color": "#e6edf3", "size": 40}},
+                    gauge={
+                        "axis": {"range": [0, 100], "tickcolor": "#388bfd",
+                                "tickfont": {"color": "#8b949e", "size": 12}},
+                        "bar": {"color": "#388bfd", "thickness": 0.5},
+                        "bgcolor": "#161b22",
+                        "bordercolor": "#21262d",
+                        "borderwidth": 1,
+                        "steps": [
+                            {"range": [0, 60],  "color": "#0a3a1a"},
+                            {"range": [60, 80], "color": "#3d2200"},
+                            {"range": [80, 100],"color": "#3d0a0a"},
+                        ],
+                        "threshold": {
+                            "line": {"color": "#58a6ff", "width": 3},
+                            "thickness": 0.8,
+                            "value": cpu
+                        }
+                    }
                 ))
-                fig.update_layout(height=250, margin=dict(l=30,r=30,t=60,b=30), paper_bgcolor="white")
+                fig.update_layout(
+                    height=220,
+                    margin=dict(l=20, r=20, t=60, b=20),
+                    paper_bgcolor="#161b22",
+                    font={"color": "#8b949e"}
+                )
                 st.plotly_chart(fig, use_container_width=True)
             with col2:
                 ram = rend.get("ram_porcentaje", 0)
+                color_ram = "#f85149" if ram > 80 else "#d29922" if ram > 60 else "#3fb950"
                 fig = go.Figure(go.Indicator(
-                    mode="gauge+number", value=ram, title={"text": "RAM %"},
-                    gauge={"axis": {"range": [0, 100]},
-                           "bar": {"color": "#e74c3c" if ram > 80 else "#f39c12" if ram > 60 else "#27ae60"}}
+                    mode="gauge+number",
+                    value=ram,
+                    title={"text": "RAM %", "font": {"color": "#8b949e", "size": 20}},
+                    number={"font": {"color": "#e6edf3", "size": 40}},
+                    gauge={
+                        "axis": {"range": [0, 100], "tickcolor": "#388bfd",
+                                "tickfont": {"color": "#8b949e", "size": 12}},
+                        "bar": {"color": "#388bfd", "thickness": 0.5},
+                        "bgcolor": "#161b22",
+                        "bordercolor": "#21262d",
+                        "borderwidth": 1,
+                        "steps": [
+                            {"range": [0, 60],  "color": "#0a3a1a"},
+                            {"range": [60, 80], "color": "#3d2200"},
+                            {"range": [80, 100],"color": "#3d0a0a"},
+                        ],
+                        "threshold": {
+                            "line": {"color": "#58a6ff", "width": 3},
+                            "thickness": 0.8,
+                            "value": ram
+                        }
+                    }
                 ))
-                fig.update_layout(height=250, margin=dict(l=30,r=30,t=60,b=30), paper_bgcolor="white")
+                fig.update_layout(
+                    height=220,
+                    margin=dict(l=20, r=20, t=60, b=20),
+                    paper_bgcolor="#161b22",
+                    font={"color": "#8b949e"}
+                )
                 st.plotly_chart(fig, use_container_width=True)
             col_exp1, col_exp2, col_exp3 = st.columns(3)
             with col_exp1:
                 with st.expander(f"Puertos en escucha ({len(seg.get('puertos_escucha', []))})"):
                     puertos = seg.get("puertos_escucha", [])
                     if puertos:
-                        st.dataframe(pd.DataFrame({"Puerto": [str(p) for p in puertos]}), use_container_width=True, hide_index=True)
+                        tabla_oscura(pd.DataFrame({"Puerto": [str(p) for p in puertos]}), use_container_width=True, hide_index=True)
             with col_exp2:
                 procesos_sospechosos = seg.get("procesos_sospechosos", [])
                 with st.expander(f"Procesos sospechosos ({len(procesos_sospechosos)})"):
                     if procesos_sospechosos:
                         df_proc = pd.DataFrame(procesos_sospechosos)
                         df_proc = df_proc.rename(columns={"nombre": "Nombre", "pid": "PID", "cpu": "CPU", "memoria_mb": "Memoria (MB)"})
-                        st.dataframe(df_proc, use_container_width=True, hide_index=True)
+                        tabla_oscura(df_proc, use_container_width=True, hide_index=True)
                     else:
                         st.success("No se detectaron procesos sospechosos")
             with col_exp3:
@@ -1170,7 +1712,7 @@ elif pagina == "Endpoints":
                         if not df_ev.empty:
                             df_ev = df_ev[["tiempo", "tipo", "id"]]
                             df_ev.columns = ["Fecha/Hora", "Tipo", "ID"]
-                            st.dataframe(df_ev, use_container_width=True, hide_index=True)
+                            tabla_oscura(df_ev, use_container_width=True, hide_index=True)
                     else:
                         st.info("Sin eventos recientes")
             with st.expander(f"Software instalado ({len(seg.get('software_instalado', []))})"):
@@ -1180,7 +1722,7 @@ elif pagina == "Endpoints":
                     if not df_sw.empty:
                         df_sw = df_sw.rename(columns={"nombre": "Nombre", "version": "Version", "publisher": "Publisher", "fecha_instalacion": "Fecha instalacion"})
                         df_sw["Fecha instalacion"] = pd.to_datetime(df_sw["Fecha instalacion"], format="%Y%m%d", errors="coerce").dt.strftime("%d/%m/%Y")
-                        st.dataframe(df_sw, use_container_width=True, hide_index=True)
+                        tabla_oscura(df_sw, use_container_width=True, hide_index=True)
             st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1239,13 +1781,13 @@ elif pagina == "Normativas":
                     cumple = ctrl["cumple"]
                     badge = f'<span class="badge badge-green">Cumple</span>' if cumple else f'<span class="badge badge-red">No cumple</span>'
                     st.markdown(f"""
-                    <div style="background:white; padding:12px 16px; border-radius:6px; margin-bottom:8px;
+                    <div style="background:#161b22; padding:12px 16px; border-radius:6px; margin-bottom:8px;
                                 border-left:3px solid {'#27ae60' if cumple else '#e74c3c'};
                                 box-shadow:0 1px 3px rgba(0,0,0,0.06);">
                         <div style="display:flex; justify-content:space-between; align-items:center;">
                             <div>
-                                <span style="font-size:0.75rem;color:#7f8c8d;font-weight:600">{ctrl['control']}</span>
-                                <span style="font-size:0.9rem;color:#2c3e50;margin-left:12px">{ctrl['nombre']}</span>
+                                <span style="font-size:0.75rem;color:#8b949e;font-weight:600">{ctrl['control']}</span>
+                                <span style="font-size:0.9rem;color:#c9d1d9;margin-left:12px">{ctrl['nombre']}</span>
                             </div>
                             <div style="display:flex;align-items:center;gap:12px;">
                                 <span style="font-size:0.8rem;color:#7f8c8d">{ctrl['detalle']}</span>
@@ -1585,9 +2127,9 @@ elif pagina == "Detección APT":
         </div>""", unsafe_allow_html=True)
 
     st.markdown("""
-    <div style="background:white;padding:16px 20px;border-radius:8px;
+    <div style="background:#161b22;padding:16px 20px;border-radius:8px;
                 border-left:5px solid #1a3a6c;margin-top:12px;margin-bottom:12px;
-                box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                box-shadow:0 2px 8px rgba(0,0,0,0.4);">
         <p style="font-size:0.85rem;font-weight:700;color:#1a3a6c;margin:0 0 4px 0">
             Entrenamiento con Dataset Estandar IEEE
         </p>
@@ -1602,11 +2144,11 @@ elif pagina == "Detección APT":
     if ultimo:
         estado_color = "#27ae60" if "mejora" in ultimo.get("estado","") else "#f39c12"
         st.markdown(f"""
-        <div style="background:white;padding:12px 16px;border-radius:8px;
+        <div style="background:#161b22;padding:12px 16px;border-radius:8px;
                     border-left:3px solid {estado_color};
                     box-shadow:0 2px 6px rgba(0,0,0,0.07);margin-bottom:8px;">
             <div style="display:flex;justify-content:space-between;">
-                <span style="font-size:0.85rem;color:#2c3e50">
+                <span style="font-size:0.85rem;color:#c9d1d9">
                     Ultimo reentrenamiento: <strong>{ultimo.get("timestamp","")[:16].replace("T"," ")}</strong>
                 </span>
                 <span style="font-size:0.85rem;color:#7f8c8d">
@@ -1676,7 +2218,7 @@ elif pagina == "Detección APT":
             }.get(det.get("severidad", "BAJO"), "#bdc3c7")
             agentes_str = " → ".join(det.get("agentes_afectados", []))
             st.markdown(f"""
-            <div style="background:white;padding:16px;border-radius:8px;
+            <div style="background:#161b22;padding:16px;border-radius:8px;
                         border-left:4px solid {severidad_color};
                         box-shadow:0 2px 6px rgba(0,0,0,0.07);margin-bottom:12px;">
                 <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
@@ -1688,7 +2230,7 @@ elif pagina == "Detección APT":
                         {det.get("severidad","")}
                     </span>
                 </div>
-                <p style="font-size:0.85rem;color:#2c3e50;margin:0 0 6px 0">
+                <p style="font-size:0.85rem;color:#c9d1d9;margin:0 0 6px 0">
                     {det.get("descripcion","")}
                 </p>
                 <p style="font-size:0.8rem;color:#7f8c8d;margin:0 0 6px 0">
@@ -1745,14 +2287,14 @@ elif pagina == "Detección APT":
         col_order = [c for c in col_order if c in df_apt.columns]
         df_apt = df_apt[col_order]
         df_apt.columns = [c.replace("_", " ").title() for c in col_order]
-        st.dataframe(df_apt, use_container_width=True, hide_index=True)
+        tabla_oscura(df_apt, use_container_width=True, hide_index=True)
 
         if "Fase Mitre" in df_apt.columns:
             st.markdown('<div class="section-header">Distribucion de Fases APT</div>', unsafe_allow_html=True)
             conteo = df_apt["Fase Mitre"].value_counts().reset_index()
             conteo.columns = ["Fase", "Count"]
             fig = px.bar(conteo, x="Fase", y="Count", color="Count", color_continuous_scale="Reds")
-            fig.update_layout(plot_bgcolor="white", paper_bgcolor="white",
+            fig.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
                             margin=dict(l=0,r=0,t=10,b=0), height=250,
                             showlegend=False, coloraxis_showscale=False)
             st.plotly_chart(fig, use_container_width=True)
@@ -1772,7 +2314,7 @@ elif pagina == "Detección APT":
             )
             fig_tl.update_traces(marker=dict(line=dict(width=1, color="#ffffff")))
             fig_tl.update_layout(
-                plot_bgcolor="white", paper_bgcolor="white",
+                plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
                 margin=dict(l=0, r=0, t=10, b=0), height=350, showlegend=False,
                 xaxis=dict(showgrid=True, gridcolor="#f0f0f0"),
                 yaxis=dict(showgrid=True, gridcolor="#f0f0f0",
@@ -1788,7 +2330,7 @@ elif pagina == "Detección APT":
             fases_detectadas = df_timeline["fase_mitre"].unique().tolist()
             fases_progresion = [f for f in fases_orden if f in fases_detectadas]
             if fases_progresion:
-                html_prog = '<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:12px;background:white;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.07);">'
+                html_prog = '<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:12px;background:#161b22;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.4);">'
                 for i, fase in enumerate(fases_progresion):
                     color = fases_colores.get(fase, "#bdc3c7")
                     html_prog += f'<div style="background:{color};color:white;padding:6px 12px;border-radius:6px;font-size:0.75rem;font-weight:600;">{fase.replace("_"," ").upper()}</div>'
@@ -1807,7 +2349,7 @@ elif pagina == "Detección APT":
     else:
         st.info("No se han detectado campañas APT todavia. El sistema esta monitorizando activamente.")
         st.markdown("""
-        <div style="background:#f5f6fa;padding:16px;border-radius:8px;
+        <div style="background:#161b22;padding:16px;border-radius:8px;
                     border-left:3px solid #27ae60;margin-top:8px;">
             <p style="font-size:0.9rem;color:#2c3e50;margin:0">
                 El motor LSTM analiza cada alerta recibida y acumula eventos en un buffer
@@ -1832,7 +2374,7 @@ elif pagina == "Detección APT":
                 "MEDIO": "#f39c12", "BAJO": "#27ae60"
             }.get(exp.get("nivel_riesgo", "BAJO"), "#bdc3c7")
             st.markdown(f"""
-            <div style="background:white;padding:16px;border-radius:8px;
+            <div style="background:#161b22;padding:16px;border-radius:8px;
                         border-left:4px solid {nivel_color};
                         box-shadow:0 2px 6px rgba(0,0,0,0.07);margin-bottom:12px;">
                 <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
@@ -1841,10 +2383,10 @@ elif pagina == "Detección APT":
                     </span>
                     <span style="color:#7f8c8d;font-size:0.85rem">Confianza: {exp.get("confianza",0)}%</span>
                 </div>
-                <p style="font-size:0.85rem;color:#2c3e50;margin:0 0 8px 0">{exp.get("narrativa","")}</p>
+                <p style="font-size:0.85rem;color:#e6edf3;margin:0 0 8px 0">{exp.get("narrativa","")}</p>
                 <div style="display:flex;gap:8px;flex-wrap:wrap;">
                     {"".join([
-                        f'<span style="background:#f5f6fa;padding:3px 8px;border-radius:4px;font-size:0.75rem;color:#2c3e50">'
+                        f'<span style="background:#161b22;padding:3px 8px;border-radius:4px;font-size:0.75rem;color:#2c3e50">'
                         f'{f["feature"].replace("_"," ")}: {f["importancia"]}%</span>'
                         for f in exp.get("top_features",[])
                     ])}
@@ -1867,7 +2409,7 @@ elif pagina == "Detección APT":
         df_imp["Feature"] = df_imp["Feature"].str.replace("_", " ").str.title()
         fig = px.bar(df_imp, x="Importancia", y="Feature", orientation="h",
                     color="Importancia", color_continuous_scale="Blues")
-        fig.update_layout(plot_bgcolor="white", paper_bgcolor="white",
+        fig.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
                          margin=dict(l=0,r=0,t=10,b=0), height=300,
                          showlegend=False, coloraxis_showscale=False)
         st.plotly_chart(fig, use_container_width=True)
@@ -1902,7 +2444,7 @@ elif pagina == "Análisis Forense":
             df_ip["timestamp"] = df_ip["timestamp"].dt.strftime("%d/%m/%Y %H:%M:%S")
             df_ip = df_ip[["timestamp","tipo","nivel","agente","accion"]].copy()
             df_ip.columns = ["Timestamp","Tipo de Evento","Nivel","Agente","Accion"]
-            st.dataframe(df_ip, use_container_width=True, hide_index=True)
+            tabla_oscura(df_ip, use_container_width=True, hide_index=True)
             st.markdown(f"**{len(df_ip)} eventos detectados por Wazuh**")
         else:
             st.info("No se encontraron eventos Wazuh para esta IP.")
@@ -1915,7 +2457,7 @@ elif pagina == "Análisis Forense":
             if campanas_ip:
                 df_camp = pd.DataFrame(campanas_ip)
                 df_camp["timestamp"] = pd.to_datetime(df_camp["timestamp"]).dt.strftime("%d/%m/%Y %H:%M")
-                st.dataframe(df_camp[["timestamp","fase_mitre","confianza","nivel_riesgo","n_eventos"]], 
+                tabla_oscura(df_camp[["timestamp","fase_mitre","confianza","nivel_riesgo","n_eventos"]], 
                            use_container_width=True, hide_index=True)
             else:
                 st.info("No se detectaron campanas APT para esta IP.")
@@ -1930,7 +2472,7 @@ elif pagina == "Análisis Forense":
             if lateral_ip:
                 for det in lateral_ip:
                     st.markdown(f"""
-                    <div style="background:white;padding:12px 16px;border-radius:8px;
+                    <div style="background:#161b22;padding:12px 16px;border-radius:8px;
                                 border-left:4px solid #e74c3c;box-shadow:0 2px 6px rgba(0,0,0,0.07);margin-bottom:8px;">
                         <p style="font-weight:600;color:#2c3e50;margin:0 0 4px 0">
                             {det.get('patron','').replace('_',' ').upper()} — {det.get('mitre_tecnica','')}
@@ -2008,7 +2550,7 @@ elif pagina == "Análisis Forense":
                         N{ev['nivel']}
                     </span>
                     <span style="color:#7f8c8d;font-size:0.8rem;min-width:140px">{ts}</span>
-                    <span style="background:#f5f6fa;padding:2px 6px;border-radius:3px;
+                    <span style="background:#161b22;padding:2px 6px;border-radius:3px;
                                 font-size:0.75rem;color:#1a3a6c;font-weight:600">{ev['tipo']}</span>
                     <span style="color:#2c3e50;font-size:0.85rem">{ev['descripcion']}</span>
                 </div>""", unsafe_allow_html=True)
@@ -2215,9 +2757,9 @@ elif pagina == "About":
         with st.expander(f"{comp['Componente']} — {comp['Capa']}"):
             col1, col2 = st.columns([3, 1])
             with col1:
-                st.markdown(f"<p style='color:#2c3e50;font-size:0.9rem'>{comp['Descripcion']}</p>", unsafe_allow_html=True)
+                st.markdown(f"<p style='color:#c9d1d9;font-size:0.9rem'>{comp['Descripcion']}</p>", unsafe_allow_html=True)
             with col2:
-                st.markdown(f"<span style='background:#f5f6fa;padding:4px 8px;border-radius:4px;font-size:0.8rem;color:#1a3a6c;font-weight:600'>{comp['Tecnologia']}</span>", unsafe_allow_html=True)
+                st.markdown(f"<span style='background:#161b22;padding:4px 8px;border-radius:4px;font-size:0.8rem;color:#1a3a6c;font-weight:600'>{comp['Tecnologia']}</span>", unsafe_allow_html=True)
     st.markdown("---")
     st.markdown('<div class="section-header">Framework MITRE ATT&CK — Fases Detectadas</div>', unsafe_allow_html=True)
     fases = [
@@ -2227,7 +2769,7 @@ elif pagina == "About":
         {"Fase": "Movimiento Lateral", "Tecnica MITRE": "T1021, T1550", "Descripcion": "Desplazamiento entre sistemas buscando activos de valor"},
         {"Fase": "Exfiltracion", "Tecnica MITRE": "T1041, T1048", "Descripcion": "Extraccion de datos sensibles del entorno comprometido"},
     ]
-    st.dataframe(pd.DataFrame(fases), use_container_width=True, hide_index=True)
+    tabla_oscura(pd.DataFrame(fases), use_container_width=True, hide_index=True)
     st.markdown("---")
     st.markdown('<div class="section-header">Normativas y Cumplimiento</div>', unsafe_allow_html=True)
     col1, col2, col3, col4 = st.columns(4)
@@ -2261,4 +2803,4 @@ elif pagina == "About":
                 {"Referencia": "[5] ENISA (2024)", "Descripcion": "ENISA Threat Landscape 2024. European Union Agency for Cybersecurity"},
                 {"Referencia": "[6] MITRE Corporation (2024)", "Descripcion": "MITRE ATT&CK Framework v14. https://attack.mitre.org"},
         ]
-        st.dataframe(pd.DataFrame(refs), use_container_width=True, hide_index=True)
+        tabla_oscura(pd.DataFrame(refs), use_container_width=True, hide_index=True)

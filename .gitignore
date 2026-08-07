@@ -16,3 +16,8 @@ retrain_historial.json
 retrain_config.json
 notificaciones.json
 historico_ips.json
+datasets/
+models/lstm_centralizado.pt
+models/lstm_federado_noniid.pt
+nohup.out
+fl_comparativa.json
