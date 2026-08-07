@@ -57,7 +57,7 @@ function Obtener-DatosSeguridad {
     }
 
     try {
-        $puertos = @(Get-NetTCPConnection -State Listen | Select-Object -ExpandProperty LocalPort | Sort-Object -Unique)
+        $puertos = @(Get-NetTCPConnection -State Listen | Where-Object { $_.LocalPort -lt 10000 -and $_.LocalPort -notin @(135,139,445,5040) } | Select-Object -ExpandProperty LocalPort | Sort-Object -Unique)
     } catch {
         $puertos = @()
     }
