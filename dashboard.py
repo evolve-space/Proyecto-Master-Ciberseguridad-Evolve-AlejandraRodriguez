@@ -182,6 +182,20 @@ st.markdown("""
         height: 18px !important;
     }
     label, p, span { color: #c9d1d9 !important; }
+
+    /* ── TEXTAREA ────────────────────────────────────────────────────────── */
+    textarea {
+        background: #161b22 !important;
+        color: #e6edf3 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 6px !important;
+    }
+    textarea:focus {
+        border: 1px solid #388bfd !important;
+        box-shadow: 0 0 0 3px rgba(56,139,253,0.15) !important;
+    }
+
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -642,18 +656,6 @@ st.markdown("""<style>
     }
     [data-testid="stDataFrame"] tr:hover td { background: #1c2128 !important; }
 
-    /* ── EXPANDERS ───────────────────────────────────────────────────────── */
-    [data-testid="stExpander"] {
-        background: #161b22 !important;
-        border: 1px solid #21262d !important;
-        border-radius: 8px !important;
-    }
-    [data-testid="stExpander"] summary {
-        color: #c9d1d9 !important;
-        font-weight: 600 !important;
-    }
-    [data-testid="stExpander"] summary:hover { color: #388bfd !important; }
-
     /* ── SELECTBOX / MULTISELECT ─────────────────────────────────────────── */
     [data-baseweb="select"] > div {
         background: #161b22 !important;
@@ -726,14 +728,6 @@ st.markdown("""<style>
     .js-plotly-plot .plotly text { fill: #8b949e !important; }
     .js-plotly-plot .plotly .bg { fill: #0d1117 !important; }
 
-    /* ── DATAFRAME HEADERS ───────────────────────────────────────────────── */
-    [data-testid="stDataFrame"] [data-testid="glideDataEditor"] {
-        background-color: #0d1117 !important;
-    }
-    .dvn-scroller { background: #161b22 !important; }
-    [class*="gdg-"] { background: #161b22 !important; color: #c9d1d9 !important; }
-    [class*="gdg-header"] { background: #010409 !important; color: #8b949e !important; }
-
     /* ── BOTONES PRIMARY EN AZUL ─────────────────────────────────────────── */
     .main .stButton > button[kind="primary"],
     .main .stDownloadButton > button {
@@ -794,28 +788,6 @@ st.markdown("""<style>
         color: white !important;
     }
 
-    /* ── OJO CONTRASEÑA ─────────────────────────────────────────────────── */
-    button[aria-label="Show password text"],
-    button[aria-label="Hide password text"] {
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        width: 36px !important;
-        min-height: unset !important;
-        height: 36px !important;
-        padding: 6px !important;
-    }
-    button[aria-label="Show password text"] svg,
-    button[aria-label="Hide password text"] svg {
-        fill: #8b949e !important;
-        width: 18px !important;
-        height: 18px !important;
-    }
-    button[aria-label="Show password text"]:hover svg,
-    button[aria-label="Hide password text"]:hover svg {
-        fill: #e6edf3 !important;
-    }
-
     /* ── SPINNER / RECARGA ───────────────────────────────────────────────── */
     [data-testid="stStatusWidget"] {
         background: #161b22 !important;
@@ -830,28 +802,18 @@ st.markdown("""<style>
         color: #c9d1d9 !important;
     }
     
-    /* ── RUNNING INDICATOR ───────────────────────────────────────────────── */
-    #MainMenu { visibility: hidden !important; }
-    [data-testid="stDecoration"] { display: none !important; }
-    [data-testid="stStatusWidget"] { display: none !important; }
-    
     /* ── EXPANDER CONTENIDO ──────────────────────────────────────────────── */
     [data-testid="stExpander"] details {
         background: #161b22 !important;
         border: 1px solid #21262d !important;
-    }
-    [data-testid="stExpander"] details div {
-        background: #161b22 !important;
-    }
-    [data-testid="stExpander"] details[open] {
-        background: #161b22 !important;
-    }
-    [data-testid="stExpander"] details[open] > div {
-        background: #161b22 !important;
+        border-radius: 8px !important;
     }
     [data-testid="stExpander"] summary {
         background: #161b22 !important;
         color: #c9d1d9 !important;
+    }
+    [data-testid="stExpander"] summary:hover {
+        color: #388bfd !important;
     }
 
 </style>""", unsafe_allow_html=True)
@@ -944,7 +906,7 @@ with st.sidebar:
     opciones = [
         "Panel General", "Alertas y Eventos", "IPs Bloqueadas",
         "Endpoints", "Normativas", "Detección APT",
-        "Simulador de Ataques", "Informes", "Estado del Sistema", "Análisis Forense", "About"
+        "Simulador de Ataques", "Informes", "Estado del Sistema", "Análisis Forense", "Gestión de Incidentes", "About"
     ]
     if "pagina" not in st.session_state:
         st.session_state.pagina = "Panel General"
@@ -2682,6 +2644,347 @@ elif pagina == "Análisis Forense":
                 mime="application/pdf",
                 type="primary"
             )
+
+# ══════════════════════════════════════════════════════════════════════════════
+# GESTION DE INCIDENTES
+# ══════════════════════════════════════════════════════════════════════════════
+elif pagina == "Gestión de Incidentes":
+    st.markdown("## Gestión de Incidentes")
+    st.markdown("Sistema de tickets integrado con el motor LSTM, XAI y AbuseIPDB.")
+    st.markdown("---")
+
+    # ── Metricas globales ──────────────────────────────────────────────────
+    try:
+        metricas = requests.get("http://localhost:8000/tickets/metricas/resumen",
+                                headers=HEADERS, timeout=5).json()
+    except:
+        metricas = {}
+
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col1:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #388bfd;">
+            <p class="metric-label">Total Tickets</p>
+            <p class="metric-value">{metricas.get("total", 0)}</p>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        n = metricas.get("abiertos", 0)
+        color = "#f85149" if n > 0 else "#3fb950"
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid {color};">
+            <p class="metric-label">Abiertos</p>
+            <p class="metric-value" style="color:{color}">{n}</p>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        n = metricas.get("investigando", 0)
+        color = "#d29922" if n > 0 else "#8b949e"
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid {color};">
+            <p class="metric-label">Investigando</p>
+            <p class="metric-value" style="color:{color}">{n}</p>
+        </div>""", unsafe_allow_html=True)
+    with col4:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #3fb950;">
+            <p class="metric-label">Resueltos</p>
+            <p class="metric-value" style="color:#3fb950">{metricas.get("resueltos", 0)}</p>
+        </div>""", unsafe_allow_html=True)
+    with col5:
+        mttr = metricas.get("mttr_horas", 0)
+        color = "#3fb950" if mttr <= 24 else "#d29922" if mttr <= 48 else "#f85149"
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid {color};">
+            <p class="metric-label">MTTR (horas)</p>
+            <p class="metric-value" style="color:{color}">{mttr}</p>
+        </div>""", unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    tab1, tab2, tab3 = st.tabs(["Tickets", "Nuevo Ticket", "Metricas"])
+
+    # ── TAB 1: Lista de tickets ────────────────────────────────────────────
+    with tab1:
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            filtro_estado = st.selectbox("Estado", ["Todos", "Abierto", "Investigando",
+                                                     "Contenido", "Resuelto", "Cerrado"])
+        with col2:
+            filtro_prioridad = st.selectbox("Prioridad", ["Todas", "CRITICA", "ALTA",
+                                                            "MEDIA", "BAJA"])
+        with col3:
+            st.markdown("<br>", unsafe_allow_html=True)
+            if st.button("Actualizar", key="btn_actualizar_tickets"):
+                st.rerun()
+
+        try:
+            params = {}
+            if filtro_estado != "Todos":
+                params["estado"] = filtro_estado
+            if filtro_prioridad != "Todas":
+                params["prioridad"] = filtro_prioridad
+            tickets = requests.get("http://localhost:8000/tickets",
+                                   headers=HEADERS, params=params, timeout=5).json()
+        except:
+            tickets = []
+
+        if not tickets:
+            st.info("No hay tickets que coincidan con los filtros.")
+        else:
+            for t in tickets:
+                color_estado = {
+                    "Abierto":      "#f85149",
+                    "Investigando": "#d29922",
+                    "Contenido":    "#388bfd",
+                    "Resuelto":     "#3fb950",
+                    "Cerrado":      "#8b949e",
+                }.get(t["estado"], "#8b949e")
+                color_prioridad = {
+                    "CRITICA": "#f85149",
+                    "ALTA":    "#d29922",
+                    "MEDIA":   "#388bfd",
+                    "BAJA":    "#3fb950",
+                }.get(t["prioridad"], "#8b949e")
+                ts = t["creado_en"][:16].replace("T", " ")
+                with st.expander(f"{t['id']} — {t['titulo']} | {t['estado']} | {t['prioridad']}"):
+                    col1, col2 = st.columns([3, 1])
+                    with col1:
+                        st.markdown(f"""
+                        <div style="background:#161b22;padding:16px;border-radius:8px;
+                                    border-left:4px solid {color_estado};">
+                            <div style="display:flex;gap:12px;margin-bottom:8px;">
+                                <span style="background:{color_estado};color:white;padding:2px 8px;
+                                            border-radius:4px;font-size:0.75rem;font-weight:600">
+                                    {t['estado']}
+                                </span>
+                                <span style="background:{color_prioridad};color:white;padding:2px 8px;
+                                            border-radius:4px;font-size:0.75rem;font-weight:600">
+                                    {t['prioridad']}
+                                </span>
+                                <span style="color:#8b949e;font-size:0.8rem">{ts}</span>
+                                <span style="color:#8b949e;font-size:0.8rem">
+                                    Origen: {t.get('origen','manual')}
+                                </span>
+                            </div>
+                            <p style="color:#c9d1d9;font-size:0.9rem;margin:0 0 8px 0">
+                                {t['descripcion']}
+                            </p>
+                            <div style="display:flex;gap:16px;font-size:0.8rem;color:#8b949e;">
+                                <span>IP: <strong style="color:#c9d1d9">{t.get('ip','—')}</strong></span>
+                                <span>Fase MITRE: <strong style="color:#c9d1d9">
+                                    {t.get('fase_mitre','—')}</strong></span>
+                                <span>Confianza LSTM: <strong style="color:#c9d1d9">
+                                    {t.get('confianza',0)}%</strong></span>
+                                <span>AbuseIPDB: <strong style="color:#c9d1d9">
+                                    {t.get('abuse_score',0)}%</strong></span>
+                            </div>
+                        </div>""", unsafe_allow_html=True)
+
+                        if t.get("xai_narrativa"):
+                            st.markdown(f"""
+                            <div style="background:#0d2d6b;padding:12px;border-radius:6px;
+                                        margin-top:8px;border-left:3px solid #388bfd;">
+                                <p style="font-size:0.75rem;color:#79c0ff;font-weight:600;
+                                          margin:0 0 4px 0">EXPLICACION XAI — SHAP</p>
+                                <p style="font-size:0.85rem;color:#c9d1d9;margin:0">
+                                    {t['xai_narrativa']}</p>
+                            </div>""", unsafe_allow_html=True)
+
+                        if t.get("notas"):
+                            st.markdown('<p style="font-size:0.75rem;color:#388bfd;'
+                                       'font-weight:600;margin:8px 0 4px 0">NOTAS</p>',
+                                       unsafe_allow_html=True)
+                            for nota in t["notas"]:
+                                st.markdown(f"""
+                                <div style="background:#161b22;padding:8px 12px;
+                                            border-radius:6px;margin-bottom:4px;
+                                            border-left:2px solid #30363d;">
+                                    <span style="font-size:0.75rem;color:#8b949e">
+                                        {nota['timestamp'][:16].replace('T',' ')}
+                                    </span>
+                                    <p style="font-size:0.85rem;color:#c9d1d9;margin:2px 0 0 0">
+                                        {nota['texto']}</p>
+                                </div>""", unsafe_allow_html=True)
+
+                        if t.get("historial"):
+                            st.markdown('<p style="font-size:0.75rem;color:#388bfd;'
+                                       'font-weight:600;margin:8px 0 4px 0">HISTORIAL</p>',
+                                       unsafe_allow_html=True)
+                            for h in t["historial"]:
+                                st.markdown(f"""
+                                <div style="display:flex;gap:12px;padding:4px 0;
+                                            border-bottom:1px solid #21262d;
+                                            font-size:0.8rem;">
+                                    <span style="color:#8b949e">
+                                        {h['timestamp'][:16].replace('T',' ')}</span>
+                                    <span style="color:#388bfd;font-weight:600">
+                                        {h['estado']}</span>
+                                    <span style="color:#c9d1d9">{h['nota']}</span>
+                                </div>""", unsafe_allow_html=True)
+
+                    with col2:
+                        st.markdown("<br>", unsafe_allow_html=True)
+                        nuevo_estado = st.selectbox("Cambiar estado",
+                            ["Abierto", "Investigando", "Contenido", "Resuelto", "Cerrado"],
+                            key=f"estado_{t['id']}",
+                            index=["Abierto","Investigando","Contenido",
+                                   "Resuelto","Cerrado"].index(t["estado"]))
+                        nota_estado = st.text_input("Nota", key=f"nota_{t['id']}",
+                                                     placeholder="Opcional")
+                        if st.button("Actualizar estado", key=f"btn_estado_{t['id']}",
+                                     use_container_width=True, type="secondary"):
+                            try:
+                                requests.post(
+                                    f"http://localhost:8000/tickets/{t['id']}/estado",
+                                    headers=HEADERS,
+                                    json={"estado": nuevo_estado, "nota": nota_estado},
+                                    timeout=5)
+                                st.success("Estado actualizado")
+                                st.rerun()
+                            except Exception as ex:
+                                st.error(f"Error: {ex}")
+                        st.markdown("---")
+                        nueva_nota = st.text_area("Anadir nota", key=f"nueva_nota_{t['id']}",
+                                                   placeholder="Escribe una nota...",
+                                                   height=80)
+                        if st.button("Guardar nota", key=f"btn_nota_{t['id']}",
+                                     use_container_width=True, type="secondary"):
+                            if nueva_nota:
+                                try:
+                                    requests.post(
+                                        f"http://localhost:8000/tickets/{t['id']}/nota",
+                                        headers=HEADERS,
+                                        json={"nota": nueva_nota},
+                                        timeout=5)
+                                    st.success("Nota guardada")
+                                    st.rerun()
+                                except Exception as ex:
+                                    st.error(f"Error: {ex}")
+
+    # ── TAB 2: Nuevo ticket manual ─────────────────────────────────────────
+    with tab2:
+        st.markdown("### Crear Ticket Manual")
+        col1, col2 = st.columns(2)
+        with col1:
+            titulo = st.text_input("Titulo del incidente", placeholder="Ej: SSH Brute Force detectado")
+            ip_ticket = st.text_input("IP origen", placeholder="Ej: 47.80.59.241")
+            fase = st.selectbox("Fase MITRE", [
+                "initial_access", "execution", "persistence",
+                "privilege_escalation", "defense_evasion", "credential_access",
+                "discovery", "lateral_movement", "collection", "exfiltration", "unknown"
+            ])
+        with col2:
+            prioridad = st.selectbox("Prioridad", ["CRITICA", "ALTA", "MEDIA", "BAJA"], index=1)
+            descripcion = st.text_area("Descripcion", placeholder="Describe el incidente...",
+                                        height=120)
+
+        if st.button("Crear Ticket", type="primary", key="btn_crear_ticket"):
+            if titulo and descripcion:
+                try:
+                    abuse = consultar_abuseipdb(ip_ticket) if ip_ticket else {}
+                    r = requests.post("http://localhost:8000/tickets",
+                        headers=HEADERS,
+                        json={
+                            "titulo":      titulo,
+                            "descripcion": descripcion,
+                            "ip":          ip_ticket,
+                            "fase_mitre":  fase,
+                            "prioridad":   prioridad,
+                            "origen":      "manual",
+                            "abuse_score": abuse.get("score", 0),
+                            "abuse_pais":  abuse.get("pais", ""),
+                            "abuse_isp":   abuse.get("isp", ""),
+                        }, timeout=5)
+                    nuevo = r.json()
+                    st.success(f"Ticket {nuevo['id']} creado correctamente")
+                    st.rerun()
+                except Exception as ex:
+                    st.error(f"Error: {ex}")
+            else:
+                st.warning("Titulo y descripcion son obligatorios")
+
+# ── TAB 3: Metricas ────────────────────────────────────────────────────
+    with tab3:
+        st.markdown("### Metricas de Gestion de Incidentes")
+        if not metricas or metricas.get("total", 0) == 0:
+            st.info("No hay tickets suficientes para generar metricas.")
+        else:
+            # SLA fuera de columnas
+            sla = metricas.get("sla_24h_pct", 0)
+            color_sla = "#3fb950" if sla >= 80 else "#d29922" if sla >= 50 else "#f85149"
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid {color_sla};">
+                <p class="metric-label">SLA — Resueltos en menos de 24h</p>
+                <p class="metric-value" style="color:{color_sla}">{sla}%</p>
+            </div>""", unsafe_allow_html=True)
+
+            col1, col2 = st.columns(2)
+            with col1:
+                if metricas.get("por_prioridad"):
+                    st.markdown('<div class="section-header">Tickets por Prioridad</div>',
+                               unsafe_allow_html=True)
+                    df_prio = pd.DataFrame(list(metricas["por_prioridad"].items()),
+                                          columns=["Prioridad", "Tickets"])
+                    colores_prio = {"CRITICA": "#f85149", "ALTA": "#d29922",
+                                   "MEDIA": "#388bfd", "BAJA": "#3fb950"}
+                    fig = px.pie(df_prio, values="Tickets", names="Prioridad",
+                                hole=0.6,
+                                color="Prioridad",
+                                color_discrete_map=colores_prio)
+                    fig.update_traces(
+                        textposition="inside",
+                        textinfo="label+percent",
+                        textfont=dict(color="#ffffff", size=10),
+                        marker=dict(line=dict(color="#0d1117", width=2))
+                    )
+                    fig.update_layout(
+                        plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
+                        margin=dict(l=30,r=30,t=30,b=30), height=280,
+                        showlegend=True,
+                        legend=dict(
+                            font=dict(color="#c9d1d9", size=11),
+                            bgcolor="rgba(0,0,0,0)",
+                            orientation="h",
+                            yanchor="bottom", y=-0.2,
+                            xanchor="center", x=0.5
+                        ),
+                        annotations=[dict(
+                            text=f"<b>{df_prio['Tickets'].sum()}</b><br>tickets",
+                            x=0.5, y=0.5, font=dict(size=16, color="#e6edf3"),
+                            showarrow=False
+                        )]
+                    )
+                    st.plotly_chart(fig, use_container_width=True)
+
+            with col2:
+                if metricas.get("por_fase"):
+                    st.markdown('<div class="section-header">Tickets por Fase MITRE</div>',
+                               unsafe_allow_html=True)
+                    df_fase = pd.DataFrame(list(metricas["por_fase"].items()),
+                                          columns=["Fase", "Tickets"])
+                    df_fase = df_fase.sort_values("Tickets", ascending=True)
+                    df_fase["Fase"] = df_fase["Fase"].str.replace("_", " ").str.upper()
+                    fig2 = go.Figure(go.Bar(
+                        x=df_fase["Tickets"],
+                        y=df_fase["Fase"],
+                        orientation="h",
+                        marker=dict(
+                            color=df_fase["Tickets"],
+                            colorscale=[[0, "#1f6feb"], [1, "#79c0ff"]],
+                            line=dict(color="#0d1117", width=1)
+                        ),
+                        text=df_fase["Tickets"],
+                        textposition="outside",
+                        textfont=dict(color="#c9d1d9", size=12),
+                    ))
+                    fig2.update_layout(
+                        plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
+                        margin=dict(l=0,r=40,t=10,b=10), height=280,
+                        xaxis=dict(showgrid=True, gridcolor="#21262d",
+                                  color="#8b949e", showticklabels=False),
+                        yaxis=dict(color="#c9d1d9", tickfont=dict(size=11)),
+                    )
+                    st.plotly_chart(fig2, use_container_width=True)
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # ABOUT

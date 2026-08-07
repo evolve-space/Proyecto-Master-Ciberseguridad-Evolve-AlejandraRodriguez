@@ -460,3 +460,68 @@ async def forzar_reentrenamiento(request: Request, api_key: str = Depends(verifi
 @app.get("/")
 def health():
     return {"status": "Noctua Predictive funcionando", "version": "1.0"}
+
+# ── TICKETS ───────────────────────────────────────────────────────────────────
+@app.get("/tickets")
+async def listar_tickets(
+    estado: str = None,
+    prioridad: str = None,
+    api_key: str = Depends(verificar_api_key)
+):
+    try:
+        from apt_tickets import listar_tickets as _listar
+        return _listar(estado=estado, prioridad=prioridad)
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.post("/tickets")
+async def crear_ticket(request: Request, api_key: str = Depends(verificar_api_key)):
+    try:
+        from apt_tickets import crear_ticket as _crear
+        body = await request.json()
+        return _crear(**body)
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/tickets/{ticket_id}")
+async def obtener_ticket(ticket_id: str, api_key: str = Depends(verificar_api_key)):
+    try:
+        from apt_tickets import obtener_ticket as _obtener
+        t = _obtener(ticket_id)
+        if not t:
+            return {"error": "Ticket no encontrado"}
+        return t
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.post("/tickets/{ticket_id}/estado")
+async def actualizar_estado(ticket_id: str, request: Request, api_key: str = Depends(verificar_api_key)):
+    try:
+        from apt_tickets import actualizar_estado as _actualizar
+        body = await request.json()
+        t = _actualizar(ticket_id, body.get("estado"), body.get("nota", ""))
+        if not t:
+            return {"error": "Ticket no encontrado o estado invalido"}
+        return t
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.post("/tickets/{ticket_id}/nota")
+async def anadir_nota(ticket_id: str, request: Request, api_key: str = Depends(verificar_api_key)):
+    try:
+        from apt_tickets import anadir_nota as _nota
+        body = await request.json()
+        t = _nota(ticket_id, body.get("nota", ""))
+        if not t:
+            return {"error": "Ticket no encontrado"}
+        return t
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/tickets/metricas/resumen")
+async def metricas_tickets(api_key: str = Depends(verificar_api_key)):
+    try:
+        from apt_tickets import metricas_tickets as _metricas
+        return _metricas()
+    except Exception as e:
+        return {"error": str(e)}
