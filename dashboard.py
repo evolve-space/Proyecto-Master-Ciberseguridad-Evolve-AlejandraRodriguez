@@ -3291,7 +3291,11 @@ elif pagina == "About":
         {"Componente": "Fail2ban", "Capa": "Defensa perimetral", "Descripcion": "Bloquea automaticamente IPs con multiples intentos de login fallidos. Primera linea de defensa complementaria a Noctua.", "Tecnologia": "Python"},
         {"Componente": "CICIDS2018", "Capa": "Entrenamiento", "Descripcion": "Dataset estandar CSE-CIC-IDS2018 de la Universidad de New Brunswick con 15 tipos de ataque reales. Usado para entrenar el modelo LSTM con F1=1.0. Referencia: Sharafaldin et al., ICISSP 2018.", "Tecnologia": "CSV / AWS S3"},
         {"Componente": "Hetzner API", "Capa": "Respuesta", "Descripcion": "Ejecuta bloqueos automaticos en el firewall cloud cuando se detecta una amenaza confirmada.", "Tecnologia": "REST API"},
-    ]
+        {"Componente": "Suricata IDS", "Capa": "Deteccion de red", "Descripcion": "Motor de analisis de trafico de red en tiempo real con 52.534 reglas activas. Captura metricas de flujo equivalentes a CICIDS2018 que alimentan el motor LSTM, resolviendo el feature mismatch entre entrenamiento y produccion.", "Tecnologia": "Suricata 7.0.3"},
+        {"Componente": "Agente Wazuh Windows", "Capa": "Monitorizacion endpoint", "Descripcion": "Agente Wazuh oficial instalado en WORKSTATION-ALEJANDRA. Permite correlacion de eventos entre servidor Linux y endpoint Windows para deteccion de movimiento lateral real.", "Tecnologia": "Wazuh 4.11.2"},
+        {"Componente": "Agente PowerShell", "Capa": "Monitorizacion endpoint", "Descripcion": "Agente propio desarrollado en PowerShell que reporta a FastAPI el estado de seguridad del endpoint Windows: actualizaciones pendientes, puertos en escucha, procesos sospechosos y puntuacion de seguridad.", "Tecnologia": "PowerShell"},
+    ]    
+    
     for comp in componentes:
         with st.expander(f"{comp['Componente']} — {comp['Capa']}"):
             col1, col2 = st.columns([3, 1])
