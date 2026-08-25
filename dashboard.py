@@ -3073,6 +3073,7 @@ elif pagina == "Tráfico de Red":
     st.markdown("---")
 
     datos_suricata = cargar_suricata()
+    from collections import Counter
     alertas_sur = datos_suricata.get("alertas", [])
     flows_sur   = datos_suricata.get("flows", [])
 
@@ -3114,12 +3115,11 @@ elif pagina == "Tráfico de Red":
     st.markdown("---")
 
     if alertas_sur:
-        col1, col2 = st.columns(2)
+        from collections import Counter
 
+        col1, col2 = st.columns(2)
         with col1:
-            # Top IPs atacantes
             st.markdown('<div class="section-header">Top IPs Atacantes</div>', unsafe_allow_html=True)
-            from collections import Counter
             top_ips = Counter(ips_atacantes).most_common(10)
             if top_ips:
                 df_ips = pd.DataFrame(top_ips, columns=["IP", "Alertas"])
@@ -3133,7 +3133,6 @@ elif pagina == "Tráfico de Red":
                 st.plotly_chart(fig, use_container_width=True)
 
         with col2:
-            # Top firmas
             st.markdown('<div class="section-header">Top Firmas Detectadas</div>', unsafe_allow_html=True)
             firmas = [a["firma"] for a in alertas_sur if a["firma"]]
             top_firmas = Counter(firmas).most_common(8)
@@ -3149,23 +3148,69 @@ elif pagina == "Tráfico de Red":
                 fig2.update_yaxes(color="#c9d1d9")
                 st.plotly_chart(fig2, use_container_width=True)
 
-        # Top puertos atacados
-        st.markdown('<div class="section-header">Puertos mas Atacados</div>', unsafe_allow_html=True)
-        puertos = [a["dest_port"] for a in alertas_sur if a["dest_port"]]
-        top_puertos = Counter(puertos).most_common(10)
-        if top_puertos:
-            df_puertos = pd.DataFrame(top_puertos, columns=["Puerto", "Ataques"])
-            df_puertos["Puerto"] = df_puertos["Puerto"].astype(str)
-            fig3 = px.bar(df_puertos, x="Puerto", y="Ataques",
-                         color="Ataques", color_continuous_scale=["#0d2d6b", "#388bfd"])
-            fig3.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
-                              margin=dict(l=0,r=0,t=10,b=0), height=250,
-                              showlegend=False, coloraxis_showscale=False)
-            fig3.update_xaxes(color="#8b949e")
-            fig3.update_yaxes(color="#8b949e", gridcolor="#21262d")
-            st.plotly_chart(fig3, use_container_width=True)
+        col3, col4 = st.columns(2)
+        with col3:
+            st.markdown('<div class="section-header">Puertos mas Atacados</div>', unsafe_allow_html=True)
+            puertos = [a["dest_port"] for a in alertas_sur if a["dest_port"]]
+            top_puertos = Counter(puertos).most_common(8)
+            if top_puertos:
+                df_puertos = pd.DataFrame(top_puertos, columns=["Puerto", "Ataques"])
+                df_puertos["Puerto"] = df_puertos["Puerto"].astype(str)
+                servicios_conocidos = {
+                    "22": "22 — SSH", "80": "80 — HTTP", "443": "443 — HTTPS",
+                    "3389": "3389 — RDP", "8080": "8080 — HTTP-Alt",
+                    "21": "21 — FTP", "25": "25 — SMTP", "3306": "3306 — MySQL",
+                    "5432": "5432 — PostgreSQL", "6379": "6379 — Redis",
+                    "8443": "8443 — HTTPS-Alt", "23": "23 — Telnet"
+                }
+                df_puertos["Puerto"] = df_puertos["Puerto"].map(
+                    lambda x: servicios_conocidos.get(x, x))
+                fig3 = px.pie(df_puertos, values="Ataques", names="Puerto",
+                             hole=0.5,
+                             color_discrete_sequence=["#388bfd","#1f6feb","#79c0ff",
+                                                       "#f85149","#d29922","#3fb950",
+                                                       "#8b949e","#58a6ff"])
+                fig3.update_traces(
+                    textposition="outside",
+                    textinfo="label+percent",
+                    textfont=dict(color="#c9d1d9", size=10),
+                    marker=dict(line=dict(color="#0d1117", width=2))
+                )
+                fig3.update_layout(
+                    plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
+                    margin=dict(l=10,r=10,t=10,b=10), height=320,
+                    showlegend=False,
+                    annotations=[dict(
+                        text="<b>Puertos</b>",
+                        x=0.5, y=0.5, font=dict(size=13, color="#e6edf3"),
+                        showarrow=False
+                    )]
+                )
+                st.plotly_chart(fig3, use_container_width=True)
 
-        # Tabla de ultimas alertas
+        with col4:
+            st.markdown('<div class="section-header">Actividad por Hora</div>', unsafe_allow_html=True)
+            df_time = pd.DataFrame(alertas_sur)
+            df_time["hora"] = pd.to_datetime(df_time["timestamp"]).dt.hour
+            timeline = df_time.groupby("hora").size().reset_index(name="Alertas")
+            timeline.columns = ["Hora", "Alertas"]
+            # Rellenar horas sin datos con 0
+            todas_horas = pd.DataFrame({"Hora": range(0, 24)})
+            timeline = todas_horas.merge(timeline, on="Hora", how="left").fillna(0)
+            timeline["Hora"] = timeline["Hora"].astype(int).astype(str).str.zfill(2) + ":00"
+            fig4 = px.bar(timeline, x="Hora", y="Alertas",
+                         color="Alertas",
+                         color_continuous_scale=["#0d2d6b", "#388bfd", "#79c0ff"])
+            fig4.update_layout(
+                plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
+                margin=dict(l=0,r=0,t=10,b=0), height=320,
+                showlegend=False, coloraxis_showscale=False,
+                xaxis_title="", yaxis_title="Alertas",
+            )
+            fig4.update_xaxes(color="#8b949e", tickangle=45)
+            fig4.update_yaxes(color="#8b949e", gridcolor="#21262d")
+            st.plotly_chart(fig4, use_container_width=True)
+
         st.markdown('<div class="section-header">Ultimas Alertas de Red</div>', unsafe_allow_html=True)
         df_alertas = pd.DataFrame(alertas_sur[-50:])
         df_alertas["timestamp"] = pd.to_datetime(df_alertas["timestamp"]).dt.strftime("%d/%m %H:%M:%S")
@@ -3173,7 +3218,6 @@ elif pagina == "Tráfico de Red":
         df_alertas.columns = ["Timestamp","IP Origen","Puerto Destino","Protocolo","Firma","Severidad"]
         df_alertas = df_alertas.sort_values("Timestamp", ascending=False)
         tabla_oscura(df_alertas)
-
     else:
         st.info("Suricata activo — esperando alertas de red. Los datos aparecerán en cuanto se detecte tráfico sospechoso.")
 
