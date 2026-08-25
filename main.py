@@ -204,14 +204,14 @@ def guardar_agentes(agentes: dict):
 @app.post("/alerta")
 @limiter.limit("10/minute")
 async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = Depends(verificar_api_key)):
-    ip_atacante = alerta.data.get("srcip", "desconocida")
+    ip_atacante = alerta.data.get("srcip", "")
     nivel = alerta.rule.get("level", 0)
     descripcion = alerta.rule.get("description", "")
     print(f"[ALERTA] Nivel {nivel} - {descripcion} - IP: {ip_atacante}")
 
-    # Analisis APT con LSTM — siempre antes de cualquier return
+    # Analisis APT con LSTM — solo si hay IP externa real
     apt_resultado = {}
-    if APT_DISPONIBLE:
+    if APT_DISPONIBLE and ip_atacante and ip_atacante not in ["", "desconocida", "127.0.0.1", "0.0.0.0"]:
         try:
             apt_resultado = detector_apt.procesar_alerta({
                 "rule_id": str(alerta.rule.get("id", "0")),
