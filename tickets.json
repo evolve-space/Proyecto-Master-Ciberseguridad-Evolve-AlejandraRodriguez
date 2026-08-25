@@ -1,0 +1,38 @@
+{
+  "tickets": [
+    {
+      "id": "NTC-0001",
+      "titulo": "Ticket de prueba - SSH Brute Force",
+      "descripcion": "Deteccion de ataque SSH brute force desde IP china",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "47.80.59.241",
+      "fase_mitre": "initial_access",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CN",
+      "abuse_isp": "Alibaba Cloud",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-07T11:50:13.934449+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-07T12:27:11.070310+00:00",
+          "nota": "Estado cambiado a Abierto"
+        }
+      ],
+      "creado_en": "2026-08-07T11:50:13.934449+00:00",
+      "actualizado_en": "2026-08-07T12:27:11.070310+00:00",
+      "resuelto_en": null
+    }
+  ],
+  "contador": 1
+}
