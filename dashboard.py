@@ -869,6 +869,43 @@ def cargar_ips_hetzner():
         pass
     return []
 
+@st.cache_data(ttl=30)
+def cargar_suricata():
+    """Lee las alertas recientes de Suricata desde eve.json."""
+    try:
+        import gzip
+        alertas = []
+        flows = []
+        # Leer el archivo actual sin comprimir
+        with open("/var/log/suricata/eve.json", "r") as f:
+            for line in f:
+                try:
+                    e = json.loads(line)
+                    tipo = e.get("event_type", "")
+                    if tipo == "alert":
+                        alertas.append({
+                            "timestamp": e.get("timestamp", ""),
+                            "src_ip":    e.get("src_ip", ""),
+                            "dest_port": e.get("dest_port", 0),
+                            "proto":     e.get("proto", ""),
+                            "firma":     e.get("alert", {}).get("signature", ""),
+                            "categoria": e.get("alert", {}).get("category", ""),
+                            "severidad": e.get("alert", {}).get("severity", 3),
+                        })
+                    elif tipo == "flow":
+                        flows.append({
+                            "src_ip":         e.get("src_ip", ""),
+                            "dest_port":      e.get("dest_port", 0),
+                            "proto":          e.get("proto", ""),
+                            "pkts_toserver":  e.get("flow", {}).get("pkts_toserver", 0),
+                            "bytes_toserver": e.get("flow", {}).get("bytes_toserver", 0),
+                        })
+                except:
+                    continue
+        return {"alertas": alertas, "flows": flows}
+    except Exception as e:
+        return {"alertas": [], "flows": []}
+
 def consultar_abuseipdb(ip: str) -> dict:
     """Consulta la reputacion de una IP en AbuseIPDB."""
     if not ABUSEIPDB_API_KEY or ip in ["0.0.0.0", "127.0.0.1", ""]:
@@ -906,7 +943,7 @@ with st.sidebar:
     opciones = [
         "Panel General", "Alertas y Eventos", "IPs Bloqueadas",
         "Endpoints", "Normativas", "Detección APT",
-        "Simulador de Ataques", "Informes", "Estado del Sistema", "Análisis Forense", "Gestión de Incidentes", "About"
+        "Simulador de Ataques", "Informes", "Estado del Sistema", "Análisis Forense", "Gestión de Incidentes",  "Tráfico de Red", "About"
     ]
     if "pagina" not in st.session_state:
         st.session_state.pagina = "Panel General"
@@ -1054,8 +1091,50 @@ if pagina == "Panel General":
             </div>""", unsafe_allow_html=True)
             if st.button("Ver motor", key="btn_buffer", use_container_width=True, type="secondary"):
                 st.session_state.pagina = "Detección APT"; st.rerun()
-        st.markdown("---")
+        
+        # Metricas Suricata
+        datos_suricata = cargar_suricata()
+        alertas_sur = datos_suricata.get("alertas", [])
+        flows_sur = datos_suricata.get("flows", [])
+        ips_atacantes = list(set([a["src_ip"] for a in alertas_sur if a["src_ip"] and a["src_ip"] != "91.98.126.215"]))
+        st.markdown('<div class="section-header">Tráfico de Red — Suricata IDS</div>', unsafe_allow_html=True)
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            n = len(alertas_sur)
+            color = "#f85149" if n > 0 else "#8b949e"
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Alertas de Red Hoy</p>
+                <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{n}</p>
+            </div>""", unsafe_allow_html=True)
+        with col2:
+            n = len(ips_atacantes)
+            color = "#d29922" if n > 0 else "#8b949e"
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">IPs Atacantes Activas</p>
+                <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{n}</p>
+            </div>""", unsafe_allow_html=True)
+        with col3:
+            n = len(flows_sur)
+            color = "#388bfd"
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Flujos de Red</p>
+                <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{n}</p>
+            </div>""", unsafe_allow_html=True)
+        with col4:
+            criticas = len([a for a in alertas_sur if a["severidad"] == 1])
+            color = "#f85149" if criticas > 0 else "#8b949e"
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Alertas Criticas Red</p>
+                <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{criticas}</p>
+            </div>""", unsafe_allow_html=True)
+            if st.button("Ver tráfico", key="btn_suricata", use_container_width=True, type="secondary"):
+                st.session_state.pagina = "Tráfico de Red"; st.rerun()
 
+        st.markdown("---")
         col1, col2 = st.columns(2)
         with col1:
             st.markdown('<div class="section-header">Top Tipos de Alerta</div>', unsafe_allow_html=True)
@@ -2984,6 +3063,119 @@ elif pagina == "Gestión de Incidentes":
                         yaxis=dict(color="#c9d1d9", tickfont=dict(size=11)),
                     )
                     st.plotly_chart(fig2, use_container_width=True)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TRAFICO DE RED — SURICATA IDS
+# ══════════════════════════════════════════════════════════════════════════════
+elif pagina == "Tráfico de Red":
+    st.markdown("## Tráfico de Red — Suricata IDS")
+    st.markdown("Monitorización de tráfico de red en tiempo real mediante Suricata 7.0.3 con 52.534 reglas activas.")
+    st.markdown("---")
+
+    datos_suricata = cargar_suricata()
+    alertas_sur = datos_suricata.get("alertas", [])
+    flows_sur   = datos_suricata.get("flows", [])
+
+    # ── Métricas globales ──────────────────────────────────────────────────
+    col1, col2, col3, col4 = st.columns(4)
+    ips_atacantes = [a["src_ip"] for a in alertas_sur if a["src_ip"] and a["src_ip"] != "91.98.126.215"]
+    with col1:
+        n = len(alertas_sur)
+        color = "#f85149" if n > 0 else "#8b949e"
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid {color};">
+            <p class="metric-label">Alertas de Red</p>
+            <p class="metric-value" style="color:{color}">{n}</p>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        n = len(set(ips_atacantes))
+        color = "#d29922" if n > 0 else "#8b949e"
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid {color};">
+            <p class="metric-label">IPs Atacantes Unicas</p>
+            <p class="metric-value" style="color:{color}">{n}</p>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        n = len(flows_sur)
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #388bfd;">
+            <p class="metric-label">Flujos Monitorizados</p>
+            <p class="metric-value" style="color:#388bfd">{n}</p>
+        </div>""", unsafe_allow_html=True)
+    with col4:
+        criticas = len([a for a in alertas_sur if a["severidad"] == 1])
+        color = "#f85149" if criticas > 0 else "#3fb950"
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid {color};">
+            <p class="metric-label">Alertas Criticas</p>
+            <p class="metric-value" style="color:{color}">{criticas}</p>
+        </div>""", unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    if alertas_sur:
+        col1, col2 = st.columns(2)
+
+        with col1:
+            # Top IPs atacantes
+            st.markdown('<div class="section-header">Top IPs Atacantes</div>', unsafe_allow_html=True)
+            from collections import Counter
+            top_ips = Counter(ips_atacantes).most_common(10)
+            if top_ips:
+                df_ips = pd.DataFrame(top_ips, columns=["IP", "Alertas"])
+                fig = px.bar(df_ips, x="Alertas", y="IP", orientation="h",
+                            color="Alertas", color_continuous_scale=["#1f6feb", "#f85149"])
+                fig.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
+                                 margin=dict(l=0,r=0,t=10,b=0), height=320,
+                                 showlegend=False, coloraxis_showscale=False)
+                fig.update_xaxes(color="#8b949e", gridcolor="#21262d")
+                fig.update_yaxes(color="#c9d1d9")
+                st.plotly_chart(fig, use_container_width=True)
+
+        with col2:
+            # Top firmas
+            st.markdown('<div class="section-header">Top Firmas Detectadas</div>', unsafe_allow_html=True)
+            firmas = [a["firma"] for a in alertas_sur if a["firma"]]
+            top_firmas = Counter(firmas).most_common(8)
+            if top_firmas:
+                df_firmas = pd.DataFrame(top_firmas, columns=["Firma", "Count"])
+                df_firmas["Firma"] = df_firmas["Firma"].str[:40]
+                fig2 = px.bar(df_firmas, x="Count", y="Firma", orientation="h",
+                             color="Count", color_continuous_scale=["#0d2d6b", "#388bfd"])
+                fig2.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
+                                  margin=dict(l=0,r=0,t=10,b=0), height=320,
+                                  showlegend=False, coloraxis_showscale=False)
+                fig2.update_xaxes(color="#8b949e", gridcolor="#21262d")
+                fig2.update_yaxes(color="#c9d1d9")
+                st.plotly_chart(fig2, use_container_width=True)
+
+        # Top puertos atacados
+        st.markdown('<div class="section-header">Puertos mas Atacados</div>', unsafe_allow_html=True)
+        puertos = [a["dest_port"] for a in alertas_sur if a["dest_port"]]
+        top_puertos = Counter(puertos).most_common(10)
+        if top_puertos:
+            df_puertos = pd.DataFrame(top_puertos, columns=["Puerto", "Ataques"])
+            df_puertos["Puerto"] = df_puertos["Puerto"].astype(str)
+            fig3 = px.bar(df_puertos, x="Puerto", y="Ataques",
+                         color="Ataques", color_continuous_scale=["#0d2d6b", "#388bfd"])
+            fig3.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
+                              margin=dict(l=0,r=0,t=10,b=0), height=250,
+                              showlegend=False, coloraxis_showscale=False)
+            fig3.update_xaxes(color="#8b949e")
+            fig3.update_yaxes(color="#8b949e", gridcolor="#21262d")
+            st.plotly_chart(fig3, use_container_width=True)
+
+        # Tabla de ultimas alertas
+        st.markdown('<div class="section-header">Ultimas Alertas de Red</div>', unsafe_allow_html=True)
+        df_alertas = pd.DataFrame(alertas_sur[-50:])
+        df_alertas["timestamp"] = pd.to_datetime(df_alertas["timestamp"]).dt.strftime("%d/%m %H:%M:%S")
+        df_alertas = df_alertas[["timestamp","src_ip","dest_port","proto","firma","severidad"]].copy()
+        df_alertas.columns = ["Timestamp","IP Origen","Puerto Destino","Protocolo","Firma","Severidad"]
+        df_alertas = df_alertas.sort_values("Timestamp", ascending=False)
+        tabla_oscura(df_alertas)
+
+    else:
+        st.info("Suricata activo — esperando alertas de red. Los datos aparecerán en cuanto se detecte tráfico sospechoso.")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
