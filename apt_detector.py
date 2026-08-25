@@ -142,56 +142,101 @@ class DetectorAPT:
 
     def _alerta_a_vector(self, alerta: dict) -> np.ndarray:
         """
-        Convierte una alerta de Wazuh en un vector de features.
-        Mismo formato que apt_pipeline.py para consistencia.
+        Convierte una alerta en un vector de 9 features.
+        Si la alerta tiene datos de Suricata (features de red reales),
+        usa el mismo espacio de features que CICIDS2018.
+        Si no, usa features de metadatos de Wazuh como fallback.
         """
-        rule_id = str(alerta.get("rule_id", "0"))
-        nivel   = float(alerta.get("nivel", 0))
-        ip      = alerta.get("ip", "0.0.0.0")
-        agente  = alerta.get("agente", "master")
+        # ── Detectar si es alerta de Suricata con datos de red ───────────────
+        flow     = alerta.get("flow", {})
+        tiene_flow = bool(flow and flow.get("pkts_toserver") is not None)
 
-        # IP a numero
-        try:
-            partes = ip.split(".")
-            ip_num = int(partes[3]) + int(partes[2]) * 256 if len(partes) == 4 else 0
-        except Exception:
-            ip_num = 0
+        if tiene_flow:
+            # ── Features de red reales (equivalente a CICIDS2018) ─────────────
+            pkts_toserver   = float(flow.get("pkts_toserver", 0))
+            pkts_toclient   = float(flow.get("pkts_toclient", 0))
+            bytes_toserver  = float(flow.get("bytes_toserver", 0))
+            bytes_toclient  = float(flow.get("bytes_toclient", 0))
 
-        # Hora actual
-        ahora      = datetime.now()
-        hora_dia   = ahora.hour
-        dia_semana = ahora.weekday()
-        es_nocturno = 1 if 0 <= hora_dia <= 6 else 0
-
-        # Fase MITRE
-        from apt_pipeline import RULE_TO_MITRE, MITRE_PHASES as MP
-        fase = RULE_TO_MITRE.get(rule_id, "unknown")
-        fase_idx = MP.index(fase) if fase in MP else len(MP) - 1
-
-        # Agente encoded
-        agente_idx = 0
-        if self.encoders:
+            # Duracion del flujo en segundos
             try:
-                le_agente = self.encoders["agente"]
-                if agente in le_agente.classes_:
-                    agente_idx = int(le_agente.transform([agente])[0])
+                from datetime import datetime as dt
+                start = dt.fromisoformat(flow.get("start","").replace("Z","+00:00"))
+                end   = dt.fromisoformat(flow.get("end", flow.get("start","")).replace("Z","+00:00"))
+                duracion = max((end - start).total_seconds(), 0.001)
             except Exception:
-                pass
+                duracion = 1.0
 
-        vector = np.array([
-            nivel / 15.0,       # nivel_norm
-            fase_idx,           # fase_encoded
-            agente_idx,         # agente_encoded
-            ip_num / 65535.0,   # ip_num normalizado
-            hora_dia / 23.0,    # hora_dia
-            dia_semana / 6.0,   # dia_semana
-            es_nocturno,        # es_nocturno
-            1.0 if nivel >= 12 else 0.0,  # es_critico
-            1.0 if nivel >= 10 else 0.0,  # es_alto
-        ], dtype=np.float32)
+            # Bytes por segundo
+            flow_byts_s = (bytes_toserver + bytes_toclient) / duracion
+            flow_pkts_s = (pkts_toserver + pkts_toclient) / duracion
 
-        # Aplicar scaler si disponible
-        if self.scaler:
+            # Flags TCP
+            tcp         = alerta.get("tcp", {})
+            syn_cnt     = 1.0 if tcp.get("syn") else 0.0
+            ack_cnt     = 1.0 if tcp.get("ack") else 0.0
+
+            # Tamano medio de paquete
+            total_pkts  = pkts_toserver + pkts_toclient
+            total_bytes = bytes_toserver + bytes_toclient
+            pkt_size_avg = total_bytes / total_pkts if total_pkts > 0 else 0.0
+
+            # IAT aproximado (duracion / paquetes)
+            iat_mean = duracion / total_pkts if total_pkts > 0 else 0.0
+
+            # Normalizar — mismos rangos que CICIDS2018
+            vector = np.array([
+                min(duracion / 120.0, 1.0),          # Flow Duration norm (max 2 min)
+                min(pkts_toserver / 1000.0, 1.0),    # Tot Fwd Pkts norm
+                min(pkts_toclient / 1000.0, 1.0),    # Tot Bwd Pkts norm
+                min(flow_byts_s / 1000000.0, 1.0),   # Flow Byts/s norm (max 1MB/s)
+                min(flow_pkts_s / 10000.0, 1.0),     # Flow Pkts/s norm
+                syn_cnt,                              # SYN Flag Cnt
+                ack_cnt,                              # ACK Flag Cnt
+                min(pkt_size_avg / 1500.0, 1.0),     # Pkt Size Avg norm (max MTU)
+                min(iat_mean / 10.0, 1.0),            # Flow IAT Mean norm
+            ], dtype=np.float32)
+
+        else:
+            # ── Fallback: features de metadatos Wazuh ────────────────────────
+            rule_id    = str(alerta.get("rule_id", "0"))
+            nivel      = float(alerta.get("nivel", 0))
+            ip         = alerta.get("ip", "0.0.0.0")
+            agente     = alerta.get("agente", "master")
+            try:
+                partes = ip.split(".")
+                ip_num = int(partes[3]) + int(partes[2]) * 256 if len(partes) == 4 else 0
+            except Exception:
+                ip_num = 0
+            ahora       = datetime.now()
+            hora_dia    = ahora.hour
+            dia_semana  = ahora.weekday()
+            es_nocturno = 1 if 0 <= hora_dia <= 6 else 0
+            from apt_pipeline import RULE_TO_MITRE, MITRE_PHASES as MP
+            fase     = RULE_TO_MITRE.get(rule_id, "unknown")
+            fase_idx = MP.index(fase) if fase in MP else len(MP) - 1
+            agente_idx = 0
+            if self.encoders:
+                try:
+                    le_agente = self.encoders["agente"]
+                    if agente in le_agente.classes_:
+                        agente_idx = int(le_agente.transform([agente])[0])
+                except Exception:
+                    pass
+            vector = np.array([
+                nivel / 15.0,
+                fase_idx,
+                agente_idx,
+                ip_num / 65535.0,
+                hora_dia / 23.0,
+                dia_semana / 6.0,
+                es_nocturno,
+                1.0 if nivel >= 12 else 0.0,
+                1.0 if nivel >= 10 else 0.0,
+            ], dtype=np.float32)
+
+        # Aplicar scaler CICIDS2018 solo si tiene features de red reales
+        if self.scaler and tiene_flow:
             try:
                 vector = self.scaler.transform(vector.reshape(1, -1))[0]
             except Exception:
