@@ -218,6 +218,8 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
                 "nivel":   nivel,
                 "ip":      ip_atacante,
                 "agente":  "master",
+                "flow":    alerta.data.get("flow", {}),
+                "tcp":     alerta.data.get("tcp", {}),
             })
         except Exception as e:
             print(f"[APT] Error en detector: {e}")
