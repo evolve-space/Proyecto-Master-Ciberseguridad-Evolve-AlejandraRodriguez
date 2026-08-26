@@ -1,0 +1,14 @@
+{
+  "WORKSTATION-01": [
+    {
+      "id": "20260826183056",
+      "tipo": "snapshot_inmediato",
+      "params": {},
+      "estado": "ejecutado",
+      "creado_en": "2026-08-26T18:30:56.761067",
+      "ejecutado_en": "2026-08-26T18:52:28.481300",
+      "resultado": "Snapshot inmediato completado en este ciclo",
+      "exito": true
+    }
+  ]
+}
