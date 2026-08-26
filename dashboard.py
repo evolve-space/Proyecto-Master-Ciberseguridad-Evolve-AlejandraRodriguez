@@ -1074,7 +1074,7 @@ if pagina == "Panel General":
                 <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{campanas_24h}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver ultimas", key="btn_apt_24h", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "Deteccóon APT"; st.rerun()
+                st.session_state.pagina = "Detección APT"; st.rerun()
         with col3:
             lateral_total = estado_lateral.get("detecciones_totales", 0)
             color = "#8e44ad" if lateral_total > 0 else "#bdc3c7"
