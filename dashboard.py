@@ -819,7 +819,7 @@ st.markdown("""<style>
 </style>""", unsafe_allow_html=True)
 
 
-@st.cache_data(ttl=30)
+@st.cache_data(ttl=300)
 def cargar_alertas_wazuh():
     try:
         result = subprocess.run(
@@ -1766,6 +1766,27 @@ elif pagina == "Endpoints":
                             tabla_oscura(df_ev, use_container_width=True, hide_index=True)
                     else:
                         st.info("Sin eventos recientes")
+            
+            # Cambios de comportamiento detectados
+            cambios = agentes[hostname].get("cambios", [])
+            with st.expander(f"Cambios detectados ({len(cambios)})"):
+                if cambios:
+                    for c in cambios:
+                        color = "#f85149" if c["severidad"] == "CRITICO" else "#d29922" if c["severidad"] == "ALTO" else "#388bfd"
+                        st.markdown(f"""
+                        <div style="background:#161b22;padding:10px 14px;border-radius:6px;
+                                    border-left:3px solid {color};margin-bottom:6px;">
+                            <span style="background:{color};color:white;padding:1px 6px;
+                                        border-radius:3px;font-size:0.72rem;font-weight:600">
+                                {c['severidad']}
+                            </span>
+                            <span style="color:#c9d1d9;font-size:0.85rem;margin-left:8px">
+                                {c['detalle']}
+                            </span>
+                        </div>""", unsafe_allow_html=True)
+                else:
+                    st.success("Sin cambios detectados desde el ultimo snapshot.")
+
             with st.expander(f"Software instalado ({len(seg.get('software_instalado', []))})"):
                 software = seg.get("software_instalado", [])
                 if software:

@@ -282,12 +282,57 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
 async def recibir_datos_agente(request: Request, datos: DatosAgente, api_key: str = Depends(verificar_api_key)):
     print(f"[AGENTE] Datos recibidos de {datos.hostname} ({datos.ip})")
     agentes = cargar_agentes()
+    
+    # ── Analisis de comportamiento — comparar con snapshot anterior ───────────
+    cambios = []
+    anterior = agentes.get(datos.hostname, {}).get("datos", {})
+    if anterior:
+        seg_ant = anterior.get("seguridad", {})
+        seg_new = datos.dict().get("seguridad", {})
+        
+        # Procesos nuevos
+        procs_ant = set(p.get("nombre","") for p in seg_ant.get("procesos_sospechosos", []))
+        procs_new = set(p.get("nombre","") for p in seg_new.get("procesos_sospechosos", []))
+        for proc in procs_new - procs_ant:
+            cambios.append({"tipo": "proceso_nuevo", "detalle": f"Nuevo proceso sospechoso: {proc}", "severidad": "ALTO"})
+        
+        # Puertos nuevos
+        puertos_ant = set()
+        puertos_new = set()
+        for p in seg_ant.get("puertos_escucha", []):
+            puertos_ant.add(p.get("puerto", p) if isinstance(p, dict) else p)
+        for p in seg_new.get("puertos_escucha", []):
+            puertos_new.add(p.get("puerto", p) if isinstance(p, dict) else p)
+        for puerto in puertos_new - puertos_ant:
+            proc_name = next((p.get("proceso","?") for p in seg_new.get("puertos_escucha",[]) 
+                            if isinstance(p, dict) and p.get("puerto") == puerto), "?")
+            cambios.append({"tipo": "puerto_nuevo", "detalle": f"Nuevo puerto abierto: {puerto} ({proc_name})", "severidad": "MEDIO"})
+        
+        # Nuevo admin
+        admins_ant = set(seg_ant.get("usuarios_admin", []))
+        admins_new = set(seg_new.get("usuarios_admin", []))
+        for admin in admins_new - admins_ant:
+            cambios.append({"tipo": "nuevo_admin", "detalle": f"Nuevo usuario administrador: {admin}", "severidad": "CRITICO"})
+        
+        # Pico de CPU
+        rend_ant = anterior.get("rendimiento", {})
+        rend_new = datos.dict().get("rendimiento", {})
+        cpu_ant = rend_ant.get("cpu_porcentaje", 0)
+        cpu_new = rend_new.get("cpu_porcentaje", 0)
+        if cpu_new - cpu_ant > 40:
+            cambios.append({"tipo": "pico_cpu", "detalle": f"Pico de CPU: {cpu_ant}% → {cpu_new}%", "severidad": "ALTO"})
+        
+        if cambios:
+            print(f"[AGENTE] {len(cambios)} cambios detectados en {datos.hostname}")
+
     agentes[datos.hostname] = {
         "ultima_conexion": datetime.now().isoformat(),
-        "datos": datos.dict()
+        "datos": datos.dict(),
+        "cambios": cambios,
+        "ultimo_analisis": datetime.now().isoformat()
     }
     guardar_agentes(agentes)
-    return {"status": "ok", "hostname": datos.hostname}
+    return {"status": "ok", "hostname": datos.hostname, "cambios_detectados": len(cambios)}
 
 @app.get("/agentes")
 @limiter.limit("30/minute")
