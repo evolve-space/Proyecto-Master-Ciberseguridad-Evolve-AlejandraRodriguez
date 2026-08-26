@@ -572,3 +572,74 @@ async def metricas_tickets(api_key: str = Depends(verificar_api_key)):
         return _metricas()
     except Exception as e:
         return {"error": str(e)}
+
+# ── COMANDOS BIDIRECCIONALES PARA AGENTE WINDOWS ──────────────────────────────
+COMANDOS_FILE = "/root/asoar/comandos_agente.json"
+
+def cargar_comandos():
+    if os.path.exists(COMANDOS_FILE):
+        try:
+            with open(COMANDOS_FILE, "r") as f:
+                return json.load(f)
+        except:
+            pass
+    return {}
+
+def guardar_comandos(comandos: dict):
+    with open(COMANDOS_FILE, "w") as f:
+        json.dump(comandos, f, indent=2, default=str)
+
+@app.post("/agente/comando/{hostname}")
+async def enviar_comando(hostname: str, request: Request, api_key: str = Depends(verificar_api_key)):
+    """Envia un comando pendiente al agente Windows."""
+    try:
+        body = await request.json()
+        tipo    = body.get("tipo", "")
+        params  = body.get("params", {})
+        comandos = cargar_comandos()
+        if hostname not in comandos:
+            comandos[hostname] = []
+        comandos[hostname].append({
+            "id":        datetime.now().strftime("%Y%m%d%H%M%S"),
+            "tipo":      tipo,
+            "params":    params,
+            "estado":    "pendiente",
+            "creado_en": datetime.now().isoformat(),
+            "ejecutado_en": None,
+            "resultado": None
+        })
+        guardar_comandos(comandos)
+        return {"status": "ok", "mensaje": f"Comando {tipo} encolado para {hostname}"}
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/agente/comandos/{hostname}")
+async def obtener_comandos(hostname: str, api_key: str = Depends(verificar_api_key)):
+    """El agente Windows consulta si tiene comandos pendientes."""
+    comandos = cargar_comandos()
+    pendientes = [c for c in comandos.get(hostname, []) if c["estado"] == "pendiente"]
+    return {"comandos": pendientes}
+
+@app.post("/agente/comando/{hostname}/{comando_id}/resultado")
+async def reportar_resultado(hostname: str, comando_id: str, request: Request, api_key: str = Depends(verificar_api_key)):
+    """El agente reporta el resultado de un comando ejecutado."""
+    try:
+        body = await request.json()
+        comandos = cargar_comandos()
+        for c in comandos.get(hostname, []):
+            if c["id"] == comando_id:
+                c["estado"]       = "ejecutado"
+                c["ejecutado_en"] = datetime.now().isoformat()
+                c["resultado"]    = body.get("resultado", "")
+                c["exito"]        = body.get("exito", False)
+                break
+        guardar_comandos(comandos)
+        return {"status": "ok"}
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/agente/comandos/{hostname}/historial")
+async def historial_comandos(hostname: str, api_key: str = Depends(verificar_api_key)):
+    """Historial de todos los comandos ejecutados en un agente."""
+    comandos = cargar_comandos()
+    return {"comandos": comandos.get(hostname, [])}
