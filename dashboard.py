@@ -835,7 +835,7 @@ def cargar_alertas_wazuh():
                     "timestamp": pd.to_datetime(a.get("timestamp", ""), utc=True, errors="coerce"),
                     "tipo": a.get("rule", {}).get("description", "Desconocido"),
                     "nivel": int(a.get("rule", {}).get("level", 0)),
-                    "ip": a.get("data", {}).get("srcip", a.get("agent", {}).get("ip", "N/A")),
+                    "ip": a.get("data", {}).get("srcip") or a.get("data", {}).get("src_ip") or a.get("agent", {}).get("ip", "N/A"),                    
                     "agente": a.get("agent", {}).get("name", "master").replace("soc-autonomo-master", "Noctua-Server"),
                     "id_regla": str(a.get("rule", {}).get("id", "")),
                     "accion": "BLOQUEADA" if int(a.get("rule", {}).get("level", 0)) >= 10 else "MONITORIZADA"
