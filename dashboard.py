@@ -1069,7 +1069,7 @@ if pagina == "Panel General":
         with col4:
             st.markdown(f"""
             <div class="metric-card" style="border-top:3px solid #6c3483; background:#161b22;">
-                <p class="metric-label">IPs Bloqueadas</p>
+                <p class="metric-label">IPs en Blacklist</p>
                 <p style="font-size:3rem; font-weight:700; color:#6c3483; margin:4px 0 0 0;">{bloqueadas_count}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver IPs", key="btn_bloqueadas", use_container_width=True, type="secondary"):
@@ -1235,13 +1235,12 @@ elif pagina == "Alertas y Eventos":
 # IPs BLOQUEADAS
 # ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "IPs Bloqueadas":
-    st.markdown("## IPs Bloqueadas en Hetzner Firewall")
+    st.markdown("## Blacklist — IPs Bloqueadas en Hetzner Firewall")
     st.markdown("---")
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.markdown(f'<div class="metric-card danger"><p class="metric-label">IPs Bloqueadas Activas</p><p class="metric-value">{len(ips_bloqueadas)}</p></div>', unsafe_allow_html=True)
-
-    st.markdown('<div class="section-header">IPs Bloqueadas — Noctua Predictive</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="metric-card danger"><p class="metric-label">IPs en Blacklist</p><p class="metric-value">{len(ips_bloqueadas)}</p></div>', unsafe_allow_html=True) 
+    st.markdown('<div class="section-header">Blacklist — IPs Bloqueadas en Hetzner</div>', unsafe_allow_html=True)    
     if ips_bloqueadas:
         rows = []
         for ip in ips_bloqueadas:
@@ -1255,13 +1254,17 @@ elif pagina == "IPs Bloqueadas":
                 badge = f'<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">{score}% BAJA</span>'
             else:
                 badge = '<span style="background:#bdc3c7;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem">Desconocida</span>'
+            enriq = enriquecer_ip(ip)
             rows.append({
-                "IP":        ip,
+                "IP":         ip,
                 "Reputacion": str(score) + "%",
-                "Pais":      abuse.get("pais", "—"),
-                "ISP":       abuse.get("isp", "—"),
-                "Reportes":  str(abuse.get("reportes", 0)),
-                "TOR":       "Si" if abuse.get("es_tor") else "No"
+                "Pais":       abuse.get("pais", "—"),
+                "Ciudad":     f"{enriq.get('ciudad','—')}, {enriq.get('pais_codigo','—')}",
+                "ISP":        enriq.get("isp","—") or abuse.get("isp", "—"),
+                "ASN":        enriq.get("asn", "—"),
+                "Datacenter": "Si" if enriq.get("es_datacenter") else "No",
+                "Reportes":   str(abuse.get("reportes", 0)),
+                "TOR":        "Si" if abuse.get("es_tor") else "No"
             })
         df_ips = pd.DataFrame(rows)
         tabla_oscura(df_ips, use_container_width=True, hide_index=True)
@@ -1315,12 +1318,19 @@ elif pagina == "IPs Bloqueadas":
     if historico:
         df_hist = pd.DataFrame(historico)
         df_hist["timestamp"] = pd.to_datetime(df_hist["timestamp"]).dt.strftime("%d/%m/%Y %H:%M")
-        if "desbloqueada_en" in df_hist.columns:
-            df_hist["desbloqueada_en"] = pd.to_datetime(df_hist["desbloqueada_en"], errors="coerce").dt.strftime("%d/%m/%Y %H:%M")
-        df_hist.columns = [c.replace("_", " ").title() for c in df_hist.columns]
-        tabla_oscura(df_hist, use_container_width=True, hide_index=True)
+        # Separar bloqueadas y desbloqueadas
+        df_bloqueadas = df_hist[df_hist["accion"] == "BLOQUEADA"][["ip","timestamp","accion"]].copy()
+        df_bloqueadas.columns = ["IP", "Fecha Bloqueo", "Estado"]
+        df_desbloqueadas = df_hist[df_hist["accion"] == "DESBLOQUEADA"][["ip","timestamp","accion"]].copy() if "DESBLOQUEADA" in df_hist["accion"].values else pd.DataFrame()
+        tabla_oscura(df_bloqueadas, use_container_width=True, hide_index=True)
     else:
         st.info("No hay historico de IPs todavia.")
+
+    if 'df_desbloqueadas' in locals() and not df_desbloqueadas.empty:
+        st.markdown('<div class="section-header">IPs Desbloqueadas</div>', unsafe_allow_html=True)
+        df_desbloqueadas.columns = ["IP", "Fecha Desbloqueo", "Estado"]
+        tabla_oscura(df_desbloqueadas, use_container_width=True, hide_index=True)
+
     st.markdown('<div class="section-header">Desbloquear IP</div>', unsafe_allow_html=True)
     col1, col2 = st.columns([3, 1])
     with col1:
