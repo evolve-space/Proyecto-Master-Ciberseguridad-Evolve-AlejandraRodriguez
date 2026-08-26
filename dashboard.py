@@ -936,6 +936,35 @@ def consultar_abuseipdb(ip: str) -> dict:
         pass
     return {}
 
+@st.cache_data(ttl=3600)
+def enriquecer_ip(ip: str) -> dict:
+    """Obtiene ASN, dominio inverso y geolocalización de una IP via ip-api.com."""
+    if ip in ["0.0.0.0", "127.0.0.1", "", "91.98.126.215"]:
+        return {}
+    try:
+        r = requests.get(
+            f"http://ip-api.com/json/{ip}",
+            params={"fields": "status,country,countryCode,regionName,city,isp,org,as,reverse,hosting"},
+            timeout=5
+        )
+        if r.status_code == 200:
+            data = r.json()
+            if data.get("status") == "success":
+                return {
+                    "pais":          data.get("country", ""),
+                    "pais_codigo":   data.get("countryCode", ""),
+                    "region":        data.get("regionName", ""),
+                    "ciudad":        data.get("city", ""),
+                    "isp":           data.get("isp", ""),
+                    "org":           data.get("org", ""),
+                    "asn":           data.get("as", ""),
+                    "ptr":           data.get("reverse", ""),
+                    "es_datacenter": data.get("hosting", False),
+                }
+    except Exception:
+        pass
+    return {}
+
 df = cargar_alertas_wazuh()
 ips_bloqueadas = cargar_ips_hetzner()
 
@@ -2583,6 +2612,65 @@ elif pagina == "Análisis Forense":
         else:
             st.info("No se encontraron eventos Wazuh para esta IP.")
 
+        # ── Alertas Suricata relacionadas ──────────────────────────────────
+        st.markdown('<div class="section-header">Alertas de Red — Suricata IDS</div>', unsafe_allow_html=True)
+        # Busqueda forense en todo el archivo Suricata (sin limite de lineas)
+        alertas_sur_ip = []
+        try:
+            resultado_grep = subprocess.run(
+                ["grep", ip_forense, "/var/log/suricata/eve.json"],
+                capture_output=True, text=True, errors="ignore",
+                timeout=30
+            )
+            for line in resultado_grep.stdout.splitlines():
+                try:
+                    e = json.loads(line)
+                    if e.get("event_type") == "alert":
+                        src = e.get("src_ip", "")
+                        dst = e.get("dest_ip", "")
+                        if ip_forense in [src, dst]:
+                            alertas_sur_ip.append({
+                                "timestamp": e.get("timestamp", ""),
+                                "src_ip":    src,
+                                "dest_ip":   dst,
+                                "dest_port": e.get("dest_port", 0),
+                                "proto":     e.get("proto", ""),
+                                "firma":     e.get("alert", {}).get("signature", ""),
+                                "severidad": e.get("alert", {}).get("severity", 3),
+                                "direccion": "ENTRANTE" if dst == "91.98.126.215" else "SALIENTE"
+                            })
+                except:
+                    continue
+        except:
+            pass
+        if alertas_sur_ip:
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.markdown(f"""<div class="metric-card" style="border-top:3px solid #f85149;">
+                    <p class="metric-label">Alertas de Red</p>
+                    <p style="font-size:2rem;font-weight:700;color:#f85149;">{len(alertas_sur_ip)}</p>
+                </div>""", unsafe_allow_html=True)
+            with col2:
+                firmas_unicas = len(set(a.get("firma","") for a in alertas_sur_ip))
+                st.markdown(f"""<div class="metric-card" style="border-top:3px solid #d29922;">
+                    <p class="metric-label">Firmas Unicas</p>
+                    <p style="font-size:2rem;font-weight:700;color:#d29922;">{firmas_unicas}</p>
+                </div>""", unsafe_allow_html=True)
+            with col3:
+                puertos = list(set(a.get("dest_port","") for a in alertas_sur_ip))
+                st.markdown(f"""<div class="metric-card" style="border-top:3px solid #388bfd;">
+                    <p class="metric-label">Puertos Atacados</p>
+                    <p style="font-size:2rem;font-weight:700;color:#388bfd;">{", ".join(str(p) for p in puertos[:5])}</p>
+                </div>""", unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)
+            df_sur_ip = pd.DataFrame(alertas_sur_ip)
+            df_sur_ip["timestamp"] = pd.to_datetime(df_sur_ip["timestamp"]).dt.strftime("%d/%m %H:%M:%S")
+            df_sur_ip = df_sur_ip[["timestamp","src_ip","dest_ip","dest_port","proto","firma","severidad","direccion"]].copy()
+            df_sur_ip.columns = ["Timestamp","IP Origen","IP Destino","Puerto","Protocolo","Firma Suricata","Severidad","Direccion"]
+            tabla_oscura(df_sur_ip.head(50))
+        else:
+            st.info("No se encontraron alertas de Suricata para esta IP en el período actual.")
+
         # ── 2. Campanas APT relacionadas ───────────────────────────────────
         st.markdown('<div class="section-header">Campanas APT Asociadas</div>', unsafe_allow_html=True)
         try:
@@ -2625,6 +2713,7 @@ elif pagina == "Análisis Forense":
         # ── 4. Reputacion AbuseIPDB ────────────────────────────────────────
         st.markdown('<div class="section-header">Inteligencia de Amenazas — AbuseIPDB</div>', unsafe_allow_html=True)
         abuse = consultar_abuseipdb(ip_forense)
+        enriq = enriquecer_ip(ip_forense)
         if abuse:
             col1, col2, col3, col4 = st.columns(4)
             score = abuse.get("score", 0)
@@ -2655,7 +2744,39 @@ elif pagina == "Análisis Forense":
                     <p class="metric-label">Nodo TOR</p>
                     <p style="font-size:1.5rem;font-weight:700;color:{color_tor};">{tor}</p>
                 </div>""", unsafe_allow_html=True)
-            st.markdown(f"**ISP:** {abuse.get('isp','—')}")
+
+            # Enriquecimiento adicional
+            if enriq:
+                col1, col2, col3, col4, col5 = st.columns(5)
+                with col1:
+                    dc = "Sí" if enriq.get("es_datacenter") else "No"
+                    color_dc = "#e74c3c" if enriq.get("es_datacenter") else "#3fb950"
+                    st.markdown(f"""<div class="metric-card" style="border-top:3px solid {color_dc};">
+                        <p class="metric-label">Datacenter</p>
+                        <p style="font-size:1.5rem;font-weight:700;color:{color_dc};">{dc}</p>
+                    </div>""", unsafe_allow_html=True)
+                with col2:
+                    st.markdown(f"""<div class="metric-card">
+                        <p class="metric-label">Ciudad</p>
+                        <p style="font-size:1.2rem;font-weight:700;color:#c9d1d9;">{enriq.get("ciudad","—")}, {enriq.get("region","—")}</p>
+                    </div>""", unsafe_allow_html=True)
+                with col3:
+                    st.markdown(f"""<div class="metric-card">
+                        <p class="metric-label">ASN</p>
+                        <p style="font-size:0.9rem;font-weight:700;color:#c9d1d9;">{enriq.get("asn","—")}</p>
+                    </div>""", unsafe_allow_html=True)
+                with col4:
+                    ptr = enriq.get("ptr","—") or "—"
+                    st.markdown(f"""<div class="metric-card">
+                        <p class="metric-label">Dominio Inverso (PTR)</p>
+                        <p style="font-size:0.85rem;font-weight:700;color:#c9d1d9;">{ptr}</p>
+                    </div>""", unsafe_allow_html=True)
+                with col5:
+                    isp = enriq.get("isp","—") or abuse.get("isp","—")
+                    st.markdown(f"""<div class="metric-card">
+                        <p class="metric-label">ISP</p>
+                        <p style="font-size:0.85rem;font-weight:700;color:#c9d1d9;">{isp}</p>
+                    </div>""", unsafe_allow_html=True)
         else:
             st.info("No se pudo obtener información de AbuseIPDB para esta IP.")
 
