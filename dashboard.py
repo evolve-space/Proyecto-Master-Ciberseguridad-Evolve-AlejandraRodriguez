@@ -2784,15 +2784,47 @@ elif pagina == "Análisis Forense":
         st.markdown('<div class="section-header">Timeline Forense del Incidente</div>', unsafe_allow_html=True)
         eventos_timeline = []
 
+        # Eventos Wazuh
         if not df_ip.empty:
             for _, row in df[df["ip"] == ip_forense].iterrows():
                 eventos_timeline.append({
-                    "timestamp": row["timestamp"],
-                    "tipo":      "Wazuh",
+                    "timestamp":   row["timestamp"],
+                    "tipo":        "WAZUH",
                     "descripcion": row["tipo"],
-                    "nivel":     row["nivel"],
-                    "color":     "#e74c3c" if row["nivel"] >= 12 else "#f39c12" if row["nivel"] >= 10 else "#2980b9"
+                    "nivel":       row["nivel"],
+                    "color":       "#e74c3c" if row["nivel"] >= 12 else "#f39c12" if row["nivel"] >= 10 else "#2980b9"
                 })
+
+        # Eventos Suricata
+        for a in alertas_sur_ip:
+            try:
+                eventos_timeline.append({
+                    "timestamp":   pd.to_datetime(a["timestamp"]),
+                    "tipo":        "IDS",
+                    "descripcion": f"{a.get('firma','—')} [{a.get('direccion','—')}]",
+                    "nivel":       a.get("severidad", 3),
+                    "color":       "#f85149" if a.get("severidad") == 1 else "#d29922" if a.get("severidad") == 2 else "#388bfd"
+                })
+            except:
+                continue
+
+        # Campañas APT
+        try:
+            campanas = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
+            for c in campanas:
+                if c.get("ip") == ip_forense:
+                    eventos_timeline.append({
+                        "timestamp":   pd.to_datetime(c.get("timestamp")),
+                        "tipo":        "APT",
+                        "descripcion": f"Campaña APT detectada — Fase {c.get('fase_mitre','—')} (confianza {c.get('confianza',0)}%)",
+                        "nivel":       12,
+                        "color":       "#8b5cf6"
+                    })
+        except:
+            pass
+
+        # Limitar a los 50 eventos mas recientes
+        eventos_timeline = sorted(eventos_timeline, key=lambda x: x["timestamp"])[-50:]
 
         if eventos_timeline:
             eventos_timeline.sort(key=lambda x: x["timestamp"])
@@ -2801,8 +2833,8 @@ elif pagina == "Análisis Forense":
                 st.markdown(f"""
                 <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #f0f0f0;">
                     <span style="background:{ev['color']};color:white;padding:2px 8px;
-                                border-radius:4px;font-size:0.75rem;font-weight:600;min-width:60px;text-align:center">
-                        N{ev['nivel']}
+                                border-radius:4px;font-size:0.75rem;font-weight:600;min-width:80px;text-align:center">
+                        {ev['tipo']}
                     </span>
                     <span style="color:#7f8c8d;font-size:0.8rem;min-width:140px">{ts}</span>
                     <span style="background:#161b22;padding:2px 6px;border-radius:3px;
