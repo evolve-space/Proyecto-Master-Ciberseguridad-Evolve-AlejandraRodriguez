@@ -877,8 +877,12 @@ def cargar_suricata():
         alertas = []
         flows = []
         # Leer el archivo actual sin comprimir
-        with open("/var/log/suricata/eve.json", "r") as f:
-            for line in f:
+        import subprocess
+        result = subprocess.run(
+            ["tail", "-n", "5000", "/var/log/suricata/eve.json"],
+            capture_output=True, text=True, errors="ignore"
+        )
+        for line in result.stdout.splitlines():
                 try:
                     e = json.loads(line)
                     tipo = e.get("event_type", "")
@@ -1735,7 +1739,13 @@ elif pagina == "Endpoints":
                 with st.expander(f"Puertos en escucha ({len(seg.get('puertos_escucha', []))})"):
                     puertos = seg.get("puertos_escucha", [])
                     if puertos:
-                        tabla_oscura(pd.DataFrame({"Puerto": [str(p) for p in puertos]}), use_container_width=True, hide_index=True)
+                        # Detectar si vienen como objetos con telemetria o solo numeros
+                        if isinstance(puertos[0], dict):
+                            df_puertos = pd.DataFrame(puertos)
+                            df_puertos.columns = ["Puerto", "Proceso", "PID", "CPU %", "RAM (MB)"]
+                            tabla_oscura(df_puertos)
+                        else:
+                            tabla_oscura(pd.DataFrame({"Puerto": [str(p) for p in puertos]}))
             with col_exp2:
                 procesos_sospechosos = seg.get("procesos_sospechosos", [])
                 with st.expander(f"Procesos sospechosos ({len(procesos_sospechosos)})"):

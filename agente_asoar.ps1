@@ -43,7 +43,7 @@ function Obtener-DatosSeguridad {
             }
         })
     } catch {
-        $actualizacionesPendientes = -1
+        $actualizacionesPendientes = -1notepad $env:USERPROFILE\agente_asoar.ps1
         $actualizacionesCriticas = -1
         $listaActualizaciones = @()
     }
@@ -57,9 +57,25 @@ function Obtener-DatosSeguridad {
     }
 
     try {
-        $puertos = @(Get-NetTCPConnection -State Listen | Where-Object { $_.LocalPort -lt 10000 -and $_.LocalPort -notin @(135,139,445,5040) } | Select-Object -ExpandProperty LocalPort | Sort-Object -Unique)
+        $puertos = @(Get-NetTCPConnection -State Listen | Where-Object { 
+            $_.LocalPort -lt 10000 -and $_.LocalPort -notin @(135,139,445,5040) 
+        } | ForEach-Object {
+            $conn = $_
+            try {
+                $proc = Get-Process -Id $conn.OwningProcess -ErrorAction SilentlyContinue
+                [PSCustomObject]@{
+                    puerto   = $conn.LocalPort
+                    proceso  = if ($proc) { $proc.Name } else { "Sistema" }
+                    pid      = $conn.OwningProcess
+                    cpu      = if ($proc) { [math]::Round($proc.CPU, 1) } else { 0 }
+                    memoria_mb = if ($proc) { [math]::Round($proc.WorkingSet64 / 1MB, 1) } else { 0 }
+               }
+            } catch {
+                [PSCustomObject]@{ puerto = $conn.LocalPort; proceso = "Desconocido"; pid = 0; cpu = 0; memoria_mb = 0 }
+            }
+        } | Sort-Object puerto)
     } catch {
-        $puertos = @()
+        $puertos = "[]"
     }
 
     try {
