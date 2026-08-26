@@ -92,7 +92,7 @@ function Obtener-DatosSeguridad {
 
     # Procesos sospechosos
     try {
-        $procesosSospechosos = @("mimikatz","meterpreter","netcat","nc","psexec","pwdump","wce","fgdump","gsecdump","procdump","cobaltstrike","beacon","empire","powersploit","nishang","metasploit")
+        $procesosSospechosos = @("mimikatz","meterpreter","netcat","nc.exe","psexec","pwdump","wce","fgdump","gsecdump","procdump","cobaltstrike","beacon","empire","powersploit","nishang","metasploit")
         $procesosActivos     = Get-Process | Select-Object Name, Id, CPU, WorkingSet
         $sospechosos = @($procesosActivos | Where-Object {
             $nombre = $_.Name.ToLower()

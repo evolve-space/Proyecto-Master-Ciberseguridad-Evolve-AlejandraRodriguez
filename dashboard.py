@@ -1795,6 +1795,68 @@ elif pagina == "Endpoints":
                         df_sw = df_sw.rename(columns={"nombre": "Nombre", "version": "Version", "publisher": "Publisher", "fecha_instalacion": "Fecha instalacion"})
                         df_sw["Fecha instalacion"] = pd.to_datetime(df_sw["Fecha instalacion"], format="%Y%m%d", errors="coerce").dt.strftime("%d/%m/%Y")
                         tabla_oscura(df_sw, use_container_width=True, hide_index=True)
+            
+                        # ── Respuesta bidireccional EDR ───────────────────────────────
+            st.markdown('<div class="section-header">Respuesta EDR — Acciones Remotas</div>', unsafe_allow_html=True)
+            col_edr1, col_edr2, col_edr3 = st.columns(3)
+
+            with col_edr1:
+                st.markdown("**Matar proceso**")
+                todos_procs = seg.get("todos_procesos", [])
+                sospechosos_procs = seg.get("procesos_sospechosos", [])
+                puertos_data = seg.get("puertos_escucha", [])
+                # Primero sospechosos, luego con puertos, luego todos
+                opciones_proc = {}
+                for p in sospechosos_procs:
+                    opciones_proc[f"{p['nombre']} (PID {p['pid']}) — SOSPECHOSO"] = p['pid']
+                for p in puertos_data:
+                    if isinstance(p, dict) and p['pid'] not in opciones_proc.values():
+                        opciones_proc[f"{p['proceso']} (PID {p['pid']}) — Puerto {p['puerto']}"] = p['pid']
+                for p in todos_procs:
+                    if p['pid'] not in opciones_proc.values():
+                        opciones_proc[f"{p['nombre']} (PID {p['pid']})"] = p['pid']
+                proc_sel = st.selectbox("Selecciona proceso", list(opciones_proc.keys()) if opciones_proc else ["Sin datos"], key=f"proc_{hostname}")
+                if st.button("Terminar proceso", key=f"kill_{hostname}", type="primary"):
+                    if proc_sel and proc_sel != "Sin datos":
+                        pid_target = opciones_proc[proc_sel]
+                        requests.post(f"http://localhost:8000/agente/comando/{hostname}",
+                            headers=HEADERS, json={"tipo": "matar_proceso", "params": {"pid": pid_target}})
+                        st.success(f"Comando enviado — PID {pid_target} será terminado en el próximo ciclo.")
+
+            with col_edr2:
+                st.markdown("**Bloquear IP en Windows**")
+                ip_bloquear = st.text_input("IP a bloquear", placeholder="1.2.3.4", key=f"ip_{hostname}")
+                if st.button("Bloquear IP", key=f"block_{hostname}", type="primary"):
+                    if ip_bloquear:
+                        requests.post(f"http://localhost:8000/agente/comando/{hostname}",
+                            headers=HEADERS, json={"tipo": "bloquear_ip", "params": {"ip": ip_bloquear}})
+                        st.success(f"Comando enviado — IP {ip_bloquear} será bloqueada en el próximo ciclo.")
+
+            with col_edr3:
+                st.markdown("**Snapshot inmediato**")
+                st.markdown("Fuerza una actualización de datos sin esperar los 5 minutos.")
+                if st.button("Forzar snapshot", key=f"snap_{hostname}", type="secondary"):
+                    requests.post(f"http://localhost:8000/agente/comando/{hostname}",
+                        headers=HEADERS, json={"tipo": "snapshot_inmediato", "params": {}})
+                    st.success("Comando enviado — snapshot en el próximo ciclo.")
+
+            # Historial de comandos
+            with st.expander("Historial de comandos EDR"):
+                try:
+                    hist = requests.get(f"http://localhost:8000/agente/comandos/{hostname}/historial",
+                        headers=HEADERS, timeout=3).json()
+                    comandos_hist = hist.get("comandos", [])
+                    if comandos_hist:
+                        df_hist = pd.DataFrame(comandos_hist)
+                        df_hist = df_hist[["creado_en","tipo","estado","resultado"]].copy()
+                        df_hist.columns = ["Fecha","Tipo","Estado","Resultado"]
+                        df_hist["Fecha"] = pd.to_datetime(df_hist["Fecha"]).dt.strftime("%d/%m %H:%M")
+                        tabla_oscura(df_hist)
+                    else:
+                        st.info("Sin comandos ejecutados todavía.")
+                except:
+                    st.info("Sin historial disponible.")
+            
             st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
