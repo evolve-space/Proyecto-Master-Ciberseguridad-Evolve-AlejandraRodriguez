@@ -4,7 +4,7 @@
       "id": "NTC-0001",
       "titulo": "Ticket de prueba - SSH Brute Force",
       "descripcion": "Deteccion de ataque SSH brute force desde IP china",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "47.80.59.241",
       "fase_mitre": "initial_access",
@@ -27,17 +27,22 @@
           "estado": "Abierto",
           "timestamp": "2026-08-07T12:27:11.070310+00:00",
           "nota": "Estado cambiado a Abierto"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-27T14:00:45.419764+00:00",
+          "nota": "Ticket de prueba"
         }
       ],
       "creado_en": "2026-08-07T11:50:13.934449+00:00",
-      "actualizado_en": "2026-08-07T12:27:11.070310+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-27T14:00:45.419764+00:00",
+      "resuelto_en": "2026-08-27T14:00:45.419764+00:00"
     },
     {
       "id": "NTC-0002",
       "titulo": "Campaña APT detectada — EXECUTION desde 116.74.164.106",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 116.74.164.106. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "116.74.164.106",
       "fase_mitre": "execution",
@@ -49,23 +54,33 @@
       "abuse_pais": "",
       "abuse_isp": "",
       "campana_id": "",
-      "notas": [],
+      "notas": [
+        {
+          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia — no bloqueada preventivamente.",
+          "timestamp": "2026-08-27T14:00:19.150428+00:00"
+        }
+      ],
       "historial": [
         {
           "estado": "Abierto",
           "timestamp": "2026-08-27T11:41:45.077312+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-27T14:00:21.164670+00:00",
+          "nota": "Estado cambiado a Cerrado"
         }
       ],
       "creado_en": "2026-08-27T11:41:45.077312+00:00",
-      "actualizado_en": "2026-08-27T11:41:45.077312+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-27T14:00:21.164670+00:00",
+      "resuelto_en": "2026-08-27T14:00:21.164670+00:00"
     },
     {
       "id": "NTC-0003",
       "titulo": "Campaña APT detectada — EXECUTION desde 116.74.164.106",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 116.74.164.106. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "116.74.164.106",
       "fase_mitre": "execution",
@@ -77,23 +92,33 @@
       "abuse_pais": "",
       "abuse_isp": "",
       "campana_id": "",
-      "notas": [],
+      "notas": [
+        {
+          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia — no bloqueada preventivamente.",
+          "timestamp": "2026-08-27T14:00:01.609735+00:00"
+        }
+      ],
       "historial": [
         {
           "estado": "Abierto",
           "timestamp": "2026-08-27T11:41:50.111043+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-27T14:00:03.016375+00:00",
+          "nota": "Estado cambiado a Cerrado"
         }
       ],
       "creado_en": "2026-08-27T11:41:50.111043+00:00",
-      "actualizado_en": "2026-08-27T11:41:50.111043+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-27T14:00:03.016375+00:00",
+      "resuelto_en": "2026-08-27T14:00:03.016375+00:00"
     },
     {
       "id": "NTC-0004",
       "titulo": "Campaña APT detectada — EXECUTION desde 116.74.164.106",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 116.74.164.106. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "116.74.164.106",
       "fase_mitre": "execution",
@@ -105,23 +130,33 @@
       "abuse_pais": "",
       "abuse_isp": "",
       "campana_id": "",
-      "notas": [],
+      "notas": [
+        {
+          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia — no bloqueada preventivamente.",
+          "timestamp": "2026-08-27T13:59:40.130604+00:00"
+        }
+      ],
       "historial": [
         {
           "estado": "Abierto",
           "timestamp": "2026-08-27T11:41:51.204828+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-27T13:59:43.949639+00:00",
+          "nota": "Estado cambiado a Cerrado"
         }
       ],
       "creado_en": "2026-08-27T11:41:51.204828+00:00",
-      "actualizado_en": "2026-08-27T11:41:51.204828+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-27T13:59:43.949639+00:00",
+      "resuelto_en": "2026-08-27T13:59:43.949639+00:00"
     },
     {
       "id": "NTC-0005",
       "titulo": "Campaña APT detectada — EXECUTION desde 49.248.197.50",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
-      "estado": "Abierto",
+      "estado": "Resuelto",
       "prioridad": "MEDIA",
       "ip": "49.248.197.50",
       "fase_mitre": "execution",
@@ -133,23 +168,38 @@
       "abuse_pais": "",
       "abuse_isp": "",
       "campana_id": "",
-      "notas": [],
+      "notas": [
+        {
+          "texto": "IP bloqueada en firewall Hetzner. SSH brute force confirmado. AbuseIPDB 100%, 779 reportes. Mumbai, India.",
+          "timestamp": "2026-08-27T13:56:47.501159+00:00"
+        }
+      ],
       "historial": [
         {
           "estado": "Abierto",
           "timestamp": "2026-08-27T11:48:55.165527+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-27T13:56:49.026752+00:00",
+          "nota": "la amenaza está neutralizada (IP bloqueada)"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-27T13:57:10.423670+00:00",
+          "nota": "la amenaza está neutralizada (IP bloqueada)"
         }
       ],
       "creado_en": "2026-08-27T11:48:55.165527+00:00",
-      "actualizado_en": "2026-08-27T11:48:55.165527+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-27T13:57:10.423670+00:00",
+      "resuelto_en": "2026-08-27T13:57:10.423670+00:00"
     },
     {
       "id": "NTC-0006",
       "titulo": "Campaña APT detectada — EXECUTION desde 49.248.197.50",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
-      "estado": "Abierto",
+      "estado": "Resuelto",
       "prioridad": "MEDIA",
       "ip": "49.248.197.50",
       "fase_mitre": "execution",
@@ -161,23 +211,33 @@
       "abuse_pais": "",
       "abuse_isp": "",
       "campana_id": "",
-      "notas": [],
+      "notas": [
+        {
+          "texto": "IP bloqueada en firewall Hetzner. SSH brute force confirmado. AbuseIPDB 100%, 779 reportes. Mumbai, India.",
+          "timestamp": "2026-08-27T13:56:12.858047+00:00"
+        }
+      ],
       "historial": [
         {
           "estado": "Abierto",
           "timestamp": "2026-08-27T11:48:58.725647+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-27T13:56:14.849181+00:00",
+          "nota": "la amenaza está neutralizada (IP bloqueada)"
         }
       ],
       "creado_en": "2026-08-27T11:48:58.725647+00:00",
-      "actualizado_en": "2026-08-27T11:48:58.725647+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-27T13:56:14.849181+00:00",
+      "resuelto_en": "2026-08-27T13:56:14.849181+00:00"
     },
     {
       "id": "NTC-0007",
       "titulo": "Campaña APT detectada — EXECUTION desde 49.248.197.50",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "49.248.197.50",
       "fase_mitre": "execution",
@@ -189,17 +249,36 @@
       "abuse_pais": "",
       "abuse_isp": "",
       "campana_id": "",
-      "notas": [],
+      "notas": [
+        {
+          "texto": "IP bloqueada en firewall Hetzner. SSH brute force confirmado. AbuseIPDB 100%, 779 reportes. Mumbai, India.",
+          "timestamp": "2026-08-27T13:55:39.070815+00:00"
+        },
+        {
+          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia — no bloqueada preventivamente.",
+          "timestamp": "2026-08-27T13:59:15.738803+00:00"
+        }
+      ],
       "historial": [
         {
           "estado": "Abierto",
           "timestamp": "2026-08-27T11:48:59.783399+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-27T13:55:42.511569+00:00",
+          "nota": "la amenaza está neutralizada (IP bloqueada)"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-27T13:59:17.462684+00:00",
+          "nota": "Estado cambiado a Cerrado"
         }
       ],
       "creado_en": "2026-08-27T11:48:59.783399+00:00",
-      "actualizado_en": "2026-08-27T11:48:59.783399+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-27T13:59:17.462684+00:00",
+      "resuelto_en": "2026-08-27T13:59:17.462684+00:00"
     }
   ],
   "contador": 7

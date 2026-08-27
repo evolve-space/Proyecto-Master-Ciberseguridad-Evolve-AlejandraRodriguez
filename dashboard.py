@@ -988,6 +988,14 @@ with st.sidebar:
     except:
         tickets_abiertos = 0
 
+    if tickets_abiertos > 0:
+        st.markdown(f"""
+        <div style="background:#161b22;color:#f85149;padding:6px 12px;border-radius:4px;
+                    font-size:0.8rem;font-weight:600;margin-bottom:8px;text-align:center;
+                    border:1px solid #f85149;">
+            ⚑ {tickets_abiertos} ticket{'s' if tickets_abiertos > 1 else ''} pendiente{'s' if tickets_abiertos > 1 else ''}
+        </div>""", unsafe_allow_html=True)
+
     for opcion in opciones:
         activo = st.session_state.pagina == opcion
         label = opcion
@@ -1140,7 +1148,7 @@ if pagina == "Panel General":
         datos_suricata = cargar_suricata()
         alertas_sur = datos_suricata.get("alertas", [])
         flows_sur = datos_suricata.get("flows", [])
-        ips_atacantes = list(set([a["src_ip"] for a in alertas_sur if a["src_ip"] and a["src_ip"] != "91.98.126.215"]))
+        ips_atacantes = list(set([a["src_ip"] for a in alertas_sur if a["src_ip"] and a["src_ip"] not in ["91.98.126.215", "47.62.74.87"]]))
         st.markdown('<div class="section-header">Tráfico de Red — Suricata IDS</div>', unsafe_allow_html=True)
         col1, col2, col3, col4 = st.columns(4)
         with col1:
@@ -1364,7 +1372,10 @@ elif pagina == "IPs Bloqueadas":
             if ip_bloquear_manual:
                 try:
                     r = requests.post(f"http://localhost:8000/bloquear/{ip_bloquear_manual}", headers=HEADERS, timeout=10)
-                    if r.status_code == 200:
+                    resp = r.json()
+                    if resp.get("status") == "ya_bloqueada":
+                        st.warning(f"La IP {ip_bloquear_manual} ya está bloqueada.")
+                    elif r.status_code == 200:
                         st.success(f"IP {ip_bloquear_manual} bloqueada correctamente")
                         st.cache_data.clear()
                         st.rerun()
@@ -2896,10 +2907,10 @@ elif pagina == "Análisis Forense":
             pass
 
         # Limitar a los 50 eventos mas recientes
-        eventos_timeline = sorted(eventos_timeline, key=lambda x: x["timestamp"])[-50:]
+        eventos_timeline = sorted(eventos_timeline, key=lambda x: str(x["timestamp"]))[-50:]
 
         if eventos_timeline:
-            eventos_timeline.sort(key=lambda x: x["timestamp"])
+            eventos_timeline.sort(key=lambda x: str(x["timestamp"]))
             for ev in eventos_timeline:
                 ts = ev["timestamp"].strftime("%d/%m/%Y %H:%M:%S") if hasattr(ev["timestamp"], "strftime") else str(ev["timestamp"])
                 st.markdown(f"""
@@ -3397,7 +3408,7 @@ elif pagina == "Tráfico de Red":
 
     # ── Métricas globales ──────────────────────────────────────────────────
     col1, col2, col3, col4 = st.columns(4)
-    ips_atacantes = [a["src_ip"] for a in alertas_sur if a["src_ip"] and a["src_ip"] != "91.98.126.215"]
+    ips_atacantes = [a["src_ip"] for a in alertas_sur if a["src_ip"] and a["src_ip"] not in ["91.98.126.215", "47.62.74.87"]]
     with col1:
         n = len(alertas_sur)
         color = "#f85149" if n > 0 else "#8b949e"
