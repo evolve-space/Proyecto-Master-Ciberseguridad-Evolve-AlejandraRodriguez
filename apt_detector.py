@@ -316,22 +316,43 @@ class DetectorAPT:
                                       and t.get("estado") in ["Abierto", "Investigando"]
                                       and (datetime.now() - datetime.fromisoformat(t["creado_en"])).seconds < 7200]
                     if not tickets_activos:
+                        # Enriquecer con AbuseIPDB
+                        abuse_score = 0
+                        abuse_pais = ""
+                        abuse_isp = ""
+                        try:
+                            import requests as req
+                            r = req.get(
+                                "https://api.abuseipdb.com/api/v2/check",
+                                headers={"Key": open('/root/asoar/.env').read().split('ABUSEIPDB_API_KEY=')[1].split('\n')[0], "Accept": "application/json"},
+                                params={"ipAddress": ip, "maxAgeInDays": 90},
+                                timeout=5
+                            )
+                            if r.status_code == 200:
+                                d = r.json().get("data", {})
+                                abuse_score = d.get("abuseConfidenceScore", 0)
+                                abuse_pais = d.get("countryCode", "")
+                                abuse_isp = d.get("isp", "")
+                        except:
+                            pass
                         crear_ticket(
                             titulo=f"Campaña APT detectada — {fase.upper()} desde {ip}",
                             descripcion=f"El motor LSTM ha detectado una campaña APT en fase {fase} "
                                        f"con confianza del {confianza}% desde la IP {ip}. "
                                        f"Nivel de riesgo: {nivel_riesgo}. "
-                                       f"Secuencia de {len(self.buffer)} eventos analizados.",
+                                       f"Secuencia de {len(self.buffer)} eventos analizados. "
+                                       f"Reputación AbuseIPDB: {abuse_score}% | País: {abuse_pais} | ISP: {abuse_isp}",
                             prioridad="CRITICA" if nivel_riesgo == "CRITICO" else "ALTA" if nivel_riesgo == "ALTO" else "MEDIA",
                             ip=ip,
                             fase_mitre=fase,
-                            confianza=confianza
+                            confianza=confianza,
+                            abuse_score=abuse_score,
+                            abuse_pais=abuse_pais,
+                            abuse_isp=abuse_isp
                         )
                         print(f"[TICKET] Ticket SOC creado para IP {ip}")
                     else:
                         print(f"[TICKET] Ya existe ticket activo para IP {ip} — omitiendo")
-            except Exception as e:
-                print(f"[TICKET] Error creando ticket: {e}")
             except Exception as e:
                 print(f"[TICKET] Error creando ticket: {e}")
 
