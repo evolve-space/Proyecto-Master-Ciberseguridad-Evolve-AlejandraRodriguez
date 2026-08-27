@@ -416,6 +416,29 @@ async def obtener_historico(request: Request, api_key: str = Depends(verificar_a
             return json.load(f)
     return []
 
+@app.post("/bloquear/{ip}")
+async def bloquear_ip_manual(ip: str, api_key: str = Depends(verificar_api_key)):
+    try:
+        resultado = bloquear_ip_hetzner(ip)
+        # Guardar en historial manual
+        hist_file = "/root/asoar/ips_manual.json"
+        try:
+            with open(hist_file, "r") as f:
+                hist = json.load(f)
+        except:
+            hist = []
+        hist.append({
+            "ip": ip,
+            "accion": "BLOQUEADA",
+            "timestamp": datetime.now().isoformat(),
+            "origen": "manual"
+        })
+        with open(hist_file, "w") as f:
+            json.dump(hist, f, indent=2, default=str)
+        return {"status": "ok", "ip": ip, "accion": "BLOQUEADA", "resultado": resultado}
+    except Exception as e:
+        return {"status": "error", "ip": ip, "error": str(e)}
+
 @app.delete("/desbloquear/{ip}")
 async def desbloquear_ip(ip: str, api_key: str = Depends(verificar_api_key)):
     headers = {
@@ -432,17 +455,21 @@ async def desbloquear_ip(ip: str, api_key: str = Depends(verificar_api_key)):
         json={"rules": reglas_filtradas}
     )
     
-    # Actualizar histórico
-    historico_file = "/root/asoar/historico_ips.json"
-    if os.path.exists(historico_file):
-        with open(historico_file, "r") as f:
-            historico = json.load(f)
-        for h in historico:
-            if h["ip"] == ip:
-                h["accion"] = "DESBLOQUEADA"
-                h["desbloqueada_en"] = datetime.now().isoformat()
-        with open(historico_file, "w") as f:
-            json.dump(historico, f, indent=2)
+    # Guardar en historial manual
+    hist_file = "/root/asoar/ips_manual.json"
+    try:
+        with open(hist_file, "r") as f:
+            hist = json.load(f)
+    except:
+        hist = []
+    hist.append({
+        "ip": ip,
+        "accion": "DESBLOQUEADA",
+        "timestamp": datetime.now().isoformat(),
+        "origen": "manual"
+    })
+    with open(hist_file, "w") as f:
+        json.dump(hist, f, indent=2, default=str)
     
     return {"status": "ok", "ip": ip, "accion": "DESBLOQUEADA"}
 

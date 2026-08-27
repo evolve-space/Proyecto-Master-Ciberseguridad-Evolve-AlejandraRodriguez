@@ -1320,17 +1320,48 @@ elif pagina == "IPs Bloqueadas":
         df_hist = pd.DataFrame(historico)
         df_hist["timestamp"] = pd.to_datetime(df_hist["timestamp"]).dt.strftime("%d/%m/%Y %H:%M")
         # Separar bloqueadas y desbloqueadas
-        df_bloqueadas = df_hist[df_hist["accion"] == "BLOQUEADA"][["ip","timestamp","accion"]].copy()
-        df_bloqueadas.columns = ["IP", "Fecha Bloqueo", "Estado"]
-        df_desbloqueadas = df_hist[df_hist["accion"] == "DESBLOQUEADA"][["ip","timestamp","accion"]].copy() if "DESBLOQUEADA" in df_hist["accion"].values else pd.DataFrame()
-        tabla_oscura(df_bloqueadas, use_container_width=True, hide_index=True)
+        df_historial = df_hist[["ip","timestamp","accion"]].copy()
+        df_historial.columns = ["IP", "Fecha", "Accion"]
+        tabla_oscura(df_historial, use_container_width=True, hide_index=True)
     else:
-        st.info("No hay historico de IPs todavia.")
+        st.info("No hay historial de IPs todavia.")
 
-    if 'df_desbloqueadas' in locals() and not df_desbloqueadas.empty:
-        st.markdown('<div class="section-header">IPs Desbloqueadas</div>', unsafe_allow_html=True)
-        df_desbloqueadas.columns = ["IP", "Fecha Desbloqueo", "Estado"]
-        tabla_oscura(df_desbloqueadas, use_container_width=True, hide_index=True)
+    # Historial manual de bloqueos/desbloqueos
+    st.markdown('<div class="section-header">Historial de Acciones Manuales</div>', unsafe_allow_html=True)
+    try:
+        with open("/root/asoar/ips_manual.json", "r") as f:
+            ips_manual = json.load(f)
+        if ips_manual:
+            df_manual = pd.DataFrame(ips_manual)
+            df_manual["timestamp"] = pd.to_datetime(df_manual["timestamp"]).dt.strftime("%d/%m/%Y %H:%M")
+            df_manual = df_manual[["ip","timestamp","accion"]].copy()
+            df_manual.columns = ["IP","Fecha","Accion"]
+            df_manual = df_manual.sort_values("Fecha", ascending=False)
+            tabla_oscura(df_manual, use_container_width=True, hide_index=True)
+        else:
+            st.info("No hay acciones manuales registradas todavia.")
+    except:
+        st.info("No hay acciones manuales registradas todavia.")
+
+    st.markdown('<div class="section-header">Bloquear IP Manual</div>', unsafe_allow_html=True)
+
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        ip_bloquear_manual = st.text_input("IP a bloquear", placeholder="Ej: 49.248.197.50", key="ip_bloquear_manual")
+    with col2:
+        st.markdown("<br>", unsafe_allow_html=True)
+        if st.button("Bloquear", type="primary", key="btn_bloquear_manual"):
+            if ip_bloquear_manual:
+                try:
+                    r = requests.post(f"http://localhost:8000/bloquear/{ip_bloquear_manual}", headers=HEADERS, timeout=10)
+                    if r.status_code == 200:
+                        st.success(f"IP {ip_bloquear_manual} bloqueada correctamente")
+                        st.cache_data.clear()
+                        st.rerun()
+                    else:
+                        st.error(f"Error al bloquear: {r.text}")
+                except Exception as e:
+                    st.error(f"Error: {e}")
 
     st.markdown('<div class="section-header">Desbloquear IP</div>', unsafe_allow_html=True)
     col1, col2 = st.columns([3, 1])
