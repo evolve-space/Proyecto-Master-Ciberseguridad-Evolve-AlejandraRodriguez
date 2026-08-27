@@ -213,14 +213,19 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
     apt_resultado = {}
     if APT_DISPONIBLE and ip_atacante and ip_atacante not in ["", "desconocida", "127.0.0.1", "0.0.0.0"]:
         try:
-            apt_resultado = detector_apt.procesar_alerta({
-                "rule_id": str(alerta.rule.get("id", "0")),
-                "nivel":   nivel,
-                "ip":      ip_atacante,
-                "agente":  "master",
-                "flow":    alerta.data.get("flow", {}),
-                "tcp":     alerta.data.get("tcp", {}),
-            })
+            # Verificar reputacion AbuseIPDB — omitir IPs con score 0
+            abuse_check = consultar_abuseipdb(ip_atacante)
+            if abuse_check.get("score", 0) == 0:
+                print(f"[APT] IP {ip_atacante} con AbuseIPDB score 0% — omitiendo detector")
+            else:
+                apt_resultado = detector_apt.procesar_alerta({
+                    "rule_id": str(alerta.rule.get("id", "0")),
+                    "nivel":   nivel,
+                    "ip":      ip_atacante,
+                    "agente":  "master",
+                    "flow":    alerta.data.get("flow", {}),
+                    "tcp":     alerta.data.get("tcp", {}),
+                })
         except Exception as e:
             print(f"[APT] Error en detector: {e}")
     
@@ -419,6 +424,15 @@ async def obtener_historico(request: Request, api_key: str = Depends(verificar_a
 @app.post("/bloquear/{ip}")
 async def bloquear_ip_manual(ip: str, api_key: str = Depends(verificar_api_key)):
     try:
+        # Verificar si ya está bloqueada en Hetzner
+        headers_hetzner = {"Authorization": f"Bearer {HETZNER_TOKEN}"}
+        r = requests.get(f"https://api.hetzner.cloud/v1/firewalls/{HETZNER_FIREWALL_ID}", headers=headers_hetzner)
+        reglas = r.json().get("firewall", {}).get("rules", [])
+        ya_bloqueada = any(f"ASOAR-blocked-{ip}" in reg.get("description", "") for reg in reglas)
+        
+        if ya_bloqueada:
+            return {"status": "ya_bloqueada", "ip": ip, "mensaje": f"La IP {ip} ya esta bloqueada en el firewall"}
+        
         resultado = bloquear_ip_hetzner(ip)
         # Guardar en historial manual
         hist_file = "/root/asoar/ips_manual.json"
