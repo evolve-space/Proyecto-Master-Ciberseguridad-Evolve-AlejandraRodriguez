@@ -305,6 +305,25 @@ class DetectorAPT:
             self.campanas.append(analisis)
             self._guardar_campanas()
             print(f"[APT DETECTADO] Fase: {fase} | Confianza: {confianza}% | Riesgo: {nivel_riesgo}")
+            # Crear ticket SOC automaticamente
+            try:
+                from apt_tickets import crear_ticket
+                ip = alerta.get("ip", "")
+                if ip and ip not in ["", "desconocida", "0.0.0.0"]:
+                    crear_ticket(
+                        titulo=f"Campaña APT detectada — {fase.upper()} desde {ip}",
+                        descripcion=f"El motor LSTM ha detectado una campaña APT en fase {fase} "
+                                   f"con confianza del {confianza}% desde la IP {ip}. "
+                                   f"Nivel de riesgo: {nivel_riesgo}. "
+                                   f"Secuencia de {len(self.buffer)} eventos analizados.",
+                        prioridad="CRITICA" if nivel_riesgo == "CRITICO" else "ALTA" if nivel_riesgo == "ALTO" else "MEDIA",
+                        ip=ip,
+                        fase_mitre=fase,
+                        confianza=confianza
+                    )
+                    print(f"[TICKET] Ticket SOC creado para IP {ip}")
+            except Exception as e:
+                print(f"[TICKET] Error creando ticket: {e}")
 
         return analisis
 
