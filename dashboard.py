@@ -823,8 +823,8 @@ st.markdown("""<style>
 def cargar_alertas_wazuh():
     try:
         result = subprocess.run(
-            ["bash", "-c", "{ find /var/ossec/logs/alerts/2026/Aug -name '*.json.gz' -exec zcat {} \\; 2>/dev/null; find /var/ossec/logs/alerts/2026/Jul -name '*.json.gz' -exec zcat {} \\; 2>/dev/null; cat /var/ossec/logs/alerts/alerts.json 2>/dev/null; } | strings"],
-            capture_output=True, text=True
+                        ["bash", "-c", "{ find /var/ossec/logs/alerts/2026/Aug -name '*.json.gz' -exec zcat {} \\; 2>/dev/null; find /var/ossec/logs/alerts/2026/Jul -name '*.json.gz' -exec zcat {} \\; 2>/dev/null; cat /var/ossec/logs/alerts/alerts.json 2>/dev/null; } | strings | tail -n 5000"],
+            capture_output=True, text=True, timeout=30
         )
         lineas = result.stdout.strip().split("\n")
         alertas = []
