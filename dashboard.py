@@ -981,9 +981,19 @@ with st.sidebar:
     ]
     if "pagina" not in st.session_state:
         st.session_state.pagina = "Panel General"
+    # Obtener tickets abiertos para badge
+    try:
+        tickets_abiertos = len([t for t in requests.get("http://localhost:8000/tickets", headers=HEADERS, timeout=2).json() 
+                               if t.get("estado") in ["Abierto", "Investigando"]])
+    except:
+        tickets_abiertos = 0
+
     for opcion in opciones:
         activo = st.session_state.pagina == opcion
-        if st.button(opcion, key=f"nav_{opcion}", use_container_width=True,
+        label = opcion
+        if opcion == "Gestión de Incidentes" and tickets_abiertos > 0:
+            label = f"Gestión de Incidentes ({tickets_abiertos})"
+        if st.button(label, key=f"nav_{opcion}", use_container_width=True,
                      type="primary" if activo else "secondary"):
             st.session_state.pagina = opcion
             st.rerun()
