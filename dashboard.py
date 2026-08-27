@@ -975,8 +975,9 @@ with st.sidebar:
     st.markdown("---")
     opciones = [
         "Panel General", "Alertas y Eventos", "IPs Bloqueadas",
-        "Endpoints", "Normativas", "Detección APT",
-        "Simulador de Ataques", "Informes", "Estado del Sistema", "Análisis Forense", "Gestión de Incidentes",  "Tráfico de Red", "About"
+        "Endpoints", "Detección APT", "Tráfico de Red",
+        "Análisis Forense", "Gestión de Incidentes", "Normativas",
+        "Simulador de Ataques", "Informes", "Estado del Sistema", "About"
     ]
     if "pagina" not in st.session_state:
         st.session_state.pagina = "Panel General"
