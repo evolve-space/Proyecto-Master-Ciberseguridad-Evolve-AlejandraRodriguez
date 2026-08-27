@@ -116,7 +116,91 @@
       "creado_en": "2026-08-27T11:41:51.204828+00:00",
       "actualizado_en": "2026-08-27T11:41:51.204828+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0005",
+      "titulo": "Campaña APT detectada — EXECUTION desde 49.248.197.50",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "49.248.197.50",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-27T11:48:55.165527+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-27T11:48:55.165527+00:00",
+      "actualizado_en": "2026-08-27T11:48:55.165527+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0006",
+      "titulo": "Campaña APT detectada — EXECUTION desde 49.248.197.50",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "49.248.197.50",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-27T11:48:58.725647+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-27T11:48:58.725647+00:00",
+      "actualizado_en": "2026-08-27T11:48:58.725647+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0007",
+      "titulo": "Campaña APT detectada — EXECUTION desde 49.248.197.50",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "49.248.197.50",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-27T11:48:59.783399+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-27T11:48:59.783399+00:00",
+      "actualizado_en": "2026-08-27T11:48:59.783399+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 4
+  "contador": 7
 }
