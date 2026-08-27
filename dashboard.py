@@ -1656,7 +1656,7 @@ elif pagina == "Estado del Sistema":
         st.markdown(f'<div style="background:#161b22;padding:16px;border-radius:8px;border-left:4px solid {color_mfa};box-shadow:0 2px 6px rgba(0,0,0,0.07);"><p style="font-weight:600;color:#2c3e50;margin-bottom:4px">Autenticacion de Doble Factor (MFA)</p><p style="font-size:0.85rem;color:#7f8c8d;margin:0">Estado: <strong style="color:{color_mfa}">{estado_txt}</strong></p></div>', unsafe_allow_html=True)
     with col2:
         st.markdown("<br>", unsafe_allow_html=True)
-        mfa_toggle = st.toggle("", value=activo_mfa, key="toggle_mfa")
+        mfa_toggle = st.toggle("Activar MFA", value=activo_mfa, key="toggle_mfa", label_visibility="collapsed")
         if mfa_toggle != activo_mfa:
             if mfa_toggle:
                 st.session_state.mfa_wizard = True
@@ -3511,30 +3511,27 @@ elif pagina == "About":
         <div class="metric-card">
             <p class="metric-label">Descripcion del Proyecto</p>
             <p style="font-size:0.95rem; color:#2c3e50; line-height:1.7; margin-top:8px">
-                <strong>Noctua Predictive</strong> es un SOC autonomo de detección, analisis
-                y respuesta ante Amenazas Persistentes Avanzadas (APT) mediante Inteligencia
-                Artificial Federada. A diferencia de los sistemas de ciberseguridad convencionales,
-                que operan de forma reactiva detectando ataques una vez que ya han ocurrido,
-                Noctua Predictive aprende de los patrones de amenaza de forma distribuida y privada
-                para anticipar y detectar campañas APT completas antes de que materialicen el ataque.
+                <strong>Noctua Predictive</strong> es una plataforma SOC autónoma de código abierto 
+                para la detección de Amenazas Persistentes Avanzadas (APT) desplegada en producción real. 
+                Integra un motor LSTM bidireccional con atención entrenado con el dataset CSE-CIC-IDS2018, 
+                Federated Learning con FedAvg para aprendizaje colaborativo preservando la privacidad, 
+                y XAI basado en SHAP para la auditabilidad de decisiones conforme al EU AI Act 2024.
                 <br><br>
-                El sistema integra un motor de aprendizaje profundo secuencial (LSTM) entrenado
-                mediante Federated Learning entre multiples nodos, que permite detectar patrones
-                de comportamiento anómalo a largo plazo y compartir inteligencia sobre campañas
-                APT activas entre organizaciones sin que ninguna exponga sus datos internos.
-                Cada decision del sistema es explicada mediante el modulo XAI basado en SHAP,
-                cumpliendo el Reglamento Europeo de Inteligencia Artificial (EU AI Act 2024).
+                El sistema captura tráfico de red en tiempo real mediante Suricata IDS (52.534 reglas activas) 
+                integrado con el SIEM Wazuh, resolviendo el feature mismatch entre el dominio de entrenamiento 
+                (CICIDS2018) y el entorno de producción. Las alertas de Suricata alimentan directamente el motor 
+                LSTM con features de red reales equivalentes a las del dataset de entrenamiento.
                 <br><br>
-                El sistema detecta las cinco fases de una campaña APT segun el framework
-                MITRE ATT&CK: Reconocimiento, Acceso Inicial, Persistencia, Movimiento Lateral
-                y Exfiltracion, correlacionando eventos entre multiples agentes en tiempo real
-                y generando explicaciones auditables de cada decision autonoma.
+                La plataforma incluye un agente EDR propio para endpoints Windows que reporta telemetría 
+                de seguridad en tiempo real (puertos, procesos, actualizaciones) con capacidad de respuesta 
+                bidireccional — el analista puede matar procesos o bloquear IPs directamente desde el dashboard. 
+                Adicionalmente, el agente Wazuh oficial instalado en el endpoint Windows permite la correlación 
+                de eventos entre el servidor Linux y el endpoint para detección de movimiento lateral real.
                 <br><br>
-                Desarrollado como Proyecto de Fin de Grado en Ingenieria de Telecomunicaciones,
-                Noctua Predictive representa la primera implementacion practica open source que
-                combina LSTM, Federated Learning, SIEM real y XAI para detección de APTs,
-                cubriendo un gap identificado en la literatura cientifica de IEEE Xplore y
-                ACM Digital Library.
+                Desplegado en un VPS Hetzner CPX32 expuesto a internet real, el sistema ha procesado más de 
+                129.000 alertas de Wazuh y detectado miles de alertas de red con Suricata, demostrando su 
+                viabilidad en producción real — algo ausente en la práctica totalidad de trabajos académicos 
+                similares publicados en IEEE Xplore y ACM Digital Library.
             </p>
         </div>""", unsafe_allow_html=True)
     with col2:
