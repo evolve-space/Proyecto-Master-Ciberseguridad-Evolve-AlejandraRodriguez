@@ -1546,13 +1546,30 @@ elif pagina == "Estado del Sistema":
         except:
             return False
 
+    def check_suricata():
+        try:
+            result = subprocess.run(["systemctl", "is-active", "suricata"], capture_output=True, text=True, timeout=3)
+            return result.stdout.strip() == "active"
+        except:
+            return False
+
+    def check_wazuh_agent_windows():
+        try:
+            agentes = requests.get("http://localhost:8000/agentes", headers=HEADERS, timeout=3).json()
+            return "WORKSTATION-01" in agentes
+        except:
+            return False
+
     servicios = {
-        "ASOAR API (FastAPI)":  check_service("http://localhost:8000/apt/estado"),
-        "Ollama / phi3":        check_service("http://localhost:11434/api/tags"),
-        "Wazuh Manager":        True,
-        "Wazuh Dashboard":      True,
-        "Hetzner Firewall":     len(ips_bloqueadas) >= 0,
-        "Fail2ban":             check_fail2ban(),
+        "ASOAR API (FastAPI)":      check_service("http://localhost:8000/apt/estado"),
+        "Ollama / phi3":            check_service("http://localhost:11434/api/tags"),
+        "Wazuh Manager":            True,
+        "Wazuh Dashboard":          True,
+        "Suricata IDS":             check_suricata(),
+        "Hetzner Firewall":         len(ips_bloqueadas) >= 0,
+        "Fail2ban":                 check_fail2ban(),
+        "Agente Windows (Wazuh)":   check_wazuh_agent_windows(),
+        "Agente Windows (EDR)":     check_wazuh_agent_windows(),
     }
 
     # Estado modulos APT
@@ -1589,10 +1606,11 @@ elif pagina == "Estado del Sistema":
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura Completa del Sistema</div>', unsafe_allow_html=True)
     datos_arq = {
-        "Componente":  ["Wazuh SIEM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "AbuseIPDB", "Fail2ban", "CICIDS2018", "Hetzner API", "Streamlit"],
-        "Capa":        ["Deteccion", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Threat Intelligence", "Defensa perimetral", "Entrenamiento", "Respuesta", "Visualizacion"],
+        "Componente":  ["Wazuh SIEM", "Suricata IDS", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "AbuseIPDB", "Fail2ban", "CICIDS2018", "Hetzner API", "Agente PowerShell EDR", "Agente Wazuh Windows", "Streamlit"],
+        "Capa":        ["Deteccion SIEM", "Deteccion Red", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Threat Intelligence", "Defensa perimetral", "Entrenamiento", "Respuesta", "Monitorizacion EDR", "Correlacion SIEM", "Visualizacion"],
         "Estado":      [
             "Activo" if servicios["Wazuh Manager"] else "Inactivo",
+            "Activo" if servicios["Suricata IDS"] else "Inactivo",
             "Activo" if servicios["ASOAR API (FastAPI)"] else "Inactivo",
             "Activo" if servicios["Ollama / phi3"] else "Inactivo",
             "Activo" if estado_apt.get("modelo_cargado") else "Inactivo",
@@ -1604,6 +1622,8 @@ elif pagina == "Estado del Sistema":
             "Activo" if check_fail2ban() else "Inactivo",
             "Activo",
             "Conectado",
+            "Activo" if servicios["Agente Windows (EDR)"] else "Inactivo",
+            "Activo" if servicios["Agente Windows (Wazuh)"] else "Inactivo",
             "Activo",
         ]
     }
