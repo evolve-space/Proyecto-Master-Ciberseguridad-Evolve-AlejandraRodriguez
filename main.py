@@ -165,7 +165,27 @@ def bloquear_ip_hetzner(ip: str):
     with open(historico_file, "w") as f:
         json.dump(historico, f, indent=2)
 
-
+    # Ticket automatico por bloqueo
+    try:
+        from apt_tickets import crear_ticket, _cargar
+        data = _cargar()
+        tickets_activos = [t for t in data.get("tickets", [])
+                          if t.get("ip") == ip
+                          and t.get("estado") in ["Abierto", "Investigando"]
+                          and (datetime.now() - datetime.fromisoformat(t["creado_en"])).seconds < 7200]
+        if not tickets_activos:
+            crear_ticket(
+                titulo=f"IP bloqueada automáticamente — {ip}",
+                descripcion=f"El sistema ha bloqueado automáticamente la IP {ip} "
+                           f"en el firewall de Hetzner Cloud por actividad maliciosa detectada. "
+                           f"Requiere revisión del analista para confirmar el bloqueo.",
+                prioridad="ALTA",
+                ip=ip,
+                origen="bloqueo_automatico"
+            )
+            print(f"[TICKET] Ticket creado por bloqueo automático de {ip}")
+    except Exception as e:
+        print(f"[TICKET] Error creando ticket de bloqueo: {e}")
 
     # Guardar notificación pendiente
     notif_file = "/root/asoar/notificaciones.json"
@@ -255,6 +275,30 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
             })
         except Exception as e:
             print(f"[LATERAL] Error: {e}")
+
+    # Ticket automatico para alertas criticas Wazuh (nivel 12+)
+    if nivel >= 12 and ip_atacante and ip_atacante not in ["", "desconocida", "127.0.0.1", "0.0.0.0"]:
+        try:
+            from apt_tickets import crear_ticket, _cargar
+            data = _cargar()
+            tickets_activos = [t for t in data.get("tickets", [])
+                              if t.get("ip") == ip_atacante
+                              and t.get("estado") in ["Abierto", "Investigando"]
+                              and (datetime.now() - datetime.fromisoformat(t["creado_en"])).seconds < 7200]
+            if not tickets_activos:
+                crear_ticket(
+                    titulo=f"Alerta crítica Wazuh — Nivel {nivel} desde {ip_atacante}",
+                    descripcion=f"Wazuh ha detectado una alerta de nivel crítico ({nivel}) "
+                               f"desde la IP {ip_atacante}. "
+                               f"Descripción: {descripcion}. "
+                               f"Requiere revisión inmediata del analista.",
+                    prioridad="CRITICA",
+                    ip=ip_atacante,
+                    origen="wazuh_critico"
+                )
+                print(f"[TICKET] Ticket crítico creado para IP {ip_atacante} nivel {nivel}")
+        except Exception as e:
+            print(f"[TICKET] Error creando ticket critico: {e}")
 
     # En modo simulacion saltamos Ollama para mayor velocidad
     if alerta.simulacion and nivel >= 10:

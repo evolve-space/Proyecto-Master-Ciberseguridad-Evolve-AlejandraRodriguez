@@ -311,10 +311,10 @@ class DetectorAPT:
                 ip = alerta.get("ip", "")
                 if ip and ip not in ["", "desconocida", "0.0.0.0"]:
                     data = _cargar()
-                    tickets_activos = [t for t in data.get("tickets", {}).values()
+                    tickets_activos = [t for t in data.get("tickets", [])
                                       if t.get("ip") == ip
                                       and t.get("estado") in ["Abierto", "Investigando"]
-                                      and (datetime.now() - datetime.fromisoformat(t["creado_en"])).seconds < 7200]
+                                      and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).seconds < 7200]
                     if not tickets_activos:
                         # Enriquecer con AbuseIPDB
                         abuse_score = 0
