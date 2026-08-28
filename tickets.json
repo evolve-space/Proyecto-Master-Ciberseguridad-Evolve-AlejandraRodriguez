@@ -368,7 +368,7 @@
       "id": "NTC-0011",
       "titulo": "Campaña APT detectada — PERSISTENCE desde 49.248.197.50",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 49.248.197.50. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: IN | ISP: Tata Teleservices (Maharashtra) Ltd",
-      "estado": "Abierto",
+      "estado": "Resuelto",
       "prioridad": "ALTA",
       "ip": "49.248.197.50",
       "fase_mitre": "persistence",
@@ -386,11 +386,16 @@
           "estado": "Abierto",
           "timestamp": "2026-08-28T08:49:07.176611+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-28T08:54:04.697619+00:00",
+          "nota": "Estado cambiado a Resuelto"
         }
       ],
       "creado_en": "2026-08-28T08:49:07.176611+00:00",
-      "actualizado_en": "2026-08-28T08:49:07.176611+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-28T08:54:04.697619+00:00",
+      "resuelto_en": "2026-08-28T08:54:04.697619+00:00"
     },
     {
       "id": "NTC-0012",
