@@ -124,6 +124,16 @@ def preguntar_ollama(alerta: dict) -> str:
     })
     return response.json().get("response", "IGNORAR").strip()
 
+def ip_esta_bloqueada(ip: str) -> bool:
+    """Comprueba si una IP ya está bloqueada en el firewall de Hetzner."""
+    try:
+        headers = {"Authorization": f"Bearer {HETZNER_TOKEN}"}
+        r = requests.get(f"https://api.hetzner.cloud/v1/firewalls/{HETZNER_FIREWALL_ID}", headers=headers, timeout=5)
+        reglas = r.json().get("firewall", {}).get("rules", [])
+        return any(f"ASOAR-blocked-{ip}" in reg.get("description", "") for reg in reglas)
+    except:
+        return False
+
 def bloquear_ip_hetzner(ip: str):
     headers = {
         "Authorization": f"Bearer {HETZNER_TOKEN}",
@@ -173,7 +183,7 @@ def bloquear_ip_hetzner(ip: str):
                           if t.get("ip") == ip
                           and t.get("estado") in ["Abierto", "Investigando"]
                           and (datetime.now() - datetime.fromisoformat(t["creado_en"])).seconds < 7200]
-        if not tickets_activos:
+        if not ip_esta_bloqueada(ip) and not tickets_activos:
             crear_ticket(
                 titulo=f"IP bloqueada automáticamente — {ip}",
                 descripcion=f"El sistema ha bloqueado automáticamente la IP {ip} "
@@ -285,7 +295,7 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
                               if t.get("ip") == ip_atacante
                               and t.get("estado") in ["Abierto", "Investigando"]
                               and (datetime.now() - datetime.fromisoformat(t["creado_en"])).seconds < 7200]
-            if not tickets_activos:
+            if not ip_esta_bloqueada(ip) and not tickets_activos:
                 crear_ticket(
                     titulo=f"Alerta crítica Wazuh — Nivel {nivel} desde {ip_atacante}",
                     descripcion=f"Wazuh ha detectado una alerta de nivel crítico ({nivel}) "
