@@ -279,7 +279,147 @@
       "creado_en": "2026-08-27T11:48:59.783399+00:00",
       "actualizado_en": "2026-08-27T13:59:17.462684+00:00",
       "resuelto_en": "2026-08-27T13:59:17.462684+00:00"
+    },
+    {
+      "id": "NTC-0008",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 45.144.187.21",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 45.144.187.21. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 62% | País: DE | ISP: Mittwald CM Service GmbH und Co. KG",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "45.144.187.21",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 62,
+      "abuse_pais": "DE",
+      "abuse_isp": "Mittwald CM Service GmbH und Co. KG",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T08:42:30.169269+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T08:42:30.169269+00:00",
+      "actualizado_en": "2026-08-28T08:42:30.169269+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0009",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 91.98.126.215",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 91.98.126.215. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País: DE | ISP: Hetzner Online GmbH",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "91.98.126.215",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "DE",
+      "abuse_isp": "Hetzner Online GmbH",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T08:42:32.144884+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T08:42:32.144884+00:00",
+      "actualizado_en": "2026-08-28T08:42:32.144884+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0010",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 92.118.39.71",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 92.118.39.71. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: RO | ISP: DMZHOST",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "92.118.39.71",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "DMZHOST",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T08:43:37.310377+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T08:43:37.310377+00:00",
+      "actualizado_en": "2026-08-28T08:43:37.310377+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0011",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 49.248.197.50",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 49.248.197.50. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: IN | ISP: Tata Teleservices (Maharashtra) Ltd",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "49.248.197.50",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IN",
+      "abuse_isp": "Tata Teleservices (Maharashtra) Ltd",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T08:49:07.176611+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T08:49:07.176611+00:00",
+      "actualizado_en": "2026-08-28T08:49:07.176611+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0012",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 118.179.102.248",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 118.179.102.248. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: BD | ISP: Amber IT Limited",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "118.179.102.248",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "BD",
+      "abuse_isp": "Amber IT Limited",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T08:50:28.941827+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T08:50:28.941827+00:00",
+      "actualizado_en": "2026-08-28T08:50:28.941827+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 7
+  "contador": 12
 }
