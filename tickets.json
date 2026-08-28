@@ -424,7 +424,35 @@
       "creado_en": "2026-08-28T08:50:28.941827+00:00",
       "actualizado_en": "2026-08-28T08:50:28.941827+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0013",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 47.62.74.87",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 47.62.74.87. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País: ES | ISP: VODAFONE ESPANA S.A.U.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "47.62.74.87",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "ES",
+      "abuse_isp": "VODAFONE ESPANA S.A.U.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T09:09:32.796471+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T09:09:32.796471+00:00",
+      "actualizado_en": "2026-08-28T09:09:32.796471+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 12
+  "contador": 13
 }

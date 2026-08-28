@@ -2068,6 +2068,135 @@ elif pagina == "Normativas":
                     </div>""", unsafe_allow_html=True)
                 st.markdown("<br>", unsafe_allow_html=True)
 
+    st.markdown("---")
+    
+    # ── Bloque 2: Gestión de vulnerabilidades ─────────────────────────────
+    st.markdown('<div class="section-header">Gestión de Vulnerabilidades — Endpoints</div>', unsafe_allow_html=True)
+    try:
+        agentes_data = requests.get("http://localhost:8000/agentes", headers=HEADERS, timeout=5).json()
+        if agentes_data:
+            rows_vuln = []
+            for hostname, info in agentes_data.items():
+                seg = info.get("datos", {}).get("seguridad", {})
+                act_pendientes = seg.get("actualizaciones_pendientes", 0)
+                act_criticas = seg.get("actualizaciones_criticas", 0)
+                defender = seg.get("defender_activo", False)
+                firewall = seg.get("firewall_activo", False)
+                puntuacion = info.get("datos", {}).get("puntuacion_seguridad", 0)
+                estado = "CRITICO" if act_criticas > 0 else "ADVERTENCIA" if act_pendientes > 0 else "OK"
+                color = "#f85149" if estado == "CRITICO" else "#d29922" if estado == "ADVERTENCIA" else "#3fb950"
+                rows_vuln.append({
+                    "Endpoint": hostname,
+                    "Actualizaciones Pendientes": act_pendientes,
+                    "Criticas": act_criticas,
+                    "Defender": "✓" if defender else "✗",
+                    "Firewall": "✓" if firewall else "✗",
+                    "Puntuacion": f"{puntuacion}/100",
+                    "Estado": estado
+                })
+            df_vuln = pd.DataFrame(rows_vuln)
+            tabla_oscura(df_vuln, hide_index=True)
+        else:
+            st.info("No hay endpoints monitorizados.")
+    except Exception as e:
+        st.error(f"Error cargando datos de endpoints: {e}")
+
+    st.markdown("---")
+
+    # ── Bloque 3: Control de accesos ──────────────────────────────────────
+    st.markdown('<div class="section-header">Control de Accesos e Identidades</div>', unsafe_allow_html=True)
+    try:
+        agentes_data = requests.get("http://localhost:8000/agentes", headers=HEADERS, timeout=5).json()
+        col1, col2, col3 = st.columns(3)
+        total_admins = 0
+        mfa_activo = 0
+        intentos_fallidos = len(df[df["tipo"].str.contains("failed|Failed|brute", na=False)]) if not df.empty else 0
+        for hostname, info in agentes_data.items():
+            seg = info.get("datos", {}).get("seguridad", {})
+            admins = seg.get("usuarios_admin", [])
+            total_admins += len(admins)
+        with col1:
+            color = "#3fb950" if total_admins <= 2 else "#d29922"
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Usuarios Administradores</p>
+                <p style="font-size:2rem;font-weight:700;color:{color};">{total_admins}</p>
+                <p style="font-size:0.75rem;color:#8b949e;">Recomendado: máximo 2</p>
+            </div>""", unsafe_allow_html=True)
+        with col2:
+            mfa_ok = mfa_activo
+            color = "#3fb950" if mfa_ok > 0 else "#f85149"
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">MFA Activado</p>
+                <p style="font-size:2rem;font-weight:700;color:{color};">{'Sí' if mfa_ok else 'No'}</p>
+                <p style="font-size:0.75rem;color:#8b949e;">Dashboard protegido con TOTP</p>
+            </div>""", unsafe_allow_html=True)
+        with col3:
+            color = "#f85149" if intentos_fallidos > 100 else "#d29922" if intentos_fallidos > 10 else "#3fb950"
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Intentos SSH Fallidos</p>
+                <p style="font-size:2rem;font-weight:700;color:{color};">{intentos_fallidos}</p>
+                <p style="font-size:0.75rem;color:#8b949e;">Período actual</p>
+            </div>""", unsafe_allow_html=True)
+    except Exception as e:
+        st.error(f"Error: {e}")
+
+    st.markdown("---")
+
+    # ── Bloque 5: Respuesta a incidentes ──────────────────────────────────
+    st.markdown('<div class="section-header">Respuesta a Incidentes — Marco Legal</div>', unsafe_allow_html=True)
+    try:
+        tickets_data = requests.get("http://localhost:8000/tickets", headers=HEADERS, timeout=5).json()
+        tickets_criticos = [t for t in tickets_data if t.get("prioridad") == "CRITICA" and t.get("estado") not in ["Resuelto", "Cerrado"]]
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            n = len(tickets_criticos)
+            color = "#f85149" if n > 0 else "#3fb950"
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Incidentes Críticos Abiertos</p>
+                <p style="font-size:2rem;font-weight:700;color:{color};">{n}</p>
+                <p style="font-size:0.75rem;color:#8b949e;">Requieren notificación RGPD 72h</p>
+            </div>""", unsafe_allow_html=True)
+        with col2:
+            # MTTR de tickets
+            metricas = requests.get("http://localhost:8000/tickets/metricas/resumen", headers=HEADERS, timeout=3).json()
+            mttr = metricas.get("mttr_horas", 0)
+            color = "#3fb950" if mttr < 24 else "#d29922" if mttr < 72 else "#f85149"
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">MTTR Actual</p>
+                <p style="font-size:2rem;font-weight:700;color:{color};">{mttr:.1f}h</p>
+                <p style="font-size:0.75rem;color:#8b949e;">Límite RGPD: 72 horas</p>
+            </div>""", unsafe_allow_html=True)
+        with col3:
+            sla = metricas.get("sla_24h_porcentaje", 0)
+            color = "#3fb950" if sla >= 80 else "#d29922" if sla >= 50 else "#f85149"
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">SLA 24h</p>
+                <p style="font-size:2rem;font-weight:700;color:{color};">{sla:.0f}%</p>
+                <p style="font-size:0.75rem;color:#8b949e;">Objetivo SOC: >80%</p>
+            </div>""", unsafe_allow_html=True)
+        # Contador 72h para incidentes criticos
+        if tickets_criticos:
+            st.markdown('<div class="section-header">Contador RGPD — Notificación 72 horas</div>', unsafe_allow_html=True)
+            for t in tickets_criticos[:3]:
+                creado = datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])
+                horas_transcurridas = (datetime.now() - creado).total_seconds() / 3600
+                horas_restantes = max(0, 72 - horas_transcurridas)
+                pct = min(100, (horas_transcurridas / 72) * 100)
+                color = "#f85149" if horas_restantes < 12 else "#d29922" if horas_restantes < 24 else "#3fb950"
+                st.markdown(f"""
+                <div style="background:#161b22;padding:12px 16px;border-radius:8px;
+                            border-left:4px solid {color};margin-bottom:8px;">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                        <span style="color:#c9d1d9;font-weight:600">{t['id']} — {t['titulo'][:50]}</span>
+                        <span style="color:{color};font-weight:700">{horas_restantes:.1f}h restantes</span>
+                    </div>
+                    <div style="background:#21262d;border-radius:4px;height:6px;">
+                        <div style="background:{color};width:{pct}%;height:6px;border-radius:4px;"></div>
+                    </div>
+                </div>""", unsafe_allow_html=True)
+    except Exception as e:
+        st.error(f"Error: {e}")
+
 # ══════════════════════════════════════════════════════════════════════════════
 # INFORMES
 # ══════════════════════════════════════════════════════════════════════════════
