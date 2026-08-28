@@ -12,6 +12,31 @@ import streamlit_authenticator as stauth
 from dotenv import load_dotenv
 load_dotenv()
 
+# IPs conocidas que no son amenazas reales
+IPS_WHITELIST = [
+    "47.62.74.87",       # IP propia - acceso al dashboard
+    "66.132.0.0/16",     # Censys - escaner de investigacion
+    "66.133.0.0/16",     # Censys
+    "162.142.125.0/24",  # Shodan
+    "198.20.69.0/24",    # Shodan
+]
+
+def es_ip_whitelist(ip: str) -> bool:
+    """Comprueba si una IP está en la lista blanca."""
+    import ipaddress
+    try:
+        ip_obj = ipaddress.ip_address(ip)
+        for entrada in IPS_WHITELIST:
+            if "/" in entrada:
+                if ip_obj in ipaddress.ip_network(entrada, strict=False):
+                    return True
+            else:
+                if str(ip_obj) == entrada:
+                    return True
+    except:
+        pass
+    return False
+
 def hora_local():
     return datetime.now() + timedelta(hours=2)
 
@@ -1148,7 +1173,7 @@ if pagina == "Panel General":
         datos_suricata = cargar_suricata()
         alertas_sur = datos_suricata.get("alertas", [])
         flows_sur = datos_suricata.get("flows", [])
-        ips_atacantes = list(set([a["src_ip"] for a in alertas_sur if a["src_ip"] and a["src_ip"] not in ["91.98.126.215", "47.62.74.87"]]))
+        ips_atacantes = list(set([a["src_ip"] for a in alertas_sur if a["src_ip"] and not es_ip_whitelist(a["src_ip"])]))        
         st.markdown('<div class="section-header">Tráfico de Red — Suricata IDS</div>', unsafe_allow_html=True)
         col1, col2, col3, col4 = st.columns(4)
         with col1:
@@ -3408,7 +3433,7 @@ elif pagina == "Tráfico de Red":
 
     # ── Métricas globales ──────────────────────────────────────────────────
     col1, col2, col3, col4 = st.columns(4)
-    ips_atacantes = [a["src_ip"] for a in alertas_sur if a["src_ip"] and a["src_ip"] not in ["91.98.126.215", "47.62.74.87"]]
+    ips_atacantes = [a["src_ip"] for a in alertas_sur if a["src_ip"] and not es_ip_whitelist(a["src_ip"])]    
     with col1:
         n = len(alertas_sur)
         color = "#f85149" if n > 0 else "#8b949e"

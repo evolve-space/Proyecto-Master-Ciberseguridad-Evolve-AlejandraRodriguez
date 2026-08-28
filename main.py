@@ -204,7 +204,7 @@ def guardar_agentes(agentes: dict):
 @app.post("/alerta")
 @limiter.limit("10/minute")
 async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = Depends(verificar_api_key)):
-    ip_atacante = alerta.data.get("srcip", "")
+    ip_atacante = alerta.data.get("srcip", "") or alerta.data.get("src_ip", "")
     nivel = alerta.rule.get("level", 0)
     descripcion = alerta.rule.get("description", "")
     print(f"[ALERTA] Nivel {nivel} - {descripcion} - IP: {ip_atacante}")
@@ -213,19 +213,14 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
     apt_resultado = {}
     if APT_DISPONIBLE and ip_atacante and ip_atacante not in ["", "desconocida", "127.0.0.1", "0.0.0.0"]:
         try:
-            # Verificar reputacion AbuseIPDB — omitir IPs con score 0
-            abuse_check = consultar_abuseipdb(ip_atacante)
-            if abuse_check.get("score", 0) == 0:
-                print(f"[APT] IP {ip_atacante} con AbuseIPDB score 0% — omitiendo detector")
-            else:
-                apt_resultado = detector_apt.procesar_alerta({
-                    "rule_id": str(alerta.rule.get("id", "0")),
-                    "nivel":   nivel,
-                    "ip":      ip_atacante,
-                    "agente":  "master",
-                    "flow":    alerta.data.get("flow", {}),
-                    "tcp":     alerta.data.get("tcp", {}),
-                })
+            apt_resultado = detector_apt.procesar_alerta({
+                "rule_id": str(alerta.rule.get("id", "0")),
+                "nivel":   nivel,
+                "ip":      ip_atacante,
+                "agente":  "master",
+                "flow":    alerta.data.get("flow", {}),
+                "tcp":     alerta.data.get("tcp", {}),
+            })
         except Exception as e:
             print(f"[APT] Error en detector: {e}")
     
