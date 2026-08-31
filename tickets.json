@@ -2972,7 +2972,129 @@
       "creado_en": "2026-08-31T08:03:57.850494+00:00",
       "actualizado_en": "2026-08-31T08:14:08.559084+00:00",
       "resuelto_en": "2026-08-31T08:14:08.559084+00:00"
+    },
+    {
+      "id": "NTC-0088",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 103.216.145.2",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 103.216.145.2. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: IN | ISP: Facts Online Pvt Ltd",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "103.216.145.2",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IN",
+      "abuse_isp": "Facts Online Pvt Ltd",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T08:46:23.253345+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T08:46:23.253345+00:00",
+      "actualizado_en": "2026-08-31T08:46:23.253345+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0089",
+      "titulo": "Ticket de prueba notificacion",
+      "descripcion": "Test",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "1.2.3.4",
+      "fase_mitre": "",
+      "confianza": 0.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T08:49:07.022764+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-31T08:50:31.859033+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-08-31T08:49:07.022764+00:00",
+      "actualizado_en": "2026-08-31T08:50:31.859033+00:00",
+      "resuelto_en": "2026-08-31T08:50:31.859033+00:00"
+    },
+    {
+      "id": "NTC-0090",
+      "titulo": "Ticket de prueba notificacion",
+      "descripcion": "Test",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "1.2.3.4",
+      "fase_mitre": "",
+      "confianza": 0.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T08:49:53.441369+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-31T08:50:37.770776+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-08-31T08:49:53.441369+00:00",
+      "actualizado_en": "2026-08-31T08:50:37.770776+00:00",
+      "resuelto_en": "2026-08-31T08:50:37.770776+00:00"
+    },
+    {
+      "id": "NTC-0091",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 162.243.147.237",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 162.243.147.237. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: DigitalOcean, LLC",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "162.243.147.237",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T08:51:00.569821+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T08:51:00.569821+00:00",
+      "actualizado_en": "2026-08-31T08:51:00.569821+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 87
+  "contador": 91
 }
