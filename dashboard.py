@@ -1404,10 +1404,8 @@ elif pagina == "IPs Bloqueadas":
                         st.warning(f"La IP {ip_bloquear_manual} ya está bloqueada.")
                         st.session_state.bloquear_counter = st.session_state.get("bloquear_counter", 0) + 1
                     elif r.status_code == 200:
-                        st.success(f"IP {ip_bloquear_manual} bloqueada correctamente")
-                        st.cache_data.clear()
+                        st.success(f"IP {ip_bloquear_manual} bloqueada correctamente — la tabla se actualizará en 30 segundos")
                         st.session_state.bloquear_counter = st.session_state.get("bloquear_counter", 0) + 1
-                        st.rerun()
                     else:
                         st.error(f"Error al bloquear: {r.text}")
                 except Exception as e:

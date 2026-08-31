@@ -40,5 +40,29 @@
     "accion": "BLOQUEADA",
     "timestamp": "2026-08-30T16:51:37.875396",
     "origen": "manual"
+  },
+  {
+    "ip": "47.95.229.249",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-31T07:24:58.696691",
+    "origen": "manual"
+  },
+  {
+    "ip": "45.156.128.152",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-31T07:31:01.669188",
+    "origen": "manual"
+  },
+  {
+    "ip": "85.11.167.236",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-31T07:33:59.997269",
+    "origen": "manual"
+  },
+  {
+    "ip": "159.223.59.82",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-31T07:38:49.095686",
+    "origen": "manual"
   }
 ]
