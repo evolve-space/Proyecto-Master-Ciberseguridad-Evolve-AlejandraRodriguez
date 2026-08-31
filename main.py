@@ -537,20 +537,14 @@ async def obtener_historico(request: Request, api_key: str = Depends(verificar_a
             return json.load(f)
     return []
 
+from fastapi import BackgroundTasks
+
 @app.post("/bloquear/{ip}")
-async def bloquear_ip_manual(ip: str, api_key: str = Depends(verificar_api_key)):
+async def bloquear_ip_manual(ip: str, background_tasks: BackgroundTasks, api_key: str = Depends(verificar_api_key)):
+    ip = ip.strip()
     try:
-        # Verificar si ya está bloqueada en Hetzner
-        headers_hetzner = {"Authorization": f"Bearer {HETZNER_TOKEN}"}
-        r = requests.get(f"https://api.hetzner.cloud/v1/firewalls/{HETZNER_FIREWALL_ID}", headers=headers_hetzner)
-        reglas = r.json().get("firewall", {}).get("rules", [])
-        ya_bloqueada = any(f"ASOAR-blocked-{ip}" in reg.get("description", "") for reg in reglas)
-        
-        if ya_bloqueada:
-            return {"status": "ya_bloqueada", "ip": ip, "mensaje": f"La IP {ip} ya esta bloqueada en el firewall"}
-        
-        resultado = bloquear_ip_hetzner(ip)
-        # Guardar en historial manual
+        background_tasks.add_task(bloquear_ip_hetzner, ip)
+        # Guardar en historial inmediatamente
         hist_file = "/root/asoar/ips_manual.json"
         try:
             with open(hist_file, "r") as f:
@@ -565,7 +559,7 @@ async def bloquear_ip_manual(ip: str, api_key: str = Depends(verificar_api_key))
         })
         with open(hist_file, "w") as f:
             json.dump(hist, f, indent=2, default=str)
-        return {"status": "ok", "ip": ip, "accion": "BLOQUEADA", "resultado": resultado}
+        return {"status": "ok", "ip": ip, "accion": "BLOQUEADA"}
     except Exception as e:
         return {"status": "error", "ip": ip, "error": str(e)}
 
