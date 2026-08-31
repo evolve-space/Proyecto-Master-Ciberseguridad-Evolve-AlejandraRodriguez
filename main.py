@@ -134,6 +134,21 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 OLLAMA_URL = "http://localhost:11434/api/generate"
 AGENTES_FILE = "/root/asoar/agentes.json"
 ABUSE_CACHE_FILE = "/root/asoar/abuse_cache.json"
+BLOCKED_IPS_FILE = "/root/asoar/blocked_ips_cache.json"
+
+def cargar_ips_bloqueadas_cache() -> set:
+    """Carga la caché local de IPs bloqueadas."""
+    try:
+        with open(BLOCKED_IPS_FILE, "r") as f:
+            return set(json.load(f))
+    except:
+        return set()
+
+def guardar_ips_bloqueadas_cache(ips: set):
+    """Guarda la caché local de IPs bloqueadas."""
+    with open(BLOCKED_IPS_FILE, "w") as f:
+        json.dump(list(ips), f, indent=2)
+
 
 def consultar_abuseipdb(ip: str) -> dict:
     """Consulta AbuseIPDB con caché persistente de 24 horas."""
@@ -178,16 +193,23 @@ def preguntar_ollama(alerta: dict) -> str:
     return response.json().get("response", "IGNORAR").strip()
 
 def ip_esta_bloqueada(ip: str) -> bool:
-    """Comprueba si una IP ya está bloqueada en el firewall de Hetzner."""
+    """Comprueba si una IP está bloqueada usando caché local."""
+    ips_cache = cargar_ips_bloqueadas_cache()
+    if ip in ips_cache:
+        print(f"[CACHE] IP {ip} bloqueada (caché local)")
+        return True
     try:
         headers = {"Authorization": f"Bearer {HETZNER_TOKEN}"}
         r = requests.get(f"https://api.hetzner.cloud/v1/firewalls/{HETZNER_FIREWALL_ID}", headers=headers, timeout=5)
         reglas = r.json().get("firewall", {}).get("rules", [])
         bloqueada = any(f"ASOAR-blocked-{ip}" in reg.get("description", "") for reg in reglas)
         if bloqueada:
-            print(f"[BLOQUEADA] IP {ip} ya está en Hetzner — omitiendo ticket")
+            print(f"[BLOQUEADA] IP {ip} en Hetzner — añadiendo a caché")
+            ips_cache.add(ip)
+            guardar_ips_bloqueadas_cache(ips_cache)
         return bloqueada
-    except:
+    except Exception as e:
+        print(f"[BLOQUEADA] Error verificando {ip}: {e}")
         return False
 
 def bloquear_ip_hetzner(ip: str):
@@ -210,6 +232,10 @@ def bloquear_ip_hetzner(ip: str):
         headers=headers,
         json={"rules": reglas_actuales}
     )
+    # Actualizar caché local
+    ips_cache = cargar_ips_bloqueadas_cache()
+    ips_cache.add(ip)
+    guardar_ips_bloqueadas_cache(ips_cache)
     print(f"[HETZNER] IP {ip} bloqueada - Status: {r.status_code}")
 
      # Guardar histórico
