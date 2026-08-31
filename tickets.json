@@ -40,8 +40,8 @@
     },
     {
       "id": "NTC-0002",
-      "titulo": "Campaña APT detectada — EXECUTION desde 116.74.164.106",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 116.74.164.106. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
+      "titulo": "Campa\u00f1a APT detectada \u2014 EXECUTION desde 116.74.164.106",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase execution con confianza del 100.0% desde la IP 116.74.164.106. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
       "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "116.74.164.106",
@@ -56,7 +56,7 @@
       "campana_id": "",
       "notas": [
         {
-          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia — no bloqueada preventivamente.",
+          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia \u2014 no bloqueada preventivamente.",
           "timestamp": "2026-08-27T14:00:19.150428+00:00"
         }
       ],
@@ -78,8 +78,8 @@
     },
     {
       "id": "NTC-0003",
-      "titulo": "Campaña APT detectada — EXECUTION desde 116.74.164.106",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 116.74.164.106. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
+      "titulo": "Campa\u00f1a APT detectada \u2014 EXECUTION desde 116.74.164.106",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase execution con confianza del 100.0% desde la IP 116.74.164.106. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
       "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "116.74.164.106",
@@ -94,7 +94,7 @@
       "campana_id": "",
       "notas": [
         {
-          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia — no bloqueada preventivamente.",
+          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia \u2014 no bloqueada preventivamente.",
           "timestamp": "2026-08-27T14:00:01.609735+00:00"
         }
       ],
@@ -116,8 +116,8 @@
     },
     {
       "id": "NTC-0004",
-      "titulo": "Campaña APT detectada — EXECUTION desde 116.74.164.106",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 116.74.164.106. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
+      "titulo": "Campa\u00f1a APT detectada \u2014 EXECUTION desde 116.74.164.106",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase execution con confianza del 100.0% desde la IP 116.74.164.106. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
       "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "116.74.164.106",
@@ -132,7 +132,7 @@
       "campana_id": "",
       "notas": [
         {
-          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia — no bloqueada preventivamente.",
+          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia \u2014 no bloqueada preventivamente.",
           "timestamp": "2026-08-27T13:59:40.130604+00:00"
         }
       ],
@@ -154,8 +154,8 @@
     },
     {
       "id": "NTC-0005",
-      "titulo": "Campaña APT detectada — EXECUTION desde 49.248.197.50",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
+      "titulo": "Campa\u00f1a APT detectada \u2014 EXECUTION desde 49.248.197.50",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
       "estado": "Resuelto",
       "prioridad": "MEDIA",
       "ip": "49.248.197.50",
@@ -183,12 +183,12 @@
         {
           "estado": "Abierto",
           "timestamp": "2026-08-27T13:56:49.026752+00:00",
-          "nota": "la amenaza está neutralizada (IP bloqueada)"
+          "nota": "la amenaza est\u00e1 neutralizada (IP bloqueada)"
         },
         {
           "estado": "Resuelto",
           "timestamp": "2026-08-27T13:57:10.423670+00:00",
-          "nota": "la amenaza está neutralizada (IP bloqueada)"
+          "nota": "la amenaza est\u00e1 neutralizada (IP bloqueada)"
         }
       ],
       "creado_en": "2026-08-27T11:48:55.165527+00:00",
@@ -197,8 +197,8 @@
     },
     {
       "id": "NTC-0006",
-      "titulo": "Campaña APT detectada — EXECUTION desde 49.248.197.50",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
+      "titulo": "Campa\u00f1a APT detectada \u2014 EXECUTION desde 49.248.197.50",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
       "estado": "Resuelto",
       "prioridad": "MEDIA",
       "ip": "49.248.197.50",
@@ -226,7 +226,7 @@
         {
           "estado": "Resuelto",
           "timestamp": "2026-08-27T13:56:14.849181+00:00",
-          "nota": "la amenaza está neutralizada (IP bloqueada)"
+          "nota": "la amenaza est\u00e1 neutralizada (IP bloqueada)"
         }
       ],
       "creado_en": "2026-08-27T11:48:58.725647+00:00",
@@ -235,8 +235,8 @@
     },
     {
       "id": "NTC-0007",
-      "titulo": "Campaña APT detectada — EXECUTION desde 49.248.197.50",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
+      "titulo": "Campa\u00f1a APT detectada \u2014 EXECUTION desde 49.248.197.50",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase execution con confianza del 100.0% desde la IP 49.248.197.50. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados.",
       "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "49.248.197.50",
@@ -255,7 +255,7 @@
           "timestamp": "2026-08-27T13:55:39.070815+00:00"
         },
         {
-          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia — no bloqueada preventivamente.",
+          "texto": "Resuelto\" y nota: \"IP con AbuseIPDB 100% y 820 reportes. Sin actividad activa detectada actualmente. Bajo vigilancia \u2014 no bloqueada preventivamente.",
           "timestamp": "2026-08-27T13:59:15.738803+00:00"
         }
       ],
@@ -268,7 +268,7 @@
         {
           "estado": "Resuelto",
           "timestamp": "2026-08-27T13:55:42.511569+00:00",
-          "nota": "la amenaza está neutralizada (IP bloqueada)"
+          "nota": "la amenaza est\u00e1 neutralizada (IP bloqueada)"
         },
         {
           "estado": "Cerrado",
@@ -282,9 +282,9 @@
     },
     {
       "id": "NTC-0008",
-      "titulo": "Campaña APT detectada — PERSISTENCE desde 45.144.187.21",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 45.144.187.21. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 62% | País: DE | ISP: Mittwald CM Service GmbH und Co. KG",
-      "estado": "Abierto",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.144.187.21",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 45.144.187.21. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 62% | Pa\u00eds: DE | ISP: Mittwald CM Service GmbH und Co. KG",
+      "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "45.144.187.21",
       "fase_mitre": "persistence",
@@ -302,17 +302,22 @@
           "estado": "Abierto",
           "timestamp": "2026-08-28T08:42:30.169269+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:11:54.632425+00:00",
+          "nota": "Estado cambiado a Cerrado"
         }
       ],
       "creado_en": "2026-08-28T08:42:30.169269+00:00",
-      "actualizado_en": "2026-08-28T08:42:30.169269+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-28T10:11:54.632425+00:00",
+      "resuelto_en": "2026-08-28T10:11:54.632425+00:00"
     },
     {
       "id": "NTC-0009",
-      "titulo": "Campaña APT detectada — PERSISTENCE desde 91.98.126.215",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 91.98.126.215. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País: DE | ISP: Hetzner Online GmbH",
-      "estado": "Abierto",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 91.98.126.215",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 91.98.126.215. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 0% | Pa\u00eds: DE | ISP: Hetzner Online GmbH",
+      "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "91.98.126.215",
       "fase_mitre": "persistence",
@@ -330,17 +335,22 @@
           "estado": "Abierto",
           "timestamp": "2026-08-28T08:42:32.144884+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:11:48.380684+00:00",
+          "nota": "Estado cambiado a Cerrado"
         }
       ],
       "creado_en": "2026-08-28T08:42:32.144884+00:00",
-      "actualizado_en": "2026-08-28T08:42:32.144884+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-28T10:11:48.380684+00:00",
+      "resuelto_en": "2026-08-28T10:11:48.380684+00:00"
     },
     {
       "id": "NTC-0010",
-      "titulo": "Campaña APT detectada — PERSISTENCE desde 92.118.39.71",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 92.118.39.71. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: RO | ISP: DMZHOST",
-      "estado": "Abierto",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 92.118.39.71",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 92.118.39.71. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: RO | ISP: DMZHOST",
+      "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "92.118.39.71",
       "fase_mitre": "persistence",
@@ -358,16 +368,21 @@
           "estado": "Abierto",
           "timestamp": "2026-08-28T08:43:37.310377+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:11:43.139294+00:00",
+          "nota": "Estado cambiado a Cerrado"
         }
       ],
       "creado_en": "2026-08-28T08:43:37.310377+00:00",
-      "actualizado_en": "2026-08-28T08:43:37.310377+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-28T10:11:43.139294+00:00",
+      "resuelto_en": "2026-08-28T10:11:43.139294+00:00"
     },
     {
       "id": "NTC-0011",
-      "titulo": "Campaña APT detectada — PERSISTENCE desde 49.248.197.50",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 49.248.197.50. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: IN | ISP: Tata Teleservices (Maharashtra) Ltd",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 49.248.197.50",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 49.248.197.50. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: IN | ISP: Tata Teleservices (Maharashtra) Ltd",
       "estado": "Resuelto",
       "prioridad": "ALTA",
       "ip": "49.248.197.50",
@@ -399,9 +414,9 @@
     },
     {
       "id": "NTC-0012",
-      "titulo": "Campaña APT detectada — PERSISTENCE desde 118.179.102.248",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 118.179.102.248. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: BD | ISP: Amber IT Limited",
-      "estado": "Abierto",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 118.179.102.248",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 118.179.102.248. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: BD | ISP: Amber IT Limited",
+      "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "118.179.102.248",
       "fase_mitre": "persistence",
@@ -419,17 +434,22 @@
           "estado": "Abierto",
           "timestamp": "2026-08-28T08:50:28.941827+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:11:36.196590+00:00",
+          "nota": "Estado cambiado a Cerrado"
         }
       ],
       "creado_en": "2026-08-28T08:50:28.941827+00:00",
-      "actualizado_en": "2026-08-28T08:50:28.941827+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-08-28T10:11:36.196590+00:00",
+      "resuelto_en": "2026-08-28T10:11:36.196590+00:00"
     },
     {
       "id": "NTC-0013",
-      "titulo": "Campaña APT detectada — PERSISTENCE desde 47.62.74.87",
-      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 47.62.74.87. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País: ES | ISP: VODAFONE ESPANA S.A.U.",
-      "estado": "Abierto",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 47.62.74.87",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 47.62.74.87. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 0% | Pa\u00eds: ES | ISP: VODAFONE ESPANA S.A.U.",
+      "estado": "Resuelto",
       "prioridad": "ALTA",
       "ip": "47.62.74.87",
       "fase_mitre": "persistence",
@@ -441,18 +461,2198 @@
       "abuse_pais": "ES",
       "abuse_isp": "VODAFONE ESPANA S.A.U.",
       "campana_id": "",
-      "notas": [],
+      "notas": [
+        {
+          "texto": "Es mi propio inicio de sesi\u00f3n. A\u00fan por solucionar que no genere alerta.",
+          "timestamp": "2026-08-28T09:16:24.008992+00:00"
+        }
+      ],
       "historial": [
         {
           "estado": "Abierto",
           "timestamp": "2026-08-28T09:09:32.796471+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-28T09:16:34.116823+00:00",
+          "nota": "Estado cambiado a Resuelto"
         }
       ],
       "creado_en": "2026-08-28T09:09:32.796471+00:00",
-      "actualizado_en": "2026-08-28T09:09:32.796471+00:00",
+      "actualizado_en": "2026-08-28T09:16:34.116823+00:00",
+      "resuelto_en": "2026-08-28T09:16:34.116823+00:00"
+    },
+    {
+      "id": "NTC-0014",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 89.35.130.73",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 89.35.130.73. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 4% | Pa\u00eds: DE | ISP: aurorix networks",
+      "estado": "Resuelto",
+      "prioridad": "ALTA",
+      "ip": "89.35.130.73",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 4,
+      "abuse_pais": "DE",
+      "abuse_isp": "aurorix networks",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T09:15:36.621784+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-28T09:18:28.529442+00:00",
+          "nota": "Falso Positivo"
+        }
+      ],
+      "creado_en": "2026-08-28T09:15:36.621784+00:00",
+      "actualizado_en": "2026-08-28T09:18:28.529442+00:00",
+      "resuelto_en": "2026-08-28T09:18:28.529442+00:00"
+    },
+    {
+      "id": "NTC-0015",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 47.62.74.87",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 47.62.74.87. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 0% | Pa\u00eds: ES | ISP: VODAFONE ESPANA S.A.U.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "47.62.74.87",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "ES",
+      "abuse_isp": "VODAFONE ESPANA S.A.U.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T09:17:18.798146+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T09:18:47.984458+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-08-28T09:17:18.798146+00:00",
+      "actualizado_en": "2026-08-28T09:18:47.984458+00:00",
+      "resuelto_en": "2026-08-28T09:18:47.984458+00:00"
+    },
+    {
+      "id": "NTC-0016",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 89.35.130.73",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 89.35.130.73. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 4% | Pa\u00eds: DE | ISP: aurorix networks",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "89.35.130.73",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 4,
+      "abuse_pais": "DE",
+      "abuse_isp": "aurorix networks",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-08-31T07:13:11.055711",
+          "texto": "Cerrado: AbuseIPDB 3% < 50%. Falso positivo LSTM."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T09:18:56.120776+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Investigando",
+          "timestamp": "2026-08-28T09:22:48.898995+00:00",
+          "nota": "Monitorizada"
+        }
+      ],
+      "creado_en": "2026-08-28T09:18:56.120776+00:00",
+      "actualizado_en": "2026-08-28T09:22:48.898995+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0017",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.117.164.104",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 45.117.164.104. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 14% | Pa\u00eds: VN | ISP: ODS Joint Stock Company",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "45.117.164.104",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 14,
+      "abuse_pais": "VN",
+      "abuse_isp": "ODS Joint Stock Company",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T09:40:13.330365+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:11:29.937880+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-08-28T09:40:13.330365+00:00",
+      "actualizado_en": "2026-08-28T10:11:29.937880+00:00",
+      "resuelto_en": "2026-08-28T10:11:29.937880+00:00"
+    },
+    {
+      "id": "NTC-0018",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 167.94.146.50",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 167.94.146.50. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 0% | Pa\u00eds: DE | ISP: Censys, Inc.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "167.94.146.50",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "DE",
+      "abuse_isp": "Censys, Inc.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T09:41:09.103212+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:11:22.673316+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-08-28T09:41:09.103212+00:00",
+      "actualizado_en": "2026-08-28T10:11:22.673316+00:00",
+      "resuelto_en": "2026-08-28T10:11:22.673316+00:00"
+    },
+    {
+      "id": "NTC-0019",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 103.151.52.246",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 103.151.52.246. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 4% | Pa\u00eds: VN | ISP: FLYCLOUD Company Limited",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "103.151.52.246",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 4,
+      "abuse_pais": "VN",
+      "abuse_isp": "FLYCLOUD Company Limited",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T09:52:07.600508+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:07:14.199542+00:00",
+          "nota": "Falso positivo. Investigando"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:07:48.825845+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-08-28T09:52:07.600508+00:00",
+      "actualizado_en": "2026-08-28T10:07:48.825845+00:00",
+      "resuelto_en": "2026-08-28T10:07:48.825845+00:00"
+    },
+    {
+      "id": "NTC-0020",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 103.151.52.246",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 103.151.52.246. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 4% | Pa\u00eds: VN | ISP: FLYCLOUD Company Limited",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "103.151.52.246",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 4,
+      "abuse_pais": "VN",
+      "abuse_isp": "FLYCLOUD Company Limited",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:08:50.129223+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:09:42.827522+00:00",
+          "nota": "Falso positivo. Arreglando el c\u00f3digo"
+        }
+      ],
+      "creado_en": "2026-08-28T10:08:50.129223+00:00",
+      "actualizado_en": "2026-08-28T10:09:42.827522+00:00",
+      "resuelto_en": "2026-08-28T10:09:42.827522+00:00"
+    },
+    {
+      "id": "NTC-0021",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 103.151.52.246",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 103.151.52.246. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 4% | Pa\u00eds: VN | ISP: FLYCLOUD Company Limited",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "103.151.52.246",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 4,
+      "abuse_pais": "VN",
+      "abuse_isp": "FLYCLOUD Company Limited",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:09:54.051249+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:10:50.733961+00:00",
+          "nota": "Arreglando codigo"
+        }
+      ],
+      "creado_en": "2026-08-28T10:09:54.051249+00:00",
+      "actualizado_en": "2026-08-28T10:10:50.733961+00:00",
+      "resuelto_en": "2026-08-28T10:10:50.733961+00:00"
+    },
+    {
+      "id": "NTC-0022",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 103.151.52.246",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 103.151.52.246. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 4% | Pa\u00eds: VN | ISP: FLYCLOUD Company Limited",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "103.151.52.246",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 4,
+      "abuse_pais": "VN",
+      "abuse_isp": "FLYCLOUD Company Limited",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:10:54.697601+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-28T10:11:10.225039+00:00",
+          "nota": "Arreglando codigo"
+        }
+      ],
+      "creado_en": "2026-08-28T10:10:54.697601+00:00",
+      "actualizado_en": "2026-08-28T10:11:10.225039+00:00",
+      "resuelto_en": "2026-08-28T10:11:10.225039+00:00"
+    },
+    {
+      "id": "NTC-0023",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.144.187.21",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 45.144.187.21. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 62% | Pa\u00eds: DE | ISP: Mittwald CM Service GmbH und Co. KG",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "45.144.187.21",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 62,
+      "abuse_pais": "DE",
+      "abuse_isp": "Mittwald CM Service GmbH und Co. KG",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:12:05.620730+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-30T15:02:14.056611+00:00",
+          "nota": "Investigando porque salta alerta para esta IP"
+        }
+      ],
+      "creado_en": "2026-08-28T10:12:05.620730+00:00",
+      "actualizado_en": "2026-08-30T15:02:14.056611+00:00",
+      "resuelto_en": "2026-08-30T15:02:14.056611+00:00"
+    },
+    {
+      "id": "NTC-0024",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 91.98.126.215",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 91.98.126.215. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 0% | Pa\u00eds: DE | ISP: Hetzner Online GmbH",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "91.98.126.215",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "DE",
+      "abuse_isp": "Hetzner Online GmbH",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:13:11.208149+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-30T15:06:59.799891+00:00",
+          "nota": "IP de mi servidor. A\u00f1adida al c\u00f3digo dentro de IPs Whitelist"
+        }
+      ],
+      "creado_en": "2026-08-28T10:13:11.208149+00:00",
+      "actualizado_en": "2026-08-30T15:06:59.799891+00:00",
+      "resuelto_en": "2026-08-30T15:06:59.799891+00:00"
+    },
+    {
+      "id": "NTC-0025",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 209.99.185.98",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 209.99.185.98. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: CH | ISP: SKN Subnet & Telecom Ltd",
+      "estado": "Resuelto",
+      "prioridad": "ALTA",
+      "ip": "209.99.185.98",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CH",
+      "abuse_isp": "SKN Subnet & Telecom Ltd",
+      "campana_id": "",
+      "notas": [
+        {
+          "texto": "datacenter suizo con 435 reportes haciendo tr\u00e1fico SSL an\u00f3malo",
+          "timestamp": "2026-08-28T10:29:13.131722+00:00"
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:18:25.794488+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-28T10:29:22.237601+00:00",
+          "nota": "Estado cambiado a Resuelto"
+        }
+      ],
+      "creado_en": "2026-08-28T10:18:25.794488+00:00",
+      "actualizado_en": "2026-08-28T10:29:22.237601+00:00",
+      "resuelto_en": "2026-08-28T10:29:22.237601+00:00"
+    },
+    {
+      "id": "NTC-0026",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 149.118.68.211",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 149.118.68.211. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: AU | ISP: Oracle Corporation",
+      "estado": "Resuelto",
+      "prioridad": "ALTA",
+      "ip": "149.118.68.211",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "AU",
+      "abuse_isp": "Oracle Corporation",
+      "campana_id": "",
+      "notas": [
+        {
+          "texto": "IP bloqueada. AbuseIPDB 100%, Oracle Cloud Australia. Sin actividad reciente detectable pero reputaci\u00f3n confirma IP maliciosa",
+          "timestamp": "2026-08-30T15:09:00.020850+00:00"
+        },
+        {
+          "texto": "IP bloqueada. AbuseIPDB 100%, Oracle Cloud Australia. Sin actividad reciente detectable pero reputaci\u00f3n confirma IP maliciosa",
+          "timestamp": "2026-08-30T15:09:12.490669+00:00"
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:42:04.229026+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-30T15:09:17.345374+00:00",
+          "nota": "Estado cambiado a Resuelto"
+        }
+      ],
+      "creado_en": "2026-08-28T10:42:04.229026+00:00",
+      "actualizado_en": "2026-08-30T15:09:17.345374+00:00",
+      "resuelto_en": "2026-08-30T15:09:17.345374+00:00"
+    },
+    {
+      "id": "NTC-0027",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 94.184.17.125",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 94.184.17.125. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: IR | ISP: Institute for Research in Fundamental Sciences",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "94.184.17.125",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IR",
+      "abuse_isp": "Institute for Research in Fundamental Sciences",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:42:20.728645+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T10:42:20.728645+00:00",
+      "actualizado_en": "2026-08-28T10:42:20.728645+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0028",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 79.127.154.169",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 79.127.154.169. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 52% | Pa\u00eds: CZ | ISP: Datacamp Limited",
+      "estado": "Resuelto",
+      "prioridad": "ALTA",
+      "ip": "79.127.154.169",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 52,
+      "abuse_pais": "CZ",
+      "abuse_isp": "Datacamp Limited",
+      "campana_id": "",
+      "notas": [
+        {
+          "texto": "Datacamp Limited \u2014 es un proveedor de hosting conocido por alojar servidores de ataque y VPNs",
+          "timestamp": "2026-08-30T16:30:14.852246+00:00"
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T10:48:04.388162+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-30T16:30:29.285862+00:00",
+          "nota": "Estado cambiado a Resuelto"
+        }
+      ],
+      "creado_en": "2026-08-28T10:48:04.388162+00:00",
+      "actualizado_en": "2026-08-30T16:30:29.285862+00:00",
+      "resuelto_en": "2026-08-30T16:30:29.285862+00:00"
+    },
+    {
+      "id": "NTC-0029",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 81.23.173.32",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 81.23.173.32. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: RU | ISP: MTS PJSC",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "81.23.173.32",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RU",
+      "abuse_isp": "MTS PJSC",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T11:02:58.064161+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T11:02:58.064161+00:00",
+      "actualizado_en": "2026-08-28T11:02:58.064161+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0030",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 181.214.140.22",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 181.214.140.22. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: GB | ISP: Internet Utilities Europe and Asia Limited",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "181.214.140.22",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "GB",
+      "abuse_isp": "Internet Utilities Europe and Asia Limited",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T12:03:58.764485+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T12:03:58.764485+00:00",
+      "actualizado_en": "2026-08-28T12:03:58.764485+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0031",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 193.32.162.84",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 193.32.162.84. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: RO | ISP: UNMANAGED LTD",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "193.32.162.84",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "UNMANAGED LTD",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T12:12:21.052172+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T12:12:21.052172+00:00",
+      "actualizado_en": "2026-08-28T12:12:21.052172+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0032",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 85.11.167.236",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 85.11.167.236. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: TechTies Inc.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "85.11.167.236",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TechTies Inc.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T12:18:18.912383+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T12:18:18.912383+00:00",
+      "actualizado_en": "2026-08-28T12:18:18.912383+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0033",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 216.202.170.56",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 216.202.170.56. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: Level 3 Parent, LLC",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "216.202.170.56",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Level 3 Parent, LLC",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-28T12:45:00.105730+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-28T12:45:00.105730+00:00",
+      "actualizado_en": "2026-08-28T12:45:00.105730+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0034",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.174.162.68",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 45.174.162.68. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: BR | ISP: NANDO NET FIBRA",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "45.174.162.68",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "BR",
+      "abuse_isp": "NANDO NET FIBRA",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-29T00:21:05.426479+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-29T00:21:05.426479+00:00",
+      "actualizado_en": "2026-08-29T00:21:05.426479+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0035",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 103.25.47.94",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 103.25.47.94. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: IN | ISP: Rainbow communications India Pvt Ltd",
+      "estado": "Resuelto",
+      "prioridad": "ALTA",
+      "ip": "103.25.47.94",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IN",
+      "abuse_isp": "Rainbow communications India Pvt Ltd",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T00:05:21.659474+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-30T16:08:01.445017+00:00",
+          "nota": "Evidencia suficiente con el score de AbuseIPDB"
+        }
+      ],
+      "creado_en": "2026-08-30T00:05:21.659474+00:00",
+      "actualizado_en": "2026-08-30T16:08:01.445017+00:00",
+      "resuelto_en": "2026-08-30T16:08:01.445017+00:00"
+    },
+    {
+      "id": "NTC-0036",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 89.145.167.224",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 89.145.167.224. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 79% | Pa\u00eds: CH | ISP: Exoscale Open Cloud GV2",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "89.145.167.224",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 79,
+      "abuse_pais": "CH",
+      "abuse_isp": "Exoscale Open Cloud GV2",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T00:07:22.778433+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T00:07:22.778433+00:00",
+      "actualizado_en": "2026-08-30T00:07:22.778433+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0037",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 199.45.155.47",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 199.45.155.47. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: HK | ISP: Censys, Inc.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "199.45.155.47",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "HK",
+      "abuse_isp": "Censys, Inc.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T00:13:51.423174+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-30T18:22:53.076261+00:00",
+          "nota": "Censys"
+        }
+      ],
+      "creado_en": "2026-08-30T00:13:51.423174+00:00",
+      "actualizado_en": "2026-08-30T18:22:53.076261+00:00",
+      "resuelto_en": "2026-08-30T18:22:53.076261+00:00"
+    },
+    {
+      "id": "NTC-0038",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 47.250.127.65",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 47.250.127.65. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: MY | ISP: Alibaba Cloud - MY",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "47.250.127.65",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "MY",
+      "abuse_isp": "Alibaba Cloud - MY",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T00:18:10.638220+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T00:18:10.638220+00:00",
+      "actualizado_en": "2026-08-30T00:18:10.638220+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0039",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 195.178.110.159",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 195.178.110.159. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.159",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T00:18:59.265391+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T00:18:59.265391+00:00",
+      "actualizado_en": "2026-08-30T00:18:59.265391+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0040",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 93.174.93.12",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 93.174.93.12. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: FiberXpress BV",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "93.174.93.12",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "FiberXpress BV",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T00:28:20.641115+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T00:28:20.641115+00:00",
+      "actualizado_en": "2026-08-30T00:28:20.641115+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0041",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 164.92.142.59",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 164.92.142.59. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: DE | ISP: DigitalOcean, LLC",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "164.92.142.59",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T00:42:11.153010+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T00:42:11.153010+00:00",
+      "actualizado_en": "2026-08-30T00:42:11.153010+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0042",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 80.82.77.202",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 80.82.77.202. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: FiberXpress BV",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "80.82.77.202",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "FiberXpress BV",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T01:10:21.554079+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T01:10:21.554079+00:00",
+      "actualizado_en": "2026-08-30T01:10:21.554079+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0043",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 89.248.171.23",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 89.248.171.23. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: FiberXpress BV",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "89.248.171.23",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "FiberXpress BV",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T01:11:05.103559+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T01:11:05.103559+00:00",
+      "actualizado_en": "2026-08-30T01:11:05.103559+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0044",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-08-31T07:15:33.378393",
+          "texto": "Cerrado autom\u00e1ticamente: IP ya bloqueada en firewall Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T01:12:31.783747+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T01:12:31.783747+00:00",
+      "actualizado_en": "2026-08-30T01:12:31.783747+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0045",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.79.207.252",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 45.79.207.252. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: Linode",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "45.79.207.252",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Linode",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T01:41:20.131395+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T01:41:20.131395+00:00",
+      "actualizado_en": "2026-08-30T01:41:20.131395+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0046",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 172.236.228.229",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 172.236.228.229. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: Linode",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "172.236.228.229",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Linode",
+      "campana_id": "",
+      "notas": [
+        {
+          "texto": "Evidencia suficiente de AbuseIPDB para bloquear IP.",
+          "timestamp": "2026-08-30T15:44:56.513705+00:00"
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T01:48:00.686230+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T01:48:00.686230+00:00",
+      "actualizado_en": "2026-08-30T15:44:56.513705+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0047",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 77.90.185.226",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 77.90.185.226. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: LT | ISP: Limited Network LTD",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "77.90.185.226",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "LT",
+      "abuse_isp": "Limited Network LTD",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T01:58:23.654837+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T01:58:23.654837+00:00",
+      "actualizado_en": "2026-08-30T01:58:23.654837+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0048",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 80.94.95.211",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 80.94.95.211. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: RO | ISP: UNMANAGED LTD",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "80.94.95.211",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "UNMANAGED LTD",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T02:34:15.900354+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T02:34:15.900354+00:00",
+      "actualizado_en": "2026-08-30T02:34:15.900354+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0049",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 128.14.225.164",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 128.14.225.164. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: DE | ISP: UCLOUD",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "128.14.225.164",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "UCLOUD",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T02:37:26.993093+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T02:37:26.993093+00:00",
+      "actualizado_en": "2026-08-30T02:37:26.993093+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0050",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 187.192.86.212",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 187.192.86.212. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: MX | ISP: Uninet S.A. de C.V.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "187.192.86.212",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "MX",
+      "abuse_isp": "Uninet S.A. de C.V.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T02:42:44.697280+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T02:42:44.697280+00:00",
+      "actualizado_en": "2026-08-30T02:42:44.697280+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0051",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 203.101.186.69",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 203.101.186.69. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 71% | Pa\u00eds: PK | ISP: Broadband Services",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "203.101.186.69",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 71,
+      "abuse_pais": "PK",
+      "abuse_isp": "Broadband Services",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-08-31T07:15:33.378428",
+          "texto": "Cerrado autom\u00e1ticamente: IP ya bloqueada en firewall Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T02:43:38.875401+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T02:43:38.875401+00:00",
+      "actualizado_en": "2026-08-30T02:43:38.875401+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0052",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 185.87.121.29",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 185.87.121.29. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: CZ | ISP: Host24 Digital Services Ltd",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "185.87.121.29",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CZ",
+      "abuse_isp": "Host24 Digital Services Ltd",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T03:29:54.324639+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T03:29:54.324639+00:00",
+      "actualizado_en": "2026-08-30T03:29:54.324639+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0053",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.33.12.214",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 45.33.12.214. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: Linode",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "45.33.12.214",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Linode",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T03:47:05.742459+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T03:47:05.742459+00:00",
+      "actualizado_en": "2026-08-30T03:47:05.742459+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0054",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 159.223.59.82",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 159.223.59.82. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: SG | ISP: DigitalOcean, LLC",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "159.223.59.82",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "SG",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T03:59:25.192378+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-30T03:59:25.192378+00:00",
+      "actualizado_en": "2026-08-30T03:59:25.192378+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0055",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.172.218.181",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 45.172.218.181. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 87% | Pa\u00eds: CO | ISP: INTERMEGAMUNDO PARTNERS S.A.S.",
+      "estado": "Resuelto",
+      "prioridad": "ALTA",
+      "ip": "45.172.218.181",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 87,
+      "abuse_pais": "CO",
+      "abuse_isp": "INTERMEGAMUNDO PARTNERS S.A.S.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T04:20:26.715388+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Resuelto",
+          "timestamp": "2026-08-30T15:37:01.731573+00:00",
+          "nota": "87% AbuseIPDB es evidencia suficiente"
+        }
+      ],
+      "creado_en": "2026-08-30T04:20:26.715388+00:00",
+      "actualizado_en": "2026-08-30T15:37:01.731573+00:00",
+      "resuelto_en": "2026-08-30T15:37:01.731573+00:00"
+    },
+    {
+      "id": "NTC-0056",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.79.115.117",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 45.79.115.117. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: Linode",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "45.79.115.117",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Linode",
+      "campana_id": "",
+      "notas": [
+        {
+          "texto": "Solo 1 alerta Suricata, sin datos AbuseIPDB, VPS Linode/Akamai. Detecci\u00f3n probablemente influenciada por hora nocturna (feature hora_del_dia dominante). No bloqueada.",
+          "timestamp": "2026-08-30T15:26:39.736560+00:00"
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T04:50:26.737126+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T15:27:08.304686+00:00",
+          "nota": "Detecci\u00f3n probablemente influenciada por hora nocturna (feature hora_del_dia dominante). No bloqueada."
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-30T15:34:01.342641+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-08-30T04:50:26.737126+00:00",
+      "actualizado_en": "2026-08-30T15:34:01.342641+00:00",
+      "resuelto_en": "2026-08-30T15:34:01.342641+00:00"
+    },
+    {
+      "id": "NTC-0057",
+      "titulo": "IP bloqueada autom\u00e1ticamente \u2014  172.236.228.229",
+      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP  172.236.228.229 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": " 172.236.228.229",
+      "fase_mitre": "",
+      "confianza": 0.0,
+      "origen": "bloqueo_automatico",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-30T15:45:31.493528+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-08-30T16:23:50.779294+00:00",
+          "nota": "Verificando c\u00f3digo "
+        }
+      ],
+      "creado_en": "2026-08-30T15:45:31.493528+00:00",
+      "actualizado_en": "2026-08-30T16:23:50.779294+00:00",
+      "resuelto_en": "2026-08-30T16:23:50.779294+00:00"
+    },
+    {
+      "id": "NTC-0058",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 151.185.41.1",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 151.185.41.1. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 53% | Pa\u00eds: IN | ISP: E2E Networks Private Limited",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "151.185.41.1",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 53,
+      "abuse_pais": "IN",
+      "abuse_isp": "E2E Networks Private Limited",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T01:10:13.994340+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T01:10:13.994340+00:00",
+      "actualizado_en": "2026-08-31T01:10:13.994340+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0059",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 18.218.118.203",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 18.218.118.203. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: Amazon Technologies Inc.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "18.218.118.203",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Amazon Technologies Inc.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T01:44:34.759645+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T01:44:34.759645+00:00",
+      "actualizado_en": "2026-08-31T01:44:34.759645+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0060",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 92.118.39.77",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 92.118.39.77. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: RO | ISP: DMZHOST",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "92.118.39.77",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "DMZHOST",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T01:49:42.460117+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T01:49:42.460117+00:00",
+      "actualizado_en": "2026-08-31T01:49:42.460117+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0061",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 146.235.242.141",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 146.235.242.141. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: CL | ISP: Oracle Corporation",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "146.235.242.141",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CL",
+      "abuse_isp": "Oracle Corporation",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T02:22:26.649165+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T02:22:26.649165+00:00",
+      "actualizado_en": "2026-08-31T02:22:26.649165+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0062",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 115.190.188.79",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 115.190.188.79. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: CN | ISP: Beijing Volcano Engine Technology Co., Ltd.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "115.190.188.79",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CN",
+      "abuse_isp": "Beijing Volcano Engine Technology Co., Ltd.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T02:23:35.720867+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T02:23:35.720867+00:00",
+      "actualizado_en": "2026-08-31T02:23:35.720867+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0063",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.79.207.71",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 45.79.207.71. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: Linode",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "45.79.207.71",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Linode",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T02:43:04.051410+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T02:43:04.051410+00:00",
+      "actualizado_en": "2026-08-31T02:43:04.051410+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0064",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.135.193.198",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 45.135.193.198. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: DE | ISP: Pfcloud UG",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "45.135.193.198",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "Pfcloud UG",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T02:47:24.340550+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T02:47:24.340550+00:00",
+      "actualizado_en": "2026-08-31T02:47:24.340550+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0065",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 176.65.148.226",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 176.65.148.226. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: Pfcloud UG",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "176.65.148.226",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "Pfcloud UG",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T02:52:11.477787+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T02:52:11.477787+00:00",
+      "actualizado_en": "2026-08-31T02:52:11.477787+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0066",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 223.123.38.91",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 223.123.38.91. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: PK | ISP: CMPak Limited",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "223.123.38.91",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "PK",
+      "abuse_isp": "CMPak Limited",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T03:01:51.199691+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T03:01:51.199691+00:00",
+      "actualizado_en": "2026-08-31T03:01:51.199691+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0067",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 46.62.239.161",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 46.62.239.161. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: FI | ISP: Hetzner Online GmbH",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "46.62.239.161",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "FI",
+      "abuse_isp": "Hetzner Online GmbH",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T03:23:05.299172+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T03:23:05.299172+00:00",
+      "actualizado_en": "2026-08-31T03:23:05.299172+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0068",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 159.112.138.47",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 159.112.138.47. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: CL | ISP: Oracle Corporation",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "159.112.138.47",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CL",
+      "abuse_isp": "Oracle Corporation",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T03:24:07.421334+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T03:24:07.421334+00:00",
+      "actualizado_en": "2026-08-31T03:24:07.421334+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0069",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 103.84.236.222",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 103.84.236.222. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: IN | ISP: Blue Sky Broadband Pvt. Ltd.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "103.84.236.222",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IN",
+      "abuse_isp": "Blue Sky Broadband Pvt. Ltd.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T03:25:13.937092+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T03:25:13.937092+00:00",
+      "actualizado_en": "2026-08-31T03:25:13.937092+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0070",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 194.180.49.37",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 194.180.49.37. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: PL | ISP: Neterra Ltd.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "194.180.49.37",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "PL",
+      "abuse_isp": "Neterra Ltd.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T03:32:06.473596+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T03:32:06.473596+00:00",
+      "actualizado_en": "2026-08-31T03:32:06.473596+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0071",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.79.5.11",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 45.79.5.11. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: Linode",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "45.79.5.11",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Linode",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T03:46:51.806737+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T03:46:51.806737+00:00",
+      "actualizado_en": "2026-08-31T03:46:51.806737+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0072",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-08-31T07:15:33.378437",
+          "texto": "Cerrado autom\u00e1ticamente: IP ya bloqueada en firewall Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T03:51:42.309762+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T03:51:42.309762+00:00",
+      "actualizado_en": "2026-08-31T03:51:42.309762+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0073",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 195.178.110.232",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 195.178.110.232. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.232",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T04:05:16.039020+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T04:05:16.039020+00:00",
+      "actualizado_en": "2026-08-31T04:05:16.039020+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0074",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 184.105.139.68",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 184.105.139.68. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: The Shadowserver Foundation, Inc.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "184.105.139.68",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "The Shadowserver Foundation, Inc.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T04:18:57.726737+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T04:18:57.726737+00:00",
+      "actualizado_en": "2026-08-31T04:18:57.726737+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0075",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 89.35.130.46",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 89.35.130.46. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: DE | ISP: aurorix networks",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "89.35.130.46",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "aurorix networks",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T04:34:02.355135+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T04:34:02.355135+00:00",
+      "actualizado_en": "2026-08-31T04:34:02.355135+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0076",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 45.156.128.152",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 99.9% desde la IP 45.156.128.152. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: NL | ISP: INAP-AMS-1",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "45.156.128.152",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "INAP-AMS-1",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T04:59:12.457400+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T04:59:12.457400+00:00",
+      "actualizado_en": "2026-08-31T04:59:12.457400+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0077",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 116.110.214.4",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 116.110.214.4. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: VN | ISP: Viettel Group",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "116.110.214.4",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "VN",
+      "abuse_isp": "Viettel Group",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T06:09:05.417525+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T06:09:05.417525+00:00",
+      "actualizado_en": "2026-08-31T06:09:05.417525+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0078",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 116.110.210.76",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 116.110.210.76. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: VN | ISP: Viettel Group",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "116.110.210.76",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "VN",
+      "abuse_isp": "Viettel Group",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T06:10:47.030623+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T06:10:47.030623+00:00",
+      "actualizado_en": "2026-08-31T06:10:47.030623+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0079",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 207.175.123.9",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 207.175.123.9. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: BE | ISP: Google LLC",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "207.175.123.9",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "BE",
+      "abuse_isp": "Google LLC",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T06:12:28.223515+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T06:12:28.223515+00:00",
+      "actualizado_en": "2026-08-31T06:12:28.223515+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0080",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 89.145.167.224",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 89.145.167.224. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 88% | Pa\u00eds: CH | ISP: Exoscale Open Cloud GV2",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "89.145.167.224",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 88,
+      "abuse_pais": "CH",
+      "abuse_isp": "Exoscale Open Cloud GV2",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T06:17:43.726026+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T06:17:43.726026+00:00",
+      "actualizado_en": "2026-08-31T06:17:43.726026+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0081",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 209.141.43.146",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 209.141.43.146. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: US | ISP: FranTech Solutions",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "209.141.43.146",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "FranTech Solutions",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T06:47:19.602809+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T06:47:19.602809+00:00",
+      "actualizado_en": "2026-08-31T06:47:19.602809+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0082",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 37.59.111.144",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 37.59.111.144. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: FR | ISP: OVH SAS",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "37.59.111.144",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "FR",
+      "abuse_isp": "OVH SAS",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T06:47:51.368305+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T06:47:51.368305+00:00",
+      "actualizado_en": "2026-08-31T06:47:51.368305+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0083",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 41.214.58.86",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 41.214.58.86. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: SN | ISP: SONATEL Societe Nationale Des Telecommunications Du Senegal",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "41.214.58.86",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "SN",
+      "abuse_isp": "SONATEL Societe Nationale Des Telecommunications Du Senegal",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T06:55:33.575084+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T06:55:33.575084+00:00",
+      "actualizado_en": "2026-08-31T06:55:33.575084+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0084",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 47.95.229.249",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 47.95.229.249. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: CN | ISP: Aliyun Computing Co., LTD",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "47.95.229.249",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CN",
+      "abuse_isp": "Aliyun Computing Co., LTD",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T07:04:46.404404+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T07:04:46.404404+00:00",
+      "actualizado_en": "2026-08-31T07:04:46.404404+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0085",
+      "titulo": "Campa\u00f1a APT detectada \u2014 PERSISTENCE desde 80.94.95.43",
+      "descripcion": "El motor LSTM ha detectado una campa\u00f1a APT en fase persistence con confianza del 100.0% desde la IP 80.94.95.43. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputaci\u00f3n AbuseIPDB: 100% | Pa\u00eds: RO | ISP: UNMANAGED LTD",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "80.94.95.43",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "UNMANAGED LTD",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T07:12:29.347018+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T07:12:29.347018+00:00",
+      "actualizado_en": "2026-08-31T07:12:29.347018+00:00",
       "resuelto_en": null
     }
   ],
-  "contador": 13
+  "contador": 85
 }

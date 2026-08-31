@@ -47,6 +47,30 @@ HETZNER_FIREWALL_ID = os.getenv("HETZNER_FIREWALL_ID")
 API_KEY = os.getenv("API_KEY")
 ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY", "")
 
+# IPs conocidas que no son amenazas reales
+IPS_WHITELIST = {
+    "47.62.74.87",       # IP propia - acceso al dashboard
+    "66.132.0.0/16",     # Censys - escaner de investigacion
+    "66.133.0.0/16",     # Censys
+    "162.142.125.0/24",  # Shodan
+    "198.20.69.0/24",    # Shodan
+}
+
+def es_ip_whitelist_main(ip: str) -> bool:
+    import ipaddress
+    try:
+        ip_obj = ipaddress.ip_address(ip)
+        for entrada in IPS_WHITELIST:
+            if "/" in entrada:
+                if ip_obj in ipaddress.ip_network(entrada, strict=False):
+                    return True
+            else:
+                if str(ip_obj) == entrada:
+                    return True
+    except:
+        pass
+    return False
+
 API_KEY_NAME = "X-API-Key"
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=False)
 
@@ -109,6 +133,35 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 # ── Variables ──────────────────────────────────────────────────────────────────
 OLLAMA_URL = "http://localhost:11434/api/generate"
 AGENTES_FILE = "/root/asoar/agentes.json"
+ABUSE_CACHE_FILE = "/root/asoar/abuse_cache.json"
+
+def consultar_abuseipdb(ip: str) -> dict:
+    """Consulta AbuseIPDB con caché persistente de 24 horas."""
+    try:
+        cache = {}
+        if os.path.exists(ABUSE_CACHE_FILE):
+            with open(ABUSE_CACHE_FILE, "r") as f:
+                cache = json.load(f)
+        if ip in cache:
+            cached_time = datetime.fromisoformat(cache[ip]["timestamp"])
+            if (datetime.now() - cached_time).seconds < 86400:
+                return cache[ip]["data"]
+        r = requests.get(
+            "https://api.abuseipdb.com/api/v2/check",
+            headers={"Key": ABUSEIPDB_API_KEY, "Accept": "application/json"},
+            params={"ipAddress": ip, "maxAgeInDays": 90},
+            timeout=5
+        )
+        if r.status_code == 200:
+            data = r.json().get("data", {})
+            result = {"score": data.get("abuseConfidenceScore", 0)}
+            cache[ip] = {"timestamp": datetime.now().isoformat(), "data": result}
+            with open(ABUSE_CACHE_FILE, "w") as f:
+                json.dump(cache, f, indent=2, default=str)
+            return result
+    except:
+        pass
+    return {"score": 0}
 
 # ── Funciones auxiliares ───────────────────────────────────────────────────────
 def preguntar_ollama(alerta: dict) -> str:
@@ -130,7 +183,10 @@ def ip_esta_bloqueada(ip: str) -> bool:
         headers = {"Authorization": f"Bearer {HETZNER_TOKEN}"}
         r = requests.get(f"https://api.hetzner.cloud/v1/firewalls/{HETZNER_FIREWALL_ID}", headers=headers, timeout=5)
         reglas = r.json().get("firewall", {}).get("rules", [])
-        return any(f"ASOAR-blocked-{ip}" in reg.get("description", "") for reg in reglas)
+        bloqueada = any(f"ASOAR-blocked-{ip}" in reg.get("description", "") for reg in reglas)
+        if bloqueada:
+            print(f"[BLOQUEADA] IP {ip} ya está en Hetzner — omitiendo ticket")
+        return bloqueada
     except:
         return False
 
@@ -241,16 +297,23 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
 
     # Analisis APT con LSTM — solo si hay IP externa real
     apt_resultado = {}
-    if APT_DISPONIBLE and ip_atacante and ip_atacante not in ["", "desconocida", "127.0.0.1", "0.0.0.0"]:
+    if APT_DISPONIBLE and ip_atacante and ip_atacante not in ["", "desconocida", "127.0.0.1", "0.0.0.0"] and not es_ip_whitelist_main(ip_atacante):        
         try:
-            apt_resultado = detector_apt.procesar_alerta({
-                "rule_id": str(alerta.rule.get("id", "0")),
-                "nivel":   nivel,
-                "ip":      ip_atacante,
-                "agente":  "master",
-                "flow":    alerta.data.get("flow", {}),
-                "tcp":     alerta.data.get("tcp", {}),
-            })
+            # Consultar AbuseIPDB antes de procesar
+            abuse_score = consultar_abuseipdb(ip_atacante).get("score", 0)
+                
+            if abuse_score < 20:
+                print(f"[APT] IP {ip_atacante} AbuseIPDB {abuse_score}% < 20% — omitiendo")
+            else:
+                apt_resultado = detector_apt.procesar_alerta({
+                    "rule_id":     str(alerta.rule.get("id", "0")),
+                    "nivel":       nivel,
+                    "ip":          ip_atacante,
+                    "agente":      "master",
+                    "flow":        alerta.data.get("flow", {}),
+                    "tcp":         alerta.data.get("tcp", {}),
+                    "abuse_score": abuse_score,
+                })
         except Exception as e:
             print(f"[APT] Error en detector: {e}")
     
@@ -326,8 +389,12 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
         decision = preguntar_ollama(alerta.dict())
         print(f"[OLLAMA] Decision: {decision}")
         if "BLOQUEAR" in decision and ip_atacante != "desconocida":
-            bloquear_ip_hetzner(ip_atacante)
-            return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, "apt": apt_resultado, "xai": xai_resultado, "lateral": lateral_resultado}
+            abuse = consultar_abuseipdb(ip_atacante)
+            if abuse.get("score", 0) >= 50:
+                bloquear_ip_hetzner(ip_atacante)
+                return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, "apt": apt_resultado, "xai": xai_resultado, "lateral": lateral_resultado}
+            else:
+                print(f"[OLLAMA] Bloqueo cancelado para {ip_atacante} — AbuseIPDB {abuse.get('score',0)}% < 50%")
 
     return {"accion": "IGNORADA", "nivel": nivel, "descripcion": descripcion, "apt": apt_resultado, "xai": xai_resultado, "lateral": lateral_resultado}
 
