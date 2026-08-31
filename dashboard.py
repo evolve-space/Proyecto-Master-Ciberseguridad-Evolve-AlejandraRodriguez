@@ -15,8 +15,9 @@ load_dotenv()
 # IPs conocidas que no son amenazas reales
 IPS_WHITELIST = [
     "47.62.74.87",       # IP propia - acceso al dashboard
+    "91.98.126.215",     # IP del servidor Hetzner
     "66.132.0.0/16",     # Censys - escaner de investigacion
-    "66.133.0.0/16",     # Censys
+    "199.45.155.0/24"    # Censys
     "162.142.125.0/24",  # Shodan
     "198.20.69.0/24",    # Shodan
 ]
@@ -51,7 +52,7 @@ def tabla_oscura(df, **kwargs):
     kwargs.pop("hide_index", None)
     html = df.to_html(index=False, border=0)
     html = f"""
-    <div style="overflow-x:auto;border-radius:8px;border:1px solid #21262d;margin-bottom:16px;">
+    <div style="overflow-x:auto;overflow-y:auto;max-height:300px;border-radius:8px;border:1px solid #21262d;margin-bottom:16px;">
     <style>
     .noctua-table {{ width:100%;border-collapse:collapse;font-size:13px;font-family:sans-serif; }}
     .noctua-table th {{
@@ -1390,7 +1391,8 @@ elif pagina == "IPs Bloqueadas":
 
     col1, col2 = st.columns([3, 1])
     with col1:
-        ip_bloquear_manual = st.text_input("IP a bloquear", placeholder="Ej: 49.248.197.50", key="ip_bloquear_manual")
+        bloquear_counter = st.session_state.get("bloquear_counter", 0)
+        ip_bloquear_manual = st.text_input("IP a bloquear", placeholder="Ej: 49.248.197.50", key=f"ip_bloquear_manual_{bloquear_counter}")
     with col2:
         st.markdown("<br>", unsafe_allow_html=True)
         if st.button("Bloquear", type="primary", key="btn_bloquear_manual"):
@@ -1400,9 +1402,11 @@ elif pagina == "IPs Bloqueadas":
                     resp = r.json()
                     if resp.get("status") == "ya_bloqueada":
                         st.warning(f"La IP {ip_bloquear_manual} ya está bloqueada.")
+                        st.session_state.bloquear_counter = st.session_state.get("bloquear_counter", 0) + 1
                     elif r.status_code == 200:
                         st.success(f"IP {ip_bloquear_manual} bloqueada correctamente")
                         st.cache_data.clear()
+                        st.session_state.bloquear_counter = st.session_state.get("bloquear_counter", 0) + 1
                         st.rerun()
                     else:
                         st.error(f"Error al bloquear: {r.text}")
@@ -2844,7 +2848,7 @@ elif pagina == "Análisis Forense":
             df_ip["timestamp"] = df_ip["timestamp"].dt.strftime("%d/%m/%Y %H:%M:%S")
             df_ip = df_ip[["timestamp","tipo","nivel","agente","accion"]].copy()
             df_ip.columns = ["Timestamp","Tipo de Evento","Nivel","Agente","Accion"]
-            tabla_oscura(df_ip, use_container_width=True, hide_index=True)
+            tabla_oscura(df_ip.head(10), use_container_width=True, hide_index=True)
             st.markdown(f"**{len(df_ip)} eventos detectados por Wazuh**")
         else:
             st.info("No se encontraron eventos Wazuh para esta IP.")
@@ -2855,9 +2859,9 @@ elif pagina == "Análisis Forense":
         alertas_sur_ip = []
         try:
             resultado_grep = subprocess.run(
-                ["grep", ip_forense, "/var/log/suricata/eve.json"],
+                ["bash", "-c", f"{{ tail -c 50M /var/log/suricata/eve.json; zcat /var/log/suricata/eve.json.*.gz 2>/dev/null; }} | grep '{ip_forense}'"],
                 capture_output=True, text=True, errors="ignore",
-                timeout=30
+                timeout=60
             )
             for line in resultado_grep.stdout.splitlines():
                 try:
@@ -3268,7 +3272,7 @@ elif pagina == "Gestión de Incidentes":
     with tab1:
         col1, col2, col3 = st.columns(3)
         with col1:
-            filtro_estado = st.selectbox("Estado", ["Todos", "Abierto", "Investigando",
+            filtro_estado = st.selectbox("Estado", ["Abierto", "Investigando", "Todos",
                                                      "Contenido", "Resuelto", "Cerrado"])
         with col2:
             filtro_prioridad = st.selectbox("Prioridad", ["Todas", "CRITICA", "ALTA",
@@ -3340,6 +3344,17 @@ elif pagina == "Gestión de Incidentes":
                                     {t.get('abuse_score',0)}%</strong></span>
                             </div>
                         </div>""", unsafe_allow_html=True)
+                        with col2:
+                            ip_ticket = t.get('ip', '')
+                            if ip_ticket and ip_ticket != '—':
+                                st.markdown("<br>", unsafe_allow_html=True)
+                                st.markdown(f"""
+                                <div style="background:#0d1117;border:1px solid #388bfd;
+                                            border-radius:4px;padding:6px 10px;text-align:center;
+                                            font-family:monospace;font-size:0.85rem;
+                                            color:#79c0ff;font-weight:600;">
+                                    {ip_ticket}
+                                </div>""", unsafe_allow_html=True)
 
                         if t.get("xai_narrativa"):
                             st.markdown(f"""
@@ -3405,7 +3420,10 @@ elif pagina == "Gestión de Incidentes":
                             except Exception as ex:
                                 st.error(f"Error: {ex}")
                         st.markdown("---")
-                        nueva_nota = st.text_area("Anadir nota", key=f"nueva_nota_{t['id']}",
+                        ticket_id = t['id']
+                        nota_counter = st.session_state.get(f"nota_counter_{ticket_id}", 0)
+                        nota_key = f"nueva_nota_{ticket_id}_{nota_counter}"
+                        nueva_nota = st.text_area("Anadir nota", key=nota_key,
                                                    placeholder="Escribe una nota...",
                                                    height=80)
                         if st.button("Guardar nota", key=f"btn_nota_{t['id']}",
@@ -3418,6 +3436,7 @@ elif pagina == "Gestión de Incidentes":
                                         json={"nota": nueva_nota},
                                         timeout=5)
                                     st.success("Nota guardada")
+                                    st.session_state[f"nota_counter_{t['id']}"] = st.session_state.get(f"nota_counter_{t['id']}", 0) + 1
                                     st.rerun()
                                 except Exception as ex:
                                     st.error(f"Error: {ex}")

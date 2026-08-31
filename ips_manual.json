@@ -4,5 +4,41 @@
     "accion": "BLOQUEADA",
     "timestamp": "2026-08-27T11:35:48.790541",
     "origen": "manual"
+  },
+  {
+    "ip": "209.99.185.98",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-28T10:29:51.799968",
+    "origen": "manual"
+  },
+  {
+    "ip": "149.118.68.211",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-30T15:10:39.131620",
+    "origen": "manual"
+  },
+  {
+    "ip": " 172.236.228.229",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-30T15:45:31.498728",
+    "origen": "manual"
+  },
+  {
+    "ip": "103.25.47.94",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-30T16:13:57.949680",
+    "origen": "manual"
+  },
+  {
+    "ip": "79.127.154.169",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-30T16:30:51.775738",
+    "origen": "manual"
+  },
+  {
+    "ip": "31.220.24.117",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-30T16:51:37.875396",
+    "origen": "manual"
   }
 ]
