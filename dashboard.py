@@ -2916,10 +2916,19 @@ elif pagina == "Análisis Forense":
     st.markdown('<div class="section-header">Busqueda de Incidente</div>', unsafe_allow_html=True)
     col1, col2 = st.columns([4, 1])
     with col1:
-        ip_forense = st.text_input("IP a investigar", placeholder="Ej: 185.220.101.45")
+        ip_pivot_value = st.session_state.get("ip_forense_pivot", "")
+        ip_forense = st.text_input("IP a investigar", 
+                                    value=ip_pivot_value,
+                                    placeholder="Ej: 185.220.101.45",
+                                    key="ip_forense_input")
     with col2:
         st.markdown("<br>", unsafe_allow_html=True)
-        buscar = st.button("Investigar IP", type="primary", use_container_width=True)
+        buscar = st.button("Investigar IP", type="primary", use_container_width=True, key="btn_investigar_ip")
+
+    if ip_pivot_value:
+        buscar = True
+        ip_forense = ip_pivot_value
+        st.session_state.pop("ip_forense_pivot", None)
 
     if buscar and ip_forense:
         st.markdown("---")
@@ -3928,7 +3937,24 @@ elif pagina == "Tráfico de Red":
         df_alertas = df_alertas[["timestamp","src_ip","dest_port","proto","firma","severidad"]].copy()
         df_alertas.columns = ["Timestamp","IP Origen","Puerto Destino","Protocolo","Firma","Severidad"]
         df_alertas = df_alertas.sort_values("Timestamp", ascending=False)
+        
+        # Pivoting — investigar IP directamente
+        st.markdown("**Investigar IP desde la tabla:**")
+        ips_tabla = list(set(df_alertas["IP Origen"].dropna().tolist() + list(set(ips_atacantes))))
+        ips_tabla = [ip for ip in ips_tabla if ip and not es_ip_whitelist(ip)]
+        ips_tabla.sort()
+        col_piv1, col_piv2 = st.columns([3, 1])
+        with col_piv1:
+            ip_pivot = st.selectbox("Selecciona IP", ips_tabla, key="ip_pivot_trafico")
+        with col_piv2:
+            st.markdown("<br>", unsafe_allow_html=True)
+            if st.button("Investigar en Forense", key="btn_pivot_trafico", type="primary", use_container_width=True):
+                st.session_state.pagina = "Análisis Forense"
+                st.session_state.ip_forense_pivot = ip_pivot
+                st.rerun()
+        
         tabla_oscura(df_alertas)
+        
     else:
         st.info("Suricata activo — esperando alertas de red. Los datos aparecerán en cuanto se detecte tráfico sospechoso.")
 
