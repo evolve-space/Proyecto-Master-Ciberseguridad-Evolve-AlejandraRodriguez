@@ -226,5 +226,11 @@
     "accion": "BLOQUEADA",
     "timestamp": "2026-08-31T16:42:06.660410",
     "origen": "manual"
+  },
+  {
+    "ip": "67.213.121.153",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-08-31T16:59:58.320134",
+    "origen": "manual"
   }
 ]
