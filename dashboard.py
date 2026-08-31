@@ -3573,6 +3573,10 @@ elif pagina == "Gestión de Incidentes":
                                             color:#79c0ff;font-weight:600;">
                                     {ip_ticket}
                                 </div>""", unsafe_allow_html=True)
+                                if st.button("Investigar en Forense", key=f"pivot_forense_{t['id']}", use_container_width=True):
+                                    st.session_state.pagina = "Análisis Forense"
+                                    st.session_state.ip_forense_pivot = ip_ticket
+                                    st.rerun()
 
                         if t.get("xai_narrativa"):
                             st.markdown(f"""
