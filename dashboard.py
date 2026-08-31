@@ -2218,7 +2218,8 @@ elif pagina == "Informes":
             "Informe Ejecutivo de Seguridad",
             "Informe de IPs Bloqueadas",
             "Informe de Cumplimiento Normativo",
-            "Informe de Detección APT"
+            "Informe de Detección APT",
+            "Informe de IOCs y Threat Intelligence"
         ])
     with col2:
         try:
@@ -2227,6 +2228,35 @@ elif pagina == "Informes":
         except:
             agentes_disp = []
         endpoint_sel = st.selectbox("Endpoint", agentes_disp if agentes_disp else ["Sin endpoints"])
+    
+    # Exportar IOCs en CSV
+    if st.button("Exportar IOCs en CSV", type="secondary"):
+        try:
+            rows = []
+            for ip in ips_bloqueadas:
+                abuse = consultar_abuseipdb(ip)
+                enriq = enriquecer_ip(ip)
+                rows.append({
+                    "ip": ip,
+                    "tipo": "IP_MALICIOSA",
+                    "score_abuso": abuse.get("score", 0),
+                    "pais": abuse.get("pais", ""),
+                    "isp": enriq.get("isp", ""),
+                    "asn": enriq.get("asn", ""),
+                    "datacenter": enriq.get("es_datacenter", False),
+                    "fecha_bloqueo": datetime.now().strftime("%d/%m/%Y")
+                })
+            df_iocs = pd.DataFrame(rows)
+            csv = df_iocs.to_csv(index=False)
+            st.download_button(
+                label="Descargar IOCs.csv",
+                data=csv,
+                file_name=f"noctua_iocs_{datetime.now().strftime('%Y%m%d')}.csv",
+                mime="text/csv"
+            )
+        except Exception as e:
+            st.error(f"Error: {e}")
+
     if st.button("Generar Informe PDF", type="primary"):
         with st.spinner("Generando informe..."):
             buffer = io.BytesIO()
@@ -2409,7 +2439,63 @@ elif pagina == "Informes":
                             ParagraphStyle('xai_b', fontSize=8, fontName='Helvetica',
                                          textColor=colors.HexColor('#2c3e50'), spaceAfter=8, leading=12)))
                 else:
+                
                     elements.append(Paragraph("No hay explicaciones XAI disponibles todavia.", style_body))
+            
+            elif tipo_informe == "Informe de IOCs y Threat Intelligence":
+                elements.append(Paragraph("Indicadores de Compromiso (IOCs)", style_h2))
+                elements.append(Paragraph(
+                    "Este informe recoge los Indicadores de Compromiso confirmados por Noctua Predictive "
+                    "durante el período de monitorización. Incluye IPs maliciosas bloqueadas, su reputación "
+                    "en AbuseIPDB, origen geográfico e infraestructura asociada.",
+                    style_body))
+                elements.append(Spacer(1, 0.3*cm))
+                elements.append(Paragraph("IPs Maliciosas Bloqueadas", style_h2))
+                data_iocs = [["IP", "Score", "País", "ISP", "ASN", "Datacenter"]]
+                for ip in ips_bloqueadas:
+                    try:
+                        abuse = consultar_abuseipdb(ip)
+                        enriq = enriquecer_ip(ip)
+                        data_iocs.append([
+                            ip,
+                            f"{abuse.get('score', 0)}%",
+                            abuse.get('pais', '—'),
+                            enriq.get('isp', abuse.get('isp', '—'))[:25],
+                            enriq.get('asn', '—')[:20],
+                            "Sí" if enriq.get('es_datacenter') else "No"
+                        ])
+                    except:
+                        data_iocs.append([ip, "—", "—", "—", "—", "—"])
+                tabla_iocs = Table(data_iocs, colWidths=[3.5*cm, 1.5*cm, 1.5*cm, 4*cm, 4*cm, 2*cm])
+                tabla_iocs.setStyle(TableStyle([
+                    ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#0f1f35')),
+                    ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                    ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                    ('FONTSIZE', (0,0), (-1,-1), 8),
+                    ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                    ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                    ('PADDING', (0,0), (-1,-1), 5),
+                ]))
+                elements.append(tabla_iocs)
+                elements.append(Spacer(1, 0.4*cm))
+                elements.append(Paragraph("Firmas de Ataque más Frecuentes", style_h2))
+                datos_sur = cargar_suricata()
+                from collections import Counter
+                firmas = Counter(a.get("firma","") for a in datos_sur.get("alertas", []) if a.get("firma"))
+                data_firmas = [["Firma Suricata", "Detecciones"]]
+                for firma, n in firmas.most_common(10):
+                    data_firmas.append([firma[:50], str(n)])
+                tabla_firmas = Table(data_firmas, colWidths=[13*cm, 3*cm])
+                tabla_firmas.setStyle(TableStyle([
+                    ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#0f1f35')),
+                    ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                    ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                    ('FONTSIZE', (0,0), (-1,-1), 8),
+                    ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#f5f6fa'), colors.white]),
+                    ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e0e0e0')),
+                    ('PADDING', (0,0), (-1,-1), 5),
+                ]))
+                elements.append(tabla_firmas)
 
             elements.append(Spacer(1, 1*cm))
             elements.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor('#e0e0e0')))
