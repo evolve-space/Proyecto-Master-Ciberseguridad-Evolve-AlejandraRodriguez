@@ -1002,7 +1002,7 @@ with st.sidebar:
     opciones = [
         "Panel General", "Alertas y Eventos", "IPs Bloqueadas",
         "Endpoints", "Detección APT", "Tráfico de Red",
-        "Análisis Forense", "Gestión de Incidentes", "Normativas",
+        "Análisis Forense", "Threat Hunting", "Gestión de Incidentes", "Normativas",
         "Simulador de Ataques", "Informes", "Estado del Sistema", "About"
     ]
     if "pagina" not in st.session_state:
@@ -3294,6 +3294,131 @@ elif pagina == "Análisis Forense":
                 mime="application/pdf",
                 type="primary"
             )
+
+# ══════════════════════════════════════════════════════════════════════════════
+# THREAT HUNTING
+# ══════════════════════════════════════════════════════════════════════════════
+elif pagina == "Threat Hunting":
+    st.markdown("## Threat Hunting — Búsqueda Proactiva de Amenazas")
+    st.markdown("Consultas predefinidas para detectar amenazas que no han disparado alertas automáticas.")
+    st.markdown("---")
+
+    consultas = {
+        "IPs con AbuseIPDB > 50% no bloqueadas": "abuse_no_bloqueadas",
+        "IPs que atacaron más de 3 puertos distintos": "multi_puerto",
+        "IPs activas entre 00:00 y 06:00": "horario_nocturno",
+        "Países con más de 100 alertas Suricata hoy": "top_paises",
+        "ASNs con más de 2 IPs distintas atacando": "asn_coordinado",
+        "IPs con más de 1000 alertas Suricata hoy": "alto_volumen",
+    }
+
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        consulta_sel = st.selectbox("Selecciona una hipótesis de hunting", list(consultas.keys()))
+    with col2:
+        st.markdown("<br>", unsafe_allow_html=True)
+        ejecutar = st.button("Ejecutar búsqueda", type="primary", use_container_width=True)
+
+    if ejecutar:
+        tipo = consultas[consulta_sel]
+        datos_sur = cargar_suricata()
+        alertas_sur = datos_sur.get("alertas", [])
+        ips_bloq = set(ips_bloqueadas)
+
+        with st.spinner("Buscando..."):
+            if tipo == "abuse_no_bloqueadas":
+                st.markdown('<div class="section-header">IPs con AbuseIPDB > 50% no bloqueadas</div>', unsafe_allow_html=True)
+                ips_unicas = list(set(a.get("src_ip","") for a in alertas_sur if a.get("src_ip") and not es_ip_whitelist(a.get("src_ip",""))))
+                rows = []
+                for ip in ips_unicas[:50]:
+                    if ip not in ips_bloq:
+                        abuse = consultar_abuseipdb(ip)
+                        if abuse.get("score", 0) >= 50:
+                            rows.append({"IP": ip, "Score AbuseIPDB": f"{abuse.get('score',0)}%", "País": abuse.get("pais","—"), "ISP": abuse.get("isp","—")})
+                if rows:
+                    tabla_oscura(pd.DataFrame(rows), hide_index=True)
+                else:
+                    st.success("No se encontraron IPs sospechosas sin bloquear.")
+
+            elif tipo == "multi_puerto":
+                st.markdown('<div class="section-header">IPs atacando múltiples puertos</div>', unsafe_allow_html=True)
+                from collections import defaultdict
+                ip_puertos = defaultdict(set)
+                for a in alertas_sur:
+                    ip = a.get("src_ip","")
+                    puerto = a.get("dest_port","")
+                    if ip and puerto and not es_ip_whitelist(ip):
+                        ip_puertos[ip].add(puerto)
+                rows = [{"IP": ip, "Puertos Distintos": len(puertos), "Puertos": ", ".join(str(p) for p in list(puertos)[:5])}
+                        for ip, puertos in ip_puertos.items() if len(puertos) >= 3]
+                rows.sort(key=lambda x: x["Puertos Distintos"], reverse=True)
+                if rows:
+                    tabla_oscura(pd.DataFrame(rows[:20]), hide_index=True)
+                else:
+                    st.info("No se encontraron IPs atacando múltiples puertos.")
+
+            elif tipo == "horario_nocturno":
+                st.markdown('<div class="section-header">IPs activas entre 00:00 y 06:00</div>', unsafe_allow_html=True)
+                from collections import Counter
+                ips_nocturnas = []
+                for a in alertas_sur:
+                    try:
+                        hora = pd.to_datetime(a.get("timestamp","")).hour
+                        if 0 <= hora < 6:
+                            ip = a.get("src_ip","")
+                            if ip and not es_ip_whitelist(ip):
+                                ips_nocturnas.append(ip)
+                    except: pass
+                rows = [{"IP": ip, "Alertas nocturnas": n} for ip, n in Counter(ips_nocturnas).most_common(20)]
+                if rows:
+                    tabla_oscura(pd.DataFrame(rows), hide_index=True)
+                else:
+                    st.info("No se encontró actividad nocturna sospechosa.")
+
+            elif tipo == "top_paises":
+                st.markdown('<div class="section-header">Países con más alertas Suricata</div>', unsafe_allow_html=True)
+                from collections import Counter
+                paises = []
+                for ip in set(a.get("src_ip","") for a in alertas_sur if a.get("src_ip")):
+                    if not es_ip_whitelist(ip):
+                        enriq = enriquecer_ip(ip)
+                        if enriq.get("pais"):
+                            paises.append(enriq.get("pais"))
+                rows = [{"País": p, "IPs distintas": n} for p, n in Counter(paises).most_common(10) if n >= 1]
+                if rows:
+                    tabla_oscura(pd.DataFrame(rows), hide_index=True)
+                else:
+                    st.info("No hay suficientes datos de geolocalización.")
+
+            elif tipo == "asn_coordinado":
+                st.markdown('<div class="section-header">ASNs con múltiples IPs atacando</div>', unsafe_allow_html=True)
+                from collections import defaultdict
+                asn_ips = defaultdict(set)
+                for ip in set(a.get("src_ip","") for a in alertas_sur if a.get("src_ip")):
+                    if not es_ip_whitelist(ip):
+                        enriq = enriquecer_ip(ip)
+                        asn = enriq.get("asn","")
+                        if asn:
+                            asn_ips[asn].add(ip)
+                rows = [{"ASN": asn, "IPs distintas": len(ips), "IPs": ", ".join(list(ips)[:3])}
+                        for asn, ips in asn_ips.items() if len(ips) >= 2]
+                rows.sort(key=lambda x: x["IPs distintas"], reverse=True)
+                if rows:
+                    tabla_oscura(pd.DataFrame(rows[:15]), hide_index=True)
+                else:
+                    st.info("No se detectaron ASNs coordinados.")
+
+            elif tipo == "alto_volumen":
+                st.markdown('<div class="section-header">IPs con alto volumen de alertas</div>', unsafe_allow_html=True)
+                from collections import Counter
+                conteo = Counter(a.get("src_ip","") for a in alertas_sur if a.get("src_ip") and not es_ip_whitelist(a.get("src_ip","")))
+                rows = [{"IP": ip, "Alertas": n, "Bloqueada": "Sí" if ip in ips_bloq else "No"}
+                        for ip, n in conteo.most_common(20) if n >= 100]
+                if rows:
+                    tabla_oscura(pd.DataFrame(rows), hide_index=True)
+                else:
+                    st.info("No hay IPs con alto volumen de alertas.")
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # GESTION DE INCIDENTES
