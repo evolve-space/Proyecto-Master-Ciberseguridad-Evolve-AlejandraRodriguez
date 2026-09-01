@@ -4000,7 +4000,7 @@
       "id": "NTC-0119",
       "titulo": "Ticket de prueba pivoting",
       "descripcion": "Test pivoting desde ticket a forense",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "64.23.157.155",
       "fase_mitre": "",
@@ -4018,12 +4018,1680 @@
           "estado": "Abierto",
           "timestamp": "2026-08-31T17:05:31.783322+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-01T08:21:29.956710+00:00",
+          "nota": "Ticket de prueba"
         }
       ],
       "creado_en": "2026-08-31T17:05:31.783322+00:00",
-      "actualizado_en": "2026-08-31T17:05:31.783322+00:00",
+      "actualizado_en": "2026-09-01T08:21:29.956710+00:00",
+      "resuelto_en": "2026-09-01T08:21:29.956710+00:00"
+    },
+    {
+      "id": "NTC-0120",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 20.168.10.73",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 20.168.10.73. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: Microsoft Corporation",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "20.168.10.73",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T17:33:06.560121+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-01T08:06:30.608499+00:00",
+          "nota": "AbuseIPDB 100%, suficiente para bloquear."
+        }
+      ],
+      "creado_en": "2026-08-31T17:33:06.560121+00:00",
+      "actualizado_en": "2026-09-01T08:06:30.608499+00:00",
+      "resuelto_en": "2026-09-01T08:06:30.608499+00:00"
+    },
+    {
+      "id": "NTC-0121",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 165.154.6.75",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 165.154.6.75. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: HK | ISP: UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "165.154.6.75",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "HK",
+      "abuse_isp": "UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:58.290096",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T18:08:30.569563+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T18:08:30.569563+00:00",
+      "actualizado_en": "2026-08-31T18:08:30.569563+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0122",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 189.190.217.141",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.7% desde la IP 189.190.217.141. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: MX | ISP: Gestión de direccionamiento UniNet",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "189.190.217.141",
+      "fase_mitre": "persistence",
+      "confianza": 99.7,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "MX",
+      "abuse_isp": "Gestión de direccionamiento UniNet",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:58.294111",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T18:09:13.586530+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T18:09:13.586530+00:00",
+      "actualizado_en": "2026-08-31T18:09:13.586530+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0123",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.8% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "persistence",
+      "confianza": 99.8,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:58.294118",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T18:37:40.730535+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T18:37:40.730535+00:00",
+      "actualizado_en": "2026-08-31T18:37:40.730535+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0124",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 3.129.187.38",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 3.129.187.38. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: Amazon Technologies Inc.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "3.129.187.38",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Amazon Technologies Inc.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:58.296458",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T19:17:36.426482+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T19:17:36.426482+00:00",
+      "actualizado_en": "2026-08-31T19:17:36.426482+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0125",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 146.190.48.172",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 146.190.48.172. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: DigitalOcean, LLC",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "146.190.48.172",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:58.300226",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T20:03:57.040328+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T20:03:57.040328+00:00",
+      "actualizado_en": "2026-08-31T20:03:57.040328+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0126",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 160.119.76.24",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 160.119.76.24. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: HostUS Solutions LLC",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "160.119.76.24",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "HostUS Solutions LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:58.300233",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T20:18:08.460779+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T20:18:08.460779+00:00",
+      "actualizado_en": "2026-08-31T20:18:08.460779+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0127",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 47.250.92.82",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 47.250.92.82. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: MY | ISP: Alibaba Cloud - MY",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "47.250.92.82",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "MY",
+      "abuse_isp": "Alibaba Cloud - MY",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:58.303648",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T20:20:06.596056+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T20:20:06.596056+00:00",
+      "actualizado_en": "2026-08-31T20:20:06.596056+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0128",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 2.57.122.238",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 2.57.122.238. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: RO | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "2.57.122.238",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:58.308397",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T20:21:52.231445+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T20:21:52.231445+00:00",
+      "actualizado_en": "2026-08-31T20:21:52.231445+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0129",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:58.308404",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T20:47:02.913269+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T20:47:02.913269+00:00",
+      "actualizado_en": "2026-08-31T20:47:02.913269+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0130",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 2.57.122.168",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 2.57.122.168. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: RO | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "2.57.122.168",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.736235",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T21:22:58.387014+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T21:22:58.387014+00:00",
+      "actualizado_en": "2026-08-31T21:22:58.387014+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0131",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 66.240.223.240",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 66.240.223.240. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: CariNet, Inc.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "66.240.223.240",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "CariNet, Inc.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.739601",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T21:31:01.437502+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T21:31:01.437502+00:00",
+      "actualizado_en": "2026-08-31T21:31:01.437502+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0132",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 14.177.234.46",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 14.177.234.46. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: VN | ISP: Vietnam Posts and Telecommunications Group",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "14.177.234.46",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "VN",
+      "abuse_isp": "Vietnam Posts and Telecommunications Group",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.742191",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T22:11:00.397361+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T22:11:00.397361+00:00",
+      "actualizado_en": "2026-08-31T22:11:00.397361+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0133",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 165.154.41.56",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 165.154.41.56. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: HK | ISP: UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "165.154.41.56",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "HK",
+      "abuse_isp": "UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.747925",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T22:49:32.871644+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T22:49:32.871644+00:00",
+      "actualizado_en": "2026-08-31T22:49:32.871644+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0134",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 27.79.7.246",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 27.79.7.246. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: VN | ISP: Viettel Group",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "27.79.7.246",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "VN",
+      "abuse_isp": "Viettel Group",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.751199",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T23:16:53.036113+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T23:16:53.036113+00:00",
+      "actualizado_en": "2026-08-31T23:16:53.036113+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0135",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 62.238.113.172",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 62.238.113.172. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: FI | ISP: Hetzner Online GmbH",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "62.238.113.172",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "FI",
+      "abuse_isp": "Hetzner Online GmbH",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.753807",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T23:18:43.731099+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T23:18:43.731099+00:00",
+      "actualizado_en": "2026-08-31T23:18:43.731099+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0136",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 2.57.122.168",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 2.57.122.168. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: RO | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "2.57.122.168",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.753813",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T23:24:18.907170+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T23:24:18.907170+00:00",
+      "actualizado_en": "2026-08-31T23:24:18.907170+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0137",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 40.83.182.122",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 40.83.182.122. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: Microsoft Corporation",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "40.83.182.122",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.762296",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T23:41:33.246797+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T23:41:33.246797+00:00",
+      "actualizado_en": "2026-08-31T23:41:33.246797+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0138",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 125.22.69.166",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 125.22.69.166. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: IN | ISP: BTNL-CHN-DSL",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "125.22.69.166",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IN",
+      "abuse_isp": "BTNL-CHN-DSL",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.768590",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-08-31T23:42:02.712015+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-08-31T23:42:02.712015+00:00",
+      "actualizado_en": "2026-08-31T23:42:02.712015+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0139",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.768596",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T00:27:17.890304+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T00:27:17.890304+00:00",
+      "actualizado_en": "2026-09-01T00:27:17.890304+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0140",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 103.189.235.253",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 103.189.235.253. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: SG | ISP: Cloud Host Pte Ltd",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "103.189.235.253",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "SG",
+      "abuse_isp": "Cloud Host Pte Ltd",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.776376",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T01:06:24.598608+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T01:06:24.598608+00:00",
+      "actualizado_en": "2026-09-01T01:06:24.598608+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0141",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 180.76.174.141",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 180.76.174.141. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: CN | ISP: Beijing Baidu Netcom Science and Technology Co., Ltd.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "180.76.174.141",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CN",
+      "abuse_isp": "Beijing Baidu Netcom Science and Technology Co., Ltd.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.784232",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T01:53:27.106074+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T01:53:27.106074+00:00",
+      "actualizado_en": "2026-09-01T01:53:27.106074+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0142",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 92.118.39.14",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 92.118.39.14. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: RO | ISP: DMZHOST",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "92.118.39.14",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "DMZHOST",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.794033",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T01:55:44.621336+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T01:55:44.621336+00:00",
+      "actualizado_en": "2026-09-01T01:55:44.621336+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0143",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 64.62.156.152",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 64.62.156.152. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: The Shadowserver Foundation, Inc.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "64.62.156.152",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "The Shadowserver Foundation, Inc.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.808018",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T02:13:25.462197+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T02:13:25.462197+00:00",
+      "actualizado_en": "2026-09-01T02:13:25.462197+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0144",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 172.169.234.95",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 172.169.234.95. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: Microsoft Limited",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "172.169.234.95",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Limited",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.815622",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T02:17:14.981245+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T02:17:14.981245+00:00",
+      "actualizado_en": "2026-09-01T02:17:14.981245+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0145",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 118.193.35.202",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 118.193.35.202. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: HK | ISP: UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "118.193.35.202",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "HK",
+      "abuse_isp": "UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.822419",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T02:37:06.009670+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T02:37:06.009670+00:00",
+      "actualizado_en": "2026-09-01T02:37:06.009670+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0146",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 159.223.59.82",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 159.223.59.82. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: SG | ISP: DigitalOcean, LLC",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "159.223.59.82",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "SG",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.822426",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T02:59:06.665325+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T02:59:06.665325+00:00",
+      "actualizado_en": "2026-09-01T02:59:06.665325+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0147",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.822429",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T03:22:28.148887+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T03:22:28.148887+00:00",
+      "actualizado_en": "2026-09-01T03:22:28.148887+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0148",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 107.150.1.166",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 107.150.1.166. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: VPS ACE",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "107.150.1.166",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "VPS ACE",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.834654",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T03:29:32.853877+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T03:29:32.853877+00:00",
+      "actualizado_en": "2026-09-01T03:29:32.853877+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0149",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 193.9.44.239",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 193.9.44.239. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: Hostsymbol Pte. Ltd.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "193.9.44.239",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Hostsymbol Pte. Ltd.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.864780",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T03:36:25.260859+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T03:36:25.260859+00:00",
+      "actualizado_en": "2026-09-01T03:36:25.260859+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0150",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 45.148.10.183",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 45.148.10.183. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "45.148.10.183",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.870902",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T06:14:04.931766+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T06:14:04.931766+00:00",
+      "actualizado_en": "2026-09-01T06:14:04.931766+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0151",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.870922",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T06:56:49.775604+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T06:56:49.775604+00:00",
+      "actualizado_en": "2026-09-01T06:56:49.775604+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0152",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 139.19.117.131",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 139.19.117.131. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: DE | ISP: Max-Planck-Institut fuer Informatik",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "139.19.117.131",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "Max-Planck-Institut fuer Informatik",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.891716",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T07:14:16.848991+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T07:14:16.848991+00:00",
+      "actualizado_en": "2026-09-01T07:14:16.848991+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0153",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 103.49.166.245",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 103.49.166.245. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 55% | País: IN | ISP: NETTVOX PRIVATE LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "103.49.166.245",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 55,
+      "abuse_pais": "IN",
+      "abuse_isp": "NETTVOX PRIVATE LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.901546",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 55%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T07:23:47.598599+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T07:23:47.598599+00:00",
+      "actualizado_en": "2026-09-01T07:23:47.598599+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0154",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 204.168.249.9",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 204.168.249.9. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: FI | ISP: Hetzner Online GmbH",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "204.168.249.9",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "FI",
+      "abuse_isp": "Hetzner Online GmbH",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.914997",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T07:56:43.960424+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T07:56:43.960424+00:00",
+      "actualizado_en": "2026-09-01T07:56:43.960424+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0155",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 18.218.118.203",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 18.218.118.203. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: Amazon Technologies Inc.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "18.218.118.203",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Amazon Technologies Inc.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.936292",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:01:31.291607+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:01:31.291607+00:00",
+      "actualizado_en": "2026-09-01T08:01:31.291607+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0156",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 180.76.134.19",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 180.76.134.19. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: CN | ISP: Beijing Baidu Netcom Science and Technology Co., Ltd.",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "180.76.134.19",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CN",
+      "abuse_isp": "Beijing Baidu Netcom Science and Technology Co., Ltd.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.953216",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:02:28.252281+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:02:28.252281+00:00",
+      "actualizado_en": "2026-09-01T08:02:28.252281+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0157",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 45.78.230.231",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 45.78.230.231. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: SG | ISP: BYTEPLUS",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "45.78.230.231",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "SG",
+      "abuse_isp": "BYTEPLUS",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.980122",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:07:09.544991+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:07:09.544991+00:00",
+      "actualizado_en": "2026-09-01T08:07:09.544991+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0158",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 204.168.222.91",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 204.168.222.91. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: FI | ISP: Hetzner Online GmbH",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "204.168.222.91",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "FI",
+      "abuse_isp": "Hetzner Online GmbH",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:16:59.999470",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:07:16.900211+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:07:16.900211+00:00",
+      "actualizado_en": "2026-09-01T08:07:16.900211+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0159",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 129.213.81.80",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 129.213.81.80. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: Oracle Public Cloud",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "129.213.81.80",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Oracle Public Cloud",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:09:47.202220+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-01T08:15:42.681446+00:00",
+          "nota": "Detección multifase. Bloqueamos de inmediato."
+        }
+      ],
+      "creado_en": "2026-09-01T08:09:47.202220+00:00",
+      "actualizado_en": "2026-09-01T08:15:42.681446+00:00",
+      "resuelto_en": "2026-09-01T08:15:42.681446+00:00"
+    },
+    {
+      "id": "NTC-0160",
+      "titulo": "Campaña APT detectada — EXECUTION desde 23.94.102.136",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 99.6% desde la IP 23.94.102.136. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: RackNerd LLC",
+      "estado": "Cerrado",
+      "prioridad": "MEDIA",
+      "ip": "23.94.102.136",
+      "fase_mitre": "execution",
+      "confianza": 99.6,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "RackNerd LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:17:00.017830",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:10:25.930035+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:10:25.930035+00:00",
+      "actualizado_en": "2026-09-01T08:10:25.930035+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0161",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 5.252.83.115",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 5.252.83.115. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: GB | ISP: Internet Utilities Europe and Asia Limited",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "5.252.83.115",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "GB",
+      "abuse_isp": "Internet Utilities Europe and Asia Limited",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:17:00.038540",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:10:50.982756+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:10:50.982756+00:00",
+      "actualizado_en": "2026-09-01T08:10:50.982756+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0162",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 217.160.88.29",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.8% desde la IP 217.160.88.29. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: ES | ISP: IONOS SE",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "217.160.88.29",
+      "fase_mitre": "persistence",
+      "confianza": 99.8,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "ES",
+      "abuse_isp": "IONOS SE",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:17:00.045834",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:11:46.580070+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:11:46.580070+00:00",
+      "actualizado_en": "2026-09-01T08:11:46.580070+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0163",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 103.207.9.246",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 103.207.9.246. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: IN | ISP: SHREE BALAJI INFOWAY PRIVATE LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "103.207.9.246",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IN",
+      "abuse_isp": "SHREE BALAJI INFOWAY PRIVATE LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:17:00.063499",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:12:21.326818+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:12:21.326818+00:00",
+      "actualizado_en": "2026-09-01T08:12:21.326818+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0164",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 185.150.190.130",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 185.150.190.130. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: ReliableSite.Net LLC",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "185.150.190.130",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "ReliableSite.Net LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:17:00.086233",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:14:32.902674+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:14:32.902674+00:00",
+      "actualizado_en": "2026-09-01T08:14:32.902674+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0165",
+      "titulo": "Campaña APT detectada — EXECUTION desde 91.107.251.117",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 91.107.251.117. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: DE | ISP: Hetzner Online GmbH",
+      "estado": "Cerrado",
+      "prioridad": "MEDIA",
+      "ip": "91.107.251.117",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "Hetzner Online GmbH",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:17:00.108036",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:15:43.293878+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:15:43.293878+00:00",
+      "actualizado_en": "2026-09-01T08:15:43.293878+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0166",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.183",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.183. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Cerrado",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.183",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T08:17:00.108046",
+          "texto": "Cerrado revisión masiva 01/09. AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:16:49.437795+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:16:49.437795+00:00",
+      "actualizado_en": "2026-09-01T08:16:49.437795+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0167",
+      "titulo": "Campaña APT detectada — EXECUTION desde 14.103.107.234",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 14.103.107.234. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: CN | ISP: Beijing Volcano Engine Technology Co., Ltd.",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "14.103.107.234",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CN",
+      "abuse_isp": "Beijing Volcano Engine Technology Co., Ltd.",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:20:13.571166+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:20:13.571166+00:00",
+      "actualizado_en": "2026-09-01T08:20:13.571166+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0168",
+      "titulo": "Campaña APT detectada — EXECUTION desde 204.168.249.9",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 97.2% desde la IP 204.168.249.9. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: FI | ISP: Hetzner Online GmbH",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "204.168.249.9",
+      "fase_mitre": "execution",
+      "confianza": 97.2,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "FI",
+      "abuse_isp": "Hetzner Online GmbH",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:21:45.722856+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:21:45.722856+00:00",
+      "actualizado_en": "2026-09-01T08:21:45.722856+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0169",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.78.230.231",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 60.1% desde la IP 45.78.230.231. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: SG | ISP: BYTEPLUS",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "45.78.230.231",
+      "fase_mitre": "execution",
+      "confianza": 60.1,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "SG",
+      "abuse_isp": "BYTEPLUS",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:22:51.296350+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:22:51.296350+00:00",
+      "actualizado_en": "2026-09-01T08:22:51.296350+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0170",
+      "titulo": "Campaña APT detectada — INITIAL_ACCESS desde 40.124.178.3",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase initial_access con confianza del 99.5% desde la IP 40.124.178.3. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: Microsoft Corporation",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "40.124.178.3",
+      "fase_mitre": "initial_access",
+      "confianza": 99.5,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:27:19.330767+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:27:19.330767+00:00",
+      "actualizado_en": "2026-09-01T08:27:19.330767+00:00",
       "resuelto_en": null
     }
   ],
-  "contador": 119
+  "contador": 170
 }
