@@ -1256,14 +1256,84 @@ elif pagina == "Alertas y Eventos":
     if df.empty:
         st.warning("No hay alertas disponibles.")
     else:
+        # ── Estadísticas ───────────────────────────────────────────────
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid #388bfd;">
+                <p class="metric-label">Total Alertas</p>
+                <p class="metric-value">{len(df)}</p>
+            </div>""", unsafe_allow_html=True)
+        with col2:
+            n_alto = len(df[df["nivel"] >= 10])
+            color = "#f85149" if n_alto > 0 else "#3fb950"
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid {color};">
+                <p class="metric-label">Nivel Alto (10+)</p>
+                <p class="metric-value" style="color:{color}">{n_alto}</p>
+            </div>""", unsafe_allow_html=True)
+        with col3:
+            ips_unicas = df[df["ip"] != "N/A"]["ip"].nunique()
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid #d29922;">
+                <p class="metric-label">IPs Únicas</p>
+                <p class="metric-value" style="color:#d29922">{ips_unicas}</p>
+            </div>""", unsafe_allow_html=True)
+        with col4:
+            reglas_unicas = df["id_regla"].nunique()
+            st.markdown(f"""<div class="metric-card" style="border-top:3px solid #8b5cf6;">
+                <p class="metric-label">Reglas Disparadas</p>
+                <p class="metric-value" style="color:#8b5cf6">{reglas_unicas}</p>
+            </div>""", unsafe_allow_html=True)
+
+        st.markdown("---")
+
+        # ── Gráficas ───────────────────────────────────────────────────
+        col_g1, col_g2, col_g3 = st.columns(3)
+        with col_g1:
+            st.markdown('<div class="section-header">Alertas por Hora</div>', unsafe_allow_html=True)
+            import plotly.express as px
+            df_hora = df.copy()
+            df_hora["hora"] = df_hora["timestamp"].dt.hour
+            alertas_hora = df_hora.groupby("hora").size().reset_index(name="Alertas")
+            fig1 = px.bar(alertas_hora, x="hora", y="Alertas", 
+                         color="Alertas", color_continuous_scale="Blues",
+                         template="plotly_dark")
+            fig1.update_layout(paper_bgcolor="#0d1117", plot_bgcolor="#0d1117", 
+                              showlegend=False, coloraxis_showscale=False,
+                              margin=dict(t=10, b=10, l=10, r=10), height=250)
+            st.plotly_chart(fig1, use_container_width=True)
+        with col_g2:
+            st.markdown('<div class="section-header">Top Reglas Disparadas</div>', unsafe_allow_html=True)
+            top_reglas = df.groupby("tipo").size().reset_index(name="count").sort_values("count", ascending=False).head(5)
+            top_reglas["tipo"] = top_reglas["tipo"].str[:25]
+            fig2 = px.bar(top_reglas, x="count", y="tipo", orientation="h",
+                         color="count", color_continuous_scale="Reds",
+                         template="plotly_dark")
+            fig2.update_layout(paper_bgcolor="#0d1117", plot_bgcolor="#0d1117",
+                              showlegend=False, coloraxis_showscale=False,
+                              margin=dict(t=10, b=10, l=10, r=10), height=250)
+            st.plotly_chart(fig2, use_container_width=True)
+        with col_g3:
+            st.markdown('<div class="section-header">Distribución por Nivel</div>', unsafe_allow_html=True)
+            dist_nivel = df.groupby("nivel").size().reset_index(name="Alertas")
+            fig3 = px.bar(dist_nivel, x="nivel", y="Alertas",
+                         color="Alertas", color_continuous_scale="Oranges",
+                         template="plotly_dark")
+            fig3.update_layout(paper_bgcolor="#0d1117", plot_bgcolor="#0d1117",
+                              showlegend=False, coloraxis_showscale=False,
+                              margin=dict(t=10, b=10, l=10, r=10), height=250)
+            st.plotly_chart(fig3, use_container_width=True)
+
+        st.markdown("---")
+
+        # ── Filtros ────────────────────────────────────────────────────
         col1, col2, col3 = st.columns(3)
         with col1:
-            filtro_nivel = st.slider("Nivel minimo", 0, 15, 3)
+            filtro_nivel = st.slider("Nivel mínimo", 0, 15, 7)
         with col2:
             opciones_accion = ["Todas"] + list(df["accion"].unique())
             filtro_accion = st.selectbox("Estado", opciones_accion)
         with col3:
             filtro_texto = st.text_input("Buscar por tipo o IP", "")
+
         df_f = df[df["nivel"] >= filtro_nivel]
         if filtro_accion != "Todas":
             df_f = df_f[df_f["accion"] == filtro_accion]
@@ -1271,11 +1341,27 @@ elif pagina == "Alertas y Eventos":
             mask = df_f["tipo"].str.contains(filtro_texto, case=False, na=False) | \
                    df_f["ip"].str.contains(filtro_texto, case=False, na=False)
             df_f = df_f[mask]
+
         st.markdown(f"**{len(df_f)} eventos encontrados**")
+
+        # ── Tabla con pivoting ─────────────────────────────────────────
         df_show = df_f[["timestamp","tipo","ip","nivel","agente","id_regla","accion"]].copy()
         df_show["timestamp"] = df_show["timestamp"].dt.strftime("%d/%m/%Y %H:%M")
         df_show.columns = ["Fecha/Hora","Tipo","IP","Nivel","Agente","Regla","Estado"]
         tabla_oscura(df_show, use_container_width=True, hide_index=True)
+
+        # Pivoting al forense
+        ips_alertas = df_f[df_f["ip"] != "N/A"]["ip"].dropna().unique().tolist()
+        if ips_alertas:
+            col_piv1, col_piv2 = st.columns([3, 1])
+            with col_piv1:
+                ip_pivot_alertas = st.selectbox("Investigar IP", ips_alertas, key="ip_pivot_alertas")
+            with col_piv2:
+                st.markdown("<br>", unsafe_allow_html=True)
+                if st.button("Investigar en Forense", key="btn_pivot_alertas", type="primary", use_container_width=True):
+                    st.session_state.pagina = "Análisis Forense"
+                    st.session_state.ip_forense_pivot = ip_pivot_alertas
+                    st.rerun()
 
 # ══════════════════════════════════════════════════════════════════════════════
 # IPs BLOQUEADAS
@@ -3817,8 +3903,8 @@ elif pagina == "Gestión de Incidentes":
                             "abuse_isp":   abuse.get("isp", ""),
                         }, timeout=5)
                     nuevo = r.json()
-                    st.success(f"Ticket {nuevo['id']} creado correctamente")
-                    st.rerun()
+                    st.success(f"Ticket {nuevo['id']} creado correctamente — ve a la pestaña 'Tickets' para verlo")
+                    st.session_state.ticket_creado = nuevo['id']
                 except Exception as ex:
                     st.error(f"Error: {ex}")
             else:
