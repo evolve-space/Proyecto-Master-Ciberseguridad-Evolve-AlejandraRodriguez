@@ -1004,7 +1004,7 @@ with st.sidebar:
         "Panel General", "Alertas y Eventos", "IPs Bloqueadas",
         "Endpoints", "Detección APT", "Tráfico de Red",
         "Análisis Forense", "Threat Hunting", "Gestión de Incidentes", "Normativas",
-        "Simulador de Ataques", "Informes", "Estado del Sistema", "About"
+        "Playbooks", "Simulador de Ataques", "Informes", "Estado del Sistema", "About"
     ]
     if "pagina" not in st.session_state:
         st.session_state.pagina = "Panel General"
@@ -1432,6 +1432,95 @@ elif pagina == "IPs Bloqueadas":
                     st.error(f"Error: {e}")
             else:
                 st.warning("Introduce una IP para desbloquear")
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PLAYBOOKS
+# ══════════════════════════════════════════════════════════════════════════════
+elif pagina == "Playbooks":
+    st.markdown("## Playbooks — Respuesta Automatizada a Incidentes")
+    st.markdown("Flujos de respuesta automática ante amenazas detectadas. El sistema ejecuta acciones de contención sin intervención humana.")
+    st.markdown("---")
+
+    # ── Playbooks disponibles ─────────────────────────────────────────────
+    st.markdown('<div class="section-header">Playbooks Disponibles</div>', unsafe_allow_html=True)
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("""
+        <div class="metric-card" style="border-top:3px solid #f85149;">
+            <p class="metric-label">SSH Brute Force</p>
+            <p style="font-size:0.85rem;color:#c9d1d9;margin:8px 0">Detecta intentos de fuerza bruta SSH y bloquea la IP automáticamente en Hetzner.</p>
+            <p style="font-size:0.75rem;color:#8b949e;">Trigger: Nivel 10+ + SSH fallido<br>Acciones: Bloquear Hetzner + Ticket</p>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <div class="metric-card" style="border-top:3px solid #d29922;">
+            <p class="metric-label">APT Campaign</p>
+            <p style="font-size:0.85rem;color:#c9d1d9;margin:8px 0">Responde ante campañas APT detectadas por el LSTM con AbuseIPDB >= 80%.</p>
+            <p style="font-size:0.75rem;color:#8b949e;">Trigger: LSTM + AbuseIPDB>=80%<br>Acciones: Bloquear Hetzner + Ticket</p>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        st.markdown("""
+        <div class="metric-card" style="border-top:3px solid #388bfd;">
+            <p class="metric-label">Port Scan</p>
+            <p style="font-size:0.85rem;color:#c9d1d9;margin:8px 0">Detecta escaneos de puertos masivos y bloquea el origen automáticamente.</p>
+            <p style="font-size:0.75rem;color:#8b949e;">Trigger: >100 alertas en 60s<br>Acciones: Bloquear Hetzner</p>
+        </div>""", unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # ── Ejecutar playbook manualmente ────────────────────────────────────
+    st.markdown('<div class="section-header">Ejecutar Playbook Manual</div>', unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([2, 2, 1])
+    with col1:
+        pb_tipo = st.selectbox("Playbook", ["ssh_brute_force", "apt_campaign", "port_scan"])
+    with col2:
+        pb_ip = st.text_input("IP objetivo", placeholder="Ej: 49.248.197.50")
+    with col3:
+        st.markdown("<br>", unsafe_allow_html=True)
+        if st.button("Ejecutar", type="primary", use_container_width=True):
+            if pb_ip:
+                try:
+                    r = requests.post("http://localhost:8000/playbooks/ejecutar",
+                        headers=HEADERS,
+                        json={"playbook": pb_tipo, "ip": pb_ip},
+                        timeout=30)
+                    resultado = r.json()
+                    if resultado.get("estado") == "COMPLETADO":
+                        st.success(f"Playbook {pb_tipo} ejecutado correctamente para {pb_ip}")
+                    else:
+                        st.error(f"Error: {resultado.get('error', 'Desconocido')}")
+                except Exception as e:
+                    st.error(f"Error: {e}")
+
+    st.markdown("---")
+
+    # ── Historial de ejecuciones ─────────────────────────────────────────
+    st.markdown('<div class="section-header">Historial de Ejecuciones</div>', unsafe_allow_html=True)
+    try:
+        historial = requests.get("http://localhost:8000/playbooks/historial", headers=HEADERS, timeout=5).json()
+        if historial:
+            for pb in reversed(historial[-10:]):
+                color = "#3fb950" if pb.get("estado") == "COMPLETADO" else "#f85149" if pb.get("estado") == "ERROR" else "#d29922"
+                with st.expander(f"{pb['id']} — {pb['playbook'].upper()} | {pb['ip']} | {pb['estado']}"):
+                    st.markdown(f"""
+                    <div style="background:#161b22;padding:12px;border-radius:8px;border-left:4px solid {color};">
+                        <p style="color:#8b949e;font-size:0.8rem">{pb['timestamp'][:16].replace('T',' ')}</p>
+                        <p style="color:#c9d1d9;font-size:0.9rem">Playbook: <strong>{pb['playbook']}</strong> | IP: <strong>{pb['ip']}</strong></p>
+                    </div>""", unsafe_allow_html=True)
+                    if pb.get("acciones"):
+                        for accion in pb["acciones"]:
+                            color_a = "#3fb950" if accion.get("estado") == "OK" else "#f85149"
+                            st.markdown(f"""
+                            <div style="background:#0d1117;padding:6px 12px;border-radius:4px;
+                                        border-left:2px solid {color_a};margin:4px 0;">
+                                <span style="color:{color_a};font-weight:600">{accion['accion']}</span>
+                                <span style="color:#8b949e;font-size:0.8rem;margin-left:8px">{accion['timestamp'][11:19]}</span>
+                            </div>""", unsafe_allow_html=True)
+        else:
+            st.info("No hay ejecuciones de playbooks todavía.")
+    except Exception as e:
+        st.error(f"Error cargando historial: {e}")
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SIMULADOR

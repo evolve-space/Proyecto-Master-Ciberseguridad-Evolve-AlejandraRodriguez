@@ -685,6 +685,96 @@ async def forzar_reentrenamiento(request: Request, api_key: str = Depends(verifi
 def health():
     return {"status": "Noctua Predictive funcionando", "version": "1.0"}
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PLAYBOOKS
+# ══════════════════════════════════════════════════════════════════════════════
+PLAYBOOKS_FILE = "/root/asoar/playbooks.json"
+
+def cargar_playbooks():
+    try:
+        with open(PLAYBOOKS_FILE, "r") as f:
+            return json.load(f)
+    except:
+        return {"ejecuciones": []}
+
+def guardar_playbooks(data):
+    with open(PLAYBOOKS_FILE, "w") as f:
+        json.dump(data, f, indent=2, default=str)
+
+def actualizar_ticket_por_ip(ip: str, playbook: str, ejecucion: dict):
+    """Busca y actualiza el ticket activo para una IP."""
+    try:
+        from apt_tickets import _cargar, _guardar
+        tickets_data = _cargar()
+        for t in tickets_data.get("tickets", []):
+            if t.get("ip") == ip and t.get("estado") in ["Abierto", "Investigando"]:
+                t["estado"] = "Contenido"
+                t.setdefault("notas", []).append({
+                    "timestamp": datetime.now().isoformat(),
+                    "texto": f"Playbook {playbook} ejecutado automáticamente. IP {ip} bloqueada en Hetzner."
+                })
+                ejecucion["acciones"].append({
+                    "accion": "ACTUALIZAR_TICKET",
+                    "estado": "OK",
+                    "timestamp": datetime.now().isoformat(),
+                    "ticket": t["id"]
+                })
+        _guardar(tickets_data)
+    except Exception as e:
+        ejecucion["acciones"].append({"accion": "ACTUALIZAR_TICKET", "estado": "ERROR", "error": str(e), "timestamp": datetime.now().isoformat()})
+
+@app.post("/playbooks/ejecutar")
+async def ejecutar_playbook(request: Request, api_key: str = Depends(verificar_api_key)):
+    body = await request.json()
+    playbook = body.get("playbook")
+    ip = body.get("ip", "")
+    ticket_id = body.get("ticket_id", "")
+    
+    data = cargar_playbooks()
+    ejecucion = {
+        "id": f"PB-{len(data['ejecuciones'])+1:04d}",
+        "playbook": playbook,
+        "ip": ip,
+        "ticket_id": ticket_id,
+        "timestamp": datetime.now().isoformat(),
+        "estado": "EJECUTANDO",
+        "acciones": []
+    }
+    
+    try:
+        if playbook == "ssh_brute_force":
+            bloquear_ip_hetzner(ip)
+            ejecucion["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": datetime.now().isoformat()})
+            actualizar_ticket_por_ip(ip, playbook, ejecucion)
+            ejecucion["estado"] = "COMPLETADO"
+
+        elif playbook == "apt_campaign":
+            bloquear_ip_hetzner(ip)
+            ejecucion["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": datetime.now().isoformat()})
+            actualizar_ticket_por_ip(ip, playbook, ejecucion)
+            ejecucion["estado"] = "COMPLETADO"
+
+        elif playbook == "port_scan":
+            bloquear_ip_hetzner(ip)
+            ejecucion["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": datetime.now().isoformat()})
+            actualizar_ticket_por_ip(ip, playbook, ejecucion)
+            ejecucion["estado"] = "COMPLETADO"
+
+    except Exception as e:
+        ejecucion["estado"] = "ERROR"
+        ejecucion["error"] = str(e)
+    
+    data["ejecuciones"].append(ejecucion)
+    guardar_playbooks(data)
+    return ejecucion
+
+@app.get("/playbooks/historial")
+async def historial_playbooks(api_key: str = Depends(verificar_api_key)):
+    data = cargar_playbooks()
+    return data["ejecuciones"][-50:]
+
+
 # ── TICKETS ───────────────────────────────────────────────────────────────────
 @app.get("/tickets")
 async def listar_tickets(

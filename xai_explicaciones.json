@@ -1,453 +1,5 @@
 [
   {
-    "timestamp": "2026-09-01T08:03:53.124498",
-    "fase_detectada": "persistence",
-    "confianza": 100.0,
-    "importancia_features": {
-      "nivel_severidad": 22.87,
-      "fase_mitre": 6.82,
-      "agente_origen": 0.05,
-      "ip_origen": 1.96,
-      "hora_del_dia": 63.79,
-      "dia_semana": 2.48,
-      "horario_nocturno": 0.86,
-      "evento_critico": 0.82,
-      "evento_alto": 0.36
-    },
-    "top_features": [
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 63.79
-      },
-      {
-        "feature": "nivel_severidad",
-        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
-        "importancia": 22.87
-      },
-      {
-        "feature": "fase_mitre",
-        "descripcion": "Fase MITRE ATT&CK asignada al evento",
-        "importancia": 6.82
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 3,
-        "descripcion": "Evento en posicion 4 de la secuencia",
-        "importancia": 9.72
-      },
-      {
-        "posicion": 23,
-        "descripcion": "Evento en posicion 24 de la secuencia",
-        "importancia": 9.55
-      },
-      {
-        "posicion": 8,
-        "descripcion": "Evento en posicion 9 de la secuencia",
-        "importancia": 8.94
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 63.8%, seguida de 'nivel_severidad' con un 22.9%. Los eventos mas determinantes se concentran en la posicion 4 de la secuencia analizada. La actividad proviene de la IP 180.76.134.19. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "180.76.134.19",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-01T08:04:06.885177",
-    "fase_detectada": "persistence",
-    "confianza": 100.0,
-    "importancia_features": {
-      "nivel_severidad": 22.62,
-      "fase_mitre": 8.25,
-      "agente_origen": 0.04,
-      "ip_origen": 1.13,
-      "hora_del_dia": 64.33,
-      "dia_semana": 1.73,
-      "horario_nocturno": 0.76,
-      "evento_critico": 0.79,
-      "evento_alto": 0.35
-    },
-    "top_features": [
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 64.33
-      },
-      {
-        "feature": "nivel_severidad",
-        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
-        "importancia": 22.62
-      },
-      {
-        "feature": "fase_mitre",
-        "descripcion": "Fase MITRE ATT&CK asignada al evento",
-        "importancia": 8.25
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 30,
-        "descripcion": "Evento en posicion 31 de la secuencia",
-        "importancia": 13.34
-      },
-      {
-        "posicion": 23,
-        "descripcion": "Evento en posicion 24 de la secuencia",
-        "importancia": 9.56
-      },
-      {
-        "posicion": 2,
-        "descripcion": "Evento en posicion 3 de la secuencia",
-        "importancia": 9.44
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 64.3%, seguida de 'nivel_severidad' con un 22.6%. Los eventos mas determinantes se concentran en la posicion 31 de la secuencia analizada. La actividad proviene de la IP 18.218.118.203. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "18.218.118.203",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-01T08:06:20.296548",
-    "fase_detectada": "persistence",
-    "confianza": 100.0,
-    "importancia_features": {
-      "nivel_severidad": 23.06,
-      "fase_mitre": 4.55,
-      "agente_origen": 0.04,
-      "ip_origen": 1.21,
-      "hora_del_dia": 66.2,
-      "dia_semana": 2.87,
-      "horario_nocturno": 0.76,
-      "evento_critico": 0.85,
-      "evento_alto": 0.46
-    },
-    "top_features": [
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 66.2
-      },
-      {
-        "feature": "nivel_severidad",
-        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
-        "importancia": 23.06
-      },
-      {
-        "feature": "fase_mitre",
-        "descripcion": "Fase MITRE ATT&CK asignada al evento",
-        "importancia": 4.55
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 1,
-        "descripcion": "Evento en posicion 2 de la secuencia",
-        "importancia": 20.71
-      },
-      {
-        "posicion": 2,
-        "descripcion": "Evento en posicion 3 de la secuencia",
-        "importancia": 14.71
-      },
-      {
-        "posicion": 7,
-        "descripcion": "Evento en posicion 8 de la secuencia",
-        "importancia": 9.56
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 66.2%, seguida de 'nivel_severidad' con un 23.1%. Los eventos mas determinantes se concentran en la posicion 2 de la secuencia analizada. La actividad proviene de la IP 18.218.118.203. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "18.218.118.203",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-01T08:07:10.457499",
-    "fase_detectada": "persistence",
-    "confianza": 100.0,
-    "importancia_features": {
-      "nivel_severidad": 22.44,
-      "fase_mitre": 4.66,
-      "agente_origen": 0.04,
-      "ip_origen": 1.19,
-      "hora_del_dia": 65.79,
-      "dia_semana": 2.9,
-      "horario_nocturno": 1.68,
-      "evento_critico": 0.78,
-      "evento_alto": 0.52
-    },
-    "top_features": [
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 65.79
-      },
-      {
-        "feature": "nivel_severidad",
-        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
-        "importancia": 22.44
-      },
-      {
-        "feature": "fase_mitre",
-        "descripcion": "Fase MITRE ATT&CK asignada al evento",
-        "importancia": 4.66
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 7,
-        "descripcion": "Evento en posicion 8 de la secuencia",
-        "importancia": 15.95
-      },
-      {
-        "posicion": 1,
-        "descripcion": "Evento en posicion 2 de la secuencia",
-        "importancia": 15.31
-      },
-      {
-        "posicion": 2,
-        "descripcion": "Evento en posicion 3 de la secuencia",
-        "importancia": 12.81
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 65.8%, seguida de 'nivel_severidad' con un 22.4%. Los eventos mas determinantes se concentran en la posicion 8 de la secuencia analizada. La actividad proviene de la IP 45.78.230.231. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "45.78.230.231",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-01T08:07:11.451999",
-    "fase_detectada": "persistence",
-    "confianza": 100.0,
-    "importancia_features": {
-      "nivel_severidad": 22.57,
-      "fase_mitre": 5.06,
-      "agente_origen": 0.11,
-      "ip_origen": 5.1,
-      "hora_del_dia": 62.92,
-      "dia_semana": 1.92,
-      "horario_nocturno": 0.99,
-      "evento_critico": 0.95,
-      "evento_alto": 0.39
-    },
-    "top_features": [
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 62.92
-      },
-      {
-        "feature": "nivel_severidad",
-        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
-        "importancia": 22.57
-      },
-      {
-        "feature": "ip_origen",
-        "descripcion": "Direccion IP de origen del ataque",
-        "importancia": 5.1
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 0,
-        "descripcion": "Evento en posicion 1 de la secuencia",
-        "importancia": 40.44
-      },
-      {
-        "posicion": 1,
-        "descripcion": "Evento en posicion 2 de la secuencia",
-        "importancia": 10.59
-      },
-      {
-        "posicion": 6,
-        "descripcion": "Evento en posicion 7 de la secuencia",
-        "importancia": 10.09
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 62.9%, seguida de 'nivel_severidad' con un 22.6%. Los eventos mas determinantes se concentran en la posicion 1 de la secuencia analizada. La actividad proviene de la IP 45.78.230.231. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "45.78.230.231",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-01T08:07:17.865433",
-    "fase_detectada": "persistence",
-    "confianza": 100.0,
-    "importancia_features": {
-      "nivel_severidad": 20.94,
-      "fase_mitre": 5.55,
-      "agente_origen": 0.05,
-      "ip_origen": 2.52,
-      "hora_del_dia": 67.89,
-      "dia_semana": 1.47,
-      "horario_nocturno": 0.62,
-      "evento_critico": 0.65,
-      "evento_alto": 0.31
-    },
-    "top_features": [
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 67.89
-      },
-      {
-        "feature": "nivel_severidad",
-        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
-        "importancia": 20.94
-      },
-      {
-        "feature": "fase_mitre",
-        "descripcion": "Fase MITRE ATT&CK asignada al evento",
-        "importancia": 5.55
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 27,
-        "descripcion": "Evento en posicion 28 de la secuencia",
-        "importancia": 24.28
-      },
-      {
-        "posicion": 26,
-        "descripcion": "Evento en posicion 27 de la secuencia",
-        "importancia": 19.74
-      },
-      {
-        "posicion": 28,
-        "descripcion": "Evento en posicion 29 de la secuencia",
-        "importancia": 9.6
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 67.9%, seguida de 'nivel_severidad' con un 20.9%. Los eventos mas determinantes se concentran en la posicion 28 de la secuencia analizada. La actividad proviene de la IP 204.168.222.91. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "204.168.222.91",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-01T08:07:18.945003",
-    "fase_detectada": "persistence",
-    "confianza": 100.0,
-    "importancia_features": {
-      "nivel_severidad": 22.25,
-      "fase_mitre": 6.68,
-      "agente_origen": 0.04,
-      "ip_origen": 1.49,
-      "hora_del_dia": 63.9,
-      "dia_semana": 2.11,
-      "horario_nocturno": 2.39,
-      "evento_critico": 0.74,
-      "evento_alto": 0.4
-    },
-    "top_features": [
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 63.9
-      },
-      {
-        "feature": "nivel_severidad",
-        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
-        "importancia": 22.25
-      },
-      {
-        "feature": "fase_mitre",
-        "descripcion": "Fase MITRE ATT&CK asignada al evento",
-        "importancia": 6.68
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 4,
-        "descripcion": "Evento en posicion 5 de la secuencia",
-        "importancia": 18.15
-      },
-      {
-        "posicion": 2,
-        "descripcion": "Evento en posicion 3 de la secuencia",
-        "importancia": 13.1
-      },
-      {
-        "posicion": 18,
-        "descripcion": "Evento en posicion 19 de la secuencia",
-        "importancia": 9.96
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 63.9%, seguida de 'nivel_severidad' con un 22.2%. Los eventos mas determinantes se concentran en la posicion 5 de la secuencia analizada. La actividad proviene de la IP 204.168.222.91. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "204.168.222.91",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-01T08:07:25.499350",
-    "fase_detectada": "persistence",
-    "confianza": 100.0,
-    "importancia_features": {
-      "nivel_severidad": 22.0,
-      "fase_mitre": 6.08,
-      "agente_origen": 0.05,
-      "ip_origen": 1.25,
-      "hora_del_dia": 64.2,
-      "dia_semana": 2.34,
-      "horario_nocturno": 2.9,
-      "evento_critico": 0.79,
-      "evento_alto": 0.38
-    },
-    "top_features": [
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 64.2
-      },
-      {
-        "feature": "nivel_severidad",
-        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
-        "importancia": 22.0
-      },
-      {
-        "feature": "fase_mitre",
-        "descripcion": "Fase MITRE ATT&CK asignada al evento",
-        "importancia": 6.08
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 3,
-        "descripcion": "Evento en posicion 4 de la secuencia",
-        "importancia": 20.68
-      },
-      {
-        "posicion": 1,
-        "descripcion": "Evento en posicion 2 de la secuencia",
-        "importancia": 17.61
-      },
-      {
-        "posicion": 2,
-        "descripcion": "Evento en posicion 3 de la secuencia",
-        "importancia": 11.91
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 64.2%, seguida de 'nivel_severidad' con un 22.0%. Los eventos mas determinantes se concentran en la posicion 4 de la secuencia analizada. La actividad proviene de la IP 204.168.222.91. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "204.168.222.91",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
     "timestamp": "2026-09-01T08:07:26.790579",
     "fase_detectada": "persistence",
     "confianza": 100.0,
@@ -2795,6 +2347,454 @@
     "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 99.8%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 60.6%, seguida de 'nivel_severidad' con un 22.4%. Los eventos mas determinantes se concentran en la posicion 23 de la secuencia analizada. La actividad proviene de la IP 204.168.249.9. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
     "contexto": {
       "ip": "204.168.249.9",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-01T08:48:33.545549",
+    "fase_detectada": "credential_access",
+    "confianza": 100.0,
+    "importancia_features": {
+      "nivel_severidad": 19.89,
+      "fase_mitre": 9.59,
+      "agente_origen": 0.1,
+      "ip_origen": 5.35,
+      "hora_del_dia": 62.69,
+      "dia_semana": 1.44,
+      "horario_nocturno": 0.13,
+      "evento_critico": 0.68,
+      "evento_alto": 0.13
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 62.69
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 19.89
+      },
+      {
+        "feature": "fase_mitre",
+        "descripcion": "Fase MITRE ATT&CK asignada al evento",
+        "importancia": 9.59
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 5,
+        "descripcion": "Evento en posicion 6 de la secuencia",
+        "importancia": 21.62
+      },
+      {
+        "posicion": 20,
+        "descripcion": "Evento en posicion 21 de la secuencia",
+        "importancia": 18.64
+      },
+      {
+        "posicion": 15,
+        "descripcion": "Evento en posicion 16 de la secuencia",
+        "importancia": 13.24
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con acceso a credenciales (fase MITRE ATT&CK: credential_access) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 62.7%, seguida de 'nivel_severidad' con un 19.9%. Los eventos mas determinantes se concentran en la posicion 6 de la secuencia analizada. La actividad proviene de la IP 14.103.107.234. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "14.103.107.234",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-01T08:49:08.818985",
+    "fase_detectada": "execution",
+    "confianza": 99.9,
+    "importancia_features": {
+      "nivel_severidad": 17.79,
+      "fase_mitre": 16.48,
+      "agente_origen": 0.1,
+      "ip_origen": 5.97,
+      "hora_del_dia": 57.35,
+      "dia_semana": 1.47,
+      "horario_nocturno": 0.11,
+      "evento_critico": 0.62,
+      "evento_alto": 0.1
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 57.35
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 17.79
+      },
+      {
+        "feature": "fase_mitre",
+        "descripcion": "Fase MITRE ATT&CK asignada al evento",
+        "importancia": 16.48
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 4,
+        "descripcion": "Evento en posicion 5 de la secuencia",
+        "importancia": 20.21
+      },
+      {
+        "posicion": 14,
+        "descripcion": "Evento en posicion 15 de la secuencia",
+        "importancia": 14.26
+      },
+      {
+        "posicion": 19,
+        "descripcion": "Evento en posicion 20 de la secuencia",
+        "importancia": 12.78
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con ejecucion de codigo malicioso (fase MITRE ATT&CK: execution) con una confianza del 99.9%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 57.4%, seguida de 'nivel_severidad' con un 17.8%. Los eventos mas determinantes se concentran en la posicion 5 de la secuencia analizada. La actividad proviene de la IP 204.168.249.9. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "204.168.249.9",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-01T08:49:14.117349",
+    "fase_detectada": "execution",
+    "confianza": 94.6,
+    "importancia_features": {
+      "nivel_severidad": 16.42,
+      "fase_mitre": 16.47,
+      "agente_origen": 0.12,
+      "ip_origen": 6.69,
+      "hora_del_dia": 57.8,
+      "dia_semana": 1.83,
+      "horario_nocturno": 0.1,
+      "evento_critico": 0.53,
+      "evento_alto": 0.04
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 57.8
+      },
+      {
+        "feature": "fase_mitre",
+        "descripcion": "Fase MITRE ATT&CK asignada al evento",
+        "importancia": 16.47
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 16.42
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 3,
+        "descripcion": "Evento en posicion 4 de la secuencia",
+        "importancia": 19.69
+      },
+      {
+        "posicion": 13,
+        "descripcion": "Evento en posicion 14 de la secuencia",
+        "importancia": 11.72
+      },
+      {
+        "posicion": 18,
+        "descripcion": "Evento en posicion 19 de la secuencia",
+        "importancia": 9.97
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con ejecucion de codigo malicioso (fase MITRE ATT&CK: execution) con una confianza del 94.6%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 57.8%, seguida de 'fase_mitre' con un 16.5%. Los eventos mas determinantes se concentran en la posicion 4 de la secuencia analizada. La actividad proviene de la IP 204.168.249.9. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "204.168.249.9",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-01T08:50:42.598632",
+    "fase_detectada": "persistence",
+    "confianza": 100.0,
+    "importancia_features": {
+      "nivel_severidad": 20.28,
+      "fase_mitre": 15.65,
+      "agente_origen": 0.06,
+      "ip_origen": 4.29,
+      "hora_del_dia": 55.79,
+      "dia_semana": 2.89,
+      "horario_nocturno": 0.11,
+      "evento_critico": 0.63,
+      "evento_alto": 0.3
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 55.79
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 20.28
+      },
+      {
+        "feature": "fase_mitre",
+        "descripcion": "Fase MITRE ATT&CK asignada al evento",
+        "importancia": 15.65
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 25,
+        "descripcion": "Evento en posicion 26 de la secuencia",
+        "importancia": 20.12
+      },
+      {
+        "posicion": 17,
+        "descripcion": "Evento en posicion 18 de la secuencia",
+        "importancia": 14.47
+      },
+      {
+        "posicion": 2,
+        "descripcion": "Evento en posicion 3 de la secuencia",
+        "importancia": 12.2
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 55.8%, seguida de 'nivel_severidad' con un 20.3%. Los eventos mas determinantes se concentran en la posicion 26 de la secuencia analizada. La actividad proviene de la IP 45.135.193.198. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "45.135.193.198",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-01T08:57:31.653302",
+    "fase_detectada": "credential_access",
+    "confianza": 100.0,
+    "importancia_features": {
+      "nivel_severidad": 21.12,
+      "fase_mitre": 4.02,
+      "agente_origen": 0.19,
+      "ip_origen": 6.76,
+      "hora_del_dia": 65.41,
+      "dia_semana": 1.35,
+      "horario_nocturno": 0.15,
+      "evento_critico": 0.89,
+      "evento_alto": 0.11
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 65.41
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 21.12
+      },
+      {
+        "feature": "ip_origen",
+        "descripcion": "Direccion IP de origen del ataque",
+        "importancia": 6.76
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 0,
+        "descripcion": "Evento en posicion 1 de la secuencia",
+        "importancia": 42.83
+      },
+      {
+        "posicion": 10,
+        "descripcion": "Evento en posicion 11 de la secuencia",
+        "importancia": 15.85
+      },
+      {
+        "posicion": 15,
+        "descripcion": "Evento en posicion 16 de la secuencia",
+        "importancia": 10.57
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con acceso a credenciales (fase MITRE ATT&CK: credential_access) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 65.4%, seguida de 'nivel_severidad' con un 21.1%. Los eventos mas determinantes se concentran en la posicion 1 de la secuencia analizada. La actividad proviene de la IP 14.103.107.234. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "14.103.107.234",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-01T08:58:31.387966",
+    "fase_detectada": "execution",
+    "confianza": 100.0,
+    "importancia_features": {
+      "nivel_severidad": 15.91,
+      "fase_mitre": 10.17,
+      "agente_origen": 0.11,
+      "ip_origen": 7.95,
+      "hora_del_dia": 63.04,
+      "dia_semana": 1.94,
+      "horario_nocturno": 0.11,
+      "evento_critico": 0.64,
+      "evento_alto": 0.14
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 63.04
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 15.91
+      },
+      {
+        "feature": "fase_mitre",
+        "descripcion": "Fase MITRE ATT&CK asignada al evento",
+        "importancia": 10.17
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 7,
+        "descripcion": "Evento en posicion 8 de la secuencia",
+        "importancia": 18.79
+      },
+      {
+        "posicion": 9,
+        "descripcion": "Evento en posicion 10 de la secuencia",
+        "importancia": 18.75
+      },
+      {
+        "posicion": 14,
+        "descripcion": "Evento en posicion 15 de la secuencia",
+        "importancia": 13.43
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con ejecucion de codigo malicioso (fase MITRE ATT&CK: execution) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 63.0%, seguida de 'nivel_severidad' con un 15.9%. Los eventos mas determinantes se concentran en la posicion 8 de la secuencia analizada. La actividad proviene de la IP 14.103.107.234. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "14.103.107.234",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-01T08:58:32.540163",
+    "fase_detectada": "persistence",
+    "confianza": 99.6,
+    "importancia_features": {
+      "nivel_severidad": 20.8,
+      "fase_mitre": 18.26,
+      "agente_origen": 0.02,
+      "ip_origen": 5.83,
+      "hora_del_dia": 51.3,
+      "dia_semana": 2.99,
+      "horario_nocturno": 0.07,
+      "evento_critico": 0.46,
+      "evento_alto": 0.25
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 51.3
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 20.8
+      },
+      {
+        "feature": "fase_mitre",
+        "descripcion": "Fase MITRE ATT&CK asignada al evento",
+        "importancia": 18.26
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 6,
+        "descripcion": "Evento en posicion 7 de la secuencia",
+        "importancia": 23.02
+      },
+      {
+        "posicion": 27,
+        "descripcion": "Evento en posicion 28 de la secuencia",
+        "importancia": 11.17
+      },
+      {
+        "posicion": 0,
+        "descripcion": "Evento en posicion 1 de la secuencia",
+        "importancia": 9.65
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 99.6%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 51.3%, seguida de 'nivel_severidad' con un 20.8%. Los eventos mas determinantes se concentran en la posicion 7 de la secuencia analizada. La actividad proviene de la IP 14.103.107.234. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "14.103.107.234",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-01T08:59:16.375903",
+    "fase_detectada": "persistence",
+    "confianza": 100.0,
+    "importancia_features": {
+      "nivel_severidad": 17.66,
+      "fase_mitre": 9.99,
+      "agente_origen": 0.12,
+      "ip_origen": 6.76,
+      "hora_del_dia": 63.38,
+      "dia_semana": 1.23,
+      "horario_nocturno": 0.12,
+      "evento_critico": 0.62,
+      "evento_alto": 0.12
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 63.38
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 17.66
+      },
+      {
+        "feature": "fase_mitre",
+        "descripcion": "Fase MITRE ATT&CK asignada al evento",
+        "importancia": 9.99
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 5,
+        "descripcion": "Evento en posicion 6 de la secuencia",
+        "importancia": 19.95
+      },
+      {
+        "posicion": 7,
+        "descripcion": "Evento en posicion 8 de la secuencia",
+        "importancia": 17.9
+      },
+      {
+        "posicion": 12,
+        "descripcion": "Evento en posicion 13 de la secuencia",
+        "importancia": 14.61
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con establecimiento de persistencia (fase MITRE ATT&CK: persistence) con una confianza del 100.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 63.4%, seguida de 'nivel_severidad' con un 17.7%. Los eventos mas determinantes se concentran en la posicion 6 de la secuencia analizada. La actividad proviene de la IP 103.49.166.245. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "103.49.166.245",
       "agente": "master"
     },
     "cumplimiento_eu_ai_act": true

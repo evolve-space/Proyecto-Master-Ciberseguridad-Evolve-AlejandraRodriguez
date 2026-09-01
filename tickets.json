@@ -5584,7 +5584,7 @@
       "id": "NTC-0167",
       "titulo": "Campaña APT detectada — EXECUTION desde 14.103.107.234",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 14.103.107.234. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: CN | ISP: Beijing Volcano Engine Technology Co., Ltd.",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "14.103.107.234",
       "fase_mitre": "execution",
@@ -5602,11 +5602,16 @@
           "estado": "Abierto",
           "timestamp": "2026-09-01T08:20:13.571166+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-01T09:00:30.565321+00:00",
+          "nota": "IP bloqueada por playbook ssh, probando funcionalidad nueva"
         }
       ],
       "creado_en": "2026-09-01T08:20:13.571166+00:00",
-      "actualizado_en": "2026-09-01T08:20:13.571166+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-09-01T09:00:30.565321+00:00",
+      "resuelto_en": "2026-09-01T09:00:30.565321+00:00"
     },
     {
       "id": "NTC-0168",
@@ -5691,7 +5696,68 @@
       "creado_en": "2026-09-01T08:27:19.330767+00:00",
       "actualizado_en": "2026-09-01T08:27:19.330767+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0171",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 45.135.193.198",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 45.135.193.198. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: DE | ISP: Pfcloud UG",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "45.135.193.198",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "Pfcloud UG",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T09:01:35.737234",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.135.193.198 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:50:37.749480+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:50:37.749480+00:00",
+      "actualizado_en": "2026-09-01T08:50:37.749480+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0172",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 103.49.166.245",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 103.49.166.245. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 61% | País: IN | ISP: NETTVOX PRIVATE LIMITED",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "103.49.166.245",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 61,
+      "abuse_pais": "IN",
+      "abuse_isp": "NETTVOX PRIVATE LIMITED",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T08:59:15.139359+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T08:59:15.139359+00:00",
+      "actualizado_en": "2026-09-01T08:59:15.139359+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 170
+  "contador": 172
 }
