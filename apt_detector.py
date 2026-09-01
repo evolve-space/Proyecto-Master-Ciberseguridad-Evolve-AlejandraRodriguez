@@ -352,6 +352,25 @@ class DetectorAPT:
                             abuse_isp=abuse_isp
                         )
                         print(f"[TICKET] Ticket SOC creado para IP {ip}")
+                        # Lanzar playbook automáticamente si AbuseIPDB >= 90%
+                        if abuse_score_detector >= 90:
+                            try:
+                                import requests as req
+                                ticket_creado = _cargar()
+                                ticket_id_nuevo = ""
+                                for t in ticket_creado.get("tickets", []):
+                                    if t.get("ip") == ip and t.get("estado") == "Abierto":
+                                        ticket_id_nuevo = t.get("id", "")
+                                        break
+                                req.post(
+                                    "http://localhost:8000/playbooks/ejecutar",
+                                    headers={"X-API-Key": "noctua-2026-secure-key"},
+                                    json={"playbook": "apt_campaign", "ip": ip, "ticket_id": ticket_id_nuevo},
+                                    timeout=30
+                                )
+                                print(f"[PLAYBOOK] Playbook apt_campaign lanzado automáticamente para {ip}")
+                            except Exception as ep:
+                                print(f"[PLAYBOOK] Error lanzando playbook: {ep}")
                     else:
                         print(f"[TICKET] Ya existe ticket activo para IP {ip} — omitiendo")
             except Exception as e:

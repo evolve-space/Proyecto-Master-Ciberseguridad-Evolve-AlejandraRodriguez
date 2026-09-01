@@ -5757,7 +5757,40 @@
       "creado_en": "2026-09-01T08:59:15.139359+00:00",
       "actualizado_en": "2026-09-01T08:59:15.139359+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0173",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 139.19.117.131",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 100.0% desde la IP 139.19.117.131. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: DE | ISP: Max-Planck-Institut fuer Informatik",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "139.19.117.131",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "Max-Planck-Institut fuer Informatik",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T09:14:29.745713",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 139.19.117.131 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T09:14:14.504787+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T09:14:14.504787+00:00",
+      "actualizado_en": "2026-09-01T09:14:14.504787+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 172
+  "contador": 173
 }
