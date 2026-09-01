@@ -3315,9 +3315,6 @@ elif pagina == "Análisis Forense":
                             <p class="metric-label">{ip_rel}</p>
                             <p style="font-size:0.9rem;font-weight:700;color:{color_rel};">AbuseIPDB {abuse_rel.get('score',0)}%</p>
                         </div>""", unsafe_allow_html=True)
-                        if st.button(f"Investigar", key=f"corr_{ip_rel}", use_container_width=True):
-                            st.session_state.ip_forense_pivot = ip_rel
-                            st.rerun()
 
         # ── 5. Timeline forense ────────────────────────────────────────────
         st.markdown('<div class="section-header">Timeline Forense del Incidente</div>', unsafe_allow_html=True)
