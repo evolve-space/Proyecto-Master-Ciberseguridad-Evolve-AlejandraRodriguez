@@ -529,6 +529,366 @@
           "ticket": "NTC-0198"
         }
       ]
+    },
+    {
+      "id": "PB-AUTO-45.148.10.141",
+      "playbook": "apt_campaign",
+      "ip": "45.148.10.141",
+      "timestamp": "2026-09-01T10:44:39.526351",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:39.715298"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:39.718325",
+          "ticket": "NTC-0204"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-45.148.10.141",
+      "playbook": "apt_campaign",
+      "ip": "45.148.10.141",
+      "timestamp": "2026-09-01T10:44:40.951299",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:41.121278"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:41.125183",
+          "ticket": "NTC-0205"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-45.148.10.141",
+      "playbook": "apt_campaign",
+      "ip": "45.148.10.141",
+      "timestamp": "2026-09-01T10:44:42.991932",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:43.150394"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:43.153771",
+          "ticket": "NTC-0206"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-45.148.10.141",
+      "playbook": "apt_campaign",
+      "ip": "45.148.10.141",
+      "timestamp": "2026-09-01T10:44:45.482688",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:45.639416"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:45.642811",
+          "ticket": "NTC-0207"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-45.148.10.141",
+      "playbook": "apt_campaign",
+      "ip": "45.148.10.141",
+      "timestamp": "2026-09-01T10:44:47.074793",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:47.227566"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:44:47.228775",
+          "ticket": "NTC-0208"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-179.190.100.143",
+      "playbook": "apt_campaign",
+      "ip": "179.190.100.143",
+      "timestamp": "2026-09-01T10:45:39.790775",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:45:39.984742"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:45:39.989610",
+          "ticket": "NTC-0209"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-179.190.100.143",
+      "playbook": "apt_campaign",
+      "ip": "179.190.100.143",
+      "timestamp": "2026-09-01T10:45:41.345333",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:45:41.477158"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:45:41.479851",
+          "ticket": "NTC-0210"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-179.190.100.143",
+      "playbook": "apt_campaign",
+      "ip": "179.190.100.143",
+      "timestamp": "2026-09-01T10:45:42.833149",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:45:42.992734"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:45:42.995991",
+          "ticket": "NTC-0211"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-179.190.100.143",
+      "playbook": "apt_campaign",
+      "ip": "179.190.100.143",
+      "timestamp": "2026-09-01T10:45:44.449047",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:45:44.597102"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:45:44.599525",
+          "ticket": "NTC-0212"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-193.47.62.69",
+      "playbook": "apt_campaign",
+      "ip": "193.47.62.69",
+      "timestamp": "2026-09-01T10:49:37.332492",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:37.544947"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:37.548452",
+          "ticket": "NTC-0213"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-193.47.62.69",
+      "playbook": "apt_campaign",
+      "ip": "193.47.62.69",
+      "timestamp": "2026-09-01T10:49:39.722436",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:39.833480"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:39.834831",
+          "ticket": "NTC-0214"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-193.47.62.69",
+      "playbook": "apt_campaign",
+      "ip": "193.47.62.69",
+      "timestamp": "2026-09-01T10:49:43.007772",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:43.165324"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:43.169592",
+          "ticket": "NTC-0215"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-193.47.62.69",
+      "playbook": "apt_campaign",
+      "ip": "193.47.62.69",
+      "timestamp": "2026-09-01T10:49:45.566783",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:45.722168"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:45.726742",
+          "ticket": "NTC-0216"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-193.47.62.69",
+      "playbook": "apt_campaign",
+      "ip": "193.47.62.69",
+      "timestamp": "2026-09-01T10:49:47.122312",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:47.267614"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:49:47.269287",
+          "ticket": "NTC-0217"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-134.122.80.79",
+      "playbook": "apt_campaign",
+      "ip": "134.122.80.79",
+      "timestamp": "2026-09-01T10:50:45.965684",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:50:46.162851"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:50:46.166434",
+          "ticket": "NTC-0218"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-134.122.80.79",
+      "playbook": "apt_campaign",
+      "ip": "134.122.80.79",
+      "timestamp": "2026-09-01T10:50:47.569526",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:50:47.721869"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:50:47.725511",
+          "ticket": "NTC-0219"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-134.122.80.79",
+      "playbook": "apt_campaign",
+      "ip": "134.122.80.79",
+      "timestamp": "2026-09-01T10:50:49.371242",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:50:49.488166"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:50:49.490314",
+          "ticket": "NTC-0220"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-134.122.80.79",
+      "playbook": "apt_campaign",
+      "ip": "134.122.80.79",
+      "timestamp": "2026-09-01T10:50:50.669723",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:50:50.809430"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-01T10:50:50.810927",
+          "ticket": "NTC-0221"
+        }
+      ]
     }
   ]
 }
