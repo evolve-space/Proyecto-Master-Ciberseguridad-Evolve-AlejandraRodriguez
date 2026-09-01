@@ -20,6 +20,7 @@ IPS_WHITELIST = [
     "199.45.155.0/24"    # Censys
     "162.142.125.0/24",  # Shodan
     "198.20.69.0/24",    # Shodan
+    "71.6.134.232/29",   # Stretchoid
 ]
 
 def es_ip_whitelist(ip: str) -> bool:
@@ -1406,6 +1407,7 @@ elif pagina == "IPs Bloqueadas":
                     elif r.status_code == 200:
                         st.success(f"IP {ip_bloquear_manual} bloqueada correctamente — la tabla se actualizará en 30 segundos")
                         st.session_state.bloquear_counter = st.session_state.get("bloquear_counter", 0) + 1
+                        st.rerun()
                     else:
                         st.error(f"Error al bloquear: {r.text}")
                 except Exception as e:
@@ -3113,6 +3115,34 @@ elif pagina == "Análisis Forense":
                     </div>""", unsafe_allow_html=True)
         else:
             st.info("No se pudo obtener información de AbuseIPDB para esta IP.")
+
+        # ── Correlación de IPs — mismo atacante ───────────────────────────
+        if enriq and enriq.get("asn"):
+            asn_forense = enriq.get("asn", "")
+            datos_sur = cargar_suricata()
+            ips_correladas = []
+            for a in datos_sur.get("alertas", []):
+                ip_sur = a.get("src_ip", "")
+                if ip_sur and ip_sur != ip_forense and not es_ip_whitelist(ip_sur):
+                    enriq_sur = enriquecer_ip(ip_sur)
+                    if enriq_sur.get("asn") == asn_forense:
+                        ips_correladas.append(ip_sur)
+            ips_correladas = list(set(ips_correladas))
+            if ips_correladas:
+                st.markdown('<div class="section-header">IPs Relacionadas — Mismo Atacante</div>', unsafe_allow_html=True)
+                st.markdown(f"Se han detectado **{len(ips_correladas)} IPs adicionales** del mismo ASN `{asn_forense}` atacando el servidor:")
+                cols = st.columns(min(len(ips_correladas), 4))
+                for i, ip_rel in enumerate(ips_correladas[:4]):
+                    with cols[i]:
+                        abuse_rel = consultar_abuseipdb(ip_rel)
+                        color_rel = "#f85149" if abuse_rel.get("score",0) >= 80 else "#d29922" if abuse_rel.get("score",0) >= 40 else "#3fb950"
+                        st.markdown(f"""<div class="metric-card" style="border-top:3px solid {color_rel};">
+                            <p class="metric-label">{ip_rel}</p>
+                            <p style="font-size:0.9rem;font-weight:700;color:{color_rel};">AbuseIPDB {abuse_rel.get('score',0)}%</p>
+                        </div>""", unsafe_allow_html=True)
+                        if st.button(f"Investigar", key=f"corr_{ip_rel}", use_container_width=True):
+                            st.session_state.ip_forense_pivot = ip_rel
+                            st.rerun()
 
         # ── 5. Timeline forense ────────────────────────────────────────────
         st.markdown('<div class="section-header">Timeline Forense del Incidente</div>', unsafe_allow_html=True)

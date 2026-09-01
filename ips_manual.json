@@ -232,5 +232,233 @@
     "accion": "BLOQUEADA",
     "timestamp": "2026-08-31T16:59:58.320134",
     "origen": "manual"
+  },
+  {
+    "ip": "20.168.10.73",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:07:02.943773",
+    "origen": "manual"
+  },
+  {
+    "ip": "129.213.81.80",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:17.588782",
+    "origen": "manual"
+  },
+  {
+    "ip": "165.154.6.75",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:58.288668",
+    "origen": "manual"
+  },
+  {
+    "ip": "189.190.217.141",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:58.292937",
+    "origen": "manual"
+  },
+  {
+    "ip": "3.129.187.38",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:58.295326",
+    "origen": "manual"
+  },
+  {
+    "ip": "146.190.48.172",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:58.299238",
+    "origen": "manual"
+  },
+  {
+    "ip": "47.250.92.82",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:58.302034",
+    "origen": "manual"
+  },
+  {
+    "ip": "2.57.122.238",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:58.307507",
+    "origen": "manual"
+  },
+  {
+    "ip": "2.57.122.168",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.734327",
+    "origen": "manual"
+  },
+  {
+    "ip": "66.240.223.240",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.738463",
+    "origen": "manual"
+  },
+  {
+    "ip": "14.177.234.46",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.741310",
+    "origen": "manual"
+  },
+  {
+    "ip": "165.154.41.56",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.744988",
+    "origen": "manual"
+  },
+  {
+    "ip": "27.79.7.246",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.748972",
+    "origen": "manual"
+  },
+  {
+    "ip": "62.238.113.172",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.752803",
+    "origen": "manual"
+  },
+  {
+    "ip": "40.83.182.122",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.754779",
+    "origen": "manual"
+  },
+  {
+    "ip": "125.22.69.166",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.767625",
+    "origen": "manual"
+  },
+  {
+    "ip": "103.189.235.253",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.775055",
+    "origen": "manual"
+  },
+  {
+    "ip": "180.76.174.141",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.777883",
+    "origen": "manual"
+  },
+  {
+    "ip": "92.118.39.14",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.793116",
+    "origen": "manual"
+  },
+  {
+    "ip": "64.62.156.152",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.806606",
+    "origen": "manual"
+  },
+  {
+    "ip": "172.169.234.95",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.812454",
+    "origen": "manual"
+  },
+  {
+    "ip": "118.193.35.202",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.820471",
+    "origen": "manual"
+  },
+  {
+    "ip": "107.150.1.166",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.830509",
+    "origen": "manual"
+  },
+  {
+    "ip": "193.9.44.239",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.860431",
+    "origen": "manual"
+  },
+  {
+    "ip": "45.148.10.183",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.869682",
+    "origen": "manual"
+  },
+  {
+    "ip": "139.19.117.131",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.879902",
+    "origen": "manual"
+  },
+  {
+    "ip": "103.49.166.245",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.900566",
+    "origen": "manual"
+  },
+  {
+    "ip": "204.168.249.9",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.913875",
+    "origen": "manual"
+  },
+  {
+    "ip": "18.218.118.203",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.929767",
+    "origen": "manual"
+  },
+  {
+    "ip": "180.76.134.19",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.951171",
+    "origen": "manual"
+  },
+  {
+    "ip": "45.78.230.231",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.976236",
+    "origen": "manual"
+  },
+  {
+    "ip": "204.168.222.91",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:16:59.998462",
+    "origen": "manual"
+  },
+  {
+    "ip": "23.94.102.136",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:17:00.016466",
+    "origen": "manual"
+  },
+  {
+    "ip": "5.252.83.115",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:17:00.026533",
+    "origen": "manual"
+  },
+  {
+    "ip": "217.160.88.29",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:17:00.044394",
+    "origen": "manual"
+  },
+  {
+    "ip": "103.207.9.246",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:17:00.062509",
+    "origen": "manual"
+  },
+  {
+    "ip": "185.150.190.130",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:17:00.081628",
+    "origen": "manual"
+  },
+  {
+    "ip": "91.107.251.117",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-01T08:17:00.106859",
+    "origen": "manual"
   }
 ]
