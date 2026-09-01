@@ -5790,7 +5790,982 @@
       "creado_en": "2026-09-01T09:14:14.504787+00:00",
       "actualizado_en": "2026-09-01T09:14:14.504787+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0174",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.209.139.166",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 99.9% desde la IP 62.209.139.166. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 81% | País: UZ | ISP: IST TELEKOM JV LLC",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "62.209.139.166",
+      "fase_mitre": "execution",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 81,
+      "abuse_pais": "UZ",
+      "abuse_isp": "IST TELEKOM JV LLC",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T09:34:10.507290+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T09:34:10.507290+00:00",
+      "actualizado_en": "2026-09-01T09:34:10.507290+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0175",
+      "titulo": "Campaña APT detectada — CREDENTIAL_ACCESS desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase credential_access con confianza del 99.0% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "credential_access",
+      "confianza": 99.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T09:50:17.421139",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 195.178.110.30 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T09:49:41.925030+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T09:49:41.925030+00:00",
+      "actualizado_en": "2026-09-01T09:49:41.925030+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0176",
+      "titulo": "Campaña APT detectada — EXECUTION desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 99.8% desde la IP 195.178.110.30. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "execution",
+      "confianza": 99.8,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T09:50:52.732151",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 195.178.110.30 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T09:50:17.720556+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T09:50:17.720556+00:00",
+      "actualizado_en": "2026-09-01T09:50:17.720556+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0177",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.5% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "persistence",
+      "confianza": 99.5,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T09:52:59.269426",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 195.178.110.30 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T09:52:25.444734+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T09:52:25.444734+00:00",
+      "actualizado_en": "2026-09-01T09:52:25.444734+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0178",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.7% desde la IP 195.178.110.30. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "persistence",
+      "confianza": 99.7,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T09:53:34.110125",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 195.178.110.30 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T09:52:59.530861+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T09:52:59.530861+00:00",
+      "actualizado_en": "2026-09-01T09:52:59.530861+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0179",
+      "titulo": "Campaña APT detectada — EXECUTION desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 99.9% desde la IP 195.178.110.30. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "execution",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T09:54:09.429478",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 195.178.110.30 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T09:53:34.409805+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T09:53:34.409805+00:00",
+      "actualizado_en": "2026-09-01T09:53:34.409805+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0180",
+      "titulo": "Campaña APT detectada — EXECUTION desde 195.178.110.30",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 195.178.110.30. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "195.178.110.30",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T09:54:44.163880",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 195.178.110.30 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T09:54:09.713203+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T09:54:09.713203+00:00",
+      "actualizado_en": "2026-09-01T09:54:09.713203+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0181",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.151",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.151. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.151",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:03:05.996069",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.148.10.151 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:02:32.257104+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:02:32.257104+00:00",
+      "actualizado_en": "2026-09-01T10:02:32.257104+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0182",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.151",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.151. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.151",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:03:38.434730",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.148.10.151 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:03:07.082758+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:03:07.082758+00:00",
+      "actualizado_en": "2026-09-01T10:03:07.082758+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0183",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.151",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 99.8% desde la IP 45.148.10.151. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.151",
+      "fase_mitre": "execution",
+      "confianza": 99.8,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:04:11.753717",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.148.10.151 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:03:38.759235+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:03:38.759235+00:00",
+      "actualizado_en": "2026-09-01T10:03:38.759235+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0184",
+      "titulo": "Campaña APT detectada — PERSISTENCE desde 45.148.10.151",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 90.1% desde la IP 45.148.10.151. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "45.148.10.151",
+      "fase_mitre": "persistence",
+      "confianza": 90.1,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:04:46.476220",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.148.10.151 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:04:12.057438+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:04:12.057438+00:00",
+      "actualizado_en": "2026-09-01T10:04:12.057438+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0185",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.151",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.151. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.151",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:05:22.336940",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.148.10.151 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:04:46.800626+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:04:46.800626+00:00",
+      "actualizado_en": "2026-09-01T10:04:46.800626+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0186",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.60.130.253",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 62.60.130.253. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: LT | ISP: CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "62.60.130.253",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "LT",
+      "abuse_isp": "CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:09:34.382123",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 62.60.130.253 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:09:03.128367+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:09:03.128367+00:00",
+      "actualizado_en": "2026-09-01T10:09:03.128367+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0187",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.60.130.253",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 62.60.130.253. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: LT | ISP: CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "62.60.130.253",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "LT",
+      "abuse_isp": "CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:10:08.269107",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 62.60.130.253 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:09:34.608583+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:09:34.608583+00:00",
+      "actualizado_en": "2026-09-01T10:09:34.608583+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0188",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.60.130.253",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 62.60.130.253. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: LT | ISP: CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "62.60.130.253",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "LT",
+      "abuse_isp": "CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:10:08.566608+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:10:08.566608+00:00",
+      "actualizado_en": "2026-09-01T10:10:08.566608+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0189",
+      "titulo": "Campaña APT detectada — EXECUTION desde 23.94.28.185",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 23.94.28.185. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: HostPapa",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "23.94.28.185",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "HostPapa",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:15:48.807581",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 23.94.28.185 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:15:48.591459+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:15:48.591459+00:00",
+      "actualizado_en": "2026-09-01T10:15:48.591459+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0190",
+      "titulo": "Campaña APT detectada — EXECUTION desde 23.94.28.185",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 23.94.28.185. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: HostPapa",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "23.94.28.185",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "HostPapa",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:15:52.381845",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 23.94.28.185 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:15:52.214147+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:15:52.214147+00:00",
+      "actualizado_en": "2026-09-01T10:15:52.214147+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0191",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.60.130.242",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 62.60.130.242. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: LV | ISP: CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "62.60.130.242",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "LV",
+      "abuse_isp": "CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:19:21.301528",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 62.60.130.242 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:19:21.090021+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:19:21.090021+00:00",
+      "actualizado_en": "2026-09-01T10:19:21.090021+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0192",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.60.130.242",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 62.60.130.242. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: LV | ISP: CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "62.60.130.242",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "LV",
+      "abuse_isp": "CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:19:26.379552",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 62.60.130.242 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:19:26.204777+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:19:26.204777+00:00",
+      "actualizado_en": "2026-09-01T10:19:26.204777+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0193",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.60.130.242",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 62.60.130.242. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: LV | ISP: CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "62.60.130.242",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "LV",
+      "abuse_isp": "CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:19:30.576049",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 62.60.130.242 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:19:30.457036+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:19:30.457036+00:00",
+      "actualizado_en": "2026-09-01T10:19:30.457036+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0194",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.60.130.242",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 62.60.130.242. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: LV | ISP: CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "62.60.130.242",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "LV",
+      "abuse_isp": "CIPHER OPERATIONS DOO BEOGRAD - NOVI BEOGRAD",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:19:33.885928",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 62.60.130.242 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:19:33.742066+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:19:33.742066+00:00",
+      "actualizado_en": "2026-09-01T10:19:33.742066+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0195",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.157",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.157. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.157",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:24:29.327149",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.148.10.157 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:24:29.110574+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:24:29.110574+00:00",
+      "actualizado_en": "2026-09-01T10:24:29.110574+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0196",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.157",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.157. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.157",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:24:31.636866",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.148.10.157 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:24:31.445759+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:24:31.445759+00:00",
+      "actualizado_en": "2026-09-01T10:24:31.445759+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0197",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.157",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.157. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.157",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:24:34.998781",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.148.10.157 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:24:34.817163+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:24:34.817163+00:00",
+      "actualizado_en": "2026-09-01T10:24:34.817163+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0198",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.157",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.157. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.157",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-01T10:24:37.384343",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 45.148.10.157 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:24:37.211740+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:24:37.211740+00:00",
+      "actualizado_en": "2026-09-01T10:24:37.211740+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0199",
+      "titulo": "Escáner Zmap desde Microsoft Azure AS8075",
+      "descripcion": "\"IP bloqueada en Hetzner. Escáner Zmap confirmado desde Microsoft Azure (AS8075). AbuseIPDB 100%. Correlación detectada con IP 20.163.1.167 del mismo ASN atacando simultáneamente — ambas bloqueadas. Fase MITRE: initial_access (T1595 - Active Scanning).\"",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "20.163.1.167",
+      "fase_mitre": "initial_access",
+      "confianza": 0.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:28:33.924050+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-01T10:30:48.439661+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:28:33.924050+00:00",
+      "actualizado_en": "2026-09-01T10:30:48.439661+00:00",
+      "resuelto_en": "2026-09-01T10:30:48.439661+00:00"
+    },
+    {
+      "id": "NTC-0200",
+      "titulo": "Escáner Zmap desde Microsoft Azure AS8075",
+      "descripcion": "\"IP bloqueada en Hetzner. Escáner Zmap confirmado desde Microsoft Azure (AS8075). AbuseIPDB 100%. Correlación detectada con IP 20.163.1.167 del mismo ASN atacando simultáneamente — ambas bloqueadas. Fase MITRE: initial_access (T1595 - Active Scanning).\"",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "20.163.1.167",
+      "fase_mitre": "initial_access",
+      "confianza": 0.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:28:37.308083+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-01T10:30:34.223147+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:28:37.308083+00:00",
+      "actualizado_en": "2026-09-01T10:30:34.223147+00:00",
+      "resuelto_en": "2026-09-01T10:30:34.223147+00:00"
+    },
+    {
+      "id": "NTC-0201",
+      "titulo": "Escáner Zmap desde Microsoft Azure AS8075",
+      "descripcion": "\"IP bloqueada en Hetzner. Escáner Zmap confirmado desde Microsoft Azure (AS8075). AbuseIPDB 100%. Correlación detectada con IP 20.163.1.167 del mismo ASN atacando simultáneamente — ambas bloqueadas. Fase MITRE: initial_access (T1595 - Active Scanning).\"",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "20.163.1.167",
+      "fase_mitre": "initial_access",
+      "confianza": 0.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:28:44.212024+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-01T10:30:28.490314+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:28:44.212024+00:00",
+      "actualizado_en": "2026-09-01T10:30:28.490314+00:00",
+      "resuelto_en": "2026-09-01T10:30:28.490314+00:00"
+    },
+    {
+      "id": "NTC-0202",
+      "titulo": "Escáner Zmap desde Microsoft Azure AS8075",
+      "descripcion": "\"IP bloqueada en Hetzner. Escáner Zmap confirmado desde Microsoft Azure (AS8075). AbuseIPDB 100%. Correlación detectada con IP 20.163.1.167 del mismo ASN atacando simultáneamente — ambas bloqueadas. Fase MITRE: initial_access (T1595 - Active Scanning).\"",
+      "estado": "Cerrado",
+      "prioridad": "ALTA",
+      "ip": "20.163.1.167",
+      "fase_mitre": "initial_access",
+      "confianza": 0.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:28:45.876839+00:00",
+          "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-01T10:30:22.232057+00:00",
+          "nota": "Estado cambiado a Cerrado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:28:45.876839+00:00",
+      "actualizado_en": "2026-09-01T10:30:22.232057+00:00",
+      "resuelto_en": "2026-09-01T10:30:22.232057+00:00"
+    },
+    {
+      "id": "NTC-0203",
+      "titulo": "Ticket de prueba creado manualmente",
+      "descripcion": "Comprobación de código",
+      "estado": "Abierto",
+      "prioridad": "BAJA",
+      "ip": "",
+      "fase_mitre": "initial_access",
+      "confianza": 0.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-01T10:39:52.922192+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-01T10:39:52.922192+00:00",
+      "actualizado_en": "2026-09-01T10:39:52.922192+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 173
+  "contador": 203
 }

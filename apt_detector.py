@@ -362,12 +362,25 @@ class DetectorAPT:
                                     if t.get("ip") == ip and t.get("estado") == "Abierto":
                                         ticket_id_nuevo = t.get("id", "")
                                         break
-                                req.post(
-                                    "http://localhost:8000/playbooks/ejecutar",
-                                    headers={"X-API-Key": "noctua-2026-secure-key"},
-                                    json={"playbook": "apt_campaign", "ip": ip, "ticket_id": ticket_id_nuevo},
-                                    timeout=30
-                                )
+                                import sys
+                                sys.path.insert(0, '/root/asoar')
+                                from main import bloquear_ip_hetzner, actualizar_ticket_por_ip, cargar_playbooks, guardar_playbooks
+                                from datetime import datetime as dt
+                                ejecucion_pb = {
+                                    "id": f"PB-AUTO-{ip}",
+                                    "playbook": "apt_campaign",
+                                    "ip": ip,
+                                    "timestamp": dt.now().isoformat(),
+                                    "estado": "EJECUTANDO",
+                                    "acciones": []
+                                }
+                                bloquear_ip_hetzner(ip)
+                                ejecucion_pb["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": dt.now().isoformat()})
+                                actualizar_ticket_por_ip(ip, "apt_campaign", ejecucion_pb)
+                                ejecucion_pb["estado"] = "COMPLETADO"
+                                pb_data = cargar_playbooks()
+                                pb_data["ejecuciones"].append(ejecucion_pb)
+                                guardar_playbooks(pb_data)
                                 print(f"[PLAYBOOK] Playbook apt_campaign lanzado automáticamente para {ip}")
                             except Exception as ep:
                                 print(f"[PLAYBOOK] Error lanzando playbook: {ep}")
