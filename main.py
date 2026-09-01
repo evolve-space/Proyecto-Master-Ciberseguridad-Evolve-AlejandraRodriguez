@@ -264,7 +264,7 @@ def bloquear_ip_hetzner(ip: str):
         tickets_activos = [t for t in data.get("tickets", [])
                           if t.get("ip") == ip
                           and t.get("estado") in ["Abierto", "Investigando"]
-                          and (datetime.now() - datetime.fromisoformat(t["creado_en"])).seconds < 7200]
+                          and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).seconds < 7200]
         if not ip_esta_bloqueada(ip) and not tickets_activos:
             crear_ticket(
                 titulo=f"IP bloqueada automáticamente — {ip}",
@@ -383,7 +383,7 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
             tickets_activos = [t for t in data.get("tickets", [])
                               if t.get("ip") == ip_atacante
                               and t.get("estado") in ["Abierto", "Investigando"]
-                              and (datetime.now() - datetime.fromisoformat(t["creado_en"])).seconds < 7200]
+                              and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).seconds < 7200]
             if not ip_esta_bloqueada(ip) and not tickets_activos:
                 crear_ticket(
                     titulo=f"Alerta crítica Wazuh — Nivel {nivel} desde {ip_atacante}",
@@ -398,6 +398,23 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
                 print(f"[TICKET] Ticket crítico creado para IP {ip_atacante} nivel {nivel}")
         except Exception as e:
             print(f"[TICKET] Error creando ticket critico: {e}")
+
+    # Trigger automatico playbook SSH Brute Force
+    if nivel >= 10 and ip_atacante and ip_atacante not in ["", "desconocida", "127.0.0.1", "0.0.0.0"]:
+        if any(kw in descripcion.lower() for kw in ["ssh", "brute", "authentication failed", "login failed"]):
+            try:
+                abuse = consultar_abuseipdb(ip_atacante)
+                if abuse.get("score", 0) >= 90 and not ip_esta_bloqueada(ip_atacante):
+                    import requests as req
+                    req.post(
+                        "http://localhost:8000/playbooks/ejecutar",
+                        headers={"X-API-Key": API_KEY},
+                        json={"playbook": "ssh_brute_force", "ip": ip_atacante},
+                        timeout=30
+                    )
+                    print(f"[PLAYBOOK] SSH Brute Force lanzado automáticamente para {ip_atacante}")
+            except Exception as ep:
+                print(f"[PLAYBOOK] Error SSH brute force: {ep}")
 
     # En modo simulacion saltamos Ollama para mayor velocidad
     if alerta.simulacion and nivel >= 10:
@@ -421,7 +438,22 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
                 return {"accion": "BLOQUEADA", "ip": ip_atacante, "decision": decision, "apt": apt_resultado, "xai": xai_resultado, "lateral": lateral_resultado}
             else:
                 print(f"[OLLAMA] Bloqueo cancelado para {ip_atacante} — AbuseIPDB {abuse.get('score',0)}% < 50%")
-
+    # Trigger automatico playbook Port Scan
+    if ip_atacante and ip_atacante not in ["", "desconocida", "127.0.0.1", "0.0.0.0"] and not es_ip_whitelist_main(ip_atacante):
+        if any(kw in descripcion.lower() for kw in ["scan", "port scan", "nmap", "zmap"]):
+            try:
+                abuse = consultar_abuseipdb(ip_atacante)
+                if abuse.get("score", 0) >= 90 and not ip_esta_bloqueada(ip_atacante):
+                    import requests as req
+                    req.post(
+                        "http://localhost:8000/playbooks/ejecutar",
+                        headers={"X-API-Key": API_KEY},
+                        json={"playbook": "port_scan", "ip": ip_atacante},
+                        timeout=30
+                    )
+                    print(f"[PLAYBOOK] Port Scan lanzado automáticamente para {ip_atacante}")
+            except Exception as ep:
+                print(f"[PLAYBOOK] Error Port Scan: {ep}")
     return {"accion": "IGNORADA", "nivel": nivel, "descripcion": descripcion, "apt": apt_resultado, "xai": xai_resultado, "lateral": lateral_resultado}
 
 @app.post("/agente")
