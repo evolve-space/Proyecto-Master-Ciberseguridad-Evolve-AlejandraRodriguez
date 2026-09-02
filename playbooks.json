@@ -1494,6 +1494,34 @@
           "ticket": "NTC-0447"
         }
       ]
+    },
+    {
+      "id": "PB-AUTO-92.118.39.77",
+      "playbook": "ip_maliciosa",
+      "ip": "92.118.39.77",
+      "timestamp": "2026-09-02T20:19:00.734017",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-02T20:19:00.931283"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-02T20:19:00.935025",
+          "ticket": "NTC-0457"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "",
+        "isp": ""
+      }
     }
   ]
 }

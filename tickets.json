@@ -15094,7 +15094,68 @@
       "creado_en": "2026-09-02T20:03:18.828627+00:00",
       "actualizado_en": "2026-09-02T20:03:18.828627+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0457",
+      "titulo": "Campaña APT detectada — EXECUTION desde 92.118.39.77",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 92.118.39.77. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "92.118.39.77",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-02T20:19:00.935017",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 92.118.39.77 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T20:19:00.715670+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T20:19:00.715670+00:00",
+      "actualizado_en": "2026-09-02T20:19:00.715670+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0458",
+      "titulo": "Campaña APT detectada — EXECUTION desde 92.118.39.77",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 92.118.39.77. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "92.118.39.77",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T20:19:05.744095+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T20:19:05.744095+00:00",
+      "actualizado_en": "2026-09-02T20:19:05.744095+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 456
+  "contador": 458
 }

@@ -1591,11 +1591,20 @@ elif pagina == "Playbooks":
             for pb in reversed(historial[-10:]):
                 color = "#3fb950" if pb.get("estado") == "COMPLETADO" else "#f85149" if pb.get("estado") == "ERROR" else "#d29922"
                 with st.expander(f"{pb['id']} — {pb['playbook'].upper()} | {pb['ip']} | {pb['estado']}"):
-                    st.markdown(f"""
-                    <div style="background:#161b22;padding:12px;border-radius:8px;border-left:4px solid {color};">
-                        <p style="color:#8b949e;font-size:0.8rem">{pb['timestamp'][:16].replace('T',' ')}</p>
-                        <p style="color:#c9d1d9;font-size:0.9rem">Playbook: <strong>{pb['playbook']}</strong> | IP: <strong>{pb['ip']}</strong></p>
-                    </div>""", unsafe_allow_html=True)
+                    ctx = pb.get("contexto", {})
+                    narrativa = ctx.get("narrativa", "")
+                    if narrativa:
+                        st.markdown(f"""
+                        <div style="background:#0d1117;padding:12px;border-radius:8px;border-left:4px solid {color};margin-bottom:8px;">
+                            <p style="color:#c9d1d9;font-size:0.9rem;margin:0">{narrativa}</p>
+                        </div>""", unsafe_allow_html=True)
+                    else:
+                        st.markdown(f"""
+                        <div style="background:#161b22;padding:12px;border-radius:8px;border-left:4px solid {color};">
+                            <p style="color:#8b949e;font-size:0.8rem">{pb['timestamp'][:16].replace('T',' ')}</p>
+                            <p style="color:#c9d1d9;font-size:0.9rem">Playbook: <strong>{pb['playbook']}</strong> | IP: <strong>{pb['ip']}</strong></p>
+                            {f"<p style='color:#8b949e;font-size:0.85rem'>Fase: {ctx.get('fase_mitre','—').upper()} | Confianza: {ctx.get('confianza','—')}% | AbuseIPDB: {ctx.get('abuse_score','—')}% | País: {ctx.get('pais','—')} | ISP: {ctx.get('isp','—')}</p>" if ctx else ""}
+                        </div>""", unsafe_allow_html=True)
                     if pb.get("acciones"):
                         for accion in pb["acciones"]:
                             color_a = "#3fb950" if accion.get("estado") == "OK" else "#f85149"
@@ -3906,6 +3915,15 @@ elif pagina == "Gestión de Incidentes":
                             "abuse_score": abuse.get("score", 0),
                             "abuse_pais":  abuse.get("pais", ""),
                             "abuse_isp":   abuse.get("isp", ""),
+                            "narrativa": (
+                                f"El motor LSTM detectó actividad maliciosa en fase {fase.upper()} "
+                                f"desde la IP {ip} ({abuse_isp}, {abuse_pais}) "
+                                f"con una confianza del {confianza}% y nivel de riesgo {nivel_riesgo}. "
+                                f"La reputación AbuseIPDB confirma actividad maliciosa con un score del {abuse_score_detector}%. "
+                                f"El sistema activó automáticamente el Playbook IP Maliciosa: "
+                                f"la IP fue bloqueada en el firewall Hetzner Cloud "
+                                f"sin intervención del analista."
+                            ),                            
                         }, timeout=5)
                     nuevo = r.json()
                     st.success(f"Ticket {nuevo['id']} creado correctamente — ve a la pestaña 'Tickets' para verlo")
