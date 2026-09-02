@@ -264,7 +264,7 @@ def bloquear_ip_hetzner(ip: str):
         tickets_activos = [t for t in data.get("tickets", [])
                           if t.get("ip") == ip
                           and t.get("estado") in ["Abierto", "Investigando"]
-                          and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).seconds < 7200]
+                          and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).total_seconds() < 7200]
         if not ip_esta_bloqueada(ip) and not tickets_activos:
             crear_ticket(
                 titulo=f"IP bloqueada automáticamente — {ip}",
@@ -383,7 +383,7 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
             tickets_activos = [t for t in data.get("tickets", [])
                               if t.get("ip") == ip_atacante
                               and t.get("estado") in ["Abierto", "Investigando"]
-                              and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).seconds < 7200]
+                              and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).total_seconds() < 7200]
             if not ip_esta_bloqueada(ip) and not tickets_activos:
                 crear_ticket(
                     titulo=f"Alerta crítica Wazuh — Nivel {nivel} desde {ip_atacante}",
