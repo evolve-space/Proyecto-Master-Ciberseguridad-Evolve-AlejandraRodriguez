@@ -149,7 +149,7 @@ def guardar_ips_bloqueadas_cache(ips: set):
     with open(BLOCKED_IPS_FILE, "w") as f:
         json.dump(list(ips), f, indent=2)
 
-
+@st.cache_data(ttl=86400)
 def consultar_abuseipdb(ip: str) -> dict:
     """Consulta AbuseIPDB con caché persistente de 24 horas."""
     try:
