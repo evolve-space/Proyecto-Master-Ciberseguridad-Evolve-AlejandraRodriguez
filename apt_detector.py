@@ -314,7 +314,7 @@ class DetectorAPT:
                     tickets_activos = [t for t in data.get("tickets", [])
                                       if t.get("ip") == ip
                                       and t.get("estado") in ["Abierto", "Investigando"]
-                                      and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).seconds < 7200]
+                                      and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).total_seconds() < 7200]
                     abuse_score_detector = alerta.get("abuse_score", 0)
                     if not tickets_activos and abuse_score_detector >= 50:
                         # Enriquecer con AbuseIPDB
