@@ -352,36 +352,39 @@ class DetectorAPT:
                             abuse_isp=abuse_isp
                         )
                         print(f"[TICKET] Ticket SOC creado para IP {ip}")
-                        # Lanzar playbook automáticamente si AbuseIPDB >= 90%
+                        # Lanzar playbook automaticamente si AbuseIPDB >= 90%
                         if abuse_score_detector >= 90:
                             try:
-                                import requests as req
-                                ticket_creado = _cargar()
-                                ticket_id_nuevo = ""
-                                for t in ticket_creado.get("tickets", []):
-                                    if t.get("ip") == ip and t.get("estado") == "Abierto":
-                                        ticket_id_nuevo = t.get("id", "")
-                                        break
-                                import sys
-                                sys.path.insert(0, '/root/asoar')
-                                from main import bloquear_ip_hetzner, actualizar_ticket_por_ip, cargar_playbooks, guardar_playbooks
-                                from datetime import datetime as dt
-                                ejecucion_pb = {
-                                    "id": f"PB-AUTO-{ip}",
-                                    "playbook": "apt_campaign",
-                                    "ip": ip,
-                                    "timestamp": dt.now().isoformat(),
-                                    "estado": "EJECUTANDO",
-                                    "acciones": []
-                                }
-                                bloquear_ip_hetzner(ip)
-                                ejecucion_pb["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": dt.now().isoformat()})
-                                actualizar_ticket_por_ip(ip, "apt_campaign", ejecucion_pb)
-                                ejecucion_pb["estado"] = "COMPLETADO"
-                                pb_data = cargar_playbooks()
-                                pb_data["ejecuciones"].append(ejecucion_pb)
-                                guardar_playbooks(pb_data)
-                                print(f"[PLAYBOOK] Playbook apt_campaign lanzado automáticamente para {ip}")
+                                cache_file = "/root/asoar/blocked_ips_cache.json"
+                                import json as _json
+                                try:
+                                    with open(cache_file) as _f:
+                                        _cache = set(_json.load(_f))
+                                except:
+                                    _cache = set()
+                                if ip in _cache:
+                                    print(f"[PLAYBOOK] IP {ip} ya bloqueada en cache — omitiendo playbook")
+                                else:
+                                    import sys
+                                    sys.path.insert(0, '/root/asoar')
+                                    from main import bloquear_ip_hetzner, actualizar_ticket_por_ip, cargar_playbooks, guardar_playbooks
+                                    from datetime import datetime as dt
+                                    ejecucion_pb = {
+                                        "id": f"PB-AUTO-{ip}",
+                                        "playbook": "apt_campaign",
+                                        "ip": ip,
+                                        "timestamp": dt.now().isoformat(),
+                                        "estado": "EJECUTANDO",
+                                        "acciones": []
+                                    }
+                                    bloquear_ip_hetzner(ip)
+                                    ejecucion_pb["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": dt.now().isoformat()})
+                                    actualizar_ticket_por_ip(ip, "apt_campaign", ejecucion_pb)
+                                    ejecucion_pb["estado"] = "COMPLETADO"
+                                    pb_data = cargar_playbooks()
+                                    pb_data["ejecuciones"].append(ejecucion_pb)
+                                    guardar_playbooks(pb_data)
+                                    print(f"[PLAYBOOK] Playbook apt_campaign lanzado automaticamente para {ip}")
                             except Exception as ep:
                                 print(f"[PLAYBOOK] Error lanzando playbook: {ep}")
                     else:
