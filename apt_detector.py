@@ -371,20 +371,28 @@ class DetectorAPT:
                                     from datetime import datetime as dt
                                     ejecucion_pb = {
                                         "id": f"PB-AUTO-{ip}",
-                                        "playbook": "apt_campaign",
+                                        "playbook": "ip_maliciosa",
                                         "ip": ip,
                                         "timestamp": dt.now().isoformat(),
                                         "estado": "EJECUTANDO",
-                                        "acciones": []
+                                        "acciones": [],
+                                        "contexto": {
+                                            "fase_mitre": fase,
+                                            "confianza": confianza,
+                                            "nivel_riesgo": nivel_riesgo,
+                                            "abuse_score": abuse_score_detector,
+                                            "pais": abuse_pais,
+                                            "isp": abuse_isp,
+                                        }
                                     }
                                     bloquear_ip_hetzner(ip)
                                     ejecucion_pb["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": dt.now().isoformat()})
-                                    actualizar_ticket_por_ip(ip, "apt_campaign", ejecucion_pb)
+                                    actualizar_ticket_por_ip(ip, "ip_maliciosa", ejecucion_pb)
                                     ejecucion_pb["estado"] = "COMPLETADO"
                                     pb_data = cargar_playbooks()
                                     pb_data["ejecuciones"].append(ejecucion_pb)
                                     guardar_playbooks(pb_data)
-                                    print(f"[PLAYBOOK] Playbook apt_campaign lanzado automaticamente para {ip}")
+                                    print(f"[PLAYBOOK] Playbook ip_maliciosa lanzado automaticamente para {ip}")
                             except Exception as ep:
                                 print(f"[PLAYBOOK] Error lanzando playbook: {ep}")
                     else:

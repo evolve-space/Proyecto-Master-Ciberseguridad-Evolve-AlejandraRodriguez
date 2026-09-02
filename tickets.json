@@ -14809,7 +14809,292 @@
       "creado_en": "2026-09-02T18:24:45.083784+00:00",
       "actualizado_en": "2026-09-02T18:24:45.083784+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0447",
+      "titulo": "Campaña APT detectada — EXECUTION desde 139.19.117.131",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 139.19.117.131. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "139.19.117.131",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-02T18:51:11.064398",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 139.19.117.131 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T18:51:10.838816+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T18:51:10.838816+00:00",
+      "actualizado_en": "2026-09-02T18:51:10.838816+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0448",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.60.130.253",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 99.9% desde la IP 62.60.130.253. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "62.60.130.253",
+      "fase_mitre": "execution",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T19:08:09.569875+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T19:08:09.569875+00:00",
+      "actualizado_en": "2026-09-02T19:08:09.569875+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0449",
+      "titulo": "Campaña APT detectada — EXECUTION desde 110.173.190.221",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 99.7% desde la IP 110.173.190.221. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "110.173.190.221",
+      "fase_mitre": "execution",
+      "confianza": 99.7,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T19:13:15.191532+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T19:13:15.191532+00:00",
+      "actualizado_en": "2026-09-02T19:13:15.191532+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0450",
+      "titulo": "Campaña APT detectada — EXECUTION desde 193.47.62.69",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 193.47.62.69. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "193.47.62.69",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T19:13:21.363737+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T19:13:21.363737+00:00",
+      "actualizado_en": "2026-09-02T19:13:21.363737+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0451",
+      "titulo": "Campaña APT detectada — EXECUTION desde 62.60.130.242",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 62.60.130.242. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "62.60.130.242",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T19:18:28.655706+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T19:18:28.655706+00:00",
+      "actualizado_en": "2026-09-02T19:18:28.655706+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0452",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.151",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.151. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.151",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T19:43:30.462795+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T19:43:30.462795+00:00",
+      "actualizado_en": "2026-09-02T19:43:30.462795+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0453",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.141",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.141. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.141",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T19:48:25.308345+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T19:48:25.308345+00:00",
+      "actualizado_en": "2026-09-02T19:48:25.308345+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0454",
+      "titulo": "Campaña APT detectada — EXECUTION desde 139.19.117.131",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 97.7% desde la IP 139.19.117.131. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "139.19.117.131",
+      "fase_mitre": "execution",
+      "confianza": 97.7,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T19:51:08.060191+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T19:51:08.060191+00:00",
+      "actualizado_en": "2026-09-02T19:51:08.060191+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0455",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.152",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.152. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.152",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T19:53:18.500720+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T19:53:18.500720+00:00",
+      "actualizado_en": "2026-09-02T19:53:18.500720+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0456",
+      "titulo": "Campaña APT detectada — EXECUTION desde 45.148.10.157",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 45.148.10.157. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "45.148.10.157",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T20:03:18.828627+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T20:03:18.828627+00:00",
+      "actualizado_en": "2026-09-02T20:03:18.828627+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 446
+  "contador": 456
 }
