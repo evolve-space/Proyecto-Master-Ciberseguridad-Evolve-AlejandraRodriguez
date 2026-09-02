@@ -3563,7 +3563,7 @@ elif pagina == "Threat Hunting":
                     if ip and puerto and not es_ip_whitelist(ip):
                         ip_puertos[ip].add(puerto)
                 rows = [{"IP": ip, "Puertos Distintos": len(puertos), "Puertos": ", ".join(str(p) for p in list(puertos)[:5])}
-                        for ip, puertos in ip_puertos.items() if len(puertos) >= 3]
+                        for ip, puertos in ip_puertos.items() if len(puertos) >= 2]
                 rows.sort(key=lambda x: x["Puertos Distintos"], reverse=True)
                 if rows:
                     tabla_oscura(pd.DataFrame(rows[:20]), hide_index=True)
@@ -3626,7 +3626,7 @@ elif pagina == "Threat Hunting":
                 from collections import Counter
                 conteo = Counter(a.get("src_ip","") for a in alertas_sur if a.get("src_ip") and not es_ip_whitelist(a.get("src_ip","")))
                 rows = [{"IP": ip, "Alertas": n, "Bloqueada": "Sí" if ip in ips_bloq else "No"}
-                        for ip, n in conteo.most_common(20) if n >= 100]
+                        for ip, n in conteo.most_common(20) if n >= 5]
                 if rows:
                     tabla_oscura(pd.DataFrame(rows), hide_index=True)
                 else:
@@ -4059,6 +4059,8 @@ elif pagina == "Tráfico de Red":
                 fig.update_xaxes(color="#8b949e", gridcolor="#21262d")
                 fig.update_yaxes(color="#c9d1d9")
                 st.plotly_chart(fig, use_container_width=True)
+            else: 
+                st.info("No hay IPs atacantes activas actualmente.")
 
         with col2:
             st.markdown('<div class="section-header">Top Firmas Detectadas</div>', unsafe_allow_html=True)
