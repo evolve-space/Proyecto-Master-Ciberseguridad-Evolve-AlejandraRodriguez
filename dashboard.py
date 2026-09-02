@@ -1010,8 +1010,8 @@ with st.sidebar:
         st.session_state.pagina = "Panel General"
     # Obtener tickets abiertos para badge
     try:
-        tickets_abiertos = len([t for t in requests.get("http://localhost:8000/tickets", headers=HEADERS, timeout=2).json() 
-                               if t.get("estado") in ["Abierto", "Investigando"]])
+        tickets_abiertos = len(requests.get("http://localhost:8000/tickets", headers=HEADERS, params={"estado": "Abierto"}, timeout=2).json())
+        tickets_abiertos += len(requests.get("http://localhost:8000/tickets", headers=HEADERS, params={"estado": "Investigando"}, timeout=2).json())
     except:
         tickets_abiertos = 0
 

@@ -75,14 +75,14 @@ def crear_ticket(
     _guardar(data)
     return ticket
 
-def listar_tickets(estado: str = None, prioridad: str = None, limit: int = 100) -> list:
+def listar_tickets(estado: str = None, prioridad: str = None, limit: int = 500) -> list:
     data = _cargar()
     tickets = data["tickets"]
     if estado:
         tickets = [t for t in tickets if t["estado"] == estado]
     if prioridad:
         tickets = [t for t in tickets if t["prioridad"] == prioridad]
-    return sorted(tickets, key=lambda x: x["creado_en"], reverse=True)[:limit]
+    return sorted(tickets, key=lambda x: x["creado_en"], reverse=True)
 
 def obtener_ticket(ticket_id: str) -> Optional[dict]:
     data = _cargar()
