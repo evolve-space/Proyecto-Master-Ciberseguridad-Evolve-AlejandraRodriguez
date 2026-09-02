@@ -1542,8 +1542,8 @@ elif pagina == "Playbooks":
     with col2:
         st.markdown("""
         <div class="metric-card" style="border-top:3px solid #d29922;">
-            <p class="metric-label">APT Campaign</p>
-            <p style="font-size:0.85rem;color:#c9d1d9;margin:8px 0">Responde ante campañas APT detectadas por el LSTM con AbuseIPDB >= 80%.</p>
+            <p class="metric-label">IP Maliciosa</p>
+            <p style="font-size:0.85rem;color:#c9d1d9;margin:8px 0">Responde ante IPs maliciosas confirmadas, detectadas por el LSTM con AbuseIPDB >= 80%.</p>
             <p style="font-size:0.75rem;color:#8b949e;">Trigger: LSTM + AbuseIPDB>=80%<br>Acciones: Bloquear Hetzner + Ticket</p>
         </div>""", unsafe_allow_html=True)
     with col3:
@@ -1560,7 +1560,7 @@ elif pagina == "Playbooks":
     st.markdown('<div class="section-header">Ejecutar Playbook Manual</div>', unsafe_allow_html=True)
     col1, col2, col3 = st.columns([2, 2, 1])
     with col1:
-        pb_tipo = st.selectbox("Playbook", ["ssh_brute_force", "apt_campaign", "port_scan"])
+        pb_tipo = st.selectbox("Playbook", ["ssh_brute_force", "ip_maliciosa", "port_scan"])
     with col2:
         pb_ip = st.text_input("IP objetivo", placeholder="Ej: 49.248.197.50")
     with col3:
@@ -1587,6 +1587,7 @@ elif pagina == "Playbooks":
     try:
         historial = requests.get("http://localhost:8000/playbooks/historial", headers=HEADERS, timeout=5).json()
         if historial:
+            st.markdown(f"**{len(historial)} playbooks ejecutados en total**")
             for pb in reversed(historial[-10:]):
                 color = "#3fb950" if pb.get("estado") == "COMPLETADO" else "#f85149" if pb.get("estado") == "ERROR" else "#d29922"
                 with st.expander(f"{pb['id']} — {pb['playbook'].upper()} | {pb['ip']} | {pb['estado']}"):
@@ -1604,6 +1605,11 @@ elif pagina == "Playbooks":
                                 <span style="color:{color_a};font-weight:600">{accion['accion']}</span>
                                 <span style="color:#8b949e;font-size:0.8rem;margin-left:8px">{accion['timestamp'][11:19]}</span>
                             </div>""", unsafe_allow_html=True)
+            if len(historial) > 10:
+                with st.expander(f"Ver historial completo ({len(historial)} ejecuciones)"):
+                    for pb in reversed(historial):
+                        color = "#3fb950" if pb.get("estado") == "COMPLETADO" else "#f85149"
+                        st.markdown(f"**{pb['id']}** — {pb['playbook'].upper()} | {pb['ip']} | {pb['timestamp'][:16].replace('T',' ')} | <span style='color:{color}'>{pb['estado']}</span>", unsafe_allow_html=True)
         else:
             st.info("No hay ejecuciones de playbooks todavía.")
     except Exception as e:

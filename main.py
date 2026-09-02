@@ -149,7 +149,7 @@ def guardar_ips_bloqueadas_cache(ips: set):
     with open(BLOCKED_IPS_FILE, "w") as f:
         json.dump(list(ips), f, indent=2)
 
-@st.cache_data(ttl=86400)
+
 def consultar_abuseipdb(ip: str) -> dict:
     """Consulta AbuseIPDB con caché persistente de 24 horas."""
     try:
@@ -781,7 +781,7 @@ async def ejecutar_playbook(request: Request, api_key: str = Depends(verificar_a
             actualizar_ticket_por_ip(ip, playbook, ejecucion)
             ejecucion["estado"] = "COMPLETADO"
 
-        elif playbook == "apt_campaign":
+        elif playbook == "ip_maliciosa":
             bloquear_ip_hetzner(ip)
             ejecucion["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": datetime.now().isoformat()})
             actualizar_ticket_por_ip(ip, playbook, ejecucion)
@@ -804,7 +804,7 @@ async def ejecutar_playbook(request: Request, api_key: str = Depends(verificar_a
 @app.get("/playbooks/historial")
 async def historial_playbooks(api_key: str = Depends(verificar_api_key)):
     data = cargar_playbooks()
-    return data["ejecuciones"][-50:]
+    return data["ejecuciones"]
 
 
 # ── TICKETS ───────────────────────────────────────────────────────────────────
