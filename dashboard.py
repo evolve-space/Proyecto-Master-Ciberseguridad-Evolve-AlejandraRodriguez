@@ -937,6 +937,7 @@ def cargar_suricata():
     except Exception as e:
         return {"alertas": [], "flows": []}
 
+@st.cache_data(ttl=86400)
 def consultar_abuseipdb(ip: str) -> dict:
     """Consulta la reputacion de una IP en AbuseIPDB."""
     if not ABUSEIPDB_API_KEY or ip in ["0.0.0.0", "127.0.0.1", ""]:
@@ -963,7 +964,7 @@ def consultar_abuseipdb(ip: str) -> dict:
         pass
     return {}
 
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=86400)
 def enriquecer_ip(ip: str) -> dict:
     """Obtiene ASN, dominio inverso y geolocalización de una IP via ip-api.com."""
     if ip in ["0.0.0.0", "127.0.0.1", "", "91.98.126.215"]:
@@ -1490,6 +1491,7 @@ elif pagina == "IPs Bloqueadas":
                     if resp.get("status") == "ya_bloqueada":
                         st.warning(f"La IP {ip_bloquear_manual} ya está bloqueada.")
                         st.session_state.bloquear_counter = st.session_state.get("bloquear_counter", 0) + 1
+                        st.rerun()
                     elif r.status_code == 200:
                         st.success(f"IP {ip_bloquear_manual} bloqueada correctamente — la tabla se actualizará en 30 segundos")
                         st.session_state.bloquear_counter = st.session_state.get("bloquear_counter", 0) + 1

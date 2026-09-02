@@ -5673,7 +5673,7 @@
       "id": "NTC-0170",
       "titulo": "Campaña APT detectada — INITIAL_ACCESS desde 40.124.178.3",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase initial_access con confianza del 99.5% desde la IP 40.124.178.3. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: Microsoft Corporation",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "40.124.178.3",
       "fase_mitre": "initial_access",
@@ -5691,11 +5691,16 @@
           "estado": "Abierto",
           "timestamp": "2026-09-01T08:27:19.330767+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-02T18:00:21.508990+00:00",
+          "nota": "Estado cambiado a Cerrado"
         }
       ],
       "creado_en": "2026-09-01T08:27:19.330767+00:00",
-      "actualizado_en": "2026-09-01T08:27:19.330767+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-09-02T18:00:21.508990+00:00",
+      "resuelto_en": "2026-09-02T18:00:21.508990+00:00"
     },
     {
       "id": "NTC-0171",
@@ -8671,7 +8676,7 @@
       "id": "NTC-0261",
       "titulo": "Campaña APT detectada — PERSISTENCE desde 1.83.125.172",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase persistence con confianza del 99.9% desde la IP 1.83.125.172. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 64% | País: CN | ISP: CHINANET SHAANXI PROVINCE NETWORK",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "1.83.125.172",
       "fase_mitre": "persistence",
@@ -8689,11 +8694,16 @@
           "estado": "Abierto",
           "timestamp": "2026-09-02T03:44:33.402547+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-02T18:05:40.973542+00:00",
+          "nota": "Sin datos AbuseIPDB disponibles. IP China (Chinanet, Xincheng). Sin actividad reciente en Suricata ni Wazuh. Pendiente de monitorización."
         }
       ],
       "creado_en": "2026-09-02T03:44:33.402547+00:00",
-      "actualizado_en": "2026-09-02T03:44:33.402547+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-09-02T18:05:40.973542+00:00",
+      "resuelto_en": "2026-09-02T18:05:40.973542+00:00"
     },
     {
       "id": "NTC-0262",
@@ -14601,7 +14611,205 @@
       "creado_en": "2026-09-02T17:54:13.985771+00:00",
       "actualizado_en": "2026-09-02T17:54:13.985771+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0441",
+      "titulo": "Campaña APT detectada — EXECUTION desde 23.94.28.185",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 23.94.28.185. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: HostPapa",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "23.94.28.185",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "HostPapa",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-02T17:58:35.317586",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 23.94.28.185 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T17:58:35.106023+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T17:58:35.106023+00:00",
+      "actualizado_en": "2026-09-02T17:58:35.106023+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0442",
+      "titulo": "Campaña APT detectada — EXECUTION desde 23.94.28.185",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 23.94.28.185. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 100% | País: US | ISP: HostPapa",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "23.94.28.185",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "HostPapa",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-02T17:58:39.135951",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 23.94.28.185 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T17:58:38.941089+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T17:58:38.941089+00:00",
+      "actualizado_en": "2026-09-02T17:58:38.941089+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0443",
+      "titulo": "Campaña APT detectada — EXECUTION desde 92.118.39.14",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 92.118.39.14. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "92.118.39.14",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-02T18:21:55.976133",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 92.118.39.14 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T18:21:55.770158+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T18:21:55.770158+00:00",
+      "actualizado_en": "2026-09-02T18:21:55.770158+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0444",
+      "titulo": "Campaña APT detectada — EXECUTION desde 92.118.39.14",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 92.118.39.14. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "92.118.39.14",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-02T18:21:58.029790",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 92.118.39.14 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T18:21:57.836688+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T18:21:57.836688+00:00",
+      "actualizado_en": "2026-09-02T18:21:57.836688+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0445",
+      "titulo": "Campaña APT detectada — EXECUTION desde 92.118.39.14",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 92.118.39.14. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "92.118.39.14",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-02T18:24:41.052563",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 92.118.39.14 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T18:24:40.851768+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T18:24:40.851768+00:00",
+      "actualizado_en": "2026-09-02T18:24:40.851768+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0446",
+      "titulo": "Campaña APT detectada — EXECUTION desde 92.118.39.14",
+      "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 100.0% desde la IP 92.118.39.14. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 0% | País:  | ISP: ",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "92.118.39.14",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 0,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-02T18:24:45.282935",
+          "texto": "Playbook apt_campaign ejecutado automáticamente. IP 92.118.39.14 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-02T18:24:45.083784+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-02T18:24:45.083784+00:00",
+      "actualizado_en": "2026-09-02T18:24:45.083784+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 440
+  "contador": 446
 }
