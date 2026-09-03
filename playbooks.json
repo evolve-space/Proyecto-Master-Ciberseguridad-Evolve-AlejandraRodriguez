@@ -2195,6 +2195,93 @@
         "isp": "JSC Kazakhtelecom",
         "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 92.47.46.174 (JSC Kazakhtelecom, KZ) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
       }
+    },
+    {
+      "id": "PB-AUTO-165.154.64.224",
+      "playbook": "ip_maliciosa",
+      "ip": "165.154.64.224",
+      "timestamp": "2026-09-03T10:34:08.105851",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T10:34:08.345554"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T10:34:08.352368",
+          "ticket": "NTC-0533"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "HK",
+        "isp": "UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 165.154.64.224 (UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED, HK) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-213.166.84.37",
+      "playbook": "ip_maliciosa",
+      "ip": "213.166.84.37",
+      "timestamp": "2026-09-03T10:49:22.021560",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T10:49:22.272613"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T10:49:22.279510",
+          "ticket": "NTC-0534"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "GB",
+        "isp": "Infrawatch Limited",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 213.166.84.37 (Infrawatch Limited, GB) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-193.124.20.252",
+      "playbook": "ip_maliciosa",
+      "ip": "193.124.20.252",
+      "timestamp": "2026-09-03T10:49:31.861177",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T10:49:32.077806"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T10:49:32.084995",
+          "ticket": "NTC-0535"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "DE",
+        "isp": "Infrawatch Limited",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 193.124.20.252 (Infrawatch Limited, DE) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
     }
   ]
 }
