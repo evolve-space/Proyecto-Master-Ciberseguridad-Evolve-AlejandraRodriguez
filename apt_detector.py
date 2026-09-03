@@ -317,91 +317,102 @@ class DetectorAPT:
                                       and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).total_seconds() < 7200]
                     abuse_score_detector = alerta.get("abuse_score", 0)
                     if not tickets_activos and abuse_score_detector >= 50:
-                        # Enriquecer con AbuseIPDB
-                        abuse_score = 0
-                        abuse_pais = ""
-                        abuse_isp = ""
+                        # Verificar cache de IPs bloqueadas antes de crear ticket
                         try:
-                            import requests as req
-                            r = req.get(
-                                "https://api.abuseipdb.com/api/v2/check",
-                                headers={"Key": open('/root/asoar/.env').read().split('ABUSEIPDB_API_KEY=')[1].split('\n')[0], "Accept": "application/json"},
-                                params={"ipAddress": ip, "maxAgeInDays": 90},
-                                timeout=5
-                            )
-                            if r.status_code == 200:
-                                d = r.json().get("data", {})
-                                abuse_score = d.get("abuseConfidenceScore", 0)
-                                abuse_pais = d.get("countryCode", "")
-                                abuse_isp = d.get("isp", "")
+                            import json as _json
+                            with open("/root/asoar/blocked_ips_cache.json") as _f:
+                                _cache_bloqueadas = set(_json.load(_f))
                         except:
-                            pass
-                        crear_ticket(
-                            titulo=f"Actividad maliciosa detectada — {fase.upper()} desde {ip}",
-                            descripcion=f"El motor LSTM ha detectado una campaña APT en fase {fase} "
-                                       f"con confianza del {confianza}% desde la IP {ip}. "
-                                       f"Nivel de riesgo: {nivel_riesgo}. "
-                                       f"Secuencia de {len(self.buffer)} eventos analizados. "
-                                       f"Reputación AbuseIPDB: {abuse_score}% | País: {abuse_pais} | ISP: {abuse_isp}",
-                            prioridad="CRITICA" if nivel_riesgo == "CRITICO" else "ALTA" if nivel_riesgo == "ALTO" else "MEDIA",
-                            ip=ip,
-                            fase_mitre=fase,
-                            confianza=confianza,
-                            abuse_score=abuse_score,
-                            abuse_pais=abuse_pais,
-                            abuse_isp=abuse_isp
-                        )
-                        print(f"[TICKET] Ticket SOC creado para IP {ip}")
-                        # Lanzar playbook automaticamente si AbuseIPDB >= 90%
-                        if abuse_score_detector >= 90:
+                            _cache_bloqueadas = set()
+                        
+                        if ip in _cache_bloqueadas:
+                            print(f"[TICKET] IP {ip} ya bloqueada en cache — omitiendo ticket")
+                        else:
+                            # Enriquecer con AbuseIPDB
+                            abuse_score = 0
+                            abuse_pais = ""
+                            abuse_isp = ""
                             try:
-                                cache_file = "/root/asoar/blocked_ips_cache.json"
-                                import json as _json
+                                import requests as req
+                                r = req.get(
+                                    "https://api.abuseipdb.com/api/v2/check",
+                                    headers={"Key": open('/root/asoar/.env').read().split('ABUSEIPDB_API_KEY=')[1].split('\n')[0], "Accept": "application/json"},
+                                    params={"ipAddress": ip, "maxAgeInDays": 90},
+                                    timeout=5
+                                )
+                                if r.status_code == 200:
+                                    d = r.json().get("data", {})
+                                    abuse_score = d.get("abuseConfidenceScore", 0)
+                                    abuse_pais = d.get("countryCode", "")
+                                    abuse_isp = d.get("isp", "")
+                            except:
+                                pass
+                            crear_ticket(
+                                titulo=f"Actividad maliciosa detectada — {fase.upper()} desde {ip}",
+                                descripcion=f"El motor LSTM ha detectado una campana en fase {fase} "
+                                           f"con confianza del {confianza}% desde la IP {ip}. "
+                                           f"Nivel de riesgo: {nivel_riesgo}. "
+                                           f"Secuencia de {len(self.buffer)} eventos analizados. "
+                                           f"Reputacion AbuseIPDB: {abuse_score}% | Pais: {abuse_pais} | ISP: {abuse_isp}",
+                                prioridad="CRITICA" if nivel_riesgo == "CRITICO" else "ALTA" if nivel_riesgo == "ALTO" else "MEDIA",
+                                ip=ip,
+                                fase_mitre=fase,
+                                confianza=confianza,
+                                abuse_score=abuse_score,
+                                abuse_pais=abuse_pais,
+                                abuse_isp=abuse_isp
+                            )
+                            print(f"[TICKET] Ticket SOC creado para IP {ip}")
+                            # Lanzar playbook automaticamente si AbuseIPDB >= 90%
+                            if abuse_score_detector >= 90:
                                 try:
-                                    with open(cache_file) as _f:
-                                        _cache = set(_json.load(_f))
-                                except:
-                                    _cache = set()
-                                if ip in _cache:
-                                    print(f"[PLAYBOOK] IP {ip} ya bloqueada en cache — omitiendo playbook")
-                                else:
-                                    import sys
-                                    sys.path.insert(0, '/root/asoar')
-                                    from main import bloquear_ip_hetzner, actualizar_ticket_por_ip, cargar_playbooks, guardar_playbooks
-                                    from datetime import datetime as dt
-                                    ejecucion_pb = {
-                                        "id": f"PB-AUTO-{ip}",
-                                        "playbook": "ip_maliciosa",
-                                        "ip": ip,
-                                        "timestamp": dt.now().isoformat(),
-                                        "estado": "EJECUTANDO",
-                                        "acciones": [],
-                                        "contexto": {
-                                            "fase_mitre": fase,
-                                            "confianza": confianza,
-                                            "nivel_riesgo": nivel_riesgo,
-                                            "abuse_score": abuse_score_detector,
-                                            "pais": abuse_pais,
-                                            "isp": abuse_isp,
-                                            "narrativa": (
-                                                f"El motor LSTM detecto actividad maliciosa en fase {fase.upper()} "
-                                                f"desde la IP {ip} ({abuse_isp}, {abuse_pais}) "
-                                                f"con una confianza del {confianza}% y nivel de riesgo {nivel_riesgo}. "
-                                                f"AbuseIPDB confirma score del {abuse_score_detector}%. "
-                                                f"IP bloqueada automaticamente en Hetzner sin intervencion del analista."
-                                            ),
+                                    cache_file = "/root/asoar/blocked_ips_cache.json"
+                                    import json as _json
+                                    try:
+                                        with open(cache_file) as _f:
+                                            _cache = set(_json.load(_f))
+                                    except:
+                                        _cache = set()
+                                    if ip in _cache:
+                                        print(f"[PLAYBOOK] IP {ip} ya bloqueada en cache — omitiendo playbook")
+                                    else:
+                                        import sys
+                                        sys.path.insert(0, '/root/asoar')
+                                        from main import bloquear_ip_hetzner, actualizar_ticket_por_ip, cargar_playbooks, guardar_playbooks
+                                        from datetime import datetime as dt
+                                        ejecucion_pb = {
+                                            "id": f"PB-AUTO-{ip}",
+                                            "playbook": "ip_maliciosa",
+                                            "ip": ip,
+                                            "timestamp": dt.now().isoformat(),
+                                            "estado": "EJECUTANDO",
+                                            "acciones": [],
+                                            "contexto": {
+                                                "fase_mitre": fase,
+                                                "confianza": confianza,
+                                                "nivel_riesgo": nivel_riesgo,
+                                                "abuse_score": abuse_score_detector,
+                                                "pais": abuse_pais,
+                                                "isp": abuse_isp,
+                                                "narrativa": (
+                                                    f"El motor LSTM detecto actividad maliciosa en fase {fase.upper()} "
+                                                    f"desde la IP {ip} ({abuse_isp}, {abuse_pais}) "
+                                                    f"con una confianza del {confianza}% y nivel de riesgo {nivel_riesgo}. "
+                                                    f"AbuseIPDB confirma score del {abuse_score_detector}%. "
+                                                    f"IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+                                                ),
+                                            }
                                         }
-                                    }
-                                    bloquear_ip_hetzner(ip)
-                                    ejecucion_pb["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": dt.now().isoformat()})
-                                    actualizar_ticket_por_ip(ip, "ip_maliciosa", ejecucion_pb)
-                                    ejecucion_pb["estado"] = "COMPLETADO"
-                                    pb_data = cargar_playbooks()
-                                    pb_data["ejecuciones"].append(ejecucion_pb)
-                                    guardar_playbooks(pb_data)
-                                    print(f"[PLAYBOOK] Playbook ip_maliciosa lanzado automaticamente para {ip}")
-                            except Exception as ep:
-                                print(f"[PLAYBOOK] Error lanzando playbook: {ep}")
+                                        bloquear_ip_hetzner(ip)
+                                        ejecucion_pb["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": dt.now().isoformat()})
+                                        actualizar_ticket_por_ip(ip, "ip_maliciosa", ejecucion_pb)
+                                        ejecucion_pb["estado"] = "COMPLETADO"
+                                        pb_data = cargar_playbooks()
+                                        pb_data["ejecuciones"].append(ejecucion_pb)
+                                        guardar_playbooks(pb_data)
+                                        print(f"[PLAYBOOK] Playbook ip_maliciosa lanzado automaticamente para {ip}")
+                                except Exception as ep:
+                                    print(f"[PLAYBOOK] Error lanzando playbook: {ep}")
                     else:
                         print(f"[TICKET] Ya existe ticket activo para IP {ip} — omitiendo")
             except Exception as e:

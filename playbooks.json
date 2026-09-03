@@ -2166,6 +2166,35 @@
         "pais": "IN",
         "isp": "BHARTI VIDYAPEETH PASCHIM VIHAR"
       }
+    },
+    {
+      "id": "PB-AUTO-92.47.46.174",
+      "playbook": "ip_maliciosa",
+      "ip": "92.47.46.174",
+      "timestamp": "2026-09-03T09:47:16.023798",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T09:47:16.239543"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T09:47:16.242356",
+          "ticket": "NTC-0532"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "KZ",
+        "isp": "JSC Kazakhtelecom",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 92.47.46.174 (JSC Kazakhtelecom, KZ) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
     }
   ]
 }
