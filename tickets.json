@@ -17761,7 +17761,40 @@
       "creado_en": "2026-09-03T10:49:31.826464+00:00",
       "actualizado_en": "2026-09-03T10:49:31.826464+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0536",
+      "titulo": "Actividad maliciosa detectada — EXECUTION desde 67.243.36.176",
+      "descripcion": "El motor LSTM ha detectado una campana en fase execution con confianza del 100.0% desde la IP 67.243.36.176. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Charter Communications Inc",
+      "estado": "Contenido",
+      "prioridad": "MEDIA",
+      "ip": "67.243.36.176",
+      "fase_mitre": "execution",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Charter Communications Inc",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-03T11:27:37.812117",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 67.243.36.176 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-03T11:27:37.523802+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-03T11:27:37.523802+00:00",
+      "actualizado_en": "2026-09-03T11:27:37.523802+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 535
+  "contador": 536
 }
