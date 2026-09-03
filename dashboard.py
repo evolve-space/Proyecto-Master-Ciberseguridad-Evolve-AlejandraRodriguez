@@ -3397,6 +3397,7 @@ elif pagina == "Análisis Forense":
         else:
             st.info("No hay eventos suficientes para construir el timeline.")
 
+
         # ── 6. Exportar informe forense ────────────────────────────────────
         st.markdown("---")
         st.markdown('<div class="section-header">Exportar Informe Forense</div>', unsafe_allow_html=True)

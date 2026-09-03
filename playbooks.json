@@ -2282,6 +2282,35 @@
         "isp": "Infrawatch Limited",
         "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 193.124.20.252 (Infrawatch Limited, DE) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
       }
+    },
+    {
+      "id": "PB-AUTO-67.243.36.176",
+      "playbook": "ip_maliciosa",
+      "ip": "67.243.36.176",
+      "timestamp": "2026-09-03T11:27:37.555340",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T11:27:37.803407"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T11:27:37.812133",
+          "ticket": "NTC-0536"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Charter Communications Inc",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 67.243.36.176 (Charter Communications Inc, US) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
     }
   ]
 }
