@@ -3796,6 +3796,24 @@ elif pagina == "Gestión de Incidentes":
                                     st.session_state.pagina = "Análisis Forense"
                                     st.session_state.ip_forense_pivot = ip_ticket
                                     st.rerun()
+                                if ip_ticket not in ips_bloqueadas:
+                                    if st.button("Bloquear IP", key=f"bloquear_ticket_{t['id']}", use_container_width=True, type="primary"):
+                                        try:
+                                            r = requests.post(f"http://localhost:8000/bloquear/{ip_ticket}", headers=HEADERS, timeout=10)
+                                            if r.json().get("status") == "ok":
+                                                st.success(f"IP {ip_ticket} bloqueada correctamente")
+                                                # Actualizar ticket a Contenido
+                                                requests.post(f"http://localhost:8000/tickets/{t['id']}/estado",
+                                                    headers=HEADERS,
+                                                    json={"estado": "Contenido", "nota": f"IP {ip_ticket} bloqueada manualmente desde el ticket."},
+                                                    timeout=5)
+                                                st.rerun()
+                                            else:
+                                                st.warning(f"IP {ip_ticket} ya estaba bloqueada.")
+                                        except Exception as e:
+                                            st.error(f"Error: {e}")
+                                else:
+                                    st.info("IP ya bloqueada en Hetzner")
 
                         if t.get("xai_narrativa"):
                             st.markdown(f"""

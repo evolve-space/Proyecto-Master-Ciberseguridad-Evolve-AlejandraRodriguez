@@ -5820,7 +5820,7 @@
       "id": "NTC-0174",
       "titulo": "Campaña APT detectada — EXECUTION desde 62.209.139.166",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 99.9% desde la IP 62.209.139.166. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 81% | País: UZ | ISP: IST TELEKOM JV LLC",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "62.209.139.166",
       "fase_mitre": "execution",
@@ -5838,11 +5838,16 @@
           "estado": "Abierto",
           "timestamp": "2026-09-01T09:34:10.507290+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-03T11:13:41.375425+00:00",
+          "nota": "IP bloqueada"
         }
       ],
       "creado_en": "2026-09-01T09:34:10.507290+00:00",
-      "actualizado_en": "2026-09-01T09:34:10.507290+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-09-03T11:13:41.375425+00:00",
+      "resuelto_en": "2026-09-03T11:13:41.375425+00:00"
     },
     {
       "id": "NTC-0175",
@@ -16771,7 +16776,7 @@
       "id": "NTC-0506",
       "titulo": "Campaña APT detectada — EXECUTION desde 103.49.166.245",
       "descripcion": "El motor LSTM ha detectado una campaña APT en fase execution con confianza del 79.2% desde la IP 103.49.166.245. Nivel de riesgo: MEDIO. Secuencia de 32 eventos analizados. Reputación AbuseIPDB: 67% | País: IN | ISP: NETTVOX PRIVATE LIMITED",
-      "estado": "Abierto",
+      "estado": "Cerrado",
       "prioridad": "MEDIA",
       "ip": "103.49.166.245",
       "fase_mitre": "execution",
@@ -16789,11 +16794,16 @@
           "estado": "Abierto",
           "timestamp": "2026-09-03T07:47:52.139744+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Cerrado",
+          "timestamp": "2026-09-03T11:12:27.129419+00:00",
+          "nota": "IP bloqueada"
         }
       ],
       "creado_en": "2026-09-03T07:47:52.139744+00:00",
-      "actualizado_en": "2026-09-03T07:47:52.139744+00:00",
-      "resuelto_en": null
+      "actualizado_en": "2026-09-03T11:12:27.129419+00:00",
+      "resuelto_en": "2026-09-03T11:12:27.129419+00:00"
     },
     {
       "id": "NTC-0507",
