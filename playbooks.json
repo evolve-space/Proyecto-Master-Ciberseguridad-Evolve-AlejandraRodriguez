@@ -1522,6 +1522,650 @@
         "pais": "",
         "isp": ""
       }
+    },
+    {
+      "id": "PB-AUTO-20.55.29.243",
+      "playbook": "ip_maliciosa",
+      "ip": "20.55.29.243",
+      "timestamp": "2026-09-03T00:13:34.148742",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T00:13:34.373374"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T00:13:34.379399",
+          "ticket": "NTC-0468"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Microsoft Corporation"
+      }
+    },
+    {
+      "id": "PB-AUTO-45.9.168.192",
+      "playbook": "ip_maliciosa",
+      "ip": "45.9.168.192",
+      "timestamp": "2026-09-03T00:14:10.545400",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T00:14:10.748577"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T00:14:10.754209",
+          "ticket": "NTC-0469"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "HU",
+        "isp": "MAXKO d.o.o."
+      }
+    },
+    {
+      "id": "PB-AUTO-209.99.184.19",
+      "playbook": "ip_maliciosa",
+      "ip": "209.99.184.19",
+      "timestamp": "2026-09-03T00:15:38.468670",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T00:15:38.689354"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T00:15:38.692342",
+          "ticket": "NTC-0471"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 99.8,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "CH",
+        "isp": "SKN Subnet & Telecom Ltd"
+      }
+    },
+    {
+      "id": "PB-AUTO-115.190.255.67",
+      "playbook": "ip_maliciosa",
+      "ip": "115.190.255.67",
+      "timestamp": "2026-09-03T01:16:39.927766",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T01:16:40.171750"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T01:16:40.178638",
+          "ticket": "NTC-0473"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "initial_access",
+        "confianza": 81.4,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "CN",
+        "isp": "Beijing Volcano Engine Technology Co., Ltd."
+      }
+    },
+    {
+      "id": "PB-AUTO-156.225.1.89",
+      "playbook": "ip_maliciosa",
+      "ip": "156.225.1.89",
+      "timestamp": "2026-09-03T01:22:11.908435",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T01:22:12.110646"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T01:22:12.113204",
+          "ticket": "NTC-0474"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 84.2,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "HK",
+        "isp": "AGOTOZ PTE. LTD"
+      }
+    },
+    {
+      "id": "PB-AUTO-45.79.181.179",
+      "playbook": "ip_maliciosa",
+      "ip": "45.79.181.179",
+      "timestamp": "2026-09-03T01:54:10.390253",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T01:54:10.602271"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T01:54:10.607142",
+          "ticket": "NTC-0476"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "credential_access",
+        "confianza": 91.7,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Linode"
+      }
+    },
+    {
+      "id": "PB-AUTO-43.156.71.43",
+      "playbook": "ip_maliciosa",
+      "ip": "43.156.71.43",
+      "timestamp": "2026-09-03T02:24:18.278680",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T02:24:18.537601"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T02:24:18.543956",
+          "ticket": "NTC-0478"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 87.2,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "SG",
+        "isp": "Asia Pacific Network Information Center, Pty. Ltd."
+      }
+    },
+    {
+      "id": "PB-AUTO-88.147.30.59",
+      "playbook": "ip_maliciosa",
+      "ip": "88.147.30.59",
+      "timestamp": "2026-09-03T02:30:00.173421",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T02:30:00.375573"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T02:30:00.381537",
+          "ticket": "NTC-0479"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.4,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "IT",
+        "isp": "EOLO S.p.A."
+      }
+    },
+    {
+      "id": "PB-AUTO-160.119.76.54",
+      "playbook": "ip_maliciosa",
+      "ip": "160.119.76.54",
+      "timestamp": "2026-09-03T02:58:01.956617",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T02:58:02.205164"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T02:58:02.213895",
+          "ticket": "NTC-0480"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "credential_access",
+        "confianza": 99.6,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "NL",
+        "isp": "HostUS Solutions LLC"
+      }
+    },
+    {
+      "id": "PB-AUTO-45.196.221.106",
+      "playbook": "ip_maliciosa",
+      "ip": "45.196.221.106",
+      "timestamp": "2026-09-03T03:24:16.319788",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T03:24:16.548830"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T03:24:16.558963",
+          "ticket": "NTC-0482"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "HK",
+        "isp": "Akile LTD"
+      }
+    },
+    {
+      "id": "PB-AUTO-45.79.207.129",
+      "playbook": "ip_maliciosa",
+      "ip": "45.79.207.129",
+      "timestamp": "2026-09-03T03:46:39.777674",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T03:46:40.012042"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T03:46:40.018715",
+          "ticket": "NTC-0483"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "credential_access",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Linode"
+      }
+    },
+    {
+      "id": "PB-AUTO-91.92.47.208",
+      "playbook": "ip_maliciosa",
+      "ip": "91.92.47.208",
+      "timestamp": "2026-09-03T03:47:51.977373",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T03:47:52.187849"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T03:47:52.194119",
+          "ticket": "NTC-0484"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "credential_access",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "NL",
+        "isp": "TechTies Inc."
+      }
+    },
+    {
+      "id": "PB-AUTO-47.245.121.173",
+      "playbook": "ip_maliciosa",
+      "ip": "47.245.121.173",
+      "timestamp": "2026-09-03T04:01:37.242472",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T04:01:37.467305"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T04:01:37.473589",
+          "ticket": "NTC-0486"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "SG",
+        "isp": "Alibaba Cloud LLC"
+      }
+    },
+    {
+      "id": "PB-AUTO-152.32.235.85",
+      "playbook": "ip_maliciosa",
+      "ip": "152.32.235.85",
+      "timestamp": "2026-09-03T04:33:34.149415",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T04:33:34.400824"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T04:33:34.406999",
+          "ticket": "NTC-0488"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED"
+      }
+    },
+    {
+      "id": "PB-AUTO-61.241.109.44",
+      "playbook": "ip_maliciosa",
+      "ip": "61.241.109.44",
+      "timestamp": "2026-09-03T07:40:30.312376",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T07:40:30.548868"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T07:40:30.555784",
+          "ticket": "NTC-0504"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 99.9,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "CN",
+        "isp": "China Unicom"
+      }
+    },
+    {
+      "id": "PB-AUTO-222.108.100.117",
+      "playbook": "ip_maliciosa",
+      "ip": "222.108.100.117",
+      "timestamp": "2026-09-03T08:02:06.869338",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:02:07.093148"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:02:07.100779",
+          "ticket": "NTC-0507"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 98.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "KR",
+        "isp": "Korea Telecom"
+      }
+    },
+    {
+      "id": "PB-AUTO-211.106.133.202",
+      "playbook": "ip_maliciosa",
+      "ip": "211.106.133.202",
+      "timestamp": "2026-09-03T08:06:37.140547",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:06:37.375791"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:06:37.382327",
+          "ticket": "NTC-0509"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "KR",
+        "isp": "Korea Telecom"
+      }
+    },
+    {
+      "id": "PB-AUTO-184.168.124.1",
+      "playbook": "ip_maliciosa",
+      "ip": "184.168.124.1",
+      "timestamp": "2026-09-03T08:07:30.088693",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:07:30.299482"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:07:30.306532",
+          "ticket": "NTC-0511"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "SG",
+        "isp": "GoDaddy.com, LLC"
+      }
+    },
+    {
+      "id": "PB-AUTO-51.254.103.32",
+      "playbook": "ip_maliciosa",
+      "ip": "51.254.103.32",
+      "timestamp": "2026-09-03T08:26:11.001899",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:26:11.250119"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:26:11.257695",
+          "ticket": "NTC-0515"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "FR",
+        "isp": "OVH SAS"
+      }
+    },
+    {
+      "id": "PB-AUTO-196.0.242.54",
+      "playbook": "ip_maliciosa",
+      "ip": "196.0.242.54",
+      "timestamp": "2026-09-03T08:31:45.225660",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:31:45.442959"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:31:45.450059",
+          "ticket": "NTC-0517"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 99.5,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "UG",
+        "isp": "Uganda Telecom Ltd"
+      }
+    },
+    {
+      "id": "PB-AUTO-38.224.49.7",
+      "playbook": "ip_maliciosa",
+      "ip": "38.224.49.7",
+      "timestamp": "2026-09-03T08:59:12.098216",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:59:12.328901"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T08:59:12.335342",
+          "ticket": "NTC-0523"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 93.2,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "PE",
+        "isp": "NEXTGEN NETWORKS SOLUTIONS S.A.C."
+      }
+    },
+    {
+      "id": "PB-AUTO-116.62.45.230",
+      "playbook": "ip_maliciosa",
+      "ip": "116.62.45.230",
+      "timestamp": "2026-09-03T09:13:36.950344",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T09:13:37.144784"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T09:13:37.149413",
+          "ticket": "NTC-0526"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "CN",
+        "isp": "Aliyun Computing Co., LTD"
+      }
+    },
+    {
+      "id": "PB-AUTO-203.115.98.138",
+      "playbook": "ip_maliciosa",
+      "ip": "203.115.98.138",
+      "timestamp": "2026-09-03T09:21:24.397275",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T09:21:24.689953"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T09:21:24.696740",
+          "ticket": "NTC-0527"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "IN",
+        "isp": "BHARTI VIDYAPEETH PASCHIM VIHAR"
+      }
     }
   ]
 }

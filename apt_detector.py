@@ -337,7 +337,7 @@ class DetectorAPT:
                         except:
                             pass
                         crear_ticket(
-                            titulo=f"Campaña APT detectada — {fase.upper()} desde {ip}",
+                            titulo=f"Actividad maliciosa detectada — {fase.upper()} desde {ip}",
                             descripcion=f"El motor LSTM ha detectado una campaña APT en fase {fase} "
                                        f"con confianza del {confianza}% desde la IP {ip}. "
                                        f"Nivel de riesgo: {nivel_riesgo}. "
@@ -383,6 +383,13 @@ class DetectorAPT:
                                             "abuse_score": abuse_score_detector,
                                             "pais": abuse_pais,
                                             "isp": abuse_isp,
+                                            "narrativa": (
+                                                f"El motor LSTM detecto actividad maliciosa en fase {fase.upper()} "
+                                                f"desde la IP {ip} ({abuse_isp}, {abuse_pais}) "
+                                                f"con una confianza del {confianza}% y nivel de riesgo {nivel_riesgo}. "
+                                                f"AbuseIPDB confirma score del {abuse_score_detector}%. "
+                                                f"IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+                                            ),
                                         }
                                     }
                                     bloquear_ip_hetzner(ip)
