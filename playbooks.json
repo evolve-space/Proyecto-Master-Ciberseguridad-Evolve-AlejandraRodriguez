@@ -2993,6 +2993,64 @@
         "isp": "Linode",
         "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 69.164.217.74 (Linode, US) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
       }
+    },
+    {
+      "id": "PB-AUTO-120.48.82.124",
+      "playbook": "ip_maliciosa",
+      "ip": "120.48.82.124",
+      "timestamp": "2026-09-04T07:50:06.095262",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T07:50:06.318418"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T07:50:06.323681",
+          "ticket": "NTC-0562"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "CN",
+        "isp": "Beijing Baidu Netcom Science and Technology Co., Ltd.",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 120.48.82.124 (Beijing Baidu Netcom Science and Technology Co., Ltd., CN) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-204.76.203.31",
+      "playbook": "ip_maliciosa",
+      "ip": "204.76.203.31",
+      "timestamp": "2026-09-04T08:00:54.515299",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T08:00:54.765658"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T08:00:54.768755",
+          "ticket": "NTC-0563"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "NL",
+        "isp": "Intelligence Hosting LLC",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 204.76.203.31 (Intelligence Hosting LLC, NL) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
     }
   ]
 }

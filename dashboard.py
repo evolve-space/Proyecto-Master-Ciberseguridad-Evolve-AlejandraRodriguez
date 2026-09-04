@@ -2450,6 +2450,19 @@ elif pagina == "Informes":
             )
         except Exception as e:
             st.error(f"Error: {e}")
+    
+    if st.button("Exportar IOCs en STIX/TAXII", type="secondary"):
+        try:
+            r = requests.get("http://localhost:8000/iocs/stix", headers=HEADERS, timeout=30)
+            stix_data = json.dumps(r.json(), indent=2, ensure_ascii=False)
+            st.download_button(
+                label="Descargar bundle STIX",
+                data=stix_data,
+                file_name=f"noctua_iocs_stix_{datetime.now().strftime('%Y%m%d')}.json",
+                mime="application/json"
+            )
+        except Exception as e:
+            st.error(f"Error: {e}")
 
     if st.button("Generar Informe PDF", type="primary"):
         with st.spinner("Generando informe..."):

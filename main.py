@@ -806,6 +806,60 @@ async def historial_playbooks(api_key: str = Depends(verificar_api_key)):
     data = cargar_playbooks()
     return data["ejecuciones"]
 
+@app.get("/iocs/stix")
+async def exportar_stix(api_key: str = Depends(verificar_api_key)):
+    try:
+        import stix2
+        from datetime import datetime as dt
+        
+        # Cargar IPs bloqueadas
+        try:
+            with open("/root/asoar/blocked_ips_cache.json") as f:
+                ips_bloqueadas = json.load(f)
+        except:
+            ips_bloqueadas = []
+        
+        # Cargar cache AbuseIPDB
+        try:
+            with open("/root/asoar/abuse_cache.json") as f:
+                abuse_cache = json.load(f)
+        except:
+            abuse_cache = {}
+        
+        objetos = []
+        
+        # Identidad de Noctua
+        identidad = stix2.Identity(
+            name="Noctua Predictive SOC",
+            identity_class="system",
+            description="Autonomous Security Operations Platform — UPM PFG 2026"
+        )
+        objetos.append(identidad)
+        
+        # Crear indicadores por cada IP bloqueada
+        for ip in ips_bloqueadas:
+            abuse = abuse_cache.get(ip, {}).get("data", {})
+            score = abuse.get("score", 0)
+            pais = abuse.get("pais", "")
+            isp = abuse.get("isp", "")
+            
+            indicador = stix2.Indicator(
+                name=f"Malicious IP: {ip}",
+                description=f"IP bloqueada por Noctua Predictive. AbuseIPDB: {score}%. Pais: {pais}. ISP: {isp}.",
+                pattern=f"[ipv4-addr:value = '{ip}']",
+                pattern_type="stix",
+                valid_from=dt.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                labels=["malicious-activity"],
+                confidence=score,
+                created_by_ref=identidad.id,
+            )
+            objetos.append(indicador)
+        
+        bundle = stix2.Bundle(objects=objetos)
+        return json.loads(bundle.serialize())
+        
+    except Exception as e:
+        return {"error": str(e)}
 
 # ── TICKETS ───────────────────────────────────────────────────────────────────
 @app.get("/tickets")
