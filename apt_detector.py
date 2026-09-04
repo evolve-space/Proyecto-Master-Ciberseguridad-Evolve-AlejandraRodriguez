@@ -87,6 +87,7 @@ class DetectorAPT:
         self.buffer    = deque(maxlen=SEQ_LEN)
         self.campanas  = []
         self.cargado   = False
+        self.fases_por_ip = {}  # Registro de fases detectadas por IP
         self._cargar_modelo()
         self._cargar_campanas()
         self._cargar_buffer()
@@ -347,8 +348,18 @@ class DetectorAPT:
                                     abuse_isp = d.get("isp", "")
                             except:
                                 pass
+                            
+                            # Título dinámico según fases detectadas
+                            if ip not in self.fases_por_ip:
+                                self.fases_por_ip[ip] = set()
+                            self.fases_por_ip[ip].add(fase)
+                            if len(self.fases_por_ip[ip]) >= 2:
+                                titulo_ticket = f"Campaña APT detectada — MULTI-FASE desde {ip}"
+                            else:
+                                titulo_ticket = f"Actividad maliciosa detectada — {fase.upper()} desde {ip}"
+
                             crear_ticket(
-                                titulo=f"Actividad maliciosa detectada — {fase.upper()} desde {ip}",
+                                titulo=titulo_ticket,
                                 descripcion=f"El motor LSTM ha detectado una campana en fase {fase} "
                                            f"con confianza del {confianza}% desde la IP {ip}. "
                                            f"Nivel de riesgo: {nivel_riesgo}. "
