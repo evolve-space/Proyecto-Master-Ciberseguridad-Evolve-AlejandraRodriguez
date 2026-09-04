@@ -3797,7 +3797,8 @@ elif pagina == "Gestión de Incidentes":
                                     st.session_state.pagina = "Análisis Forense"
                                     st.session_state.ip_forense_pivot = ip_ticket
                                     st.rerun()
-                                if ip_ticket not in ips_bloqueadas:
+                                cache_local = set(json.load(open("/root/asoar/blocked_ips_cache.json"))) if os.path.exists("/root/asoar/blocked_ips_cache.json") else set()
+                                if ip_ticket not in ips_bloqueadas and ip_ticket not in cache_local:
                                     if st.button("Bloquear IP", key=f"bloquear_ticket_{t['id']}", use_container_width=True, type="primary"):
                                         try:
                                             r = requests.post(f"http://localhost:8000/bloquear/{ip_ticket}", headers=HEADERS, timeout=10)
@@ -3811,6 +3812,11 @@ elif pagina == "Gestión de Incidentes":
                                                 st.rerun()
                                             else:
                                                 st.warning(f"IP {ip_ticket} ya estaba bloqueada.")
+                                                requests.post(f"http://localhost:8000/tickets/{t['id']}/estado",
+                                                    headers=HEADERS,
+                                                    json={"estado": "Contenido", "nota": f"IP {ip_ticket} ya estaba bloqueada en Hetzner."},
+                                                    timeout=5)
+                                                st.rerun()
                                         except Exception as e:
                                             st.error(f"Error: {e}")
                                 else:
