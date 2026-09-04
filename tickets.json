@@ -18629,7 +18629,73 @@
       "creado_en": "2026-09-04T06:58:49.710527+00:00",
       "actualizado_en": "2026-09-04T07:29:26.304038+00:00",
       "resuelto_en": "2026-09-04T07:29:26.304038+00:00"
+    },
+    {
+      "id": "NTC-0562",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 120.48.82.124",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 120.48.82.124. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: CN | ISP: Beijing Baidu Netcom Science and Technology Co., Ltd.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "120.48.82.124",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CN",
+      "abuse_isp": "Beijing Baidu Netcom Science and Technology Co., Ltd.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T07:50:06.323672",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 120.48.82.124 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T07:50:06.062231+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T07:50:06.062231+00:00",
+      "actualizado_en": "2026-09-04T07:50:06.062231+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0563",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 204.76.203.31",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 204.76.203.31. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: NL | ISP: Intelligence Hosting LLC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "204.76.203.31",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "Intelligence Hosting LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T08:00:54.768749",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 204.76.203.31 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T08:00:54.484490+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T08:00:54.484490+00:00",
+      "actualizado_en": "2026-09-04T08:00:54.484490+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 561
+  "contador": 563
 }
