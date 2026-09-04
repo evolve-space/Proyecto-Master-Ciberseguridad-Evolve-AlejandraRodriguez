@@ -2311,6 +2311,688 @@
         "isp": "Charter Communications Inc",
         "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 67.243.36.176 (Charter Communications Inc, US) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
       }
+    },
+    {
+      "id": "PB-AUTO-186.121.233.2",
+      "playbook": "ip_maliciosa",
+      "ip": "186.121.233.2",
+      "timestamp": "2026-09-03T13:18:58.128469",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T13:18:58.344320"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T13:18:58.348699",
+          "ticket": "NTC-0537"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 99.7,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "BO",
+        "isp": "AXS Bolivia S. A.",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 186.121.233.2 (AXS Bolivia S. A., BO) con una confianza del 99.7% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-65.49.20.66",
+      "playbook": "ip_maliciosa",
+      "ip": "65.49.20.66",
+      "timestamp": "2026-09-03T13:59:37.465541",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T13:59:37.695801"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T13:59:37.703775",
+          "ticket": "NTC-0538"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "The Shadowserver Foundation, Inc.",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 65.49.20.66 (The Shadowserver Foundation, Inc., US) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-171.244.37.97",
+      "playbook": "ip_maliciosa",
+      "ip": "171.244.37.97",
+      "timestamp": "2026-09-03T15:02:58.653142",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T15:02:58.885780"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T15:02:58.891784",
+          "ticket": "NTC-0539"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "VN",
+        "isp": "Viettel Group",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 171.244.37.97 (Viettel Group, VN) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-159.223.97.218",
+      "playbook": "ip_maliciosa",
+      "ip": "159.223.97.218",
+      "timestamp": "2026-09-03T15:19:38.329311",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T15:19:38.521281"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T15:19:38.526005",
+          "ticket": "NTC-0540"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "DigitalOcean, LLC",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 159.223.97.218 (DigitalOcean, LLC, US) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-45.79.207.110",
+      "playbook": "ip_maliciosa",
+      "ip": "45.79.207.110",
+      "timestamp": "2026-09-03T15:34:42.107210",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T15:34:42.354720"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T15:34:42.361689",
+          "ticket": "NTC-0541"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Linode",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 45.79.207.110 (Linode, US) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-106.13.120.65",
+      "playbook": "ip_maliciosa",
+      "ip": "106.13.120.65",
+      "timestamp": "2026-09-03T16:12:54.226466",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T16:12:54.473239"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T16:12:54.480747",
+          "ticket": "NTC-0542"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 95.6,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "CN",
+        "isp": "Beijing Baidu Netcom Science and Technology Co., Ltd.",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 106.13.120.65 (Beijing Baidu Netcom Science and Technology Co., Ltd., CN) con una confianza del 95.6% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-45.79.115.59",
+      "playbook": "ip_maliciosa",
+      "ip": "45.79.115.59",
+      "timestamp": "2026-09-03T16:33:58.902437",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T16:33:59.161420"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T16:33:59.168955",
+          "ticket": "NTC-0543"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 97.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Linode",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 45.79.115.59 (Linode, US) con una confianza del 97.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-36.64.68.99",
+      "playbook": "ip_maliciosa",
+      "ip": "36.64.68.99",
+      "timestamp": "2026-09-03T16:53:43.650129",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T16:53:43.898559"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T16:53:43.905700",
+          "ticket": "NTC-0544"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "credential_access",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "ID",
+        "isp": "PT TELKOM INDONESIA Menara Multimedia Lt.7 Jl. Kebon sirih No.12 JAKARTA",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase CREDENTIAL_ACCESS desde la IP 36.64.68.99 (PT TELKOM INDONESIA Menara Multimedia Lt.7 Jl. Kebon sirih No.12 JAKARTA, ID) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-45.116.78.92",
+      "playbook": "ip_maliciosa",
+      "ip": "45.116.78.92",
+      "timestamp": "2026-09-03T16:54:21.880021",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T16:54:22.123340"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T16:54:22.130868",
+          "ticket": "NTC-0545"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 54.8,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "HK",
+        "isp": "Cloudie Limited",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 45.116.78.92 (Cloudie Limited, HK) con una confianza del 54.8% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-93.46.110.192",
+      "playbook": "ip_maliciosa",
+      "ip": "93.46.110.192",
+      "timestamp": "2026-09-03T17:15:22.827661",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T17:15:23.071521"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T17:15:23.080191",
+          "ticket": "NTC-0546"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 99.9,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "IT",
+        "isp": "Fastweb SpA",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 93.46.110.192 (Fastweb SpA, IT) con una confianza del 99.9% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-77.239.124.176",
+      "playbook": "ip_maliciosa",
+      "ip": "77.239.124.176",
+      "timestamp": "2026-09-03T20:10:55.972499",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T20:10:56.210750"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T20:10:56.217655",
+          "ticket": "NTC-0547"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 99.8,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "FR",
+        "isp": "ROCKET & MARINICA LTD",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 77.239.124.176 (ROCKET & MARINICA LTD, FR) con una confianza del 99.8% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-172.233.189.55",
+      "playbook": "ip_maliciosa",
+      "ip": "172.233.189.55",
+      "timestamp": "2026-09-03T20:45:51.394884",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T20:45:51.621286"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T20:45:51.627799",
+          "ticket": "NTC-0548"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 99.9,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Linode",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 172.233.189.55 (Linode, US) con una confianza del 99.9% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-2.57.121.25",
+      "playbook": "ip_maliciosa",
+      "ip": "2.57.121.25",
+      "timestamp": "2026-09-03T21:48:46.762921",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T21:48:47.001828"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-03T21:48:47.009081",
+          "ticket": "NTC-0549"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.6,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "RO",
+        "isp": "UNMANAGED LTD",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 2.57.121.25 (UNMANAGED LTD, RO) con una confianza del 99.6% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-0118",
+      "playbook": "port_scan",
+      "ip": "170.64.130.197",
+      "ticket_id": "",
+      "timestamp": "2026-09-03T21:50:06.370574",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-03T21:50:06.604035"
+        }
+      ]
+    },
+    {
+      "id": "PB-AUTO-64.62.197.119",
+      "playbook": "ip_maliciosa",
+      "ip": "64.62.197.119",
+      "timestamp": "2026-09-04T01:21:18.664806",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T01:21:18.912890"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T01:21:18.921212",
+          "ticket": "NTC-0551"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "initial_access",
+        "confianza": 98.8,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "The Shadowserver Foundation, Inc.",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase INITIAL_ACCESS desde la IP 64.62.197.119 (The Shadowserver Foundation, Inc., US) con una confianza del 98.8% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-65.49.1.192",
+      "playbook": "ip_maliciosa",
+      "ip": "65.49.1.192",
+      "timestamp": "2026-09-04T01:37:29.915512",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T01:37:30.163897"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T01:37:30.171465",
+          "ticket": "NTC-0552"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "execution",
+        "confianza": 99.8,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "The Shadowserver Foundation, Inc.",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase EXECUTION desde la IP 65.49.1.192 (The Shadowserver Foundation, Inc., US) con una confianza del 99.8% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-45.33.109.8",
+      "playbook": "ip_maliciosa",
+      "ip": "45.33.109.8",
+      "timestamp": "2026-09-04T01:41:14.531637",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T01:41:14.746639"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T01:41:14.749769",
+          "ticket": "NTC-0553"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "initial_access",
+        "confianza": 100.0,
+        "nivel_riesgo": "MEDIO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Linode",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase INITIAL_ACCESS desde la IP 45.33.109.8 (Linode, US) con una confianza del 100.0% y nivel de riesgo MEDIO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-185.151.146.160",
+      "playbook": "ip_maliciosa",
+      "ip": "185.151.146.160",
+      "timestamp": "2026-09-04T02:15:36.826586",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T02:15:37.046741"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T02:15:37.053869",
+          "ticket": "NTC-0554"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "SG",
+        "isp": "PT Wifipedia Sinergi Telematika",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 185.151.146.160 (PT Wifipedia Sinergi Telematika, SG) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-20.106.59.94",
+      "playbook": "ip_maliciosa",
+      "ip": "20.106.59.94",
+      "timestamp": "2026-09-04T02:44:12.429899",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T02:44:12.686683"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T02:44:12.694950",
+          "ticket": "NTC-0555"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Microsoft Corporation",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 20.106.59.94 (Microsoft Corporation, US) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-186.13.24.118",
+      "playbook": "ip_maliciosa",
+      "ip": "186.13.24.118",
+      "timestamp": "2026-09-04T02:59:07.212463",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T02:59:07.465802"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T02:59:07.468725",
+          "ticket": "NTC-0556"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "AR",
+        "isp": "AMX Argentina S.A.",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 186.13.24.118 (AMX Argentina S.A., AR) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-80.94.92.179",
+      "playbook": "ip_maliciosa",
+      "ip": "80.94.92.179",
+      "timestamp": "2026-09-04T04:10:36.184363",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T04:10:36.421015"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T04:10:36.428302",
+          "ticket": "NTC-0557"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 100.0,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "RO",
+        "isp": "TECHOFF SRV LIMITED",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 80.94.92.179 (TECHOFF SRV LIMITED, RO) con una confianza del 100.0% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-103.143.11.150",
+      "playbook": "ip_maliciosa",
+      "ip": "103.143.11.150",
+      "timestamp": "2026-09-04T04:26:51.367902",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T04:26:51.617852"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T04:26:51.621073",
+          "ticket": "NTC-0558"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 100.0,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "HONG KONG ACEMOB TECHNOLOGY CO., LIMITED",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 103.143.11.150 (HONG KONG ACEMOB TECHNOLOGY CO., LIMITED, US) con una confianza del 100.0% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-186.96.145.241",
+      "playbook": "ip_maliciosa",
+      "ip": "186.96.145.241",
+      "timestamp": "2026-09-04T04:32:43.305817",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T04:32:43.570310"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T04:32:43.576129",
+          "ticket": "NTC-0559"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "MX",
+        "isp": "TOTAL PLAY TELECOMUNICACIONES SA DE CV",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 186.96.145.241 (TOTAL PLAY TELECOMUNICACIONES SA DE CV, MX) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-69.164.217.74",
+      "playbook": "ip_maliciosa",
+      "ip": "69.164.217.74",
+      "timestamp": "2026-09-04T04:37:23.042212",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-04T04:37:23.261325"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-04T04:37:23.268361",
+          "ticket": "NTC-0560"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Linode",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 69.164.217.74 (Linode, US) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
     }
   ]
 }
