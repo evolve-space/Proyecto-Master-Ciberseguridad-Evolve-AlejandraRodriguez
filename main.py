@@ -327,6 +327,36 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
         try:
             # Consultar AbuseIPDB antes de procesar
             abuse_score = consultar_abuseipdb(ip_atacante).get("score", 0)
+            
+            # Amenazas oportunistas confirmadas por reputacion externa
+            # (aunque no acumulen suficiente contexto para el LSTM)
+            if abuse_score >= 90 and not ip_esta_bloqueada(ip_atacante):
+                try:
+                    from apt_tickets import crear_ticket, _cargar
+                    data_tickets = _cargar()
+                    tickets_activos_ip = [t for t in data_tickets.get("tickets", [])
+                                          if t.get("ip") == ip_atacante
+                                          and t.get("estado") in ["Abierto", "Investigando"]]
+                    if not tickets_activos_ip:
+                        abuse_data = consultar_abuseipdb(ip_atacante)
+                        crear_ticket(
+                            titulo=f"IP maliciosa confirmada (AbuseIPDB) — {ip_atacante}",
+                            descripcion=f"La IP {ip_atacante} tiene una reputacion de {abuse_score}% en AbuseIPDB "
+                                       f"(amenaza confirmada por fuente externa), pero no ha generado "
+                                       f"suficiente volumen de eventos locales para ser evaluada por el motor LSTM. "
+                                       f"Pais: {abuse_data.get('pais','')} | ISP: {abuse_data.get('isp','')} | "
+                                       f"Reportes: {abuse_data.get('reportes',0)}.",
+                            prioridad="ALTA",
+                            ip=ip_atacante,
+                            fase_mitre="unknown",
+                            confianza=0,
+                            abuse_score=abuse_score,
+                            abuse_pais=abuse_data.get("pais",""),
+                            abuse_isp=abuse_data.get("isp","")
+                        )
+                        print(f"[ABUSEIPDB] Ticket creado para {ip_atacante} por reputacion externa ({abuse_score}%)")
+                except Exception as e_abuse:
+                    print(f"[ABUSEIPDB] Error creando ticket: {e_abuse}")
                 
             if abuse_score < 20:
                 print(f"[APT] IP {ip_atacante} AbuseIPDB {abuse_score}% < 20% — omitiendo")
