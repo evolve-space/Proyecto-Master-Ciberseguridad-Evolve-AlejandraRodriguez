@@ -18695,7 +18695,1675 @@
       "creado_en": "2026-09-04T08:00:54.484490+00:00",
       "actualizado_en": "2026-09-04T08:00:54.484490+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0564",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 176.32.193.16",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 176.32.193.16. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: AM | ISP: Ucom CJSC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "176.32.193.16",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "AM",
+      "abuse_isp": "Ucom CJSC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T09:29:42.725905",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 176.32.193.16 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T09:29:42.437609+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T09:29:42.437609+00:00",
+      "actualizado_en": "2026-09-04T09:29:42.437609+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0565",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 45.91.64.6",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 45.91.64.6. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: RU | ISP: F6",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "45.91.64.6",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RU",
+      "abuse_isp": "F6",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T09:30:30.294039",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 45.91.64.6 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T09:30:30.016937+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T09:30:30.016937+00:00",
+      "actualizado_en": "2026-09-04T09:30:30.016937+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0566",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 218.205.34.19",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 218.205.34.19. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: CN | ISP: China Mobile Communications Corporation - jiangsu",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "218.205.34.19",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CN",
+      "abuse_isp": "China Mobile Communications Corporation - jiangsu",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T09:44:24.160311",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 218.205.34.19 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T09:44:23.861698+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T09:44:23.861698+00:00",
+      "actualizado_en": "2026-09-04T09:44:23.861698+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0567",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 161.35.219.97",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 161.35.219.97. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: DE | ISP: DigitalOcean, LLC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "161.35.219.97",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T09:49:02.339812",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 161.35.219.97 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T09:49:02.057122+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T09:49:02.057122+00:00",
+      "actualizado_en": "2026-09-04T09:49:02.057122+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0568",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 134.209.251.50",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 134.209.251.50. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: DE | ISP: DigitalOcean, LLC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "134.209.251.50",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T09:50:56.956002",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 134.209.251.50 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T09:50:56.693881+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T09:50:56.693881+00:00",
+      "actualizado_en": "2026-09-04T09:50:56.693881+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0569",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 130.12.180.101",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 130.12.180.101. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: DE | ISP: Virtualine Technologies",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "130.12.180.101",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "Virtualine Technologies",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T10:26:03.023059",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 130.12.180.101 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T10:26:02.753252+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T10:26:02.753252+00:00",
+      "actualizado_en": "2026-09-04T10:26:02.753252+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0570",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 5.202.169.252",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 5.202.169.252. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: IR | ISP: Pishgaman Toseeh Ertebatat Company (Private Joint Stock)",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "5.202.169.252",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IR",
+      "abuse_isp": "Pishgaman Toseeh Ertebatat Company (Private Joint Stock)",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T10:38:46.894935",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 5.202.169.252 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T10:38:46.608492+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T10:38:46.608492+00:00",
+      "actualizado_en": "2026-09-04T10:38:46.608492+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0571",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 106.251.244.178",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 106.251.244.178. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: KR | ISP: LG DACOM Corporation",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "106.251.244.178",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "KR",
+      "abuse_isp": "LG DACOM Corporation",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T11:10:32.412409",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 106.251.244.178 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T11:10:32.112746+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T11:10:32.112746+00:00",
+      "actualizado_en": "2026-09-04T11:10:32.112746+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0572",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 164.92.176.86",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 164.92.176.86. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: DE | ISP: DigitalOcean, LLC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "164.92.176.86",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T11:24:50.312230",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 164.92.176.86 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T11:24:50.043216+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T11:24:50.043216+00:00",
+      "actualizado_en": "2026-09-04T11:24:50.043216+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0573",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 45.194.92.53",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 45.194.92.53. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: CA | ISP: VPSVAULT.HOST LTD",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "45.194.92.53",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CA",
+      "abuse_isp": "VPSVAULT.HOST LTD",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T16:35:59.356449",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 45.194.92.53 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T16:35:59.042111+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T16:35:59.042111+00:00",
+      "actualizado_en": "2026-09-04T16:35:59.042111+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0574",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 80.94.92.55",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 80.94.92.55. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: RO | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "80.94.92.55",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T16:39:50.284297",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 80.94.92.55 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T16:39:49.981128+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T16:39:49.981128+00:00",
+      "actualizado_en": "2026-09-04T16:39:49.981128+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0575",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 20.105.65.67",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 20.105.65.67. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: IE | ISP: Microsoft Corporation",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "20.105.65.67",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IE",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T17:24:23.613897",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 20.105.65.67 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T17:24:23.335607+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T17:24:23.335607+00:00",
+      "actualizado_en": "2026-09-04T17:24:23.335607+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0576",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 20.65.178.3",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 20.65.178.3. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Microsoft Corporation",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "20.65.178.3",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T17:33:57.222558",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 20.65.178.3 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T17:33:56.977398+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T17:33:56.977398+00:00",
+      "actualizado_en": "2026-09-04T17:33:56.977398+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0577",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 211.253.9.49",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 211.253.9.49. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: KR | ISP: Korea Telecom",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "211.253.9.49",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "KR",
+      "abuse_isp": "Korea Telecom",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T19:46:20.254100",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 211.253.9.49 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T19:46:19.970705+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T19:46:19.970705+00:00",
+      "actualizado_en": "2026-09-04T19:46:19.970705+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0578",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 18.116.101.220",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 18.116.101.220. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Amazon Technologies Inc.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "18.116.101.220",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Amazon Technologies Inc.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T22:19:53.490098",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 18.116.101.220 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T22:19:53.184641+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T22:19:53.184641+00:00",
+      "actualizado_en": "2026-09-04T22:19:53.184641+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0579",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 41.242.115.83",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 41.242.115.83. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: NG | ISP: DOLPHIN TELECOMMUNICATION LIMITED",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "41.242.115.83",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NG",
+      "abuse_isp": "DOLPHIN TELECOMMUNICATION LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T22:34:57.011169",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 41.242.115.83 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T22:34:56.742792+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T22:34:56.742792+00:00",
+      "actualizado_en": "2026-09-04T22:34:56.742792+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0580",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 119.203.251.187",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 119.203.251.187. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: KR | ISP: Korea Telecom",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "119.203.251.187",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "KR",
+      "abuse_isp": "Korea Telecom",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T22:37:50.363770",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 119.203.251.187 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T22:37:50.051477+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T22:37:50.051477+00:00",
+      "actualizado_en": "2026-09-04T22:37:50.051477+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0581",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 91.92.47.172",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 91.92.47.172. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: NL | ISP: TechTies Inc.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "91.92.47.172",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TechTies Inc.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T22:40:58.897240",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 91.92.47.172 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T22:40:58.586209+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T22:40:58.586209+00:00",
+      "actualizado_en": "2026-09-04T22:40:58.586209+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0582",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 23.88.47.15",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 23.88.47.15. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: DE | ISP: Hetzner Online GmbH",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "23.88.47.15",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "Hetzner Online GmbH",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-04T22:42:57.062805",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 23.88.47.15 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-04T22:42:56.773422+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-04T22:42:56.773422+00:00",
+      "actualizado_en": "2026-09-04T22:42:56.773422+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0583",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 72.14.178.148",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 72.14.178.148. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Linode",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "72.14.178.148",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Linode",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T01:42:10.342704",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 72.14.178.148 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T01:42:10.007252+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T01:42:10.007252+00:00",
+      "actualizado_en": "2026-09-05T01:42:10.007252+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0584",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 178.128.95.222",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 178.128.95.222. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: SG | ISP: DigitalOcean, LLC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "178.128.95.222",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "SG",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T02:12:42.078293",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 178.128.95.222 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T02:12:41.766053+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T02:12:41.766053+00:00",
+      "actualizado_en": "2026-09-05T02:12:41.766053+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0585",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 45.79.207.71",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 45.79.207.71. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Linode",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "45.79.207.71",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Linode",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T02:47:00.071494",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 45.79.207.71 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T02:46:59.733096+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T02:46:59.733096+00:00",
+      "actualizado_en": "2026-09-05T02:46:59.733096+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0586",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 118.193.58.120",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 118.193.58.120. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: DE | ISP: UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "118.193.58.120",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T02:47:09.717228",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 118.193.58.120 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T02:47:09.436404+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T02:47:09.436404+00:00",
+      "actualizado_en": "2026-09-05T02:47:09.436404+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0587",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 183.60.172.37",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 183.60.172.37. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: CN | ISP: CHINANET Guangdong province network",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "183.60.172.37",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CN",
+      "abuse_isp": "CHINANET Guangdong province network",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T02:59:08.133020",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 183.60.172.37 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T02:59:07.799431+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T02:59:07.799431+00:00",
+      "actualizado_en": "2026-09-05T02:59:07.799431+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0588",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 185.64.25.226",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 185.64.25.226. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: OM | ISP: Oman Data Park SAOC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "185.64.25.226",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "OM",
+      "abuse_isp": "Oman Data Park SAOC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T04:16:49.775005",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 185.64.25.226 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T04:16:49.467032+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T04:16:49.467032+00:00",
+      "actualizado_en": "2026-09-05T04:16:49.467032+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0589",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 115.178.75.242",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 115.178.75.242. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: KR | ISP: SKBroadband Co. Inc",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "115.178.75.242",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "KR",
+      "abuse_isp": "SKBroadband Co. Inc",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T04:51:27.937024",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 115.178.75.242 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T04:51:27.613751+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T04:51:27.613751+00:00",
+      "actualizado_en": "2026-09-05T04:51:27.613751+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0590",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 103.241.45.120",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 103.241.45.120. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: IN | ISP: Gtpl Broadband Pvt. Ltd.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.241.45.120",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IN",
+      "abuse_isp": "Gtpl Broadband Pvt. Ltd.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T04:53:02.163545",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 103.241.45.120 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T04:53:01.911459+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T04:53:01.911459+00:00",
+      "actualizado_en": "2026-09-05T04:53:01.911459+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0591",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 77.239.124.210",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 77.239.124.210. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: FR | ISP: ROCKET & MARINICA LTD",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "77.239.124.210",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "FR",
+      "abuse_isp": "ROCKET & MARINICA LTD",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T05:12:47.098757",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 77.239.124.210 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T05:12:46.799275+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T05:12:46.799275+00:00",
+      "actualizado_en": "2026-09-05T05:12:46.799275+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0592",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 108.46.229.102",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 108.46.229.102. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Verizon Business",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "108.46.229.102",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Verizon Business",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T05:57:11.937792",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 108.46.229.102 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T05:57:11.675812+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T05:57:11.675812+00:00",
+      "actualizado_en": "2026-09-05T05:57:11.675812+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0593",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 176.65.149.212",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 176.65.149.212. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: NL | ISP: Pfcloud UG",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "176.65.149.212",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "Pfcloud UG",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T06:31:24.813419",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 176.65.149.212 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T06:31:24.499974+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T06:31:24.499974+00:00",
+      "actualizado_en": "2026-09-05T06:31:24.499974+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0594",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 170.130.187.22",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 170.130.187.22. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 66% | Pais: US | ISP: ServerHub Los Angeles",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "170.130.187.22",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 66,
+      "abuse_pais": "US",
+      "abuse_isp": "ServerHub Los Angeles",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T14:01:52.382174+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T14:01:52.382174+00:00",
+      "actualizado_en": "2026-09-05T14:01:52.382174+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0595",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 195.178.110.227",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 195.178.110.227. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: NL | ISP: TECHOFF SRV LIMITED",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "195.178.110.227",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "TECHOFF SRV LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T14:41:25.066768",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 195.178.110.227 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T14:41:24.776112+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T14:41:24.776112+00:00",
+      "actualizado_en": "2026-09-05T14:41:24.776112+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0596",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 188.20.244.19",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 188.20.244.19. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: AT | ISP: A1 Telekom Austria AG - Business Customer",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "188.20.244.19",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "AT",
+      "abuse_isp": "A1 Telekom Austria AG - Business Customer",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T15:22:10.686700",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 188.20.244.19 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T15:22:10.414530+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T15:22:10.414530+00:00",
+      "actualizado_en": "2026-09-05T15:22:10.414530+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0597",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 58.224.62.29",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 58.224.62.29. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: KR | ISP: SK Broadband Co Ltd",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "58.224.62.29",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "KR",
+      "abuse_isp": "SK Broadband Co Ltd",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T15:22:59.553896",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 58.224.62.29 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T15:22:59.262710+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T15:22:59.262710+00:00",
+      "actualizado_en": "2026-09-05T15:22:59.262710+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0598",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 164.92.200.106",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 164.92.200.106. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 94% | Pais: DE | ISP: DigitalOcean, LLC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "164.92.200.106",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 94,
+      "abuse_pais": "DE",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T15:34:00.652341",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 164.92.200.106 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T15:34:00.366226+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T15:34:00.366226+00:00",
+      "actualizado_en": "2026-09-05T15:34:00.366226+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0599",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 68.183.74.193",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 68.183.74.193. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 77% | Pais: DE | ISP: DigitalOcean, LLC",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "68.183.74.193",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 77,
+      "abuse_pais": "DE",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T15:34:02.386291+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T15:34:02.386291+00:00",
+      "actualizado_en": "2026-09-05T15:34:02.386291+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0600",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 207.154.213.254",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 207.154.213.254. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 79% | Pais: DE | ISP: DigitalOcean, LLC",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "207.154.213.254",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 79,
+      "abuse_pais": "DE",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T15:34:42.839042+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T15:34:42.839042+00:00",
+      "actualizado_en": "2026-09-05T15:34:42.839042+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0601",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 161.35.148.245",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 161.35.148.245. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: NL | ISP: DigitalOcean, LLC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "161.35.148.245",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T16:46:35.153697",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 161.35.148.245 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T16:46:34.707175+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T16:46:34.707175+00:00",
+      "actualizado_en": "2026-09-05T16:46:34.707175+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0602",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 57.154.243.106",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 57.154.243.106. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Microsoft Limited",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "57.154.243.106",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Limited",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T17:30:03.425540",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 57.154.243.106 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T17:30:03.133470+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T17:30:03.133470+00:00",
+      "actualizado_en": "2026-09-05T17:30:03.133470+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0603",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 4.148.240.174",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 4.148.240.174. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Microsoft Corporation",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "4.148.240.174",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Microsoft Corporation",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T18:28:18.599455",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 4.148.240.174 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T18:28:18.301406+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T18:28:18.301406+00:00",
+      "actualizado_en": "2026-09-05T18:28:18.301406+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0604",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 87.106.29.151",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 87.106.29.151. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: DE | ISP: IONOS SE",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "87.106.29.151",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "DE",
+      "abuse_isp": "IONOS SE",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T19:44:47.757124",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 87.106.29.151 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T19:44:47.439276+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T19:44:47.439276+00:00",
+      "actualizado_en": "2026-09-05T19:44:47.439276+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0605",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 177.10.203.106",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 177.10.203.106. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: BR | ISP: LINKNET Telecom",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "177.10.203.106",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "BR",
+      "abuse_isp": "LINKNET Telecom",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T19:45:19.899590",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 177.10.203.106 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T19:45:19.622266+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T19:45:19.622266+00:00",
+      "actualizado_en": "2026-09-05T19:45:19.622266+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0606",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 143.110.145.158",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 143.110.145.158. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: DigitalOcean, LLC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "143.110.145.158",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "DigitalOcean, LLC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T20:43:05.607509",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 143.110.145.158 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T20:43:05.350872+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T20:43:05.350872+00:00",
+      "actualizado_en": "2026-09-05T20:43:05.350872+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0607",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 211.22.123.63",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 211.22.123.63. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: TW | ISP: Data Communication Business Group,",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "211.22.123.63",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "TW",
+      "abuse_isp": "Data Communication Business Group,",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T21:14:15.412555",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 211.22.123.63 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T21:14:15.072309+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T21:14:15.072309+00:00",
+      "actualizado_en": "2026-09-05T21:14:15.072309+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0608",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 119.246.15.94",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 119.246.15.94. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: HK | ISP: Hong Kong Broadband Network Ltd",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "119.246.15.94",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "HK",
+      "abuse_isp": "Hong Kong Broadband Network Ltd",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T21:21:26.782490",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 119.246.15.94 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T21:21:26.488026+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T21:21:26.488026+00:00",
+      "actualizado_en": "2026-09-05T21:21:26.488026+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0609",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 179.32.213.29",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 179.32.213.29. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: CO | ISP: COLOMBIA TELECOMUNICACIONES S.A. ESP BIC",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "179.32.213.29",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "CO",
+      "abuse_isp": "COLOMBIA TELECOMUNICACIONES S.A. ESP BIC",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-05T23:55:05.988856",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 179.32.213.29 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-05T23:55:05.684000+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-05T23:55:05.684000+00:00",
+      "actualizado_en": "2026-09-05T23:55:05.684000+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0610",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 176.65.148.78",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 176.65.148.78. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: NL | ISP: Pfcloud UG",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "176.65.148.78",
+      "fase_mitre": "persistence",
+      "confianza": 100.0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "NL",
+      "abuse_isp": "Pfcloud UG",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-06T00:28:02.981065",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 176.65.148.78 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-06T00:28:02.658720+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-06T00:28:02.658720+00:00",
+      "actualizado_en": "2026-09-06T00:28:02.658720+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0611",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 151.158.2.135",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 151.158.2.135. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: IN | ISP: ARCR TECHNOLOGIES PRIVATE LIMITED",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "151.158.2.135",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "IN",
+      "abuse_isp": "ARCR TECHNOLOGIES PRIVATE LIMITED",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-06T01:15:28.365844",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 151.158.2.135 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-06T01:15:28.075362+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-06T01:15:28.075362+00:00",
+      "actualizado_en": "2026-09-06T01:15:28.075362+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0612",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 141.98.83.48",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 141.98.83.48. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: RO | ISP: Flyservers S.A.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "141.98.83.48",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "RO",
+      "abuse_isp": "Flyservers S.A.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-06T05:35:16.974903",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 141.98.83.48 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-06T05:35:16.632688+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-06T05:35:16.632688+00:00",
+      "actualizado_en": "2026-09-06T05:35:16.632688+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0613",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 69.49.246.176",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 69.49.246.176. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Newfold Digital, Inc.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "69.49.246.176",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Newfold Digital, Inc.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-06T05:52:29.498000",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 69.49.246.176 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-06T05:52:29.167723+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-06T05:52:29.167723+00:00",
+      "actualizado_en": "2026-09-06T05:52:29.167723+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0614",
+      "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 70.168.225.50",
+      "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 70.168.225.50. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 100% | Pais: US | ISP: Cox Communications Inc.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "70.168.225.50",
+      "fase_mitre": "persistence",
+      "confianza": 99.9,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "US",
+      "abuse_isp": "Cox Communications Inc.",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-06T07:39:57.971151",
+          "texto": "Playbook ip_maliciosa ejecutado automáticamente. IP 70.168.225.50 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-06T07:39:57.632888+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-06T07:39:57.632888+00:00",
+      "actualizado_en": "2026-09-06T07:39:57.632888+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 563
+  "contador": 614
 }

@@ -481,6 +481,7 @@ if os.path.exists(notif_file):
         pass
 
 st.markdown("""<style>
+
     /* ── BASE OSCURA ─────────────────────────────────────────────────────── */
     :root { color-scheme: dark !important; }
     html, body, [class*="css"],
