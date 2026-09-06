@@ -907,7 +907,7 @@ def cargar_suricata():
         # Leer el archivo actual sin comprimir
         import subprocess
         result = subprocess.run(
-            ["tail", "-n", "5000", "/var/log/suricata/eve.json"],
+            ["tail", "-n", "20000", "/var/log/suricata/eve.json"],
             capture_output=True, text=True, errors="ignore"
         )
         for line in result.stdout.splitlines():
@@ -1060,7 +1060,7 @@ st.markdown(f"""
     <div style="display:flex; gap:16px; align-items:center;">
         <span style="background:#f39c12; color:white; padding:2px 8px; border-radius:3px;
                      font-size:0.7rem; font-weight:700; letter-spacing:0.5px">TLP:AMBER</span>
-        <span style="color:#7f8c8d">Analista: <strong style="color:#2c3e50">{name}</strong></span>
+        <span style="color:#7f8c8d">Analista: <strong style="color:#e6edf3">{name}</strong></span>
         <span style="color:#7f8c8d">{hora_local().strftime('%d/%m/%Y %H:%M')}</span>
     </div>
 </div>
@@ -1292,9 +1292,12 @@ elif pagina == "Alertas y Eventos":
         with col_g1:
             st.markdown('<div class="section-header">Alertas por Hora</div>', unsafe_allow_html=True)
             import plotly.express as px
-            df_hora = df.copy()
+            from datetime import datetime, timedelta
+            hace_24h = datetime.now() - timedelta(hours=24)
+            df_hora = df[df["timestamp"] >= hace_24h].copy()
             df_hora["hora"] = df_hora["timestamp"].dt.hour
             alertas_hora = df_hora.groupby("hora").size().reset_index(name="Alertas")
+            alertas_hora = alertas_hora.set_index("hora").reindex(range(24), fill_value=0).reset_index()
             fig1 = px.bar(alertas_hora, x="hora", y="Alertas", 
                          color="Alertas", color_continuous_scale="Blues",
                          template="plotly_dark")
@@ -2997,7 +3000,7 @@ elif pagina == "Detección APT":
 
     st.markdown('<div class="section-header">Fases MITRE ATT&CK Monitorizadas</div>', unsafe_allow_html=True)
     fases_colores = {
-        "reconnaissance":       "#95a5a6",
+        "reconnaissance":       "#5d6d7e",
         "initial_access":       "#e67e22",
         "execution":            "#e74c3c",
         "persistence":          "#c0392b",
@@ -3008,7 +3011,6 @@ elif pagina == "Detección APT":
         "lateral_movement":     "#c0392b",
         "collection":           "#922b21",
         "exfiltration":         "#641e16",
-        "unknown":              "#bdc3c7",
     }
     cols = st.columns(6)
     for i, (fase, color) in enumerate(fases_colores.items()):
@@ -4330,8 +4332,10 @@ elif pagina == "Tráfico de Red":
             df_time["hora"] = pd.to_datetime(df_time["timestamp"]).dt.hour
             timeline = df_time.groupby("hora").size().reset_index(name="Alertas")
             timeline.columns = ["Hora", "Alertas"]
-            # Rellenar horas sin datos con 0
-            todas_horas = pd.DataFrame({"Hora": range(0, 24)})
+            # Mostrar solo el rango de horas con datos reales
+            hora_min = int(timeline["Hora"].min())
+            hora_max = int(timeline["Hora"].max())
+            todas_horas = pd.DataFrame({"Hora": range(hora_min, hora_max + 1)})
             timeline = todas_horas.merge(timeline, on="Hora", how="left").fillna(0)
             timeline["Hora"] = timeline["Hora"].astype(int).astype(str).str.zfill(2) + ":00"
             fig4 = px.bar(timeline, x="Hora", y="Alertas",
