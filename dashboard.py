@@ -3888,6 +3888,9 @@ elif pagina == "Gestión de Incidentes":
                                                     headers=HEADERS,
                                                     json={"estado": "Contenido", "nota": f"IP {ip_ticket} bloqueada manualmente desde el ticket."},
                                                     timeout=5)
+                                                st.info("Cerrando ticket...")
+                                                import time
+                                                time.sleep(2)
                                                 st.rerun()
                                             else:
                                                 st.warning(f"IP {ip_ticket} ya estaba bloqueada.")
@@ -3895,6 +3898,9 @@ elif pagina == "Gestión de Incidentes":
                                                     headers=HEADERS,
                                                     json={"estado": "Contenido", "nota": f"IP {ip_ticket} ya estaba bloqueada en Hetzner."},
                                                     timeout=5)
+                                                st.info("Cerrando ticket...")
+                                                import time
+                                                time.sleep(2)
                                                 st.rerun()
                                         except Exception as e:
                                             st.error(f"Error: {e}")

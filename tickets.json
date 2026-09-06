@@ -19690,7 +19690,7 @@
       "id": "NTC-0594",
       "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 170.130.187.22",
       "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 170.130.187.22. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 66% | Pais: US | ISP: ServerHub Los Angeles",
-      "estado": "Abierto",
+      "estado": "Contenido",
       "prioridad": "ALTA",
       "ip": "170.130.187.22",
       "fase_mitre": "persistence",
@@ -19708,10 +19708,15 @@
           "estado": "Abierto",
           "timestamp": "2026-09-05T14:01:52.382174+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Contenido",
+          "timestamp": "2026-09-06T10:05:40.401231+00:00",
+          "nota": "IP 170.130.187.22 bloqueada manualmente desde el ticket."
         }
       ],
       "creado_en": "2026-09-05T14:01:52.382174+00:00",
-      "actualizado_en": "2026-09-05T14:01:52.382174+00:00",
+      "actualizado_en": "2026-09-06T10:05:40.401231+00:00",
       "resuelto_en": null
     },
     {
@@ -19850,7 +19855,7 @@
       "id": "NTC-0599",
       "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 68.183.74.193",
       "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 100.0% desde la IP 68.183.74.193. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 77% | Pais: DE | ISP: DigitalOcean, LLC",
-      "estado": "Abierto",
+      "estado": "Contenido",
       "prioridad": "ALTA",
       "ip": "68.183.74.193",
       "fase_mitre": "persistence",
@@ -19868,17 +19873,22 @@
           "estado": "Abierto",
           "timestamp": "2026-09-05T15:34:02.386291+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Contenido",
+          "timestamp": "2026-09-06T10:03:37.586260+00:00",
+          "nota": "IP 68.183.74.193 bloqueada manualmente desde el ticket."
         }
       ],
       "creado_en": "2026-09-05T15:34:02.386291+00:00",
-      "actualizado_en": "2026-09-05T15:34:02.386291+00:00",
+      "actualizado_en": "2026-09-06T10:03:37.586260+00:00",
       "resuelto_en": null
     },
     {
       "id": "NTC-0600",
       "titulo": "Actividad maliciosa detectada — PERSISTENCE desde 207.154.213.254",
       "descripcion": "El motor LSTM ha detectado una campana en fase persistence con confianza del 99.9% desde la IP 207.154.213.254. Nivel de riesgo: ALTO. Secuencia de 32 eventos analizados. Reputacion AbuseIPDB: 79% | Pais: DE | ISP: DigitalOcean, LLC",
-      "estado": "Abierto",
+      "estado": "Contenido",
       "prioridad": "ALTA",
       "ip": "207.154.213.254",
       "fase_mitre": "persistence",
@@ -19896,10 +19906,15 @@
           "estado": "Abierto",
           "timestamp": "2026-09-05T15:34:42.839042+00:00",
           "nota": "Ticket creado"
+        },
+        {
+          "estado": "Contenido",
+          "timestamp": "2026-09-06T09:57:15.177111+00:00",
+          "nota": "IP 207.154.213.254 bloqueada manualmente desde el ticket."
         }
       ],
       "creado_en": "2026-09-05T15:34:42.839042+00:00",
-      "actualizado_en": "2026-09-05T15:34:42.839042+00:00",
+      "actualizado_en": "2026-09-06T09:57:15.177111+00:00",
       "resuelto_en": null
     },
     {
