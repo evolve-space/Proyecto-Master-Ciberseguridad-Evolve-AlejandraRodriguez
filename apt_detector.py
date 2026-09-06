@@ -375,7 +375,8 @@ class DetectorAPT:
                             )
                             print(f"[TICKET] Ticket SOC creado para IP {ip}")
                             # Lanzar playbook automaticamente si AbuseIPDB >= 90%
-                            if abuse_score_detector >= 90:
+                            es_multi_fase = len(self.fases_por_ip.get(ip, set())) >= 2
+                            if abuse_score_detector >= 90 and not es_multi_fase:
                                 try:
                                     cache_file = "/root/asoar/blocked_ips_cache.json"
                                     import json as _json
