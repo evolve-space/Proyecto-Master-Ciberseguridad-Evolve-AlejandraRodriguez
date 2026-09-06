@@ -659,7 +659,7 @@ async def desbloquear_ip(ip: str, api_key: str = Depends(verificar_api_key)):
 async def obtener_campanas_apt(request: Request, api_key: str = Depends(verificar_api_key)):
     if not APT_DISPONIBLE:
         return []
-    return detector_apt.obtener_campanas(ultimas_n=50)
+    return detector_apt.obtener_campanas(ultimas_n=500)
 
 @app.get("/apt/estado")
 async def obtener_estado_apt(request: Request, api_key: str = Depends(verificar_api_key)):
@@ -674,7 +674,7 @@ async def obtener_explicaciones_xai(request: Request, api_key: str = Depends(ver
     explicador = obtener_explicador()
     if not explicador:
         return []
-    return explicador.obtener_explicaciones(ultimas_n=20)
+    return explicador.obtener_explicaciones(ultimas_n=200)
 
 @app.get("/apt/importancia")
 async def obtener_importancia_global(request: Request, api_key: str = Depends(verificar_api_key)):

@@ -4443,6 +4443,93 @@
         "isp": "Cox Communications Inc.",
         "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 70.168.225.50 (Cox Communications Inc., US) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
       }
+    },
+    {
+      "id": "PB-AUTO-64.62.156.108",
+      "playbook": "ip_maliciosa",
+      "ip": "64.62.156.108",
+      "timestamp": "2026-09-06T10:28:33.218199",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-06T10:28:33.507227"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-06T10:28:33.515460",
+          "ticket": "NTC-0615"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "The Shadowserver Foundation, Inc.",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 64.62.156.108 (The Shadowserver Foundation, Inc., US) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-139.59.147.177",
+      "playbook": "ip_maliciosa",
+      "ip": "139.59.147.177",
+      "timestamp": "2026-09-06T11:09:58.660722",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-06T11:09:58.944255"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-06T11:09:58.950717",
+          "ticket": "NTC-0616"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "DE",
+        "isp": "DigitalOcean, LLC",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 139.59.147.177 (DigitalOcean, LLC, DE) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
+    },
+    {
+      "id": "PB-AUTO-20.65.178.95",
+      "playbook": "ip_maliciosa",
+      "ip": "20.65.178.95",
+      "timestamp": "2026-09-06T11:45:39.738685",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-06T11:45:40.041732"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-06T11:45:40.049474",
+          "ticket": "NTC-0617"
+        }
+      ],
+      "contexto": {
+        "fase_mitre": "persistence",
+        "confianza": 99.9,
+        "nivel_riesgo": "ALTO",
+        "abuse_score": 100,
+        "pais": "US",
+        "isp": "Microsoft Corporation",
+        "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 20.65.178.95 (Microsoft Corporation, US) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
+      }
     }
   ]
 }

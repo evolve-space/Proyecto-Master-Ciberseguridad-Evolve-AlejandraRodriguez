@@ -2777,6 +2777,57 @@ elif pagina == "Detección APT":
             <p style="font-size:2rem;font-weight:700;color:#f39c12;">{estado.get("campanas_24h", 0)}</p>
         </div>""", unsafe_allow_html=True)
 
+    # Distribución de fases MITRE detectadas — evidencia visual del feature mismatch
+    st.markdown('<div class="section-header">Distribución de Fases MITRE Detectadas</div>', unsafe_allow_html=True)
+    try:
+        campanas_dist = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
+    except:
+        campanas_dist = []
+    if campanas_dist:
+        from collections import Counter
+        col_pie, col_evol = st.columns(2)
+        
+        with col_pie:
+            fases_count = Counter(c.get("fase_mitre","unknown") for c in campanas_dist)
+            df_fases = pd.DataFrame(list(fases_count.items()), columns=["Fase", "Detecciones"]).sort_values("Detecciones", ascending=False)
+            import plotly.express as px
+            fig_fases = px.pie(df_fases, names="Fase", values="Detecciones",
+                         color_discrete_sequence=px.colors.sequential.Reds_r,
+                         template="plotly_dark", hole=0.4)
+            fig_fases.update_layout(paper_bgcolor="#0d1117", plot_bgcolor="#0d1117",
+                              margin=dict(t=10, b=10, l=10, r=10), height=280,
+                              legend=dict(font=dict(color="#c9d1d9")))
+            fig_fases.update_traces(textfont_color="#e6edf3")
+            st.plotly_chart(fig_fases, use_container_width=True)
+        
+        with col_evol:
+            df_evol = pd.DataFrame(campanas_dist)
+            df_evol["fecha"] = pd.to_datetime(df_evol["timestamp"]).dt.date
+            from datetime import date, timedelta
+            hoy = date.today()
+            
+            fecha_min = df_evol["fecha"].min()
+            fecha_max = hoy - timedelta(days=1)  # excluir día en curso
+            
+            rango_fechas = pd.date_range(start=fecha_min, end=fecha_max, freq="D").date
+            evol_diaria = df_evol[df_evol["fecha"] <= fecha_max].groupby("fecha").size()
+            evol_diaria = evol_diaria.reindex(rango_fechas, fill_value=0).reset_index()
+            evol_diaria.columns = ["fecha", "Detecciones"]
+            evol_diaria["fecha_str"] = pd.to_datetime(evol_diaria["fecha"]).dt.strftime("%d/%m")
+            
+            fig_evol = px.line(evol_diaria, x="fecha_str", y="Detecciones",
+                         template="plotly_dark", markers=True)
+            fig_evol.update_traces(line_color="#f85149", marker_color="#f85149", marker_size=8)
+            fig_evol.update_layout(paper_bgcolor="#0d1117", plot_bgcolor="#0d1117",
+                              margin=dict(t=30, b=10, l=10, r=10), height=280,
+                              title=dict(text="Detecciones por día (datos disponibles)", font=dict(size=13, color="#8b949e")),
+                              xaxis=dict(title="", tickfont=dict(color="#8b949e")),
+                              yaxis=dict(title="Detecciones", tickfont=dict(color="#8b949e"), rangemode="tozero"))
+            st.plotly_chart(fig_evol, use_container_width=True)
+        
+    else:
+        st.info("No hay suficientes campañas detectadas para mostrar la distribución.")
+
     # Estado del reentrenamiento automatico
     st.markdown('<div class="section-header">Reentrenamiento Automatico del Modelo</div>', unsafe_allow_html=True)
     try:
@@ -2985,16 +3036,6 @@ elif pagina == "Detección APT":
         df_apt.columns = [c.replace("_", " ").title() for c in col_order]
         tabla_oscura(df_apt, use_container_width=True, hide_index=True)
 
-        if "Fase Mitre" in df_apt.columns:
-            st.markdown('<div class="section-header">Distribucion de Fases APT</div>', unsafe_allow_html=True)
-            conteo = df_apt["Fase Mitre"].value_counts().reset_index()
-            conteo.columns = ["Fase", "Count"]
-            fig = px.bar(conteo, x="Fase", y="Count", color="Count", color_continuous_scale="Reds")
-            fig.update_layout(plot_bgcolor="#0d1117", paper_bgcolor="#0d1117",
-                            margin=dict(l=0,r=0,t=10,b=0), height=250,
-                            showlegend=False, coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
-
         if len(campanas) > 1:
             st.markdown('<div class="section-header">Timeline de Campana APT</div>', unsafe_allow_html=True)
             df_timeline = pd.DataFrame(campanas)
@@ -3019,28 +3060,38 @@ elif pagina == "Detección APT":
             st.plotly_chart(fig_tl, use_container_width=True)
             st.markdown('<p style="font-size:0.75rem;color:#7f8c8d;text-align:center">Cada punto representa una campana APT detectada. El tamano indica la confianza del modelo.</p>', unsafe_allow_html=True)
 
-            st.markdown('<div class="section-header">Progresion de la Campana</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-header">IPs con Progresion Multi-Fase</div>', unsafe_allow_html=True)
+            st.markdown('<p style="font-size:0.8rem;color:#8b949e;margin-bottom:12px">Progresion de fases MITRE detectada por IP individual — solo se muestra cuando una misma IP presenta 2 o mas fases distintas.</p>', unsafe_allow_html=True)
             fases_orden = ["reconnaissance","initial_access","execution","persistence",
                            "privilege_escalation","defense_evasion","credential_access",
                            "discovery","lateral_movement","collection","exfiltration"]
-            fases_detectadas = df_timeline["fase_mitre"].unique().tolist()
-            fases_progresion = [f for f in fases_orden if f in fases_detectadas]
-            if fases_progresion:
-                html_prog = '<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:12px;background:#161b22;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.4);">'
-                for i, fase in enumerate(fases_progresion):
-                    color = fases_colores.get(fase, "#bdc3c7")
-                    html_prog += f'<div style="background:{color};color:white;padding:6px 12px;border-radius:6px;font-size:0.75rem;font-weight:600;">{fase.replace("_"," ").upper()}</div>'
-                    if i < len(fases_progresion) - 1:
-                        html_prog += '<span style="color:#bdc3c7;font-size:1.2rem">→</span>'
-                html_prog += '</div>'
-                st.markdown(html_prog, unsafe_allow_html=True)
-                nivel_escalada = len(fases_progresion)
-                if nivel_escalada >= 4:
-                    st.error(f"ALERTA: Campana APT avanzada detectada con {nivel_escalada} fases progresivas")
-                elif nivel_escalada >= 2:
-                    st.warning(f"Progresion APT detectada: {nivel_escalada} fases identificadas")
+            
+            ips_multi_fase = df_timeline.groupby("ip")["fase_mitre"].apply(lambda x: sorted(set(x), key=lambda f: fases_orden.index(f) if f in fases_orden else 99))
+            ips_multi_fase = ips_multi_fase[ips_multi_fase.apply(len) >= 2]
+            
+            if len(ips_multi_fase) > 0:
+                items_list = list(ips_multi_fase.items())
+                
+                html_todas = '<div style="max-height:400px;overflow-y:auto;padding-right:8px;">'
+                for ip_camp, fases_ip in items_list:
+                    html_todas += f'<p style="font-size:0.8rem;color:#c9d1d9;margin:12px 0 4px 0"><strong>{ip_camp}</strong></p>'
+                    html_todas += '<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:10px;background:#161b22;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.4);margin-bottom:12px;">'
+                    for i, fase in enumerate(fases_ip):
+                        color = fases_colores.get(fase, "#bdc3c7")
+                        html_todas += f'<div style="background:{color};color:white;padding:5px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;">{fase.replace("_"," ").upper()}</div>'
+                        if i < len(fases_ip) - 1:
+                            html_todas += '<span style="color:#bdc3c7;font-size:1rem">→</span>'
+                    html_todas += '</div>'
+                html_todas += '</div>'
+                st.markdown(html_todas, unsafe_allow_html=True)
+                
+                nivel_max = ips_multi_fase.apply(len).max()
+                if nivel_max >= 4:
+                    st.error(f"Se han detectado IPs con hasta {nivel_max} fases MITRE progresivas — posibles campañas APT reales, requieren revisión manual.")
                 else:
-                    st.info("Fase inicial de posible campana APT")
+                    st.warning(f"Se han detectado IPs con progresión de hasta {nivel_max} fases MITRE distintas.")
+            else:
+                st.info("Ninguna IP individual presenta progresión de múltiples fases MITRE en las últimas detecciones — todas las detecciones actuales corresponden a fase única por IP.")
 
     else:
         st.info("No se han detectado campañas APT todavia. El sistema esta monitorizando activamente.")
@@ -3064,7 +3115,22 @@ elif pagina == "Detección APT":
         explicaciones = []
 
     if explicaciones:
-        for exp in explicaciones[-3:]:
+        vistas = set()
+        ejemplos_variados = []
+        for exp in reversed(explicaciones):
+            fase = exp.get("fase_detectada", exp.get("fase_mitre", ""))
+            if fase not in vistas:
+                vistas.add(fase)
+                ejemplos_variados.append(exp)
+            if len(ejemplos_variados) == 3:
+                break
+        if len(ejemplos_variados) < 3:
+            for exp in reversed(explicaciones):
+                if exp not in ejemplos_variados:
+                    ejemplos_variados.append(exp)
+                if len(ejemplos_variados) == 3:
+                    break
+        for exp in ejemplos_variados:
             nivel_color = {
                 "CRITICO": "#e74c3c", "ALTO": "#e67e22",
                 "MEDIO": "#f39c12", "BAJO": "#27ae60"
@@ -3743,7 +3809,7 @@ elif pagina == "Gestión de Incidentes":
     except:
         metricas = {}
 
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3, col4, col4b, col5 = st.columns(6)
     with col1:
         st.markdown(f"""
         <div class="metric-card" style="border-top:3px solid #388bfd;">
@@ -3771,6 +3837,12 @@ elif pagina == "Gestión de Incidentes":
         <div class="metric-card" style="border-top:3px solid #3fb950;">
             <p class="metric-label">Resueltos</p>
             <p class="metric-value" style="color:#3fb950">{metricas.get("resueltos", 0)}</p>
+        </div>""", unsafe_allow_html=True)
+    with col4b:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #388bfd;">
+            <p class="metric-label">Contenidos</p>
+            <p class="metric-value" style="color:#388bfd">{metricas.get("contenidos", 0)}</p>
         </div>""", unsafe_allow_html=True)
     with col5:
         mttr = metricas.get("mttr_horas", 0)
