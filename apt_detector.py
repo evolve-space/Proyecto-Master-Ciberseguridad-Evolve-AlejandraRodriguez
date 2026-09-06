@@ -306,6 +306,29 @@ class DetectorAPT:
             self.campanas.append(analisis)
             self._guardar_campanas()
             print(f"[APT DETECTADO] Fase: {fase} | Confianza: {confianza}% | Riesgo: {nivel_riesgo}")
+            
+            # Generar explicacion XAI para esta deteccion
+            try:
+                import sys
+                sys.path.insert(0, '/root/asoar')
+                from apt_xai import obtener_explicador
+                import numpy as np
+                explicador = obtener_explicador()
+                if explicador:
+                    ventana = np.array(list(self.buffer), dtype=np.float32)
+                    if len(ventana) < 32:
+                        pad = np.zeros((32 - len(ventana), 9), dtype=np.float32)
+                        ventana = np.vstack([pad, ventana])
+                    explicador.explicar_ventana(
+                        ventana=ventana,
+                        fase_predicha=fase,
+                        confianza=confianza,
+                        contexto={"ip": alerta.get("ip",""), "agente": alerta.get("agente","")}
+                    )
+                    print(f"[XAI] Explicacion generada para fase {fase}")
+            except Exception as ex:
+                print(f"[XAI] Error generando explicacion: {ex}")
+
             # Crear ticket SOC automaticamente — solo si no hay uno activo para esta IP
             try:
                 from apt_tickets import crear_ticket, _cargar
