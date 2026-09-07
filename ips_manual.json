@@ -532,5 +532,11 @@
     "accion": "BLOQUEADA",
     "timestamp": "2026-09-06T10:05:40.390865",
     "origen": "manual"
+  },
+  {
+    "ip": "156.238.71.247",
+    "accion": "BLOQUEADA",
+    "timestamp": "2026-09-07T07:48:30.615130",
+    "origen": "manual"
   }
 ]

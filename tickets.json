@@ -20477,7 +20477,152 @@
       "creado_en": "2026-09-06T11:45:39.702195+00:00",
       "actualizado_en": "2026-09-06T11:45:39.702195+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0618",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 96.78.177.249",
+      "descripcion": "La IP 96.78.177.249 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "96.78.177.249",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-07T02:35:46.402756+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-07T02:35:46.402756+00:00",
+      "actualizado_en": "2026-09-07T02:35:46.402756+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0619",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 49.51.233.104",
+      "descripcion": "La IP 49.51.233.104 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "49.51.233.104",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-07T03:51:46.169338+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-07T03:51:46.169338+00:00",
+      "actualizado_en": "2026-09-07T03:51:46.169338+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0620",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 45.56.79.53",
+      "descripcion": "La IP 45.56.79.53 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "45.56.79.53",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-07T04:42:25.234723",
+          "texto": "Playbook port_scan ejecutado automáticamente. IP 45.56.79.53 bloqueada en Hetzner."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-07T04:41:54.849119+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-07T04:41:54.849119+00:00",
+      "actualizado_en": "2026-09-07T04:41:54.849119+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0621",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 45.148.10.240",
+      "descripcion": "La IP 45.148.10.240 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "45.148.10.240",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-07T05:30:45.788407+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-07T05:30:45.788407+00:00",
+      "actualizado_en": "2026-09-07T05:30:45.788407+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0622",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.97.202.163",
+      "descripcion": "La IP 103.97.202.163 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Abierto",
+      "prioridad": "ALTA",
+      "ip": "103.97.202.163",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-07T07:03:32.903977+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-07T07:03:32.903977+00:00",
+      "actualizado_en": "2026-09-07T07:03:32.903977+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 617
+  "contador": 622
 }
