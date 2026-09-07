@@ -4530,6 +4530,27 @@
         "isp": "Microsoft Corporation",
         "narrativa": "El motor LSTM detecto actividad maliciosa en fase PERSISTENCE desde la IP 20.65.178.95 (Microsoft Corporation, US) con una confianza del 99.9% y nivel de riesgo ALTO. AbuseIPDB confirma score del 100%. IP bloqueada automaticamente en Hetzner sin intervencion del analista."
       }
+    },
+    {
+      "id": "PB-0182",
+      "playbook": "port_scan",
+      "ip": "45.56.79.53",
+      "ticket_id": "",
+      "timestamp": "2026-09-07T04:42:24.962141",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-07T04:42:25.223996"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-07T04:42:25.234737",
+          "ticket": "NTC-0620"
+        }
+      ]
     }
   ]
 }
