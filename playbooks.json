@@ -4551,6 +4551,111 @@
           "ticket": "NTC-0620"
         }
       ]
+    },
+    {
+      "id": "PB-0183",
+      "playbook": "port_scan",
+      "ip": "20.168.125.175",
+      "ticket_id": "",
+      "timestamp": "2026-09-08T01:12:35.312030",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-08T01:12:35.613537"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-08T01:12:35.626868",
+          "ticket": "NTC-0804"
+        }
+      ]
+    },
+    {
+      "id": "PB-0184",
+      "playbook": "port_scan",
+      "ip": "20.115.100.103",
+      "ticket_id": "",
+      "timestamp": "2026-09-08T02:31:27.300076",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-08T02:31:27.541576"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-08T02:31:27.549283",
+          "ticket": "NTC-0806"
+        }
+      ]
+    },
+    {
+      "id": "PB-0185",
+      "playbook": "port_scan",
+      "ip": "20.102.109.163",
+      "ticket_id": "",
+      "timestamp": "2026-09-08T03:37:06.266551",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-08T03:37:06.553603"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-08T03:37:06.565085",
+          "ticket": "NTC-0813"
+        }
+      ]
+    },
+    {
+      "id": "PB-0186",
+      "playbook": "port_scan",
+      "ip": "45.79.207.111",
+      "ticket_id": "",
+      "timestamp": "2026-09-08T03:54:31.084426",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-08T03:54:31.327946"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-08T03:54:31.332952",
+          "ticket": "NTC-0814"
+        }
+      ]
+    },
+    {
+      "id": "PB-0187",
+      "playbook": "port_scan",
+      "ip": "20.29.40.65",
+      "ticket_id": "",
+      "timestamp": "2026-09-08T06:50:56.669266",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-08T06:50:56.960080"
+        },
+        {
+          "accion": "ACTUALIZAR_TICKET",
+          "estado": "OK",
+          "timestamp": "2026-09-08T06:50:56.972647",
+          "ticket": "NTC-0819"
+        }
+      ]
     }
   ]
 }
