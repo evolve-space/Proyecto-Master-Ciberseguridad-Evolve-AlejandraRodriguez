@@ -2,8 +2,8 @@
   "tickets": [
     {
       "id": "NTC-0001",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 51.210.142.53",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 51.210.142.53 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 51.210.142.53",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 51.210.142.53 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "51.210.142.53",
@@ -35,8 +35,8 @@
     },
     {
       "id": "NTC-0002",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 176.236.127.114",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 176.236.127.114 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 176.236.127.114",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 176.236.127.114 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "176.236.127.114",
@@ -68,8 +68,8 @@
     },
     {
       "id": "NTC-0003",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 103.228.8.165",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 103.228.8.165 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 103.228.8.165",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 103.228.8.165 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "103.228.8.165",
@@ -101,8 +101,8 @@
     },
     {
       "id": "NTC-0004",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 42.117.2.215",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 42.117.2.215 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 42.117.2.215",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 42.117.2.215 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "42.117.2.215",
@@ -134,8 +134,8 @@
     },
     {
       "id": "NTC-0005",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 159.89.85.154",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 159.89.85.154 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 159.89.85.154",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 159.89.85.154 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "159.89.85.154",
@@ -167,8 +167,8 @@
     },
     {
       "id": "NTC-0006",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 8.211.153.10",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 8.211.153.10 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 8.211.153.10",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 8.211.153.10 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "8.211.153.10",
@@ -200,8 +200,8 @@
     },
     {
       "id": "NTC-0007",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 195.46.234.207",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 195.46.234.207 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 195.46.234.207",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 195.46.234.207 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "195.46.234.207",
@@ -233,8 +233,8 @@
     },
     {
       "id": "NTC-0008",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 119.148.35.67",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 119.148.35.67 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 119.148.35.67",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 119.148.35.67 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "119.148.35.67",
@@ -266,8 +266,8 @@
     },
     {
       "id": "NTC-0009",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 187.72.10.114",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 187.72.10.114 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 187.72.10.114",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 187.72.10.114 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "187.72.10.114",
@@ -299,8 +299,8 @@
     },
     {
       "id": "NTC-0010",
-      "titulo": "IP bloqueada autom\u00e1ticamente \u2014 71.162.229.80",
-      "descripcion": "El sistema ha bloqueado autom\u00e1ticamente la IP 71.162.229.80 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisi\u00f3n del analista para confirmar el bloqueo.",
+      "titulo": "IP bloqueada automáticamente — 71.162.229.80",
+      "descripcion": "El sistema ha bloqueado automáticamente la IP 71.162.229.80 en el firewall de Hetzner Cloud por actividad maliciosa detectada. Requiere revisión del analista para confirmar el bloqueo.",
       "estado": "Cerrado",
       "prioridad": "ALTA",
       "ip": "71.162.229.80",
@@ -329,7 +329,40 @@
       "creado_en": "2026-09-08T08:10:46.335714+00:00",
       "actualizado_en": "2026-09-08T08:10:46.335714+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0011",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 194.153.198.230",
+      "descripcion": "La IP 194.153.198.230 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "194.153.198.230",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-08T09:03:17.693472",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-08T09:03:17.539571+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-08T09:03:17.539571+00:00",
+      "actualizado_en": "2026-09-08T09:03:17.539571+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 10
+  "contador": 11
 }
