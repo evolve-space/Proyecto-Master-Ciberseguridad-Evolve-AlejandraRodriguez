@@ -85,6 +85,7 @@ class DetectorAPT:
         self.scaler    = None
         self.encoders  = None
         self.buffer    = deque(maxlen=SEQ_LEN)
+        self.buffers_por_ip = {}  # {ip: [vectores]} — sin limite, sequencia real por IP
         self.campanas  = []
         self.cargado   = False
         self.fases_por_ip = {}  # Registro de fases detectadas por IP
@@ -248,34 +249,38 @@ class DetectorAPT:
     def procesar_alerta(self, alerta: dict) -> dict:
         """
         Procesa una nueva alerta y evalua si forma parte de una campana APT.
-
-        alerta: dict con rule_id, nivel, ip, agente
-        Retorna: dict con resultado del analisis APT
+        Usa buffer independiente por IP, sin limite fijo ni padding artificial.
         """
         if not self.cargado:
             return {"apt_activo": False, "motivo": "Modelo no cargado"}
-
-        # Anadir al buffer
+        
+        ip = alerta.get("ip", "")
         vector = self._alerta_a_vector(alerta)
+        
+        # Buffer independiente por IP — sin padding, secuencia real
+        if ip not in self.buffers_por_ip:
+            self.buffers_por_ip[ip] = []
+        self.buffers_por_ip[ip].append(vector)
+        
+        # Tambien mantenemos el buffer global para compatibilidad (uso interno/legacy)
         self.buffer.append(vector)
         self._guardar_buffer()
-
-        # Necesitamos al menos 8 eventos para una prediccion significativa
-        if len(self.buffer) < 8:
+        
+        secuencia_ip = self.buffers_por_ip[ip]
+        n_eventos_ip = len(secuencia_ip)
+        
+        # Necesitamos al menos 2 eventos de ESTA IP para evaluar progresion
+        if n_eventos_ip < 2:
             return {
                 "apt_activo":  False,
-                "motivo":      f"Acumulando eventos ({len(self.buffer)}/{SEQ_LEN})",
-                "n_eventos":   len(self.buffer),
+                "motivo":      f"Acumulando eventos de {ip} ({n_eventos_ip})",
+                "n_eventos":   n_eventos_ip,
             }
-
-        # Construir secuencia con padding si es necesario
-        secuencia = list(self.buffer)
-        if len(secuencia) < SEQ_LEN:
-            pad = [np.zeros(9, dtype=np.float32)] * (SEQ_LEN - len(secuencia))
-            secuencia = pad + secuencia
-        ventana = np.array(secuencia, dtype=np.float32)
-
-        # Prediccion LSTM
+        
+        # Usar la secuencia REAL de esta IP, sin padding artificial
+        ventana = np.array(secuencia_ip, dtype=np.float32)
+        
+        # Prediccion LSTM con longitud real (el modelo acepta seq_len variable)
         resultado = predecir_ventana(self.modelo, ventana)
         fase       = resultado["fase_mitre"]
         confianza  = resultado["confianza"]
@@ -295,7 +300,7 @@ class DetectorAPT:
             "fase_mitre":    fase,
             "confianza":     confianza,
             "nivel_riesgo":  nivel_riesgo,
-            "n_eventos":     len(self.buffer),
+            "n_eventos":     n_eventos_ip,
             "timestamp":     datetime.now().isoformat(),
             "ip":            alerta.get("ip", ""),
             "agente":        alerta.get("agente", ""),
@@ -315,17 +320,14 @@ class DetectorAPT:
                 import numpy as np
                 explicador = obtener_explicador()
                 if explicador:
-                    ventana = np.array(list(self.buffer), dtype=np.float32)
-                    if len(ventana) < 32:
-                        pad = np.zeros((32 - len(ventana), 9), dtype=np.float32)
-                        ventana = np.vstack([pad, ventana])
+                    ventana_xai = np.array(secuencia_ip, dtype=np.float32)
                     explicador.explicar_ventana(
-                        ventana=ventana,
+                        ventana=ventana_xai,
                         fase_predicha=fase,
                         confianza=confianza,
-                        contexto={"ip": alerta.get("ip",""), "agente": alerta.get("agente","")}
+                        contexto={"ip": ip, "agente": alerta.get("agente","")}
                     )
-                    print(f"[XAI] Explicacion generada para fase {fase}")
+                    print(f"[XAI] Explicacion generada para fase {fase} (secuencia real: {n_eventos_ip} eventos)")
             except Exception as ex:
                 print(f"[XAI] Error generando explicacion: {ex}")
 
@@ -386,7 +388,7 @@ class DetectorAPT:
                                 descripcion=f"El motor LSTM ha detectado una campana en fase {fase} "
                                            f"con confianza del {confianza}% desde la IP {ip}. "
                                            f"Nivel de riesgo: {nivel_riesgo}. "
-                                           f"Secuencia de {len(self.buffer)} eventos analizados. "
+                                           f"Secuencia de {n_eventos_ip} eventos analizados. (secuencia real, sin padding). "
                                            f"Reputacion AbuseIPDB: {abuse_score}% | Pais: {abuse_pais} | ISP: {abuse_isp}",
                                 prioridad="CRITICA" if nivel_riesgo == "CRITICO" else "ALTA" if nivel_riesgo == "ALTO" else "MEDIA",
                                 ip=ip,
@@ -462,9 +464,12 @@ class DetectorAPT:
             if datetime.fromisoformat(c["timestamp"]) >
                datetime.now() - timedelta(hours=24)
         ]
+        total_eventos_ips = sum(len(v) for v in self.buffers_por_ip.values())
         return {
             "modelo_cargado":     self.cargado,
             "eventos_en_buffer":  len(self.buffer),
+            "ips_monitorizadas":  len(self.buffers_por_ip),
+            "total_eventos_ips":  total_eventos_ips,
             "campanas_totales":   len(self.campanas),
             "campanas_24h":       len(campanas_recientes),
             "ultima_campana":     self.campanas[-1] if self.campanas else None,

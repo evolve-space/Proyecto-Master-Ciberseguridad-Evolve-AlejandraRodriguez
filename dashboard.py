@@ -1167,8 +1167,8 @@ if pagina == "Panel General":
             color = "#2980b9"
             st.markdown(f"""
             <div class="metric-card" style="border-top:3px solid {color};">
-                <p class="metric-label">Eventos en Buffer</p>
-                <p style="font-size:3rem;font-weight:700;color:{color};margin:4px 0 0 0;">{buffer}</p>
+                <p class="metric-label">IPs Monitorizadas</p>
+                <p style="font-size:2rem;font-weight:700;color:#6c3483;">{estado_apt.get("ips_monitorizadas", 0)}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver motor", key="btn_buffer", use_container_width=True, type="secondary"):
                 st.session_state.pagina = "Detección APT"; st.rerun()
@@ -1789,7 +1789,7 @@ elif pagina == "Simulador de Ataques":
                 estado_post = requests.get("http://localhost:8000/apt/estado",
                                           headers=HEADERS, timeout=5).json()
                 col1, col2, col3 = st.columns(3)
-                col1.metric("Eventos en Buffer", estado_post.get("eventos_en_buffer", 0))
+                col1.metric("IPs Monitorizadas", estado_post.get("ips_monitorizadas", 0))
                 col2.metric("Campañas Totales", estado_post.get("campañas_totales", 0))
                 col3.metric("Campañas 24h", estado_post.get("campañas_24h", 0))
             except:
@@ -2764,8 +2764,8 @@ elif pagina == "Detección APT":
     with col2:
         st.markdown(f"""
         <div class="metric-card" style="border-top:3px solid #6c3483;">
-            <p class="metric-label">Eventos en Buffer</p>
-            <p style="font-size:2rem;font-weight:700;color:#6c3483;">{estado.get("eventos_en_buffer", 0)}</p>
+            <p class="metric-label">IPs Monitorizadas</p>
+            <p style="font-size:2rem;font-weight:700;color:#6c3483;">{estado.get("ips_monitorizadas", 0)}</p>
         </div>""", unsafe_allow_html=True)
     with col3:
         st.markdown(f"""
