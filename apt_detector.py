@@ -317,7 +317,6 @@ class DetectorAPT:
                 import sys
                 sys.path.insert(0, '/root/asoar')
                 from apt_xai import obtener_explicador
-                import numpy as np
                 explicador = obtener_explicador()
                 if explicador:
                     ventana_xai = np.array(secuencia_ip, dtype=np.float32)
