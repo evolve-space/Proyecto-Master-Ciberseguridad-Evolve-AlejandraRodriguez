@@ -355,9 +355,58 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
                             abuse_isp=abuse_data.get("isp","")
                         )
                         print(f"[ABUSEIPDB] Ticket creado para {ip_atacante} por reputacion externa ({abuse_score}%)")
+                        # Bloqueo automatico — mismo umbral de confianza que el playbook LSTM
+                        try:
+                            bloquear_ip_hetzner(ip_atacante)
+                            from apt_tickets import _cargar as _cargar2, _guardar as _guardar2
+                            data_tk = _cargar2()
+                            for t in data_tk.get("tickets", []):
+                                if t.get("ip") == ip_atacante and t.get("estado") == "Abierto":
+                                    t["estado"] = "Contenido"
+                                    t.setdefault("notas", []).append({
+                                        "timestamp": datetime.now().isoformat(),
+                                        "texto": f"Bloqueado automaticamente por reputacion AbuseIPDB {abuse_score}%."
+                                    })
+                            _guardar2(data_tk)
+                            print(f"[ABUSEIPDB] IP {ip_atacante} bloqueada automaticamente ({abuse_score}%)")
+                        except Exception as e_block:
+                            print(f"[ABUSEIPDB] Error bloqueando: {e_block}")
                 except Exception as e_abuse:
                     print(f"[ABUSEIPDB] Error creando ticket: {e_abuse}")
-                
+            
+            # Firmas de malware conocido — bloqueo por conocimiento tecnico independiente de reputacion externa
+            firmas_malware_conocido = ["mirai", "jaws", "shell command execution", "webshell", "remote code execution"]
+            descripcion_lower = descripcion.lower()
+            es_firma_critica = nivel >= 12 and any(f in descripcion_lower for f in firmas_malware_conocido)
+            
+            if es_firma_critica and not ip_esta_bloqueada(ip_atacante):
+                try:
+                    from apt_tickets import crear_ticket, _cargar
+                    data_tickets2 = _cargar()
+                    tickets_activos_ip2 = [t for t in data_tickets2.get("tickets", [])
+                                          if t.get("ip") == ip_atacante
+                                          and t.get("estado") in ["Abierto", "Investigando"]]
+                    if not tickets_activos_ip2:
+                        abuse_data2 = consultar_abuseipdb(ip_atacante)
+                        crear_ticket(
+                            titulo=f"Firma de malware conocido detectada — {ip_atacante}",
+                            descripcion=f"Suricata ha detectado una firma critica de malware/exploit conocido "
+                                       f"(\"{descripcion}\") desde la IP {ip_atacante}, nivel Wazuh {nivel}. "
+                                       f"Esta deteccion se basa en el conocimiento tecnico de la firma, "
+                                       f"independientemente de la reputacion externa (AbuseIPDB: {abuse_data2.get('score',0)}%). "
+                                       f"Pais: {abuse_data2.get('pais','')} | ISP: {abuse_data2.get('isp','')}.",
+                            prioridad="CRITICA",
+                            ip=ip_atacante,
+                            fase_mitre="initial_access",
+                            confianza=0,
+                            abuse_score=abuse_data2.get("score", 0),
+                            abuse_pais=abuse_data2.get("pais",""),
+                            abuse_isp=abuse_data2.get("isp","")
+                        )
+                        print(f"[FIRMA] Ticket creado para {ip_atacante} por firma de malware conocido: {descripcion}")
+                except Exception as e_firma:
+                    print(f"[FIRMA] Error creando ticket: {e_firma}")
+
             if abuse_score < 20:
                 print(f"[APT] IP {ip_atacante} AbuseIPDB {abuse_score}% < 20% — omitiendo")
             else:
