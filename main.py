@@ -219,6 +219,24 @@ def bloquear_ip_hetzner(ip: str):
     }
     r = requests.get(f"https://api.hetzner.cloud/v1/firewalls/{HETZNER_FIREWALL_ID}", headers=headers)
     reglas_actuales = r.json().get("firewall", {}).get("rules", [])
+    
+    # PROTECCION: garantizar que siempre existan las reglas de acceso esenciales
+    descripciones_actuales = [reg.get("description","") for reg in reglas_actuales]
+    if "ALLOW-dashboard-8443" not in descripciones_actuales:
+        reglas_actuales.insert(0, {
+            "direction": "in", "protocol": "tcp", "port": "8443",
+            "source_ips": ["0.0.0.0/0", "::/0"],
+            "description": "ALLOW-dashboard-8443"
+        })
+        print("[HETZNER] PROTECCION: regla ALLOW-dashboard-8443 restaurada")
+    if "ALLOW-ssh-22" not in descripciones_actuales:
+        reglas_actuales.insert(0, {
+            "direction": "in", "protocol": "tcp", "port": "22",
+            "source_ips": ["0.0.0.0/0", "::/0"],
+            "description": "ALLOW-ssh-22"
+        })
+        print("[HETZNER] PROTECCION: regla ALLOW-ssh-22 restaurada")
+    
     nueva_regla = {
         "direction": "in",
         "protocol": "tcp",
