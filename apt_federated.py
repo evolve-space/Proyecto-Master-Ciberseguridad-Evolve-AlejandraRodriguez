@@ -323,7 +323,7 @@ def simular_federated_learning(n_rondas: int = 5, n_nodos: int = 3):
                 {"local_epochs": 3, "batch_size": 4, "lr": 1e-3}
             )
             # Simular evaluate
-            loss_val, n_val, metricas_eval = cliente.evaluate(params_globales, {})
+            loss_val, n_val, metricas_eval = cliente.evaluate(params_nuevos, {})
             params_locales.append((params_nuevos, n))
             n_muestras_total += n
             accs_ronda.append(metricas_eval.get("accuracy", 0))
