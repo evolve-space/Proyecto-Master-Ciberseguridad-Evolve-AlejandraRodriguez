@@ -68,6 +68,33 @@ RULE_TO_MITRE = {
     "5602": "exfiltration",
 }
 
+# Clasificacion por palabras clave en la descripcion — cubre alertas Suricata
+# agrupadas bajo reglas Wazuh genericas (86610, 86611, 86612)
+DESCRIPCION_TO_MITRE = {
+    "scan": "reconnaissance",
+    "zmap": "reconnaissance",
+    "mirai": "initial_access",
+    "jaws": "initial_access",
+    "shell command execution": "initial_access",
+    "webshell": "initial_access",
+    "remote code execution": "initial_access",
+    "authentication failed": "credential_access",
+    "login failed": "credential_access",
+    "non-existent user": "credential_access",
+    "brute force": "credential_access",
+    "integrity checksum changed": "persistence",
+    "new port opened": "discovery",
+    "netstat": "discovery",
+}
+
+def clasificar_por_descripcion(descripcion: str) -> str:
+    """Clasifica la fase MITRE a partir de palabras clave en la descripcion."""
+    desc_lower = descripcion.lower()
+    for palabra, fase in DESCRIPCION_TO_MITRE.items():
+        if palabra in desc_lower:
+            return fase
+    return "unknown"
+
 Path(MODELS_PATH).mkdir(parents=True, exist_ok=True)
 
 
@@ -111,6 +138,8 @@ def cargar_alertas_wazuh(horas_atras: int = 168) -> pd.DataFrame:
                 if mitre_tacticas and fase == "unknown":
                     tactica = mitre_tacticas[0].lower().replace(" ", "_") if mitre_tacticas else "unknown"
                     fase = tactica if tactica in MITRE_PHASES else "unknown"
+                if fase == "unknown":
+                    fase = clasificar_por_descripcion(descripcion)
 
                 alertas.append({
                     "timestamp":   ts,
