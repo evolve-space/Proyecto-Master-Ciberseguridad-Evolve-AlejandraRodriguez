@@ -4472,7 +4472,3995 @@
       "creado_en": "2026-09-09T06:54:00.213057+00:00",
       "actualizado_en": "2026-09-09T06:54:00.213057+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0137",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 139.255.73.179",
+      "descripcion": "La IP 139.255.73.179 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "139.255.73.179",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:21:41.197463",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:21:40.964107+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:21:40.964107+00:00",
+      "actualizado_en": "2026-09-09T07:21:40.964107+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0138",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 186.232.108.82",
+      "descripcion": "La IP 186.232.108.82 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "186.232.108.82",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:40:58.502045",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:40:58.275485+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:40:58.275485+00:00",
+      "actualizado_en": "2026-09-09T07:40:58.275485+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0139",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.148.208.146",
+      "descripcion": "La IP 103.148.208.146 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.148.208.146",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:41:19.821429",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:41:19.625564+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:41:19.625564+00:00",
+      "actualizado_en": "2026-09-09T07:41:19.625564+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0140",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 181.196.24.37",
+      "descripcion": "La IP 181.196.24.37 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "181.196.24.37",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:41:49.811359",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:41:49.608472+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:41:49.608472+00:00",
+      "actualizado_en": "2026-09-09T07:41:49.608472+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0141",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 178.252.128.86",
+      "descripcion": "La IP 178.252.128.86 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "178.252.128.86",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:42:04.162481",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:42:03.935778+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:42:03.935778+00:00",
+      "actualizado_en": "2026-09-09T07:42:03.935778+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0142",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 49.0.3.142",
+      "descripcion": "La IP 49.0.3.142 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "49.0.3.142",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:42:30.280389",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:42:30.045432+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:42:30.045432+00:00",
+      "actualizado_en": "2026-09-09T07:42:30.045432+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0143",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 123.200.14.14",
+      "descripcion": "La IP 123.200.14.14 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "123.200.14.14",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:42:40.152927",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:42:39.955686+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:42:39.955686+00:00",
+      "actualizado_en": "2026-09-09T07:42:39.955686+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0144",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 65.7.47.134",
+      "descripcion": "La IP 65.7.47.134 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "65.7.47.134",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:43:04.443929",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:43:04.214546+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:43:04.214546+00:00",
+      "actualizado_en": "2026-09-09T07:43:04.214546+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0145",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 122.255.14.70",
+      "descripcion": "La IP 122.255.14.70 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "122.255.14.70",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:43:14.097036",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:43:13.849001+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:43:13.849001+00:00",
+      "actualizado_en": "2026-09-09T07:43:13.849001+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0146",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 41.204.161.181",
+      "descripcion": "La IP 41.204.161.181 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "41.204.161.181",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:43:32.758148",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:43:32.535274+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:43:32.535274+00:00",
+      "actualizado_en": "2026-09-09T07:43:32.535274+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0147",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 170.254.28.244",
+      "descripcion": "La IP 170.254.28.244 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "170.254.28.244",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:43:38.550119",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:43:38.345763+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:43:38.345763+00:00",
+      "actualizado_en": "2026-09-09T07:43:38.345763+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0148",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 136.243.65.145",
+      "descripcion": "La IP 136.243.65.145 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "136.243.65.145",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:43:42.109131",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:43:41.926796+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:43:41.926796+00:00",
+      "actualizado_en": "2026-09-09T07:43:41.926796+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0149",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 179.61.137.164",
+      "descripcion": "La IP 179.61.137.164 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "179.61.137.164",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:44:45.897984",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:44:45.709358+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:44:45.709358+00:00",
+      "actualizado_en": "2026-09-09T07:44:45.709358+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0150",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.154.81.166",
+      "descripcion": "La IP 103.154.81.166 tiene una reputacion de 99% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.154.81.166",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 99,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:44:46.727233",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 99%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:44:46.512452+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:44:46.512452+00:00",
+      "actualizado_en": "2026-09-09T07:44:46.512452+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0151",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 200.143.73.210",
+      "descripcion": "La IP 200.143.73.210 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "200.143.73.210",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:44:54.291092",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:44:54.098828+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:44:54.098828+00:00",
+      "actualizado_en": "2026-09-09T07:44:54.098828+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0152",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 154.72.204.131",
+      "descripcion": "La IP 154.72.204.131 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "154.72.204.131",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:45:09.962740",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:45:09.713249+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:45:09.713249+00:00",
+      "actualizado_en": "2026-09-09T07:45:09.713249+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0153",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 133.18.142.16",
+      "descripcion": "La IP 133.18.142.16 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "133.18.142.16",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:45:24.512579",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:45:24.337867+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:45:24.337867+00:00",
+      "actualizado_en": "2026-09-09T07:45:24.337867+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0154",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 201.116.114.251",
+      "descripcion": "La IP 201.116.114.251 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "201.116.114.251",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:45:25.848705",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:45:25.628335+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:45:25.628335+00:00",
+      "actualizado_en": "2026-09-09T07:45:25.628335+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0155",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 179.48.160.8",
+      "descripcion": "La IP 179.48.160.8 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "179.48.160.8",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:45:36.464245",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:45:36.241253+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:45:36.241253+00:00",
+      "actualizado_en": "2026-09-09T07:45:36.241253+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0156",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.142.240.142",
+      "descripcion": "La IP 103.142.240.142 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.142.240.142",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:45:50.145039",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:45:49.891385+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:45:49.891385+00:00",
+      "actualizado_en": "2026-09-09T07:45:49.891385+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0157",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 190.151.113.6",
+      "descripcion": "La IP 190.151.113.6 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "190.151.113.6",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:45:55.570759",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:45:55.316660+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:45:55.316660+00:00",
+      "actualizado_en": "2026-09-09T07:45:55.316660+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0158",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 139.255.18.29",
+      "descripcion": "La IP 139.255.18.29 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "139.255.18.29",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:45:56.415642",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:45:56.227608+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:45:56.227608+00:00",
+      "actualizado_en": "2026-09-09T07:45:56.227608+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0159",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 88.157.220.46",
+      "descripcion": "La IP 88.157.220.46 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "88.157.220.46",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:46:10.094311",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:46:09.887991+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:46:09.887991+00:00",
+      "actualizado_en": "2026-09-09T07:46:09.887991+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0160",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 163.47.33.39",
+      "descripcion": "La IP 163.47.33.39 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "163.47.33.39",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:46:20.738267",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:46:20.563856+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:46:20.563856+00:00",
+      "actualizado_en": "2026-09-09T07:46:20.563856+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0161",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 77.68.118.194",
+      "descripcion": "La IP 77.68.118.194 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "77.68.118.194",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:46:36.385493",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:46:36.187433+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:46:36.187433+00:00",
+      "actualizado_en": "2026-09-09T07:46:36.187433+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0162",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 200.53.20.116",
+      "descripcion": "La IP 200.53.20.116 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "200.53.20.116",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:47:10.048540",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:47:09.810311+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:47:09.810311+00:00",
+      "actualizado_en": "2026-09-09T07:47:09.810311+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0163",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.69.149.148",
+      "descripcion": "La IP 103.69.149.148 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.69.149.148",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:47:16.645058",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:47:16.434130+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:47:16.434130+00:00",
+      "actualizado_en": "2026-09-09T07:47:16.434130+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0164",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 46.10.201.91",
+      "descripcion": "La IP 46.10.201.91 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "46.10.201.91",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:47:20.240125",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:47:20.033305+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:47:20.033305+00:00",
+      "actualizado_en": "2026-09-09T07:47:20.033305+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0165",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 208.125.163.2",
+      "descripcion": "La IP 208.125.163.2 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "208.125.163.2",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:47:43.823408",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:47:43.569271+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:47:43.569271+00:00",
+      "actualizado_en": "2026-09-09T07:47:43.569271+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0166",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 182.163.98.52",
+      "descripcion": "La IP 182.163.98.52 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "182.163.98.52",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:48:18.699244",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:48:18.480677+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:48:18.480677+00:00",
+      "actualizado_en": "2026-09-09T07:48:18.480677+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0167",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 117.103.80.168",
+      "descripcion": "La IP 117.103.80.168 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "117.103.80.168",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:48:22.045413",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:48:21.827643+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:48:21.827643+00:00",
+      "actualizado_en": "2026-09-09T07:48:21.827643+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0168",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 84.242.142.194",
+      "descripcion": "La IP 84.242.142.194 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "84.242.142.194",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:48:26.611196",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:48:26.394352+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:48:26.394352+00:00",
+      "actualizado_en": "2026-09-09T07:48:26.394352+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0169",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 57.128.196.220",
+      "descripcion": "La IP 57.128.196.220 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "57.128.196.220",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:48:28.207522",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:48:27.986247+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:48:27.986247+00:00",
+      "actualizado_en": "2026-09-09T07:48:27.986247+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0170",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 171.244.5.213",
+      "descripcion": "La IP 171.244.5.213 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "171.244.5.213",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:48:32.230197",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:48:32.035269+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:48:32.035269+00:00",
+      "actualizado_en": "2026-09-09T07:48:32.035269+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0171",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 34.26.152.184",
+      "descripcion": "La IP 34.26.152.184 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "34.26.152.184",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:48:49.925447",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:48:49.657083+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:48:49.657083+00:00",
+      "actualizado_en": "2026-09-09T07:48:49.657083+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0172",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 197.232.56.34",
+      "descripcion": "La IP 197.232.56.34 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "197.232.56.34",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:49:06.523229",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:49:06.278331+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:49:06.278331+00:00",
+      "actualizado_en": "2026-09-09T07:49:06.278331+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0173",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 51.222.85.30",
+      "descripcion": "La IP 51.222.85.30 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "51.222.85.30",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:49:22.228313",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:49:21.997242+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:49:21.997242+00:00",
+      "actualizado_en": "2026-09-09T07:49:21.997242+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0174",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 102.212.64.41",
+      "descripcion": "La IP 102.212.64.41 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "102.212.64.41",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:49:29.591783",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:49:29.363849+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:49:29.363849+00:00",
+      "actualizado_en": "2026-09-09T07:49:29.363849+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0175",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 104.236.48.29",
+      "descripcion": "La IP 104.236.48.29 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "104.236.48.29",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:49:38.215801",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:49:37.983834+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:49:37.983834+00:00",
+      "actualizado_en": "2026-09-09T07:49:37.983834+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0176",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 186.47.99.110",
+      "descripcion": "La IP 186.47.99.110 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "186.47.99.110",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:49:41.818274",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:49:41.576606+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:49:41.576606+00:00",
+      "actualizado_en": "2026-09-09T07:49:41.576606+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0177",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 195.201.170.81",
+      "descripcion": "La IP 195.201.170.81 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "195.201.170.81",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:50:36.462044",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:50:36.232699+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:50:36.232699+00:00",
+      "actualizado_en": "2026-09-09T07:50:36.232699+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0178",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 72.12.244.21",
+      "descripcion": "La IP 72.12.244.21 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "72.12.244.21",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:50:56.156201",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:50:55.939690+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:50:55.939690+00:00",
+      "actualizado_en": "2026-09-09T07:50:55.939690+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0179",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 122.54.197.165",
+      "descripcion": "La IP 122.54.197.165 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "122.54.197.165",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:51:18.756055",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:51:18.521124+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:51:18.521124+00:00",
+      "actualizado_en": "2026-09-09T07:51:18.521124+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0180",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.214.100.4",
+      "descripcion": "La IP 103.214.100.4 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.214.100.4",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:51:26.164503",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:51:25.893630+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:51:25.893630+00:00",
+      "actualizado_en": "2026-09-09T07:51:25.893630+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0181",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 14.225.239.154",
+      "descripcion": "La IP 14.225.239.154 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "14.225.239.154",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:51:44.725983",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:51:44.529543+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:51:44.529543+00:00",
+      "actualizado_en": "2026-09-09T07:51:44.529543+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0182",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 197.253.54.22",
+      "descripcion": "La IP 197.253.54.22 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "197.253.54.22",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:52:44.385353",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:52:44.136237+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:52:44.136237+00:00",
+      "actualizado_en": "2026-09-09T07:52:44.136237+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0183",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 200.12.214.195",
+      "descripcion": "La IP 200.12.214.195 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "200.12.214.195",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:52:50.966675",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:52:50.750143+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:52:50.750143+00:00",
+      "actualizado_en": "2026-09-09T07:52:50.750143+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0184",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.79.90.26",
+      "descripcion": "La IP 103.79.90.26 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.79.90.26",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:53:06.605203",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:53:06.410837+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:53:06.410837+00:00",
+      "actualizado_en": "2026-09-09T07:53:06.410837+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0185",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 160.187.54.114",
+      "descripcion": "La IP 160.187.54.114 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "160.187.54.114",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:53:10.186220",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:53:09.960606+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:53:09.960606+00:00",
+      "actualizado_en": "2026-09-09T07:53:09.960606+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0186",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 185.250.23.195",
+      "descripcion": "La IP 185.250.23.195 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "185.250.23.195",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:53:16.151508",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:53:15.919346+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:53:15.919346+00:00",
+      "actualizado_en": "2026-09-09T07:53:15.919346+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0187",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 167.71.28.110",
+      "descripcion": "La IP 167.71.28.110 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "167.71.28.110",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:53:34.825204",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:53:34.556638+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:53:34.556638+00:00",
+      "actualizado_en": "2026-09-09T07:53:34.556638+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0188",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 36.64.169.228",
+      "descripcion": "La IP 36.64.169.228 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "36.64.169.228",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:53:35.420311",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:53:35.218299+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:53:35.218299+00:00",
+      "actualizado_en": "2026-09-09T07:53:35.218299+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0189",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 182.253.237.100",
+      "descripcion": "La IP 182.253.237.100 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "182.253.237.100",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:53:35.934730",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:53:35.744344+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:53:35.744344+00:00",
+      "actualizado_en": "2026-09-09T07:53:35.744344+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0190",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 176.9.105.121",
+      "descripcion": "La IP 176.9.105.121 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "176.9.105.121",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:53:55.306911",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:53:55.075322+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:53:55.075322+00:00",
+      "actualizado_en": "2026-09-09T07:53:55.075322+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0191",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 178.73.10.24",
+      "descripcion": "La IP 178.73.10.24 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "178.73.10.24",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:54:00.919869",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:54:00.671987+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:54:00.671987+00:00",
+      "actualizado_en": "2026-09-09T07:54:00.671987+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0192",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 120.28.14.100",
+      "descripcion": "La IP 120.28.14.100 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "120.28.14.100",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:54:39.601987",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:54:39.296092+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:54:39.296092+00:00",
+      "actualizado_en": "2026-09-09T07:54:39.296092+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0193",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 193.231.17.168",
+      "descripcion": "La IP 193.231.17.168 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "193.231.17.168",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:54:41.220522",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:54:40.972458+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:54:40.972458+00:00",
+      "actualizado_en": "2026-09-09T07:54:40.972458+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0194",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 180.210.130.30",
+      "descripcion": "La IP 180.210.130.30 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "180.210.130.30",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:55:03.858418",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:55:03.621556+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:55:03.621556+00:00",
+      "actualizado_en": "2026-09-09T07:55:03.621556+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0195",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 213.74.119.218",
+      "descripcion": "La IP 213.74.119.218 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "213.74.119.218",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:55:31.824446",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:55:31.596815+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:55:31.596815+00:00",
+      "actualizado_en": "2026-09-09T07:55:31.596815+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0196",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 14.224.253.94",
+      "descripcion": "La IP 14.224.253.94 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "14.224.253.94",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:55:37.564588",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:55:37.288770+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:55:37.288770+00:00",
+      "actualizado_en": "2026-09-09T07:55:37.288770+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0197",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 41.111.143.137",
+      "descripcion": "La IP 41.111.143.137 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "41.111.143.137",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:56:05.192746",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:56:04.963755+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:56:04.963755+00:00",
+      "actualizado_en": "2026-09-09T07:56:04.963755+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0198",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 57.129.142.252",
+      "descripcion": "La IP 57.129.142.252 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "57.129.142.252",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:56:21.818294",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:56:21.559281+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:56:21.559281+00:00",
+      "actualizado_en": "2026-09-09T07:56:21.559281+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0199",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.94.10.70",
+      "descripcion": "La IP 103.94.10.70 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.94.10.70",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:56:51.049677",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:56:50.791889+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:56:50.791889+00:00",
+      "actualizado_en": "2026-09-09T07:56:50.791889+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0200",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 88.157.220.40",
+      "descripcion": "La IP 88.157.220.40 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "88.157.220.40",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:57:11.527580",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:57:11.297218+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:57:11.297218+00:00",
+      "actualizado_en": "2026-09-09T07:57:11.297218+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0201",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.40.120.158",
+      "descripcion": "La IP 103.40.120.158 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.40.120.158",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:57:17.205449",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:57:16.929786+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:57:16.929786+00:00",
+      "actualizado_en": "2026-09-09T07:57:16.929786+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0202",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 189.127.19.28",
+      "descripcion": "La IP 189.127.19.28 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "189.127.19.28",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:57:19.807308",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:57:19.575241+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:57:19.575241+00:00",
+      "actualizado_en": "2026-09-09T07:57:19.575241+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0203",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 37.77.15.85",
+      "descripcion": "La IP 37.77.15.85 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "37.77.15.85",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:57:25.617076",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:57:25.209644+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:57:25.209644+00:00",
+      "actualizado_en": "2026-09-09T07:57:25.209644+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0204",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 41.220.48.88",
+      "descripcion": "La IP 41.220.48.88 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "41.220.48.88",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:57:27.376703",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:57:26.996755+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:57:26.996755+00:00",
+      "actualizado_en": "2026-09-09T07:57:26.996755+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0205",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 186.42.173.68",
+      "descripcion": "La IP 186.42.173.68 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "186.42.173.68",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:57:34.967782",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:57:34.711175+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:57:34.711175+00:00",
+      "actualizado_en": "2026-09-09T07:57:34.711175+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0206",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.186.21.148",
+      "descripcion": "La IP 103.186.21.148 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.186.21.148",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:57:42.153600",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:57:41.910827+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:57:41.910827+00:00",
+      "actualizado_en": "2026-09-09T07:57:41.910827+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0207",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 164.160.1.220",
+      "descripcion": "La IP 164.160.1.220 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "164.160.1.220",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:58:53.889548",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:58:53.630460+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:58:53.630460+00:00",
+      "actualizado_en": "2026-09-09T07:58:53.630460+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0208",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.139.126.5",
+      "descripcion": "La IP 103.139.126.5 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.139.126.5",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:58:59.530348",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:58:59.276096+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:58:59.276096+00:00",
+      "actualizado_en": "2026-09-09T07:58:59.276096+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0209",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 82.66.9.78",
+      "descripcion": "La IP 82.66.9.78 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "82.66.9.78",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:59:03.187492",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:59:02.954790+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:59:02.954790+00:00",
+      "actualizado_en": "2026-09-09T07:59:02.954790+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0210",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 14.241.150.101",
+      "descripcion": "La IP 14.241.150.101 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "14.241.150.101",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:59:07.849861",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:59:07.590578+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:59:07.590578+00:00",
+      "actualizado_en": "2026-09-09T07:59:07.590578+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0211",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 216.10.245.73",
+      "descripcion": "La IP 216.10.245.73 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "216.10.245.73",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:59:09.519636",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:59:09.262860+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:59:09.262860+00:00",
+      "actualizado_en": "2026-09-09T07:59:09.262860+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0212",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.10.120.162",
+      "descripcion": "La IP 103.10.120.162 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.10.120.162",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:59:23.157680",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:59:22.905395+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:59:22.905395+00:00",
+      "actualizado_en": "2026-09-09T07:59:22.905395+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0213",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 137.74.162.180",
+      "descripcion": "La IP 137.74.162.180 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "137.74.162.180",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T07:59:53.845520",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T07:59:53.593119+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T07:59:53.593119+00:00",
+      "actualizado_en": "2026-09-09T07:59:53.593119+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0214",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 179.61.137.23",
+      "descripcion": "La IP 179.61.137.23 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "179.61.137.23",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:00:13.325614",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:00:13.084296+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:00:13.084296+00:00",
+      "actualizado_en": "2026-09-09T08:00:13.084296+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0215",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.121.20.18",
+      "descripcion": "La IP 103.121.20.18 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.121.20.18",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:00:19.077985",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:00:18.832380+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:00:18.832380+00:00",
+      "actualizado_en": "2026-09-09T08:00:18.832380+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0216",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 190.128.224.134",
+      "descripcion": "La IP 190.128.224.134 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "190.128.224.134",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:02:21.425889",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:02:21.199086+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:02:21.199086+00:00",
+      "actualizado_en": "2026-09-09T08:02:21.199086+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0217",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 159.203.175.62",
+      "descripcion": "La IP 159.203.175.62 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "159.203.175.62",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:02:29.098940",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:02:28.806440+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:02:28.806440+00:00",
+      "actualizado_en": "2026-09-09T08:02:28.806440+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0218",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 176.236.127.114",
+      "descripcion": "La IP 176.236.127.114 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "176.236.127.114",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:02:31.466166",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:02:31.224655+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:02:31.224655+00:00",
+      "actualizado_en": "2026-09-09T08:02:31.224655+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0219",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 115.127.21.214",
+      "descripcion": "La IP 115.127.21.214 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "115.127.21.214",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:02:41.045422",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:02:40.826440+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:02:40.826440+00:00",
+      "actualizado_en": "2026-09-09T08:02:40.826440+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0220",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 43.241.37.251",
+      "descripcion": "La IP 43.241.37.251 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "43.241.37.251",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:03:03.740448",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:03:03.483071+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:03:03.483071+00:00",
+      "actualizado_en": "2026-09-09T08:03:03.483071+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0221",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 41.111.198.172",
+      "descripcion": "La IP 41.111.198.172 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "41.111.198.172",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:04:31.505833",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:04:31.252101+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:04:31.252101+00:00",
+      "actualizado_en": "2026-09-09T08:04:31.252101+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0222",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 210.4.76.130",
+      "descripcion": "La IP 210.4.76.130 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "210.4.76.130",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:04:45.117629",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:04:44.847608+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:04:44.847608+00:00",
+      "actualizado_en": "2026-09-09T08:04:44.847608+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0223",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 85.11.120.12",
+      "descripcion": "La IP 85.11.120.12 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "85.11.120.12",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:05:25.832203",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:05:25.560744+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:05:25.560744+00:00",
+      "actualizado_en": "2026-09-09T08:05:25.560744+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0224",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 94.53.199.67",
+      "descripcion": "La IP 94.53.199.67 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "94.53.199.67",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:05:37.208366",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:05:36.976229+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:05:36.976229+00:00",
+      "actualizado_en": "2026-09-09T08:05:36.976229+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0225",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 200.150.115.230",
+      "descripcion": "La IP 200.150.115.230 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "200.150.115.230",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:05:53.830203",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:05:53.583881+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:05:53.583881+00:00",
+      "actualizado_en": "2026-09-09T08:05:53.583881+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0226",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.95.99.50",
+      "descripcion": "La IP 103.95.99.50 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.95.99.50",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:06:09.287820",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:06:09.058095+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:06:09.058095+00:00",
+      "actualizado_en": "2026-09-09T08:06:09.058095+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0227",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 189.125.111.177",
+      "descripcion": "La IP 189.125.111.177 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "189.125.111.177",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:06:21.688872",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:06:21.439020+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:06:21.439020+00:00",
+      "actualizado_en": "2026-09-09T08:06:21.439020+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0228",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 195.142.175.196",
+      "descripcion": "La IP 195.142.175.196 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "195.142.175.196",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:06:49.750842",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:06:49.502394+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:06:49.502394+00:00",
+      "actualizado_en": "2026-09-09T08:06:49.502394+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0229",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 5.196.45.62",
+      "descripcion": "La IP 5.196.45.62 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "5.196.45.62",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:06:55.135804",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:06:54.882968+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:06:54.882968+00:00",
+      "actualizado_en": "2026-09-09T08:06:54.882968+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0230",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 181.65.211.141",
+      "descripcion": "La IP 181.65.211.141 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "181.65.211.141",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:06:57.529708",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:06:57.267860+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:06:57.267860+00:00",
+      "actualizado_en": "2026-09-09T08:06:57.267860+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0231",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 114.6.128.61",
+      "descripcion": "La IP 114.6.128.61 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "114.6.128.61",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:07:15.266189",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:07:14.988882+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:07:14.988882+00:00",
+      "actualizado_en": "2026-09-09T08:07:14.988882+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0232",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.147.187.182",
+      "descripcion": "La IP 103.147.187.182 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.147.187.182",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:07:19.881524",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:07:19.617870+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:07:19.617870+00:00",
+      "actualizado_en": "2026-09-09T08:07:19.617870+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0233",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 194.127.117.45",
+      "descripcion": "La IP 194.127.117.45 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "194.127.117.45",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:07:23.264470",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:07:23.036092+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:07:23.036092+00:00",
+      "actualizado_en": "2026-09-09T08:07:23.036092+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0234",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 176.212.125.16",
+      "descripcion": "La IP 176.212.125.16 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "176.212.125.16",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:08:27.939068",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:08:27.709628+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:08:27.709628+00:00",
+      "actualizado_en": "2026-09-09T08:08:27.709628+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0235",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 190.128.166.110",
+      "descripcion": "La IP 190.128.166.110 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "190.128.166.110",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:09:15.702975",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:09:15.440827+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:09:15.440827+00:00",
+      "actualizado_en": "2026-09-09T08:09:15.440827+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0236",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.90.25.52",
+      "descripcion": "La IP 103.90.25.52 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.90.25.52",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:09:32.358115",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:09:32.107528+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:09:32.107528+00:00",
+      "actualizado_en": "2026-09-09T08:09:32.107528+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0237",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.227.98.3",
+      "descripcion": "La IP 103.227.98.3 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.227.98.3",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:09:56.035819",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:09:55.743465+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:09:55.743465+00:00",
+      "actualizado_en": "2026-09-09T08:09:55.743465+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0238",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 59.103.230.194",
+      "descripcion": "La IP 59.103.230.194 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "59.103.230.194",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:10:41.711726",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:10:41.459346+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:10:41.459346+00:00",
+      "actualizado_en": "2026-09-09T08:10:41.459346+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0239",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 181.177.241.110",
+      "descripcion": "La IP 181.177.241.110 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "181.177.241.110",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:12:01.149182",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:12:00.886820+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:12:00.886820+00:00",
+      "actualizado_en": "2026-09-09T08:12:00.886820+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0240",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 41.111.187.130",
+      "descripcion": "La IP 41.111.187.130 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "41.111.187.130",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:12:23.799718",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:12:23.540030+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:12:23.540030+00:00",
+      "actualizado_en": "2026-09-09T08:12:23.540030+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0241",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.226.242.125",
+      "descripcion": "La IP 103.226.242.125 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.226.242.125",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:13:44.186216",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:13:43.944547+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:13:43.944547+00:00",
+      "actualizado_en": "2026-09-09T08:13:43.944547+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0242",
+      "titulo": "Campaña APT detectada — MULTI-FASE desde 179.125.210.61",
+      "descripcion": "El motor LSTM ha detectado una campana en fase initial_access con confianza del 77.2% desde la IP 179.125.210.61. Nivel de riesgo: MEDIO. Secuencia de 5 eventos analizados. (secuencia real, sin padding). Reputacion AbuseIPDB: 100% | Pais: BR | ISP: Desktop Sigmanet Comunicação Multimídia SA",
+      "estado": "Abierto",
+      "prioridad": "MEDIA",
+      "ip": "179.125.210.61",
+      "fase_mitre": "initial_access",
+      "confianza": 77.2,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "BR",
+      "abuse_isp": "Desktop Sigmanet Comunicação Multimídia SA",
+      "campana_id": "",
+      "notas": [],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:17:18.106048+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:17:18.106048+00:00",
+      "actualizado_en": "2026-09-09T08:17:18.106048+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0243",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.234.200.252",
+      "descripcion": "La IP 103.234.200.252 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.234.200.252",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:18:10.777100",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:18:10.526590+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:18:10.526590+00:00",
+      "actualizado_en": "2026-09-09T08:18:10.526590+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0244",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 77.239.124.182",
+      "descripcion": "La IP 77.239.124.182 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "77.239.124.182",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:18:42.443750",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:18:42.209210+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:18:42.209210+00:00",
+      "actualizado_en": "2026-09-09T08:18:42.209210+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0245",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 68.183.95.102",
+      "descripcion": "La IP 68.183.95.102 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "68.183.95.102",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:18:53.050315",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:18:52.839382+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:18:52.839382+00:00",
+      "actualizado_en": "2026-09-09T08:18:52.839382+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0246",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 131.153.171.244",
+      "descripcion": "La IP 131.153.171.244 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "131.153.171.244",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:20:04.591040",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:20:04.343075+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:20:04.343075+00:00",
+      "actualizado_en": "2026-09-09T08:20:04.343075+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0247",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 23.170.200.122",
+      "descripcion": "La IP 23.170.200.122 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "23.170.200.122",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:20:22.367434",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:20:22.074625+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:20:22.074625+00:00",
+      "actualizado_en": "2026-09-09T08:20:22.074625+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0248",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 193.93.68.47",
+      "descripcion": "La IP 193.93.68.47 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "193.93.68.47",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:20:22.991536",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:20:22.744741+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:20:22.744741+00:00",
+      "actualizado_en": "2026-09-09T08:20:22.744741+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0249",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 185.151.247.76",
+      "descripcion": "La IP 185.151.247.76 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "185.151.247.76",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:20:34.575538",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:20:34.360716+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:20:34.360716+00:00",
+      "actualizado_en": "2026-09-09T08:20:34.360716+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0250",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 54.37.110.192",
+      "descripcion": "La IP 54.37.110.192 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "54.37.110.192",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:21:29.235157",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:21:28.947199+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:21:28.947199+00:00",
+      "actualizado_en": "2026-09-09T08:21:28.947199+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0251",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.90.25.243",
+      "descripcion": "La IP 103.90.25.243 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.90.25.243",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:21:36.628057",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:21:36.378903+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:21:36.378903+00:00",
+      "actualizado_en": "2026-09-09T08:21:36.378903+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0252",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 213.42.31.237",
+      "descripcion": "La IP 213.42.31.237 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "213.42.31.237",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:21:52.397197",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:21:52.161068+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:21:52.161068+00:00",
+      "actualizado_en": "2026-09-09T08:21:52.161068+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0253",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 50.21.22.50",
+      "descripcion": "La IP 50.21.22.50 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "50.21.22.50",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:22:19.044800",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:22:18.809632+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:22:18.809632+00:00",
+      "actualizado_en": "2026-09-09T08:22:18.809632+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0254",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 103.252.1.247",
+      "descripcion": "La IP 103.252.1.247 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "103.252.1.247",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:25:48.543615",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:25:48.254288+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:25:48.254288+00:00",
+      "actualizado_en": "2026-09-09T08:25:48.254288+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0255",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 46.10.201.90",
+      "descripcion": "La IP 46.10.201.90 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "46.10.201.90",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:26:19.230666",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:26:18.966402+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:26:18.966402+00:00",
+      "actualizado_en": "2026-09-09T08:26:18.966402+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0256",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 200.46.151.238",
+      "descripcion": "La IP 200.46.151.238 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "200.46.151.238",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:26:20.962458",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:26:20.733648+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:26:20.733648+00:00",
+      "actualizado_en": "2026-09-09T08:26:20.733648+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0257",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 41.242.23.84",
+      "descripcion": "La IP 41.242.23.84 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "41.242.23.84",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-09T08:26:27.286222",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-09T08:26:27.048141+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-09T08:26:27.048141+00:00",
+      "actualizado_en": "2026-09-09T08:26:27.048141+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 136
+  "contador": 257
 }
