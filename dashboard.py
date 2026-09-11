@@ -938,6 +938,46 @@ def cargar_suricata():
     except Exception as e:
         return {"alertas": [], "flows": []}
 
+@st.cache_data(ttl=30)
+def cargar_zeek():
+    """Lee las conexiones recientes de Zeek desde conn.log."""
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["tail", "-n", "2000", "/opt/zeek/logs/current/conn.log"],
+            capture_output=True, text=True, errors="ignore"
+        )
+        conexiones = []
+        for linea in result.stdout.splitlines():
+            if linea.startswith("#") or not linea.strip():
+                continue
+            campos = linea.strip().split("\t")
+            if len(campos) < 21:
+                continue
+            try:
+                ts_unix = float(campos[0])
+                conexiones.append({
+                    "timestamp":   datetime.fromtimestamp(ts_unix).isoformat(),
+                    "src_ip":      campos[2],
+                    "src_port":    campos[3],
+                    "dest_ip":     campos[4],
+                    "dest_port":   campos[5],
+                    "proto":       campos[6],
+                    "service":     campos[7] if campos[7] != "-" else "",
+                    "duration":    float(campos[8]) if campos[8] != "-" else 0.0,
+                    "orig_bytes":  float(campos[9]) if campos[9] != "-" else 0.0,
+                    "resp_bytes":  float(campos[10]) if campos[10] != "-" else 0.0,
+                    "conn_state":  campos[11],
+                    "history":     campos[15] if campos[15] != "-" else "",
+                    "orig_pkts":   float(campos[16]) if campos[16] != "-" else 0.0,
+                    "resp_pkts":   float(campos[18]) if campos[18] != "-" else 0.0,
+                })
+            except (ValueError, IndexError):
+                continue
+        return conexiones
+    except Exception:
+        return []
+
 @st.cache_data(ttl=86400)
 def consultar_abuseipdb(ip: str) -> dict:
     """Consulta la reputacion de una IP en AbuseIPDB."""
@@ -4377,6 +4417,43 @@ elif pagina == "Tráfico de Red":
         
     else:
         st.info("Suricata activo — esperando alertas de red. Los datos aparecerán en cuanto se detecte tráfico sospechoso.")
+
+    st.markdown("---")
+    st.markdown('<div class="section-header">Conexiones Zeek — Analisis de Red Avanzado</div>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:0.8rem;color:#8b949e;">Zeek complementa a Suricata con datos de conexion mas detallados: duracion exacta, bytes transferidos, secuencia de flags TCP.</p>', unsafe_allow_html=True)
+    
+    conexiones_zeek = cargar_zeek()
+    if conexiones_zeek:
+        col_z1, col_z2, col_z3 = st.columns(3)
+        with col_z1:
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid #388bfd;">
+                <p class="metric-label">Conexiones Capturadas</p>
+                <p class="metric-value">{len(conexiones_zeek)}</p>
+            </div>""", unsafe_allow_html=True)
+        with col_z2:
+            ips_unicas_zeek = len(set(c["src_ip"] for c in conexiones_zeek if not es_ip_whitelist(c["src_ip"])))
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid #d29922;">
+                <p class="metric-label">IPs Origen Unicas</p>
+                <p class="metric-value" style="color:#d29922">{ips_unicas_zeek}</p>
+            </div>""", unsafe_allow_html=True)
+        with col_z3:
+            escaneos = len([c for c in conexiones_zeek if c["conn_state"] == "S0"])
+            st.markdown(f"""
+            <div class="metric-card" style="border-top:3px solid #f85149;">
+                <p class="metric-label">Intentos sin Respuesta (S0)</p>
+                <p class="metric-value" style="color:#f85149">{escaneos}</p>
+            </div>""", unsafe_allow_html=True)
+        
+        df_zeek = pd.DataFrame(conexiones_zeek[-50:])
+        df_zeek["timestamp"] = pd.to_datetime(df_zeek["timestamp"]).dt.strftime("%d/%m %H:%M:%S")
+        df_zeek_show = df_zeek[["timestamp","src_ip","dest_ip","dest_port","proto","service","duration","conn_state"]].copy()
+        df_zeek_show.columns = ["Timestamp","IP Origen","IP Destino","Puerto","Protocolo","Servicio","Duracion (s)","Estado"]
+        df_zeek_show["Duracion (s)"] = df_zeek_show["Duracion (s)"].round(3)
+        tabla_oscura(df_zeek_show, use_container_width=True, hide_index=True)
+    else:
+        st.info("Zeek activo — esperando conexiones de red. Los datos aparecerán en cuanto haya tráfico.")
 
 
 # ══════════════════════════════════════════════════════════════════════════════

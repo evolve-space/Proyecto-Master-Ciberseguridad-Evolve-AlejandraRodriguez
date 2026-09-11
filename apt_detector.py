@@ -21,6 +21,48 @@ MODELS_PATH = "/root/asoar/models"
 APT_LOG     = "/root/asoar/apt_campanas.json"
 SEQ_LEN     = 32
 
+ZEEK_CONN_LOG = "/opt/zeek/logs/current/conn.log"
+
+def buscar_conexion_zeek(ip: str, timestamp_alerta: str = None, ventana_segundos: int = 30) -> dict:
+    """
+    Busca una conexion de Zeek correlacionada con una IP dentro de una ventana
+    temporal cercana a la alerta. Devuelve los campos relevantes si la encuentra,
+    o un diccionario vacio si no hay match (fallback a Suricata/Wazuh).
+    """
+    try:
+        if not os.path.exists(ZEEK_CONN_LOG):
+            return {}
+        with open(ZEEK_CONN_LOG, "r") as f:
+            lineas = f.readlines()
+        # Buscar de las mas recientes hacia atras (mas probable el match)
+        for linea in reversed(lineas[-2000:]):
+            if linea.startswith("#") or not linea.strip():
+                continue
+            campos = linea.strip().split("\t")
+            if len(campos) < 21:
+                continue
+            orig_h = campos[2]
+            resp_h = campos[4]
+            if ip not in (orig_h, resp_h):
+                continue
+            duration_raw = campos[8]
+            orig_bytes_raw = campos[9]
+            resp_bytes_raw = campos[10]
+            orig_pkts_raw = campos[16]
+            resp_pkts_raw = campos[18]
+            history = campos[15]
+            return {
+                "duration":    float(duration_raw) if duration_raw != "-" else 0.0,
+                "orig_bytes":  float(orig_bytes_raw) if orig_bytes_raw != "-" else 0.0,
+                "resp_bytes":  float(resp_bytes_raw) if resp_bytes_raw != "-" else 0.0,
+                "orig_pkts":   float(orig_pkts_raw) if orig_pkts_raw != "-" else 0.0,
+                "resp_pkts":   float(resp_pkts_raw) if resp_pkts_raw != "-" else 0.0,
+                "history":     history if history != "-" else "",
+            }
+    except Exception:
+        pass
+    return {}
+
 # Fases que indican una campana APT activa y su nivel de riesgo
 FASE_RIESGO = {
     "reconnaissance":      "BAJO",
@@ -145,13 +187,49 @@ class DetectorAPT:
     def _alerta_a_vector(self, alerta: dict) -> np.ndarray:
         """
         Convierte una alerta en un vector de 9 features.
-        Si la alerta tiene datos de Suricata (features de red reales),
-        usa el mismo espacio de features que CICIDS2018.
-        Si no, usa features de metadatos de Wazuh como fallback.
+        Prioridad de fuentes: 1) Zeek (mas preciso), 2) Suricata flow, 3) Wazuh metadatos.
         """
+        ip = alerta.get("ip", "")
+
+        # ── Prioridad 1: Buscar datos de Zeek (mas precisos) ─────────────────
+        datos_zeek = buscar_conexion_zeek(ip) if ip else {}
+
         # ── Detectar si es alerta de Suricata con datos de red ───────────────
         flow     = alerta.get("flow", {})
         tiene_flow = bool(flow and flow.get("pkts_toserver") is not None)
+        tiene_zeek = bool(datos_zeek)
+
+        if tiene_zeek:
+            # ── Features desde Zeek (fuente mas precisa disponible) ───────────
+            duracion       = max(datos_zeek.get("duration", 0.0), 0.001)
+            pkts_toserver  = datos_zeek.get("orig_pkts", 0.0)
+            pkts_toclient  = datos_zeek.get("resp_pkts", 0.0)
+            bytes_toserver = datos_zeek.get("orig_bytes", 0.0)
+            bytes_toclient = datos_zeek.get("resp_bytes", 0.0)
+            history        = datos_zeek.get("history", "")
+
+            flow_byts_s = (bytes_toserver + bytes_toclient) / duracion
+            flow_pkts_s = (pkts_toserver + pkts_toclient) / duracion
+            syn_cnt     = 1.0 if "S" in history else 0.0
+            ack_cnt     = 1.0 if "A" in history else 0.0
+
+            total_pkts  = pkts_toserver + pkts_toclient
+            total_bytes = bytes_toserver + bytes_toclient
+            pkt_size_avg = total_bytes / total_pkts if total_pkts > 0 else 0.0
+            iat_mean = duracion / total_pkts if total_pkts > 0 else 0.0
+
+            vector = np.array([
+                min(duracion / 120.0, 1.0),
+                min(pkts_toserver / 1000.0, 1.0),
+                min(pkts_toclient / 1000.0, 1.0),
+                min(flow_byts_s / 1000000.0, 1.0),
+                min(flow_pkts_s / 10000.0, 1.0),
+                syn_cnt,
+                ack_cnt,
+                min(pkt_size_avg / 1500.0, 1.0),
+                min(iat_mean / 10.0, 1.0),
+            ], dtype=np.float32)
+            return vector
 
         if tiene_flow:
             # ── Features de red reales (equivalente a CICIDS2018) ─────────────
