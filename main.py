@@ -135,6 +135,72 @@ OLLAMA_URL = "http://localhost:11434/api/generate"
 AGENTES_FILE = "/root/asoar/agentes.json"
 ABUSE_CACHE_FILE = "/root/asoar/abuse_cache.json"
 BLOCKED_IPS_FILE = "/root/asoar/blocked_ips_cache.json"
+ZEEK_CONN_LOG = "/opt/zeek/logs/current/conn.log"
+ZEEK_SCAN_STATE_FILE = "/root/asoar/zeek_scan_state.json"
+
+def analizar_zeek_escaneos():
+    """
+    Analiza conn.log de Zeek en busca de patrones de escaneo/brute force
+    (muchas conexiones S0 al mismo puerto desde la misma IP) y genera
+    alertas sinteticas hacia el pipeline principal si supera el umbral.
+    """
+    try:
+        if not os.path.exists(ZEEK_CONN_LOG):
+            return
+        with open(ZEEK_CONN_LOG, "r") as f:
+            lineas = f.readlines()
+
+        ya_notificadas = set()
+        if os.path.exists(ZEEK_SCAN_STATE_FILE):
+            try:
+                with open(ZEEK_SCAN_STATE_FILE, "r") as f:
+                    ya_notificadas = set(json.load(f))
+            except:
+                pass
+
+        conteo = {}
+        for linea in lineas[-3000:]:
+            if linea.startswith("#") or not linea.strip():
+                continue
+            campos = linea.strip().split("\t")
+            if len(campos) < 12:
+                continue
+            src_ip = campos[2]
+            dest_port = campos[5]
+            conn_state = campos[11]
+            if conn_state == "S0":
+                clave = (src_ip, dest_port)
+                conteo[clave] = conteo.get(clave, 0) + 1
+
+        UMBRAL_S0 = 10
+        for (ip, puerto), n in conteo.items():
+            if n >= UMBRAL_S0 and ip not in ya_notificadas:
+                if es_ip_whitelist_main(ip):
+                    continue
+                print(f"[ZEEK] Patron de escaneo detectado: {ip} -> puerto {puerto} ({n} intentos S0)")
+                try:
+                    requests.post(
+                        "http://localhost:8000/alerta",
+                        headers={"X-API-Key": API_KEY},
+                        json={
+                            "rule": {
+                                "level": 10,
+                                "description": f"Zeek: Port scan / brute force detectado - {n} conexiones S0 al puerto {puerto}",
+                                "id": "99001"
+                            },
+                            "data": {"srcip": ip}
+                        },
+                        timeout=15
+                    )
+                    ya_notificadas.add(ip)
+                except Exception as e:
+                    print(f"[ZEEK] Error enviando alerta: {e}")
+
+        with open(ZEEK_SCAN_STATE_FILE, "w") as f:
+            json.dump(list(ya_notificadas)[-500:], f)
+
+    except Exception as e:
+        print(f"[ZEEK] Error en analizar_zeek_escaneos: {e}")
 
 def cargar_ips_bloqueadas_cache() -> set:
     """Carga la caché local de IPs bloqueadas."""
@@ -1093,3 +1159,21 @@ async def historial_comandos(hostname: str, api_key: str = Depends(verificar_api
     """Historial de todos los comandos ejecutados en un agente."""
     comandos = cargar_comandos()
     return {"comandos": comandos.get(hostname, [])}
+
+
+# ── Monitor periodico de Zeek (deteccion activa de escaneos) ───────────────────
+import threading
+import time as time_module
+
+def monitor_zeek_loop():
+    """Ejecuta analizar_zeek_escaneos() cada 60 segundos en segundo plano."""
+    while True:
+        try:
+            analizar_zeek_escaneos()
+        except Exception as e:
+            print(f"[ZEEK] Error en monitor loop: {e}")
+        time_module.sleep(60)
+
+zeek_thread = threading.Thread(target=monitor_zeek_loop, daemon=True)
+zeek_thread.start()
+print("[ZEEK] Monitor de escaneos iniciado (revision cada 60 segundos)")

@@ -14024,7 +14024,106 @@
       "creado_en": "2026-09-11T08:21:19.708493+00:00",
       "actualizado_en": "2026-09-11T08:21:19.708493+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0426",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 109.160.32.93",
+      "descripcion": "La IP 109.160.32.93 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "109.160.32.93",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-11T08:59:42.447079",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-11T08:59:42.101278+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-11T08:59:42.101278+00:00",
+      "actualizado_en": "2026-09-11T08:59:42.101278+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0427",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 109.160.32.111",
+      "descripcion": "La IP 109.160.32.111 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "109.160.32.111",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-11T08:59:45.782305",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-11T08:59:45.509582+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-11T08:59:45.509582+00:00",
+      "actualizado_en": "2026-09-11T08:59:45.509582+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0428",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 116.110.16.171",
+      "descripcion": "La IP 116.110.16.171 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "116.110.16.171",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-11T09:12:03.455096",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-11T09:12:03.156558+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-11T09:12:03.156558+00:00",
+      "actualizado_en": "2026-09-11T09:12:03.156558+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 425
+  "contador": 428
 }
