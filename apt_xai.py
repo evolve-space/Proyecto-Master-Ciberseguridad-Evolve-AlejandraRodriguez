@@ -77,17 +77,16 @@ class ExplicadorAPT:
 
     def _inicializar_explainer(self):
         """
-        Inicializa el explainer SHAP para el modelo LSTM.
-        Usa GradientExplainer que es compatible con PyTorch y modelos secuenciales.
+        Verifica que el modelo esta disponible para crear explainers bajo demanda.
+        El explainer SHAP se crea dinamicamente en explicar_ventana() segun la
+        longitud real de cada secuencia, ya que GradientExplainer requiere que
+        el background tenga la misma forma que los datos a explicar.
         """
-        try:
-            # Crear datos de referencia (background) con ceros
-            # Representa el "estado neutro" sin actividad sospechosa
-            background = torch.zeros(1, 32, 9)
-            self.explainer = shap.GradientExplainer(self.modelo, background)
-            print("[XAI] Explainer SHAP inicializado correctamente.")
-        except Exception as e:
-            print(f"[XAI] Error inicializando explainer: {e}")
+        if self.modelo is not None:
+            print("[XAI] Modulo XAI listo (explainer dinamico por longitud de secuencia).")
+            self.explainer = True  # Flag: modelo disponible, explainer se crea bajo demanda
+        else:
+            print("[XAI] Error: modelo no disponible.")
             self.explainer = None
 
     def explicar_ventana(self, ventana: np.ndarray,
@@ -109,9 +108,14 @@ class ExplicadorAPT:
 
         try:
             x = torch.tensor(ventana, dtype=torch.float32).unsqueeze(0)
+            seq_len_real = x.shape[1]
+            
+            # Crear explainer con background de la MISMA longitud que la secuencia real
+            background = torch.zeros(1, seq_len_real, x.shape[2])
+            explainer_dinamico = shap.GradientExplainer(self.modelo, background)
 
             # Calcular valores SHAP
-            shap_values = self.explainer.shap_values(x)
+            shap_values = explainer_dinamico.shap_values(x)
             sv_all = np.array(shap_values)
             # Shape: (1, seq_len, n_features, n_classes)
 
