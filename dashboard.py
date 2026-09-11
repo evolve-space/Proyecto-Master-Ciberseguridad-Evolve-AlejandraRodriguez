@@ -3321,6 +3321,38 @@ elif pagina == "Análisis Forense":
         else:
             st.info("No se encontraron alertas de Suricata para esta IP en el período actual.")
 
+        # ── Conexiones Zeek relacionadas ────────────────────────────────────
+        st.markdown('<div class="section-header">Conexiones Zeek — Analisis de Red Detallado</div>', unsafe_allow_html=True)
+        conexiones_zeek_ip = [c for c in cargar_zeek() if c.get("src_ip") == ip_forense or c.get("dest_ip") == ip_forense]
+        if conexiones_zeek_ip:
+            col_z1, col_z2, col_z3 = st.columns(3)
+            with col_z1:
+                st.markdown(f"""<div class="metric-card" style="border-top:3px solid #388bfd;">
+                    <p class="metric-label">Conexiones</p>
+                    <p style="font-size:2rem;font-weight:700;color:#388bfd;">{len(conexiones_zeek_ip)}</p>
+                </div>""", unsafe_allow_html=True)
+            with col_z2:
+                duracion_media = sum(c.get("duration",0) for c in conexiones_zeek_ip) / len(conexiones_zeek_ip)
+                st.markdown(f"""<div class="metric-card" style="border-top:3px solid #d29922;">
+                    <p class="metric-label">Duracion Media</p>
+                    <p style="font-size:1.5rem;font-weight:700;color:#d29922;">{duracion_media:.3f}s</p>
+                </div>""", unsafe_allow_html=True)
+            with col_z3:
+                s0_count = len([c for c in conexiones_zeek_ip if c.get("conn_state") == "S0"])
+                st.markdown(f"""<div class="metric-card" style="border-top:3px solid #f85149;">
+                    <p class="metric-label">Sin Respuesta (S0)</p>
+                    <p style="font-size:2rem;font-weight:700;color:#f85149;">{s0_count}</p>
+                </div>""", unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)
+            df_zeek_ip = pd.DataFrame(conexiones_zeek_ip)
+            df_zeek_ip["timestamp"] = pd.to_datetime(df_zeek_ip["timestamp"]).dt.strftime("%d/%m %H:%M:%S")
+            df_zeek_ip_show = df_zeek_ip[["timestamp","src_ip","dest_ip","dest_port","proto","service","duration","conn_state"]].copy()
+            df_zeek_ip_show.columns = ["Timestamp","IP Origen","IP Destino","Puerto","Protocolo","Servicio","Duracion (s)","Estado"]
+            df_zeek_ip_show["Duracion (s)"] = df_zeek_ip_show["Duracion (s)"].round(3)
+            tabla_oscura(df_zeek_ip_show, use_container_width=True, hide_index=True)
+        else:
+            st.info("No se encontraron conexiones de Zeek para esta IP en el período actual.")
+
         # ── 2. Campanas APT relacionadas ───────────────────────────────────
         st.markdown('<div class="section-header">Campanas APT Asociadas</div>', unsafe_allow_html=True)
         try:
