@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-09-14T05:10:36.337018",
-    "fase_detectada": "discovery",
-    "confianza": 15.0,
-    "importancia_features": {
-      "nivel_severidad": 0.0,
-      "fase_mitre": 0.04,
-      "agente_origen": 0.0,
-      "ip_origen": 0.0,
-      "hora_del_dia": 18.75,
-      "dia_semana": 81.21,
-      "horario_nocturno": 0.0,
-      "evento_critico": 0.0,
-      "evento_alto": 0.01
-    },
-    "top_features": [
-      {
-        "feature": "dia_semana",
-        "descripcion": "Dia de la semana (0=lunes, 6=domingo)",
-        "importancia": 81.21
-      },
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 18.75
-      },
-      {
-        "feature": "fase_mitre",
-        "descripcion": "Fase MITRE ATT&CK asignada al evento",
-        "importancia": 0.04
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 1,
-        "descripcion": "Evento en posicion 2 de la secuencia",
-        "importancia": 26.57
-      },
-      {
-        "posicion": 2,
-        "descripcion": "Evento en posicion 3 de la secuencia",
-        "importancia": 25.85
-      },
-      {
-        "posicion": 0,
-        "descripcion": "Evento en posicion 1 de la secuencia",
-        "importancia": 24.68
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con reconocimiento interno de la red (fase MITRE ATT&CK: discovery) con una confianza del 15.0%. La caracteristica con mayor peso en esta decision ha sido 'dia_semana' con una contribucion del 81.2%, seguida de 'hora_del_dia' con un 18.8%. Los eventos mas determinantes se concentran en la posicion 2 de la secuencia analizada. La actividad proviene de la IP 200.77.172.159. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "200.77.172.159",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-14T05:10:37.325743",
-    "fase_detectada": "discovery",
-    "confianza": 15.0,
-    "importancia_features": {
-      "nivel_severidad": 0.09,
-      "fase_mitre": 0.07,
-      "agente_origen": 0.0,
-      "ip_origen": 0.0,
-      "hora_del_dia": 25.93,
-      "dia_semana": 73.68,
-      "horario_nocturno": 0.0,
-      "evento_critico": 0.0,
-      "evento_alto": 0.23
-    },
-    "top_features": [
-      {
-        "feature": "dia_semana",
-        "descripcion": "Dia de la semana (0=lunes, 6=domingo)",
-        "importancia": 73.68
-      },
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 25.93
-      },
-      {
-        "feature": "evento_alto",
-        "descripcion": "Evento con nivel >= 10 (alto)",
-        "importancia": 0.23
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 28,
-        "descripcion": "Evento en posicion 29 de la secuencia",
-        "importancia": 4.74
-      },
-      {
-        "posicion": 29,
-        "descripcion": "Evento en posicion 30 de la secuencia",
-        "importancia": 4.68
-      },
-      {
-        "posicion": 27,
-        "descripcion": "Evento en posicion 28 de la secuencia",
-        "importancia": 4.55
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con reconocimiento interno de la red (fase MITRE ATT&CK: discovery) con una confianza del 15.0%. La caracteristica con mayor peso en esta decision ha sido 'dia_semana' con una contribucion del 73.7%, seguida de 'hora_del_dia' con un 25.9%. Los eventos mas determinantes se concentran en la posicion 29 de la secuencia analizada. La actividad proviene de la IP 200.77.172.159. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "200.77.172.159",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-14T05:10:37.705212",
-    "fase_detectada": "discovery",
-    "confianza": 17.0,
-    "importancia_features": {
-      "nivel_severidad": 0.0,
-      "fase_mitre": 0.04,
-      "agente_origen": 0.0,
-      "ip_origen": 0.0,
-      "hora_del_dia": 18.3,
-      "dia_semana": 81.65,
-      "horario_nocturno": 0.0,
-      "evento_critico": 0.0,
-      "evento_alto": 0.01
-    },
-    "top_features": [
-      {
-        "feature": "dia_semana",
-        "descripcion": "Dia de la semana (0=lunes, 6=domingo)",
-        "importancia": 81.65
-      },
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 18.3
-      },
-      {
-        "feature": "fase_mitre",
-        "descripcion": "Fase MITRE ATT&CK asignada al evento",
-        "importancia": 0.04
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 2,
-        "descripcion": "Evento en posicion 3 de la secuencia",
-        "importancia": 21.43
-      },
-      {
-        "posicion": 1,
-        "descripcion": "Evento en posicion 2 de la secuencia",
-        "importancia": 21.34
-      },
-      {
-        "posicion": 3,
-        "descripcion": "Evento en posicion 4 de la secuencia",
-        "importancia": 20.1
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con reconocimiento interno de la red (fase MITRE ATT&CK: discovery) con una confianza del 17.0%. La caracteristica con mayor peso en esta decision ha sido 'dia_semana' con una contribucion del 81.7%, seguida de 'hora_del_dia' con un 18.3%. Los eventos mas determinantes se concentran en la posicion 3 de la secuencia analizada. La actividad proviene de la IP 5.253.38.188. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "5.253.38.188",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
-    "timestamp": "2026-09-14T05:10:39.795963",
-    "fase_detectada": "discovery",
-    "confianza": 17.0,
-    "importancia_features": {
-      "nivel_severidad": 0.09,
-      "fase_mitre": 0.07,
-      "agente_origen": 0.0,
-      "ip_origen": 0.0,
-      "hora_del_dia": 26.34,
-      "dia_semana": 73.35,
-      "horario_nocturno": 0.0,
-      "evento_critico": 0.0,
-      "evento_alto": 0.16
-    },
-    "top_features": [
-      {
-        "feature": "dia_semana",
-        "descripcion": "Dia de la semana (0=lunes, 6=domingo)",
-        "importancia": 73.35
-      },
-      {
-        "feature": "hora_del_dia",
-        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
-        "importancia": 26.34
-      },
-      {
-        "feature": "evento_alto",
-        "descripcion": "Evento con nivel >= 10 (alto)",
-        "importancia": 0.16
-      }
-    ],
-    "momentos_criticos": [
-      {
-        "posicion": 28,
-        "descripcion": "Evento en posicion 29 de la secuencia",
-        "importancia": 4.73
-      },
-      {
-        "posicion": 29,
-        "descripcion": "Evento en posicion 30 de la secuencia",
-        "importancia": 4.68
-      },
-      {
-        "posicion": 27,
-        "descripcion": "Evento en posicion 28 de la secuencia",
-        "importancia": 4.54
-      }
-    ],
-    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con reconocimiento interno de la red (fase MITRE ATT&CK: discovery) con una confianza del 17.0%. La caracteristica con mayor peso en esta decision ha sido 'dia_semana' con una contribucion del 73.3%, seguida de 'hora_del_dia' con un 26.3%. Los eventos mas determinantes se concentran en la posicion 29 de la secuencia analizada. La actividad proviene de la IP 5.253.38.188. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
-    "contexto": {
-      "ip": "5.253.38.188",
-      "agente": "master"
-    },
-    "cumplimiento_eu_ai_act": true
-  },
-  {
     "timestamp": "2026-09-14T05:19:22.544335",
     "fase_detectada": "discovery",
     "confianza": 11.9,
@@ -2765,6 +2541,220 @@
     "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con reconocimiento interno de la red (fase MITRE ATT&CK: discovery) con una confianza del 12.0%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 52.4%, seguida de 'dia_semana' con un 16.7%. Los eventos mas determinantes se concentran en la posicion 19 de la secuencia analizada. La actividad proviene de la IP 209.141.43.146. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
     "contexto": {
       "ip": "209.141.43.146",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-14T18:07:57.055691",
+    "fase_detectada": "discovery",
+    "confianza": 11.9,
+    "importancia_features": {
+      "nivel_severidad": 0.0,
+      "fase_mitre": 0.03,
+      "agente_origen": 0.0,
+      "ip_origen": 0.0,
+      "hora_del_dia": 20.3,
+      "dia_semana": 79.66,
+      "horario_nocturno": 0.0,
+      "evento_critico": 0.0,
+      "evento_alto": 0.01
+    },
+    "top_features": [
+      {
+        "feature": "dia_semana",
+        "descripcion": "Dia de la semana (0=lunes, 6=domingo)",
+        "importancia": 79.66
+      },
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 20.3
+      },
+      {
+        "feature": "fase_mitre",
+        "descripcion": "Fase MITRE ATT&CK asignada al evento",
+        "importancia": 0.03
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 1,
+        "descripcion": "Evento en posicion 2 de la secuencia",
+        "importancia": 51.1
+      },
+      {
+        "posicion": 0,
+        "descripcion": "Evento en posicion 1 de la secuencia",
+        "importancia": 48.9
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con reconocimiento interno de la red (fase MITRE ATT&CK: discovery) con una confianza del 11.9%. La caracteristica con mayor peso en esta decision ha sido 'dia_semana' con una contribucion del 79.7%, seguida de 'hora_del_dia' con un 20.3%. Los eventos mas determinantes se concentran en la posicion 2 de la secuencia analizada. La actividad proviene de la IP 109.160.32.91. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "109.160.32.91",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-14T18:07:58.007027",
+    "fase_detectada": "discovery",
+    "confianza": 11.9,
+    "importancia_features": {
+      "nivel_severidad": 12.71,
+      "fase_mitre": 7.62,
+      "agente_origen": 0.04,
+      "ip_origen": 9.31,
+      "hora_del_dia": 51.07,
+      "dia_semana": 11.78,
+      "horario_nocturno": 6.47,
+      "evento_critico": 0.58,
+      "evento_alto": 0.4
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 51.07
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 12.71
+      },
+      {
+        "feature": "dia_semana",
+        "descripcion": "Dia de la semana (0=lunes, 6=domingo)",
+        "importancia": 11.78
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 29,
+        "descripcion": "Evento en posicion 30 de la secuencia",
+        "importancia": 30.84
+      },
+      {
+        "posicion": 3,
+        "descripcion": "Evento en posicion 4 de la secuencia",
+        "importancia": 10.36
+      },
+      {
+        "posicion": 4,
+        "descripcion": "Evento en posicion 5 de la secuencia",
+        "importancia": 9.15
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con reconocimiento interno de la red (fase MITRE ATT&CK: discovery) con una confianza del 11.9%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 51.1%, seguida de 'nivel_severidad' con un 12.7%. Los eventos mas determinantes se concentran en la posicion 30 de la secuencia analizada. La actividad proviene de la IP 109.160.32.91. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "109.160.32.91",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-14T18:10:56.474000",
+    "fase_detectada": "discovery",
+    "confianza": 12.1,
+    "importancia_features": {
+      "nivel_severidad": 0.08,
+      "fase_mitre": 0.22,
+      "agente_origen": 0.0,
+      "ip_origen": 0.01,
+      "hora_del_dia": 3.07,
+      "dia_semana": 30.02,
+      "horario_nocturno": 65.11,
+      "evento_critico": 0.97,
+      "evento_alto": 0.52
+    },
+    "top_features": [
+      {
+        "feature": "horario_nocturno",
+        "descripcion": "Evento ocurrido entre 00:00 y 06:00",
+        "importancia": 65.11
+      },
+      {
+        "feature": "dia_semana",
+        "descripcion": "Dia de la semana (0=lunes, 6=domingo)",
+        "importancia": 30.02
+      },
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 3.07
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 1,
+        "descripcion": "Evento en posicion 2 de la secuencia",
+        "importancia": 81.84
+      },
+      {
+        "posicion": 0,
+        "descripcion": "Evento en posicion 1 de la secuencia",
+        "importancia": 18.16
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con reconocimiento interno de la red (fase MITRE ATT&CK: discovery) con una confianza del 12.1%. La caracteristica con mayor peso en esta decision ha sido 'horario_nocturno' con una contribucion del 65.1%, seguida de 'dia_semana' con un 30.0%. Los eventos mas determinantes se concentran en la posicion 2 de la secuencia analizada. La actividad proviene de la IP 161.35.164.21. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "161.35.164.21",
+      "agente": "master"
+    },
+    "cumplimiento_eu_ai_act": true
+  },
+  {
+    "timestamp": "2026-09-14T18:10:57.476598",
+    "fase_detectada": "discovery",
+    "confianza": 12.1,
+    "importancia_features": {
+      "nivel_severidad": 12.91,
+      "fase_mitre": 7.17,
+      "agente_origen": 0.04,
+      "ip_origen": 9.25,
+      "hora_del_dia": 46.78,
+      "dia_semana": 11.17,
+      "horario_nocturno": 11.6,
+      "evento_critico": 0.67,
+      "evento_alto": 0.4
+    },
+    "top_features": [
+      {
+        "feature": "hora_del_dia",
+        "descripcion": "Hora del dia en que ocurrio el evento (0-23)",
+        "importancia": 46.78
+      },
+      {
+        "feature": "nivel_severidad",
+        "descripcion": "Nivel de severidad de la alerta Wazuh (0-15)",
+        "importancia": 12.91
+      },
+      {
+        "feature": "horario_nocturno",
+        "descripcion": "Evento ocurrido entre 00:00 y 06:00",
+        "importancia": 11.6
+      }
+    ],
+    "momentos_criticos": [
+      {
+        "posicion": 28,
+        "descripcion": "Evento en posicion 29 de la secuencia",
+        "importancia": 27.52
+      },
+      {
+        "posicion": 2,
+        "descripcion": "Evento en posicion 3 de la secuencia",
+        "importancia": 10.26
+      },
+      {
+        "posicion": 3,
+        "descripcion": "Evento en posicion 4 de la secuencia",
+        "importancia": 9.16
+      }
+    ],
+    "narrativa": "El modelo LSTM ha detectado una secuencia de eventos consistente con reconocimiento interno de la red (fase MITRE ATT&CK: discovery) con una confianza del 12.1%. La caracteristica con mayor peso en esta decision ha sido 'hora_del_dia' con una contribucion del 46.8%, seguida de 'nivel_severidad' con un 12.9%. Los eventos mas determinantes se concentran en la posicion 29 de la secuencia analizada. La actividad proviene de la IP 161.35.164.21. Esta explicacion ha sido generada automaticamente por el modulo XAI de Noctua Predictive en cumplimiento del Reglamento Europeo de IA (EU AI Act 2024).",
+    "contexto": {
+      "ip": "161.35.164.21",
       "agente": "master"
     },
     "cumplimiento_eu_ai_act": true

@@ -18644,7 +18644,73 @@
       "creado_en": "2026-09-14T17:41:32.394882+00:00",
       "actualizado_en": "2026-09-14T17:41:32.394882+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0566",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 109.160.32.91",
+      "descripcion": "La IP 109.160.32.91 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "109.160.32.91",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-14T18:07:13.151581",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-14T18:07:12.967832+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-14T18:07:12.967832+00:00",
+      "actualizado_en": "2026-09-14T18:07:12.967832+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0567",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 66.116.224.129",
+      "descripcion": "La IP 66.116.224.129 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "66.116.224.129",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-14T18:25:30.400339",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-14T18:25:30.211663+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-14T18:25:30.211663+00:00",
+      "actualizado_en": "2026-09-14T18:25:30.211663+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 565
+  "contador": 567
 }
