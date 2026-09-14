@@ -18545,7 +18545,106 @@
       "creado_en": "2026-09-14T16:55:58.012785+00:00",
       "actualizado_en": "2026-09-14T16:55:58.012785+00:00",
       "resuelto_en": null
+    },
+    {
+      "id": "NTC-0563",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 152.53.230.230",
+      "descripcion": "La IP 152.53.230.230 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "152.53.230.230",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-14T17:08:55.188795",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-14T17:08:55.007274+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-14T17:08:55.007274+00:00",
+      "actualizado_en": "2026-09-14T17:08:55.007274+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0564",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 209.141.43.146",
+      "descripcion": "La IP 209.141.43.146 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "209.141.43.146",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-14T17:09:40.536140",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-14T17:09:40.351874+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-14T17:09:40.351874+00:00",
+      "actualizado_en": "2026-09-14T17:09:40.351874+00:00",
+      "resuelto_en": null
+    },
+    {
+      "id": "NTC-0565",
+      "titulo": "IP maliciosa confirmada (AbuseIPDB) — 141.95.162.162",
+      "descripcion": "La IP 141.95.162.162 tiene una reputacion de 100% en AbuseIPDB (amenaza confirmada por fuente externa), pero no ha generado suficiente volumen de eventos locales para ser evaluada por el motor LSTM. Pais:  | ISP:  | Reportes: 0.",
+      "estado": "Contenido",
+      "prioridad": "ALTA",
+      "ip": "141.95.162.162",
+      "fase_mitre": "unknown",
+      "confianza": 0,
+      "origen": "manual",
+      "xai_narrativa": "",
+      "xai_features": [],
+      "abuse_score": 100,
+      "abuse_pais": "",
+      "abuse_isp": "",
+      "campana_id": "",
+      "notas": [
+        {
+          "timestamp": "2026-09-14T17:41:32.614670",
+          "texto": "Bloqueado automaticamente por reputacion AbuseIPDB 100%."
+        }
+      ],
+      "historial": [
+        {
+          "estado": "Abierto",
+          "timestamp": "2026-09-14T17:41:32.394882+00:00",
+          "nota": "Ticket creado"
+        }
+      ],
+      "creado_en": "2026-09-14T17:41:32.394882+00:00",
+      "actualizado_en": "2026-09-14T17:41:32.394882+00:00",
+      "resuelto_en": null
     }
   ],
-  "contador": 562
+  "contador": 565
 }

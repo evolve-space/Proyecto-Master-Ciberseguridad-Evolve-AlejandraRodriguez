@@ -1877,12 +1877,21 @@ elif pagina == "Estado del Sistema":
         except:
             return False
 
+    def check_zeek():
+        try:
+            result = subprocess.run(["bash", "-c", "/opt/zeek/bin/zeekctl status | grep -c running"],
+                                    capture_output=True, text=True, timeout=5)
+            return result.stdout.strip() != "0"
+        except:
+            return False
+
     servicios = {
         "ASOAR API (FastAPI)":      check_service("http://localhost:8000/apt/estado"),
         "Ollama / phi3":            check_service("http://localhost:11434/api/tags"),
         "Wazuh Manager":            True,
         "Wazuh Dashboard":          True,
         "Suricata IDS":             check_suricata(),
+        "Zeek NSM":                 check_zeek(),
         "Hetzner Firewall":         len(ips_bloqueadas) >= 0,
         "Fail2ban":                 check_fail2ban(),
         "Agente Windows (Wazuh)":   check_wazuh_agent_windows(),
@@ -1923,11 +1932,12 @@ elif pagina == "Estado del Sistema":
     st.markdown("---")
     st.markdown('<div class="section-header">Arquitectura Completa del Sistema</div>', unsafe_allow_html=True)
     datos_arq = {
-        "Componente":  ["Wazuh SIEM", "Suricata IDS", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "AbuseIPDB", "Fail2ban", "CICIDS2018", "Hetzner API", "Agente PowerShell EDR", "Agente Wazuh Windows", "Streamlit"],
-        "Capa":        ["Deteccion SIEM", "Deteccion Red", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Threat Intelligence", "Defensa perimetral", "Entrenamiento", "Respuesta", "Monitorizacion EDR", "Correlacion SIEM", "Visualizacion"],
+        "Componente":  ["Wazuh SIEM", "Suricata IDS", "Zeek NSM", "FastAPI", "Ollama phi3", "LSTM PyTorch", "Federated Learning", "XAI SHAP", "Detector Lateral", "Reentrenamiento", "AbuseIPDB", "Fail2ban", "CICIDS2018", "Hetzner API", "Agente PowerShell EDR", "Agente Wazuh Windows", "Streamlit"],
+        "Capa":        ["Deteccion SIEM", "Deteccion Red", "Analisis Red Profundo", "Orquestacion", "Analisis IA", "Prediccion APT", "Aprendizaje FL", "Explicabilidad", "Correlacion", "Mejora continua", "Threat Intelligence", "Defensa perimetral", "Entrenamiento", "Respuesta", "Monitorizacion EDR", "Correlacion SIEM", "Visualizacion"],
         "Estado":      [
             "Activo" if servicios["Wazuh Manager"] else "Inactivo",
             "Activo" if servicios["Suricata IDS"] else "Inactivo",
+            "Activo" if servicios["Zeek NSM"] else "Inactivo",            
             "Activo" if servicios["ASOAR API (FastAPI)"] else "Inactivo",
             "Activo" if servicios["Ollama / phi3"] else "Inactivo",
             "Activo" if estado_apt.get("modelo_cargado") else "Inactivo",
@@ -4544,6 +4554,7 @@ elif pagina == "About":
     st.markdown('<div class="section-header">Arquitectura del Sistema</div>', unsafe_allow_html=True)
     componentes = [
         {"Componente": "Wazuh SIEM", "Capa": "Detección", "Descripcion": "SIEM/XDR open source de nivel enterprise. Monitoriza eventos de red, sistema y endpoints en tiempo real.", "Tecnologia": "Python / C"},
+        {"Componente": "Zeek NSM", "Capa": "Analisis Red Profundo", "Descripcion": "Monitor de seguridad de red que genera logs de conexion detallados (duracion, bytes, estado TCP), complementando a Suricata y alimentando directamente al motor LSTM con features mas precisos.", "Tecnologia": "C++ / Zeek Script"},
         {"Componente": "Ollama / phi3", "Capa": "Analisis autonomo", "Descripcion": "LLM local para clasificacion autonoma de alertas individuales sin dependencia de servicios externos.", "Tecnologia": "LLM 3.8B"},
         {"Componente": "LSTM Bidireccional", "Capa": "Prediccion APT", "Descripcion": "Modelo de series temporales que detecta campañas APT completas analizando secuencias de 6h, 24h y 7 dias.", "Tecnologia": "PyTorch"},
         {"Componente": "Federated Learning", "Capa": "Aprendizaje colaborativo", "Descripcion": "Entrena el modelo LSTM entre multiples nodos sin compartir datos. Cada organizacion mantiene su privacidad.", "Tecnologia": "Flower / FedAvg"},
