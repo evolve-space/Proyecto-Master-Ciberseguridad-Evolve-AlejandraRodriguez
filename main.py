@@ -1166,14 +1166,27 @@ import threading
 import time as time_module
 
 def monitor_zeek_loop():
-    """Ejecuta analizar_zeek_escaneos() cada 60 segundos en segundo plano."""
+    """Ejecuta analizar_zeek_escaneos() cada 60 segundos, y limpieza de buffers cada hora."""
+    contador = 0
     while True:
         try:
             analizar_zeek_escaneos()
         except Exception as e:
             print(f"[ZEEK] Error en monitor loop: {e}")
+
+        contador += 1
+        # Cada 60 ciclos (60 x 60s = 1 hora), ejecutar limpieza de buffers
+        if contador >= 60:
+            contador = 0
+            try:
+                if APT_DISPONIBLE and detector_apt:
+                    eliminados = detector_apt.limpiar_buffers_inactivos(dias_max=7)
+            except Exception as e:
+                print(f"[APT] Error en limpieza de buffers: {e}")
+
         time_module.sleep(60)
 
 zeek_thread = threading.Thread(target=monitor_zeek_loop, daemon=True)
 zeek_thread.start()
 print("[ZEEK] Monitor de escaneos iniciado (revision cada 60 segundos)")
+print("[APT] Limpieza de buffers inactivos programada (cada hora)")
