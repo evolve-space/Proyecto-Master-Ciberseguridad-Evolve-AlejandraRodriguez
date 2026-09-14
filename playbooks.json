@@ -4656,6 +4656,651 @@
           "ticket": "NTC-0819"
         }
       ]
+    },
+    {
+      "id": "PB-0188",
+      "playbook": "ssh_brute_force",
+      "ip": "95.38.177.52",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:12:25.406754",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:12:25.592176"
+        }
+      ]
+    },
+    {
+      "id": "PB-0189",
+      "playbook": "port_scan",
+      "ip": "95.38.177.52",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:14:26.922985",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:14:27.087221"
+        }
+      ]
+    },
+    {
+      "id": "PB-0190",
+      "playbook": "ssh_brute_force",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:29.683168",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:29.861154"
+        }
+      ]
+    },
+    {
+      "id": "PB-0191",
+      "playbook": "port_scan",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:30.657154",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:30.804837"
+        }
+      ]
+    },
+    {
+      "id": "PB-0192",
+      "playbook": "ssh_brute_force",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:31.706959",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:31.864745"
+        }
+      ]
+    },
+    {
+      "id": "PB-0193",
+      "playbook": "port_scan",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:31.889659",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:32.010330"
+        }
+      ]
+    },
+    {
+      "id": "PB-0194",
+      "playbook": "ssh_brute_force",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:32.031430",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:32.143876"
+        }
+      ]
+    },
+    {
+      "id": "PB-0195",
+      "playbook": "port_scan",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:32.165298",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:32.293389"
+        }
+      ]
+    },
+    {
+      "id": "PB-0196",
+      "playbook": "ssh_brute_force",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:32.315711",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:32.437247"
+        }
+      ]
+    },
+    {
+      "id": "PB-0197",
+      "playbook": "port_scan",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:32.458421",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:32.578366"
+        }
+      ]
+    },
+    {
+      "id": "PB-0198",
+      "playbook": "ssh_brute_force",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:32.600118",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:32.717082"
+        }
+      ]
+    },
+    {
+      "id": "PB-0199",
+      "playbook": "port_scan",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:32.741858",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:32.872456"
+        }
+      ]
+    },
+    {
+      "id": "PB-0200",
+      "playbook": "ssh_brute_force",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:32.894371",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:32.999069"
+        }
+      ]
+    },
+    {
+      "id": "PB-0201",
+      "playbook": "port_scan",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:33.021402",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:33.143826"
+        }
+      ]
+    },
+    {
+      "id": "PB-0202",
+      "playbook": "ssh_brute_force",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:33.164770",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:33.299498"
+        }
+      ]
+    },
+    {
+      "id": "PB-0203",
+      "playbook": "port_scan",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:33.336897",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:33.491011"
+        }
+      ]
+    },
+    {
+      "id": "PB-0204",
+      "playbook": "ssh_brute_force",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:33.515655",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:33.669039"
+        }
+      ]
+    },
+    {
+      "id": "PB-0205",
+      "playbook": "port_scan",
+      "ip": "186.122.177.140",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T09:20:33.709435",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T09:20:33.830612"
+        }
+      ]
+    },
+    {
+      "id": "PB-0206",
+      "playbook": "ssh_brute_force",
+      "ip": "192.169.232.223",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:10:27.833173",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:10:28.002559"
+        }
+      ]
+    },
+    {
+      "id": "PB-0207",
+      "playbook": "port_scan",
+      "ip": "192.169.232.223",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:10:28.926000",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:10:29.086900"
+        }
+      ]
+    },
+    {
+      "id": "PB-0208",
+      "playbook": "ssh_brute_force",
+      "ip": "211.106.133.202",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:12:48.387470",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:12:48.528847"
+        }
+      ]
+    },
+    {
+      "id": "PB-0209",
+      "playbook": "port_scan",
+      "ip": "211.106.133.202",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:12:49.381545",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:12:49.554866"
+        }
+      ]
+    },
+    {
+      "id": "PB-0210",
+      "playbook": "port_scan",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:36:58.592610",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:36:58.780364"
+        }
+      ]
+    },
+    {
+      "id": "PB-0211",
+      "playbook": "ssh_brute_force",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:36:59.739098",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:36:59.924489"
+        }
+      ]
+    },
+    {
+      "id": "PB-0212",
+      "playbook": "port_scan",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:00.465982",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:00.649490"
+        }
+      ]
+    },
+    {
+      "id": "PB-0213",
+      "playbook": "ssh_brute_force",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:00.672963",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:00.828116"
+        }
+      ]
+    },
+    {
+      "id": "PB-0214",
+      "playbook": "port_scan",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:00.850037",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:00.979901"
+        }
+      ]
+    },
+    {
+      "id": "PB-0215",
+      "playbook": "ssh_brute_force",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:01.000220",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:01.159418"
+        }
+      ]
+    },
+    {
+      "id": "PB-0216",
+      "playbook": "port_scan",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:01.182679",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:01.318963"
+        }
+      ]
+    },
+    {
+      "id": "PB-0217",
+      "playbook": "ssh_brute_force",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:01.339301",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:01.493673"
+        }
+      ]
+    },
+    {
+      "id": "PB-0218",
+      "playbook": "port_scan",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:01.516673",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:01.637850"
+        }
+      ]
+    },
+    {
+      "id": "PB-0219",
+      "playbook": "ssh_brute_force",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:01.658030",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:01.786235"
+        }
+      ]
+    },
+    {
+      "id": "PB-0220",
+      "playbook": "port_scan",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:01.815830",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:01.999125"
+        }
+      ]
+    },
+    {
+      "id": "PB-0221",
+      "playbook": "ssh_brute_force",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:02.022282",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:02.144295"
+        }
+      ]
+    },
+    {
+      "id": "PB-0222",
+      "playbook": "port_scan",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:02.175729",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:02.312311"
+        }
+      ]
+    },
+    {
+      "id": "PB-0223",
+      "playbook": "ssh_brute_force",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:02.350044",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:02.525331"
+        }
+      ]
+    },
+    {
+      "id": "PB-0224",
+      "playbook": "port_scan",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:02.548528",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:02.680733"
+        }
+      ]
+    },
+    {
+      "id": "PB-0225",
+      "playbook": "ssh_brute_force",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:02.701317",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:02.848841"
+        }
+      ]
+    },
+    {
+      "id": "PB-0226",
+      "playbook": "port_scan",
+      "ip": "171.25.158.82",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T10:37:02.871575",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T10:37:03.005477"
+        }
+      ]
+    },
+    {
+      "id": "PB-0227",
+      "playbook": "ssh_brute_force",
+      "ip": "202.107.164.66",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T11:46:56.149039",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T11:46:56.343371"
+        }
+      ]
+    },
+    {
+      "id": "PB-0228",
+      "playbook": "port_scan",
+      "ip": "202.107.164.66",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T11:46:57.172526",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T11:46:57.329512"
+        }
+      ]
+    },
+    {
+      "id": "PB-0229",
+      "playbook": "ssh_brute_force",
+      "ip": "157.90.1.104",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T12:04:10.279023",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T12:04:10.456029"
+        }
+      ]
+    },
+    {
+      "id": "PB-0230",
+      "playbook": "port_scan",
+      "ip": "157.90.1.104",
+      "ticket_id": "",
+      "timestamp": "2026-09-14T12:04:10.486054",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-09-14T12:04:10.611178"
+        }
+      ]
     }
   ]
 }
