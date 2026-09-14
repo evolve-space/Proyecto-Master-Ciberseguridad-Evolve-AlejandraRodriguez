@@ -95,6 +95,7 @@ PROGRESION_APT = [
 ]
 
 BUFFER_PATH = "/root/asoar/apt_buffer.json"
+BUFFERS_POR_IP_PATH = "/root/asoar/apt_buffers_por_ip.json"
 
 class DetectorAPT:
     """
@@ -121,6 +122,36 @@ class DetectorAPT:
                 print(f"[APT Detector] Buffer restaurado: {len(self.buffer)} eventos")
             except Exception:
                 pass
+    
+    def _guardar_buffers_por_ip(self):
+        """Persiste los buffers por IP, actividad y fases en disco."""
+        try:
+            datos = {
+                "buffers": {ip: [v.tolist() for v in vectores] for ip, vectores in self.buffers_por_ip.items()},
+                "ultima_actividad": {ip: ts.isoformat() for ip, ts in self.ultima_actividad_ip.items()},
+                "fases_por_ip": {ip: list(fases) for ip, fases in self.fases_por_ip.items()},
+            }
+            with open(BUFFERS_POR_IP_PATH, "w") as f:
+                json.dump(datos, f)
+        except Exception as e:
+            print(f"[APT Detector] Error guardando buffers por IP: {e}")
+
+    def _cargar_buffers_por_ip(self):
+        """Carga los buffers por IP, actividad y fases desde disco al arrancar."""
+        if os.path.exists(BUFFERS_POR_IP_PATH):
+            try:
+                with open(BUFFERS_POR_IP_PATH, "r") as f:
+                    datos = json.load(f)
+                for ip, vectores in datos.get("buffers", {}).items():
+                    self.buffers_por_ip[ip] = [np.array(v, dtype=np.float32) for v in vectores]
+                for ip, ts in datos.get("ultima_actividad", {}).items():
+                    self.ultima_actividad_ip[ip] = datetime.fromisoformat(ts)
+                for ip, fases in datos.get("fases_por_ip", {}).items():
+                    self.fases_por_ip[ip] = set(fases)
+                print(f"[APT Detector] Buffers por IP restaurados: {len(self.buffers_por_ip)} IPs")
+            except Exception as e:
+                print(f"[APT Detector] Error cargando buffers por IP: {e}")
+
 
     def __init__(self):
         self.modelo    = None
@@ -135,6 +166,7 @@ class DetectorAPT:
         self._cargar_modelo()
         self._cargar_campanas()
         self._cargar_buffer()
+        self._cargar_buffers_por_ip()
 
     def _cargar_modelo(self):
         """Carga el modelo LSTM y los preprocesadores desde disco."""
@@ -341,6 +373,7 @@ class DetectorAPT:
             self.buffers_por_ip[ip] = []
         self.buffers_por_ip[ip].append(vector)
         self.ultima_actividad_ip[ip] = datetime.now()
+        self._guardar_buffers_por_ip()
         
         # Tambien mantenemos el buffer global para compatibilidad (uso interno/legacy)
         self.buffer.append(vector)

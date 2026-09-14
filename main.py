@@ -177,6 +177,12 @@ def analizar_zeek_escaneos():
             if n >= UMBRAL_S0 and ip not in ya_notificadas:
                 if es_ip_whitelist_main(ip):
                     continue
+                # Marcar como notificada ANTES de enviar — evita reintentos
+                # en bucle si el envio falla o tarda
+                ya_notificadas.add(ip)
+                with open(ZEEK_SCAN_STATE_FILE, "w") as f:
+                    json.dump(list(ya_notificadas)[-500:], f)
+
                 print(f"[ZEEK] Patron de escaneo detectado: {ip} -> puerto {puerto} ({n} intentos S0)")
                 try:
                     requests.post(
@@ -190,9 +196,8 @@ def analizar_zeek_escaneos():
                             },
                             "data": {"srcip": ip}
                         },
-                        timeout=15
+                        timeout=45
                     )
-                    ya_notificadas.add(ip)
                 except Exception as e:
                     print(f"[ZEEK] Error enviando alerta: {e}")
 
