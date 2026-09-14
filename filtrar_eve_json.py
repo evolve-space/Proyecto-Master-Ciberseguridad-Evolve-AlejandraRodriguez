@@ -5,6 +5,10 @@ Lee continuamente el eve.json completo de Suricata (con todos los metadatos)
 y escribe una version filtrada solo con los campos que usa Noctua, para
 evitar el error "Too many fields for JSON decoder" en Wazuh.
 
+Guarda su posicion de lectura en disco para sobrevivir reinicios del
+propio servicio sin duplicar eventos, y detecta rotacion de logrotate
+comparando el tamano del archivo con la posicion guardada.
+
 Campos que se mantienen:
   - timestamp, event_type, src_ip, src_port, dest_ip, dest_port, proto
   - alert.signature, alert.category, alert.severity, alert.signature_id
@@ -17,8 +21,10 @@ import json
 import time
 import os
 
-ORIGEN  = "/var/log/suricata/eve.json"
-DESTINO = "/var/log/suricata/eve_filtered.json"
+ORIGEN       = "/var/log/suricata/eve.json"
+DESTINO      = "/var/log/suricata/eve_filtered.json"
+POSICION_FILE = "/root/asoar/eve_filter_posicion.json"
+
 
 def filtrar_evento(e: dict) -> dict:
     """Extrae solo los campos que Noctua Predictive necesita."""
@@ -58,21 +64,55 @@ def filtrar_evento(e: dict) -> dict:
     return filtrado
 
 
+def cargar_posicion() -> int:
+    """Carga la ultima posicion de lectura guardada, o 0 si no existe."""
+    if os.path.exists(POSICION_FILE):
+        try:
+            with open(POSICION_FILE, "r") as f:
+                return json.load(f).get("posicion", 0)
+        except Exception:
+            return 0
+    return 0
+
+
+def guardar_posicion(posicion: int):
+    """Persiste la posicion de lectura actual en disco."""
+    try:
+        with open(POSICION_FILE, "w") as f:
+            json.dump({"posicion": posicion}, f)
+    except Exception:
+        pass
+
+
 def main():
     print(f"[Filtro] Iniciando filtrado de {ORIGEN} -> {DESTINO}")
 
-    # Posicionarse al final del archivo origen (solo procesar eventos nuevos)
     if not os.path.exists(ORIGEN):
         print(f"[Filtro] Error: {ORIGEN} no existe")
         return
 
-    with open(ORIGEN, "r") as f_in:
-        f_in.seek(0, os.SEEK_END)
-        posicion = f_in.tell()
+    # Recuperar posicion guardada, o posicionarse al final si es la primera vez
+    posicion = cargar_posicion()
+    tamano_actual = os.path.getsize(ORIGEN)
+    if posicion == 0 or posicion > tamano_actual:
+        # Primera ejecucion, o el archivo roto es mas pequeno que la posicion
+        # guardada (logrotate actuo) — empezar desde el principio del archivo nuevo
+        posicion = 0
+        print("[Filtro] Iniciando lectura desde el principio del archivo actual")
+    else:
+        print(f"[Filtro] Retomando lectura desde la posicion {posicion}")
 
     with open(DESTINO, "a") as f_out:
         while True:
             try:
+                tamano_actual = os.path.getsize(ORIGEN)
+
+                # Deteccion de rotacion: el archivo actual es mas pequeno
+                # que nuestra posicion guardada — logrotate creo uno nuevo
+                if tamano_actual < posicion:
+                    print("[Filtro] Rotacion de log detectada — reiniciando desde el principio")
+                    posicion = 0
+
                 with open(ORIGEN, "r") as f_in:
                     f_in.seek(posicion)
                     lineas_nuevas = f_in.readlines()
@@ -90,9 +130,9 @@ def main():
                         continue
 
                 f_out.flush()
+                guardar_posicion(posicion)
 
             except FileNotFoundError:
-                # El archivo pudo haber rotado (logrotate) — reiniciar posicion
                 posicion = 0
             except Exception as e:
                 print(f"[Filtro] Error: {e}")
