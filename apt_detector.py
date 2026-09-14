@@ -128,6 +128,7 @@ class DetectorAPT:
         self.encoders  = None
         self.buffer    = deque(maxlen=SEQ_LEN)
         self.buffers_por_ip = {}  # {ip: [vectores]} — sin limite, sequencia real por IP
+        self.ultima_actividad_ip = {}  # {ip: timestamp} — para limpieza de buffers inactivos
         self.campanas  = []
         self.cargado   = False
         self.fases_por_ip = {}  # Registro de fases detectadas por IP
@@ -339,6 +340,7 @@ class DetectorAPT:
         if ip not in self.buffers_por_ip:
             self.buffers_por_ip[ip] = []
         self.buffers_por_ip[ip].append(vector)
+        self.ultima_actividad_ip[ip] = datetime.now()
         
         # Tambien mantenemos el buffer global para compatibilidad (uso interno/legacy)
         self.buffer.append(vector)
@@ -551,6 +553,21 @@ class DetectorAPT:
             "campanas_24h":       len(campanas_recientes),
             "ultima_campana":     self.campanas[-1] if self.campanas else None,
         }
+    
+    def limpiar_buffers_inactivos(self, dias_max: int = 7):
+        """Elimina buffers de IPs sin actividad reciente para acotar el uso de memoria."""
+        limite = datetime.now() - timedelta(days=dias_max)
+        ips_a_eliminar = [
+            ip for ip, ultima in self.ultima_actividad_ip.items()
+            if ultima < limite
+        ]
+        for ip in ips_a_eliminar:
+            self.buffers_por_ip.pop(ip, None)
+            self.ultima_actividad_ip.pop(ip, None)
+            self.fases_por_ip.pop(ip, None)
+        if ips_a_eliminar:
+            print(f"[APT Detector] Limpieza: {len(ips_a_eliminar)} buffers de IPs inactivas eliminados")
+        return len(ips_a_eliminar)
 
     def obtener_campanas(self, ultimas_n: int = 20) -> list:
         """Devuelve las ultimas N campanas APT detectadas."""
