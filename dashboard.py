@@ -1044,7 +1044,7 @@ with st.sidebar:
     st.markdown("---")
     opciones = [
         "Panel General", "Alertas y Eventos", "IPs Bloqueadas",
-        "Endpoints", "Detección APT", "Tráfico de Red",
+        "Endpoints", "Detección APT", "Tráfico de Red", "Análisis de Malware",
         "Análisis Forense", "Threat Hunting", "Gestión de Incidentes", "Normativas",
         "Playbooks", "Simulador de Ataques", "Informes", "Estado del Sistema", "About"
     ]
@@ -1419,8 +1419,9 @@ elif pagina == "IPs Bloqueadas":
         st.markdown(f'<div class="metric-card danger"><p class="metric-label">IPs en Blacklist</p><p class="metric-value">{len(ips_bloqueadas)}</p></div>', unsafe_allow_html=True) 
     st.markdown('<div class="section-header">Blacklist — IPs Bloqueadas en Hetzner</div>', unsafe_allow_html=True)    
     if ips_bloqueadas:
-        rows = []
-        for ip in ips_bloqueadas:
+        from concurrent.futures import ThreadPoolExecutor, as_completed
+        
+        def procesar_ip(ip):
             abuse = consultar_abuseipdb(ip)
             score = abuse.get("score", 0)
             if score >= 80:
@@ -1432,7 +1433,7 @@ elif pagina == "IPs Bloqueadas":
             else:
                 badge = '<span style="background:#bdc3c7;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem">Desconocida</span>'
             enriq = enriquecer_ip(ip)
-            rows.append({
+            return {
                 "IP":         ip,
                 "Reputacion": str(score) + "%",
                 "Pais":       abuse.get("pais", "—"),
@@ -1442,7 +1443,18 @@ elif pagina == "IPs Bloqueadas":
                 "Datacenter": "Si" if enriq.get("es_datacenter") else "No",
                 "Reportes":   str(abuse.get("reportes", 0)),
                 "TOR":        "Si" if abuse.get("es_tor") else "No"
-            })
+            }
+        
+        with st.spinner(f"Cargando información de {len(ips_bloqueadas)} IPs..."):
+            rows = []
+            with ThreadPoolExecutor(max_workers=20) as executor:
+                futures = {executor.submit(procesar_ip, ip): ip for ip in ips_bloqueadas}
+                for future in as_completed(futures):
+                    try:
+                        rows.append(future.result())
+                    except Exception:
+                        continue
+        
         df_ips = pd.DataFrame(rows)
         tabla_oscura(df_ips, use_container_width=True, hide_index=True)
     else:
@@ -1486,7 +1498,7 @@ elif pagina == "IPs Bloqueadas":
             st.info("No se pudo geolocalizar ninguna IP.")
     except Exception as e:
         st.error(f"Error cargando el mapa: {e}")
-    st.markdown('<div class="section-header">Historico de IPs</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">Historial de Bloqueos y Desbloqueos (Automático)</div>', unsafe_allow_html=True)
     try:
         r = requests.get("http://localhost:8000/historico", headers=HEADERS, timeout=5)
         historico = r.json()
@@ -4496,6 +4508,94 @@ elif pagina == "Tráfico de Red":
         tabla_oscura(df_zeek_show, use_container_width=True, hide_index=True)
     else:
         st.info("Zeek activo — esperando conexiones de red. Los datos aparecerán en cuanto haya tráfico.")
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ANALISIS DE MALWARE (YARA)
+# ══════════════════════════════════════════════════════════════════════════════
+elif pagina == "Análisis de Malware":
+    st.markdown("## Análisis de Malware — YARA Scanner")
+    st.markdown("Detección de malware conocido, webshells y APTs mediante firmas YARA (734 reglas activas)")
+    st.markdown("---")
+
+    import subprocess as _sp
+
+    total_reglas = 734
+    directorios_vigilados = ["/tmp", "/home"]
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #388bfd;">
+            <p class="metric-label">Reglas Activas</p>
+            <p class="metric-value">{total_reglas}</p>
+        </div>""", unsafe_allow_html=True)
+    with col2:
+        historial_yara = []
+        if os.path.exists("/root/asoar/yara_historial.json"):
+            try:
+                with open("/root/asoar/yara_historial.json") as f:
+                    historial_yara = json.load(f)
+            except:
+                pass
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #f85149;">
+            <p class="metric-label">Coincidencias Totales</p>
+            <p class="metric-value" style="color:#f85149">{len(historial_yara)}</p>
+        </div>""", unsafe_allow_html=True)
+    with col3:
+        st.markdown(f"""
+        <div class="metric-card" style="border-top:3px solid #27ae60;">
+            <p class="metric-label">Directorios Vigilados</p>
+            <p class="metric-value" style="font-size:1.2rem;color:#27ae60">{", ".join(directorios_vigilados)}</p>
+        </div>""", unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown('<div class="section-header">Escaneo Manual</div>', unsafe_allow_html=True)
+    col_ruta, col_btn = st.columns([4, 1])
+    with col_ruta:
+        ruta_escaneo = st.text_input("Ruta a escanear", value="/tmp", label_visibility="collapsed")
+    with col_btn:
+        escanear_ahora = st.button("Escanear ahora", type="primary", use_container_width=True)
+
+    if escanear_ahora:
+        with st.spinner(f"Escaneando {ruta_escaneo} con 734 reglas YARA..."):
+            try:
+                resultado = _sp.run(
+                    ["yara", "-r", "/root/asoar/yara_rules/index.yar", ruta_escaneo],
+                    capture_output=True, text=True, timeout=60
+                )
+                if resultado.stdout.strip():
+                    st.error(f"Coincidencias encontradas:")
+                    st.code(resultado.stdout, language="text")
+                else:
+                    st.success(f"Escaneo completado — {ruta_escaneo} está limpio, sin coincidencias.")
+            except subprocess.TimeoutExpired:
+                st.warning("El escaneo tardó demasiado (timeout 60s) — prueba con una ruta más específica.")
+            except Exception as e:
+                st.error(f"Error: {e}")
+
+    st.markdown("---")
+    st.markdown('<div class="section-header">Historial de Coincidencias</div>', unsafe_allow_html=True)
+    if historial_yara:
+        df_yara = pd.DataFrame(historial_yara[-50:])
+        df_yara["timestamp"] = pd.to_datetime(df_yara["timestamp"]).dt.strftime("%d/%m/%Y %H:%M:%S")
+        df_yara.columns = ["Timestamp", "Regla", "Archivo", "Directorio Escaneado"]
+        tabla_oscura(df_yara, use_container_width=True, hide_index=True)
+    else:
+        st.success("Sin coincidencias detectadas — el sistema está limpio. El escaneo automático se ejecuta cada 30 minutos sobre /tmp y /home.")
+
+    st.markdown("---")
+    st.markdown('<div class="section-header">Acerca de las Reglas YARA</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div style="background:#161b22;padding:16px;border-radius:8px;border-left:3px solid #388bfd;">
+        <p style="font-size:0.9rem;color:#c9d1d9;margin:0">
+            Noctua Predictive utiliza el conjunto de reglas <strong>signature-base</strong> de Neo23x0 (Florian Roth),
+            un estándar de la industria ampliamente usado en SOCs profesionales. Incluye detección de webshells
+            (PHP, ASP, JSP), APTs documentadas (APT28, APT29, APT41...), ransomware, herramientas de post-explotación
+            (Cobalt Strike, Mimikatz) y anomalías genéricas de malware.
+        </p>
+    </div>""", unsafe_allow_html=True)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
