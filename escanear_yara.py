@@ -13,6 +13,7 @@ from datetime import datetime
 YARA_INDEX = "/root/asoar/yara_rules/index.yar"
 DIRECTORIOS_ESCANEAR = ["/tmp", "/home"]
 ESTADO_FILE = "/root/asoar/yara_scan_state.json"
+HISTORIAL_FILE = "/root/asoar/yara_historial.json"
 API_KEY_FILE = "/root/asoar/.env"
 
 
@@ -45,6 +46,26 @@ def guardar_ya_notificados(notificados: set):
         pass
 
 
+def guardar_en_historial(regla: str, archivo: str, directorio: str):
+    """Guarda cada coincidencia en un historial detallado para el dashboard."""
+    from datetime import datetime as dt
+    historial = []
+    if os.path.exists(HISTORIAL_FILE):
+        try:
+            with open(HISTORIAL_FILE, "r") as f:
+                historial = json.load(f)
+        except Exception:
+            historial = []
+    historial.append({
+        "timestamp": dt.now().isoformat(),
+        "regla": regla,
+        "archivo": archivo,
+        "directorio_escaneado": directorio,
+    })
+    with open(HISTORIAL_FILE, "w") as f:
+        json.dump(historial[-200:], f, indent=2)
+
+
 def escanear():
     """Ejecuta YARA sobre los directorios sensibles y notifica coincidencias nuevas."""
     ya_notificados = cargar_ya_notificados()
@@ -69,6 +90,7 @@ def escanear():
                 ya_notificados.add(clave)
 
                 print(f"[YARA] Coincidencia detectada: regla '{regla}' en archivo '{archivo}'")
+                guardar_en_historial(regla, archivo, directorio)
                 try:
                     requests.post(
                         "http://localhost:8000/alerta",
