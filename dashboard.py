@@ -978,11 +978,32 @@ def cargar_zeek():
     except Exception:
         return []
 
+ABUSE_CACHE_DASHBOARD = "/root/asoar/abuse_cache_dashboard.json"
+
+def _cargar_cache_abuse():
+    if os.path.exists(ABUSE_CACHE_DASHBOARD):
+        try:
+            with open(ABUSE_CACHE_DASHBOARD, "r") as f:
+                return json.load(f)
+        except Exception:
+            return {}
+    return {}
+
+def _guardar_cache_abuse(cache):
+    try:
+        with open(ABUSE_CACHE_DASHBOARD, "w") as f:
+            json.dump(cache, f)
+    except Exception:
+        pass
+
 @st.cache_data(ttl=86400)
 def consultar_abuseipdb(ip: str) -> dict:
-    """Consulta la reputacion de una IP en AbuseIPDB."""
+    """Consulta la reputacion de una IP en AbuseIPDB, con fallback a cache en disco si se agota el limite diario."""
     if not ABUSEIPDB_API_KEY or ip in ["0.0.0.0", "127.0.0.1", ""]:
         return {}
+
+    cache_disco = _cargar_cache_abuse()
+
     try:
         r = requests.get(
             "https://api.abuseipdb.com/api/v2/check",
@@ -992,7 +1013,7 @@ def consultar_abuseipdb(ip: str) -> dict:
         )
         if r.status_code == 200:
             data = r.json().get("data", {})
-            return {
+            resultado = {
                 "score":        data.get("abuseConfidenceScore", 0),
                 "pais":         data.get("countryCode", ""),
                 "reportes":     data.get("totalReports", 0),
@@ -1001,8 +1022,21 @@ def consultar_abuseipdb(ip: str) -> dict:
                 "isp":          data.get("isp", ""),
                 "es_tor":       data.get("isTor", False),
             }
+            cache_disco[ip] = resultado
+            _guardar_cache_abuse(cache_disco)
+            return resultado
+        elif r.status_code == 429:
+            if ip in cache_disco:
+                resultado = dict(cache_disco[ip])
+                resultado["_cache_por_limite"] = True
+                return resultado
     except Exception:
         pass
+
+    if ip in cache_disco:
+        resultado = dict(cache_disco[ip])
+        resultado["_cache_por_limite"] = True
+        return resultado
     return {}
 
 @st.cache_data(ttl=86400)
@@ -1433,9 +1467,11 @@ elif pagina == "IPs Bloqueadas":
             else:
                 badge = '<span style="background:#bdc3c7;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem">Desconocida</span>'
             enriq = enriquecer_ip(ip)
+            es_cache = abuse.get("_cache_por_limite", False)
+            reputacion_str = f"{score}% (caché)" if es_cache else f"{score}%"
             return {
                 "IP":         ip,
-                "Reputacion": str(score) + "%",
+                "Reputacion": reputacion_str,
                 "Pais":       abuse.get("pais", "—"),
                 "Ciudad":     f"{enriq.get('ciudad','—')}, {enriq.get('pais_codigo','—')}",
                 "ISP":        enriq.get("isp","—") or abuse.get("isp", "—"),
