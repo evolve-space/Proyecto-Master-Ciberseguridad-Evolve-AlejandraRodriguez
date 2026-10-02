@@ -149,7 +149,7 @@ def reentrenar(forzar: bool = False) -> dict:
     y = resultado_pipeline["y"]
 
     # Comprobar si hay suficientes datos
-    n_anterior = len(historial[-1].get("n_ventanas", 0)) if historial else 0
+    n_anterior = historial[-1].get("n_ventanas", 0) if historial else 0
     datos_suficientes = n_ventanas >= config["min_ventanas_nuevas"]
 
     if not datos_suficientes and not forzar:

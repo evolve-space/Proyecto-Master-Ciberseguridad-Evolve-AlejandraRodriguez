@@ -21,3 +21,5 @@ models/lstm_centralizado.pt
 models/lstm_federado_noniid.pt
 nohup.out
 fl_comparativa.json
+backups/
+models/

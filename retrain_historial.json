@@ -7,5 +7,163 @@
     "f1_nuevo": 0.0,
     "mejora": 0.0,
     "epochs": 30
+  },
+  {
+    "timestamp": "2026-09-28T09:21:41.925870",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 5,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-09-28T09:21:50.875344",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 5,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-09-28T15:21:55.950195",
+    "estado": "completado_con_mejora",
+    "n_ventanas": 10,
+    "f1_anterior": 0.0,
+    "f1_nuevo": 1.0,
+    "mejora": 1.0,
+    "epochs": 30
+  },
+  {
+    "timestamp": "2026-09-28T21:22:01.457623",
+    "estado": "revertido",
+    "n_ventanas": 17,
+    "f1_anterior": 1.0,
+    "f1_nuevo": 0.1667,
+    "mejora": -0.8333,
+    "epochs": 30
+  },
+  {
+    "timestamp": "2026-09-29T03:22:03.700417",
+    "estado": "error_pipeline",
+    "motivo": "No se pudieron construir ventanas"
+  },
+  {
+    "timestamp": "2026-09-29T09:22:05.883694",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 4,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-09-29T15:22:09.553175",
+    "estado": "revertido",
+    "n_ventanas": 10,
+    "f1_anterior": 1.0,
+    "f1_nuevo": 0.0,
+    "mejora": -1.0,
+    "epochs": 30
+  },
+  {
+    "timestamp": "2026-09-29T21:22:14.612617",
+    "estado": "completado",
+    "n_ventanas": 16,
+    "f1_anterior": 1.0,
+    "f1_nuevo": 1.0,
+    "mejora": 0.0,
+    "epochs": 30
+  },
+  {
+    "timestamp": "2026-09-30T03:22:16.771509",
+    "estado": "error_pipeline",
+    "motivo": "No se pudieron construir ventanas"
+  },
+  {
+    "timestamp": "2026-09-30T09:22:18.997905",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 5,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-09-30T15:22:21.116688",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 7,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-09-30T21:22:26.462510",
+    "estado": "completado",
+    "n_ventanas": 17,
+    "f1_anterior": 1.0,
+    "f1_nuevo": 1.0,
+    "mejora": 0.0,
+    "epochs": 30
+  },
+  {
+    "timestamp": "2026-10-01T03:22:28.686726",
+    "estado": "error_pipeline",
+    "motivo": "No se pudieron construir ventanas"
+  },
+  {
+    "timestamp": "2026-10-01T06:30:48.720763",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 2,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-01T06:30:59.350462",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 2,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-01T12:31:01.607840",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 8,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-01T18:31:07.869491",
+    "estado": "completado",
+    "n_ventanas": 14,
+    "f1_anterior": 1.0,
+    "f1_nuevo": 1.0,
+    "mejora": 0.0,
+    "epochs": 30
+  },
+  {
+    "timestamp": "2026-10-02T00:31:10.053790",
+    "estado": "error_pipeline",
+    "motivo": "No hay alertas disponibles"
+  },
+  {
+    "timestamp": "2026-10-02T06:31:12.212827",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 1,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-02T08:51:40.035657",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 4,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-02T08:51:47.674472",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 4,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-02T09:05:13.544734",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 4,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-02T09:05:22.894413",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 4,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-02T09:11:07.919017",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 4,
+    "minimo": 10
   }
 ]
