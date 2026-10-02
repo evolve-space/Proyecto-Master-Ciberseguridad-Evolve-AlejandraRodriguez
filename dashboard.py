@@ -475,8 +475,11 @@ if os.path.exists(notif_file):
                 n["leida"] = True
             with open(notif_file, "w") as f:
                 json.dump(notifs, f, indent=2)
-            for n in no_leidas:
-                st.toast(f"IP bloqueada: {n['ip']}", icon="🔒")
+            if len(no_leidas) > 3:
+                st.toast(f"Se han bloqueado {len(no_leidas)} IPs desde tu ultima visita. Revisa 'IPs Bloqueadas' para el detalle.", icon="🔒")
+            else:
+                for n in no_leidas:
+                    st.toast(f"IP bloqueada: {n['ip']}", icon="🔒")
     except:
         pass
 
@@ -1241,7 +1244,7 @@ if pagina == "Panel General":
             color = "#2980b9"
             st.markdown(f"""
             <div class="metric-card" style="border-top:3px solid {color};">
-                <p class="metric-label">IPs Monitorizadas</p>
+                <p class="metric-label">IPs con Buffer ATP </p>
                 <p style="font-size:2rem;font-weight:700;color:#6c3483;">{estado_apt.get("ips_monitorizadas", 0)}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver motor", key="btn_buffer", use_container_width=True, type="secondary"):

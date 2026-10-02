@@ -454,7 +454,32 @@ class DetectorAPT:
                                       and t.get("estado") in ["Abierto", "Investigando"]
                                       and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).total_seconds() < 7200]
                     abuse_score_detector = alerta.get("abuse_score", 0)
-                    if not tickets_activos and abuse_score_detector >= 50:
+                    if not tickets_activos and abuse_score_detector < 50:
+                        # Indicio de comportamiento anomalo detectado SOLO por el LSTM,
+                        # sin respaldo de reputacion externa (AbuseIPDB < 50).
+                        # No es una APT confirmada: es una senal de vigilancia temprana.
+                        try:
+                            titulo_bajo = f"Indicio de comportamiento anomalo (LSTM) — {fase.upper()} desde {ip}"
+                            crear_ticket(
+                                titulo=titulo_bajo,
+                                descripcion=f"El motor LSTM ha clasificado esta secuencia de eventos en fase {fase} "
+                                           f"con una confianza del {confianza}%, sin respaldo de reputacion externa "
+                                           f"previa (AbuseIPDB: {abuse_score_detector}%). "
+                                           f"Secuencia de {n_eventos_ip} eventos analizados (secuencia real, sin padding). "
+                                           f"Se trata de una deteccion temprana de comportamiento, no de una campana APT confirmada; "
+                                           f"requiere seguimiento para confirmar si la actividad persiste o escala de fase.",
+                                prioridad="BAJA",
+                                ip=ip,
+                                fase_mitre=fase,
+                                confianza=confianza,
+                                abuse_score=abuse_score_detector,
+                                abuse_pais="",
+                                abuse_isp=""
+                            )
+                            print(f"[TICKET] Ticket de BAJA prioridad creado (LSTM puro, sin reputacion) para IP {ip}")
+                        except Exception as eb:
+                            print(f"[TICKET] Error creando ticket de baja prioridad: {eb}")
+                    elif not tickets_activos and abuse_score_detector >= 50:
                         # Verificar cache de IPs bloqueadas antes de crear ticket
                         try:
                             import json as _json
@@ -464,7 +489,21 @@ class DetectorAPT:
                             _cache_bloqueadas = set()
                         
                         if ip in _cache_bloqueadas:
-                            print(f"[TICKET] IP {ip} ya bloqueada en cache — omitiendo ticket")
+                            print(f"[TICKET] IP {ip} ya bloqueada en cache — omitiendo ticket nuevo, anotando deteccion LSTM")
+                            try:
+                                from apt_tickets import listar_tickets, anadir_nota
+                                tickets_ip = [t for t in listar_tickets() if t.get("ip") == ip]
+                                if tickets_ip:
+                                    ticket_existente = sorted(tickets_ip, key=lambda t: t["creado_en"], reverse=True)[0]
+                                    anadir_nota(
+                                        ticket_existente["id"],
+                                        f"Motor LSTM: deteccion independiente en fase {fase} "
+                                        f"con confianza {confianza}% (secuencia de {n_eventos_ip} eventos). "
+                                        f"IP ya bloqueada previamente por reputacion AbuseIPDB."
+                                    )
+                                    print(f"[TICKET] Nota LSTM anadida a {ticket_existente['id']} para IP {ip}")
+                            except Exception as en:
+                                print(f"[TICKET] Error anadiendo nota LSTM: {en}")
                         else:
                             # Enriquecer con AbuseIPDB
                             abuse_score = 0

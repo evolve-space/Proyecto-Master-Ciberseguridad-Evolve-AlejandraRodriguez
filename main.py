@@ -384,6 +384,9 @@ def bloquear_ip_hetzner(ip: str):
         "leida": False
     })
 
+    # Limitar el historial para evitar crecimiento indefinido
+    notifs = notifs[-200:]
+
     with open(notif_file, "w") as f:
         json.dump(notifs, f, indent=2)
     return r.status_code == 201
@@ -1195,3 +1198,11 @@ zeek_thread = threading.Thread(target=monitor_zeek_loop, daemon=True)
 zeek_thread.start()
 print("[ZEEK] Monitor de escaneos iniciado (revision cada 60 segundos)")
 print("[APT] Limpieza de buffers inactivos programada (cada hora)")
+
+try:
+    from apt_retrain import bucle_reentrenamiento
+    retrain_thread = threading.Thread(target=bucle_reentrenamiento, daemon=True)
+    retrain_thread.start()
+    print("[Retrain] Bucle de reentrenamiento automatico iniciado")
+except Exception as e:
+    print(f"[Retrain] No se pudo iniciar el bucle automatico: {e}")
