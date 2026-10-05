@@ -1,6 +1,6 @@
 $WEBHOOK_URL = "http://91.98.126.215:8000/agente"
 $INTERVALO_SEGUNDOS = 300
-$API_KEY = "noctua-2026-secure-key"
+$API_KEY = $env:NOCTUA_API_KEY
 
 function Obtener-DatosSeguridad {
     $hostname = $env:COMPUTERNAME
