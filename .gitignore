@@ -23,3 +23,18 @@ nohup.out
 fl_comparativa.json
 backups/
 models/
+
+# --- Estado en vivo del SOC (datos, no codigo) ---
+abuse_cache.json
+apt_buffer.json
+apt_buffers_por_ip.json
+apt_campanas.json.total
+blocked_ips_cache.json
+eve_filter_posicion.json
+historico_ips.json
+notificaciones.json
+playbooks.json
+tickets.json
+xai_explicaciones.json
+# backups de parches
+*.bak_*
