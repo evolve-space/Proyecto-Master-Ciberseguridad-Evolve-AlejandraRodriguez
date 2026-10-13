@@ -101,66 +101,82 @@ Path(MODELS_PATH).mkdir(parents=True, exist_ok=True)
 # ── 1. Carga de alertas Wazuh ─────────────────────────────────────────────────
 def cargar_alertas_wazuh(horas_atras: int = 2640) -> pd.DataFrame:
     """
-    Lee los logs de alertas de Wazuh de las ultimas N horas.
-    Devuelve un DataFrame con los eventos normalizados.
+    Lee los logs de alertas de Wazuh, incluido el historico rotado (.json.gz),
+    de las ultimas N horas. Excluye reglas de ruido (anomalias de stream de
+    Suricata y errores locales) que no corresponden a ninguna fase MITRE.
     """
+    import os as _os, glob as _glob, gzip as _gzip
+    # Reglas de ruido excluidas del dataset (diagnostico de etiquetas 2026-10-13):
+    #   86612/86601 = anomalias de stream TCP de Suricata (ack invalido, SYN resend...)
+    #   40704 = systemd service failure | 52002 = AppArmor denied. Sin fase MITRE.
+    REGLAS_RUIDO = {"86612", "86601", "40704", "52002"}
     try:
-        result = subprocess.run(
-            ["bash", "-c", f"find {WAZUH_LOGS_PATH} -name '*.json' -o -name 'alerts.json' | sort | xargs cat 2>/dev/null"],
-            capture_output=True, text=True, timeout=30
-        )
-        lineas = result.stdout.strip().split("\n")
-        alertas = []
+        archivos = sorted(set(
+            _glob.glob(_os.path.join(WAZUH_LOGS_PATH, "**", "*.json"), recursive=True) +
+            _glob.glob(_os.path.join(WAZUH_LOGS_PATH, "**", "*.json.gz"), recursive=True)
+        ))
         cutoff = datetime.now() - timedelta(hours=horas_atras)
+        cutoff_str = cutoff.strftime("%Y-%m-%dT%H:%M:%S")
 
-        for linea in lineas:
-            if not linea.strip():
+        def _iter_lineas(paths):
+            for p in paths:
+                try:
+                    fh = _gzip.open(p, "rt", errors="ignore") if p.endswith(".gz") else open(p, "r", errors="ignore")
+                    with fh:
+                        for ln in fh:
+                            yield ln
+                except Exception:
+                    continue
+
+        registros = []
+        for linea in _iter_lineas(archivos):
+            linea = linea.strip()
+            if not linea:
                 continue
             try:
                 a = json.loads(linea)
-                ts = pd.to_datetime(a.get("timestamp", ""), utc=True, errors="coerce")
-                if pd.isna(ts):
-                    continue
-                ts = ts.tz_localize(None)
-                if ts < cutoff:
-                    continue
-
-                rule_id = str(a.get("rule", {}).get("id", "0"))
-                nivel = int(a.get("rule", {}).get("level", 0))
-                ip = a.get("data", {}).get("srcip",
-                     a.get("agent", {}).get("ip", "0.0.0.0"))
-                agente = a.get("agent", {}).get("name", "master")
-                descripcion = a.get("rule", {}).get("description", "")
-                mitre_tacticas = a.get("rule", {}).get("mitre", {}).get("tactic", [])
-                mitre_id = a.get("rule", {}).get("mitre", {}).get("id", [])
-
-                fase = RULE_TO_MITRE.get(rule_id, "unknown")
-                if mitre_tacticas and fase == "unknown":
-                    tactica = mitre_tacticas[0].lower().replace(" ", "_") if mitre_tacticas else "unknown"
-                    fase = tactica if tactica in MITRE_PHASES else "unknown"
-                if fase == "unknown":
-                    fase = clasificar_por_descripcion(descripcion)
-
-                alertas.append({
-                    "timestamp":   ts,
-                    "rule_id":     rule_id,
-                    "nivel":       nivel,
-                    "ip":          ip,
-                    "agente":      agente,
-                    "descripcion": descripcion,
-                    "fase_mitre":  fase,
-                    "mitre_id":    mitre_id[0] if mitre_id else "",
-                })
             except Exception:
                 continue
+            ts_raw = a.get("timestamp", "")
+            if ts_raw and ts_raw[:19] < cutoff_str:
+                continue
+            rule_id = str(a.get("rule", {}).get("id", "0"))
+            if rule_id in REGLAS_RUIDO:
+                continue
+            nivel = int(a.get("rule", {}).get("level", 0))
+            ip = a.get("data", {}).get("srcip", a.get("agent", {}).get("ip", "0.0.0.0"))
+            agente = a.get("agent", {}).get("name", "master")
+            descripcion = a.get("rule", {}).get("description", "")
+            mitre_tacticas = a.get("rule", {}).get("mitre", {}).get("tactic", [])
+            mitre_id = a.get("rule", {}).get("mitre", {}).get("id", [])
+            fase = RULE_TO_MITRE.get(rule_id, "unknown")
+            if mitre_tacticas and fase == "unknown":
+                tactica = mitre_tacticas[0].lower().replace(" ", "_") if mitre_tacticas else "unknown"
+                fase = tactica if tactica in MITRE_PHASES else "unknown"
+            if fase == "unknown":
+                fase = clasificar_por_descripcion(descripcion)
+            registros.append({
+                "timestamp_raw": ts_raw,
+                "rule_id":       rule_id,
+                "nivel":         nivel,
+                "ip":            ip,
+                "agente":        agente,
+                "descripcion":   descripcion,
+                "fase_mitre":    fase,
+                "mitre_id":      mitre_id[0] if mitre_id else "",
+            })
 
-        if not alertas:
+        if not registros:
             print("[Pipeline] No se encontraron alertas en el rango de tiempo.")
             return pd.DataFrame()
 
-        df = pd.DataFrame(alertas)
+        df = pd.DataFrame(registros)
+        df["timestamp"] = pd.to_datetime(df["timestamp_raw"], utc=True, errors="coerce").dt.tz_localize(None)
+        df = df.drop(columns=["timestamp_raw"])
+        df = df[df["timestamp"].notna() & (df["timestamp"] >= cutoff)]
         df = df.sort_values("timestamp").reset_index(drop=True)
-        print(f"[Pipeline] Cargadas {len(df)} alertas de las ultimas {horas_atras}h")
+        print(f"[Pipeline] Cargadas {len(df)} alertas de las ultimas {horas_atras}h "
+              f"(historico .gz incluido; reglas de ruido {sorted(REGLAS_RUIDO)} excluidas)")
         return df
 
     except Exception as e:
@@ -168,7 +184,8 @@ def cargar_alertas_wazuh(horas_atras: int = 2640) -> pd.DataFrame:
         return pd.DataFrame()
 
 
-# ── 2. Extraccion de caracteristicas por evento ───────────────────────────────
+# 2. Extraccion de caracteristicas por evento
+
 def extraer_caracteristicas(df: pd.DataFrame) -> pd.DataFrame:
     """
     Convierte cada alerta en un vector de caracteristicas numericas.
