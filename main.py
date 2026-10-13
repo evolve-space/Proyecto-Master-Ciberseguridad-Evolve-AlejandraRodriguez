@@ -422,49 +422,40 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
             
             # Amenazas oportunistas confirmadas por reputacion externa
             # (aunque no acumulen suficiente contexto para el LSTM)
+            # Se bloquean automaticamente sin generar ticket: no son una deteccion
+            # del motor de comportamiento, son una accion SOAR directa por reputacion.
             if abuse_score >= 90 and not ip_esta_bloqueada(ip_atacante):
                 try:
-                    from apt_tickets import crear_ticket, _cargar
-                    data_tickets = _cargar()
-                    tickets_activos_ip = [t for t in data_tickets.get("tickets", [])
-                                          if t.get("ip") == ip_atacante
-                                          and t.get("estado") in ["Abierto", "Investigando"]]
-                    if not tickets_activos_ip:
-                        abuse_data = consultar_abuseipdb(ip_atacante)
-                        crear_ticket(
-                            titulo=f"IP maliciosa confirmada (AbuseIPDB) — {ip_atacante}",
-                            descripcion=f"La IP {ip_atacante} tiene una reputacion de {abuse_score}% en AbuseIPDB "
-                                       f"(amenaza confirmada por fuente externa), pero no ha generado "
-                                       f"suficiente volumen de eventos locales para ser evaluada por el motor LSTM. "
-                                       f"Pais: {abuse_data.get('pais','')} | ISP: {abuse_data.get('isp','')} | "
-                                       f"Reportes: {abuse_data.get('reportes',0)}.",
-                            prioridad="ALTA",
-                            ip=ip_atacante,
-                            fase_mitre="unknown",
-                            confianza=0,
-                            abuse_score=abuse_score,
-                            abuse_pais=abuse_data.get("pais",""),
-                            abuse_isp=abuse_data.get("isp","")
-                        )
-                        print(f"[ABUSEIPDB] Ticket creado para {ip_atacante} por reputacion externa ({abuse_score}%)")
-                        # Bloqueo automatico — mismo umbral de confianza que el playbook LSTM
-                        try:
-                            bloquear_ip_hetzner(ip_atacante)
-                            from apt_tickets import _cargar as _cargar2, _guardar as _guardar2
-                            data_tk = _cargar2()
-                            for t in data_tk.get("tickets", []):
-                                if t.get("ip") == ip_atacante and t.get("estado") == "Abierto":
-                                    t["estado"] = "Contenido"
-                                    t.setdefault("notas", []).append({
-                                        "timestamp": datetime.now().isoformat(),
-                                        "texto": f"Bloqueado automaticamente por reputacion AbuseIPDB {abuse_score}%."
-                                    })
-                            _guardar2(data_tk)
-                            print(f"[ABUSEIPDB] IP {ip_atacante} bloqueada automaticamente ({abuse_score}%)")
-                        except Exception as e_block:
-                            print(f"[ABUSEIPDB] Error bloqueando: {e_block}")
+                    abuse_data = consultar_abuseipdb(ip_atacante)
+                    data_pb = cargar_playbooks()
+                    ejecucion = {
+                        "id": f"PB-{len(data_pb['ejecuciones'])+1:04d}",
+                        "playbook": "reputacion_externa",
+                        "ip": ip_atacante,
+                        "ticket_id": "",
+                        "timestamp": datetime.now().isoformat(),
+                        "estado": "EJECUTANDO",
+                        "acciones": []
+                    }
+                    try:
+                        bloquear_ip_hetzner(ip_atacante)
+                        ejecucion["acciones"].append({
+                            "accion": "BLOQUEAR_HETZNER",
+                            "estado": "OK",
+                            "timestamp": datetime.now().isoformat(),
+                            "detalle": f"AbuseIPDB {abuse_score}% | Pais: {abuse_data.get('pais','')} | "
+                                       f"ISP: {abuse_data.get('isp','')} | Reportes: {abuse_data.get('reportes',0)}"
+                        })
+                        ejecucion["estado"] = "COMPLETADO"
+                        print(f"[ABUSEIPDB] IP {ip_atacante} bloqueada automaticamente por reputacion externa ({abuse_score}%)")
+                    except Exception as e_block:
+                        ejecucion["estado"] = "ERROR"
+                        ejecucion["error"] = str(e_block)
+                        print(f"[ABUSEIPDB] Error bloqueando: {e_block}")
+                    data_pb["ejecuciones"].append(ejecucion)
+                    guardar_playbooks(data_pb)
                 except Exception as e_abuse:
-                    print(f"[ABUSEIPDB] Error creando ticket: {e_abuse}")
+                    print(f"[ABUSEIPDB] Error en playbook de reputacion externa: {e_abuse}")
             
             # Firmas de malware conocido — bloqueo por conocimiento tecnico independiente de reputacion externa
             firmas_malware_conocido = ["mirai", "jaws", "shell command execution", "webshell", "remote code execution"]
@@ -499,18 +490,19 @@ async def recibir_alerta(request: Request, alerta: AlertaWazuh, api_key: str = D
                 except Exception as e_firma:
                     print(f"[FIRMA] Error creando ticket: {e_firma}")
 
-            if abuse_score < 20:
-                print(f"[APT] IP {ip_atacante} AbuseIPDB {abuse_score}% < 20% — omitiendo")
-            else:
-                apt_resultado = detector_apt.procesar_alerta({
-                    "rule_id":     str(alerta.rule.get("id", "0")),
-                    "nivel":       nivel,
-                    "ip":          ip_atacante,
-                    "agente":      "master",
-                    "flow":        alerta.data.get("flow", {}),
-                    "tcp":         alerta.data.get("tcp", {}),
-                    "abuse_score": abuse_score,
-                })
+            # El LSTM evalua TODO el trafico con eventos suficientes, independientemente
+            # de si hay o no reputacion externa previa — es la base de la deteccion por
+            # comportamiento, que no debe depender de que la IP ya sea conocida.
+            apt_resultado = detector_apt.procesar_alerta({
+                "rule_id":     str(alerta.rule.get("id", "0")),
+                "nivel":       nivel,
+                "ip":          ip_atacante,
+                "agente":      "master",
+                "flow":        alerta.data.get("flow", {}),
+                "tcp":         alerta.data.get("tcp", {}),
+                "abuse_score": abuse_score,
+                "descripcion": descripcion,
+            })
         except Exception as e:
             print(f"[APT] Error en detector: {e}")
     

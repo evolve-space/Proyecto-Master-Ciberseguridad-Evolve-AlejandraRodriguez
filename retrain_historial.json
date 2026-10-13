@@ -165,5 +165,35 @@
     "estado": "datos_insuficientes",
     "n_ventanas": 4,
     "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-02T12:48:09.393951",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 7,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-02T13:10:49.403358",
+    "estado": "datos_insuficientes",
+    "n_ventanas": 8,
+    "minimo": 10
+  },
+  {
+    "timestamp": "2026-10-02T15:16:31.180608",
+    "estado": "revertido",
+    "n_ventanas": 10,
+    "f1_anterior": 0.3605,
+    "f1_nuevo": 0.0,
+    "mejora": -0.3605,
+    "epochs": 30
+  },
+  {
+    "timestamp": "2026-10-02T15:19:31.551337",
+    "estado": "completado_con_mejora",
+    "n_ventanas": 10,
+    "f1_anterior": 0.3605,
+    "f1_nuevo": 1.0,
+    "mejora": 0.6395,
+    "epochs": 30
   }
 ]

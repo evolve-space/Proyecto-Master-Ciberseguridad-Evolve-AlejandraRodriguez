@@ -308,8 +308,8 @@ def predecir_ventana(modelo: NoctuaLSTM, ventana: np.ndarray) -> dict:
 # ── Main ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     # Cargar datos del pipeline
-    X_path = f"{MODELS_PATH}/X_pipeline.npy"
-    y_path = f"{MODELS_PATH}/y_pipeline.npy"
+    X_path = f"{MODELS_PATH}/X_combined.npy"
+    y_path = f"{MODELS_PATH}/y_combined.npy"
 
     if not os.path.exists(X_path):
         print("ERROR: Ejecuta primero apt_pipeline.py para generar los datos.")

@@ -211,11 +211,24 @@ class DetectorAPT:
                     self.campanas = json.load(f)
             except Exception:
                 self.campanas = []
+        # Contador acumulativo real (no se trunca con el cap de 500)
+        self.campanas_total = len(self.campanas)
+        try:
+            if os.path.exists(APT_LOG + ".total"):
+                with open(APT_LOG + ".total", "r") as f:
+                    self.campanas_total = int((f.read().strip() or "0"))
+        except Exception:
+            pass
 
     def _guardar_campanas(self):
         """Persiste el historial de campanas."""
         with open(APT_LOG, "w") as f:
             json.dump(self.campanas[-500:], f, indent=2, default=str)
+        try:
+            with open(APT_LOG + ".total", "w") as f:
+                f.write(str(getattr(self, "campanas_total", len(self.campanas))))
+        except Exception:
+            pass
 
     def _alerta_a_vector(self, alerta: dict) -> np.ndarray:
         """
@@ -241,9 +254,24 @@ class DetectorAPT:
             bytes_toclient = datos_zeek.get("resp_bytes", 0.0)
             history        = datos_zeek.get("history", "")
 
+            # Si la alerta describe un patron de escaneo con un conteo de
+            # conexiones (p.ej. "19 conexiones S0 al puerto 22"), reflejar
+            # ese volumen real en el vector en vez de depender de una sola
+            # conexion aislada — evita que escaneos reales con pocos eventos
+            # en el buffer se evaluen como si fueran trafico normal.
+            import re as _re
+            descripcion_alerta = alerta.get("descripcion", "") or ""
+            match_conexiones = _re.search(r"(\d+)\s+conexiones", descripcion_alerta)
+            if match_conexiones:
+                n_conexiones = float(match_conexiones.group(1))
+                pkts_toserver = max(pkts_toserver, n_conexiones)
+                syn_extra = True
+            else:
+                syn_extra = False
+
             flow_byts_s = (bytes_toserver + bytes_toclient) / duracion
             flow_pkts_s = (pkts_toserver + pkts_toclient) / duracion
-            syn_cnt     = 1.0 if "S" in history else 0.0
+            syn_cnt     = 1.0 if ("S" in history or syn_extra) else 0.0
             ack_cnt     = 1.0 if "A" in history else 0.0
 
             total_pkts  = pkts_toserver + pkts_toclient
@@ -422,6 +450,7 @@ class DetectorAPT:
         # Registrar campana si es activa
         if apt_activo:
             self.campanas.append(analisis)
+            self.campanas_total = getattr(self, "campanas_total", 0) + 1
             self._guardar_campanas()
             print(f"[APT DETECTADO] Fase: {fase} | Confianza: {confianza}% | Riesgo: {nivel_riesgo}")
             
@@ -621,7 +650,7 @@ class DetectorAPT:
             "eventos_en_buffer":  len(self.buffer),
             "ips_monitorizadas":  len(self.buffers_por_ip),
             "total_eventos_ips":  total_eventos_ips,
-            "campanas_totales":   len(self.campanas),
+            "campanas_totales":   getattr(self, "campanas_total", len(self.campanas)),
             "campanas_24h":       len(campanas_recientes),
             "ultima_campana":     self.campanas[-1] if self.campanas else None,
         }

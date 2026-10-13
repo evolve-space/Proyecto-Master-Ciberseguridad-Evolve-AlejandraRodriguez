@@ -5301,6 +5301,6270 @@
           "timestamp": "2026-09-14T12:04:10.611178"
         }
       ]
+    },
+    {
+      "id": "PB-0231",
+      "playbook": "reputacion_externa",
+      "ip": "108.174.156.122",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T13:34:25.455992",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T13:34:25.625924",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0232",
+      "playbook": "reputacion_externa",
+      "ip": "156.232.10.218",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T13:34:40.041469",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T13:34:40.197126",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0233",
+      "playbook": "reputacion_externa",
+      "ip": "59.179.31.237",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T13:35:45.627600",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T13:35:45.809430",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0234",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.140",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T14:05:50.580781",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T14:05:50.807384",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0235",
+      "playbook": "reputacion_externa",
+      "ip": "40.119.42.102",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T14:44:57.684733",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T14:44:57.889116",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0236",
+      "playbook": "reputacion_externa",
+      "ip": "116.203.34.38",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T16:10:16.549890",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T16:10:16.760925",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0237",
+      "playbook": "reputacion_externa",
+      "ip": "39.96.26.63",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T16:40:40.180878",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T16:40:40.404889",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0238",
+      "playbook": "reputacion_externa",
+      "ip": "66.116.241.89",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T17:35:48.373943",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T17:35:48.553590",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0239",
+      "playbook": "reputacion_externa",
+      "ip": "178.18.245.53",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T17:43:57.136716",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T17:43:57.356040",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0240",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.154",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T19:26:05.671760",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T19:26:05.858047",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0241",
+      "playbook": "reputacion_externa",
+      "ip": "94.154.43.69",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T20:04:57.656082",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T20:04:57.855626",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0242",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.202",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T20:13:06.519652",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T20:13:06.691834",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0243",
+      "playbook": "reputacion_externa",
+      "ip": "134.33.66.248",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T20:49:12.266951",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T20:49:12.508041",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0244",
+      "playbook": "reputacion_externa",
+      "ip": "106.227.76.197",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T23:40:26.019388",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T23:40:26.192338",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0245",
+      "playbook": "reputacion_externa",
+      "ip": "120.48.28.60",
+      "ticket_id": "",
+      "timestamp": "2026-10-02T23:47:14.642202",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-02T23:47:14.839629",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0246",
+      "playbook": "reputacion_externa",
+      "ip": "156.232.13.246",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T00:39:47.752644",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T00:39:47.953196",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0247",
+      "playbook": "reputacion_externa",
+      "ip": "186.56.11.2",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T00:48:34.455768",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T00:48:34.659268",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0248",
+      "playbook": "reputacion_externa",
+      "ip": "8.138.172.28",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T01:54:10.147579",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T01:54:10.361267",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0249",
+      "playbook": "reputacion_externa",
+      "ip": "4.236.2.235",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T03:17:54.332787",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T03:17:54.492031",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0250",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.121",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T03:52:55.191857",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T03:52:55.358493",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0251",
+      "playbook": "reputacion_externa",
+      "ip": "168.228.151.152",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T03:59:32.787199",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T03:59:32.962064",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0252",
+      "playbook": "reputacion_externa",
+      "ip": "169.58.242.88",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T04:18:15.447491",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T04:18:15.622317",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0253",
+      "playbook": "reputacion_externa",
+      "ip": "61.5.22.56",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T04:41:35.284128",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T04:41:35.466800",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0254",
+      "playbook": "reputacion_externa",
+      "ip": "36.139.161.140",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T04:44:44.452219",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T04:44:44.651212",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0255",
+      "playbook": "reputacion_externa",
+      "ip": "129.121.127.177",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T05:12:56.961258",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T05:12:57.137520",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0256",
+      "playbook": "reputacion_externa",
+      "ip": "43.128.3.201",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T05:13:19.575190",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T05:13:19.750949",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0257",
+      "playbook": "reputacion_externa",
+      "ip": "160.30.113.59",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T05:14:49.159726",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T05:14:49.363101",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0258",
+      "playbook": "reputacion_externa",
+      "ip": "14.103.48.24",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T05:23:22.211591",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T05:23:22.379926",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0259",
+      "playbook": "reputacion_externa",
+      "ip": "106.12.74.87",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T05:34:27.589864",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T05:34:27.775999",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0260",
+      "playbook": "reputacion_externa",
+      "ip": "45.33.14.197",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T05:35:54.225157",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T05:35:54.437048",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0261",
+      "playbook": "reputacion_externa",
+      "ip": "103.189.88.55",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T06:01:55.139949",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T06:01:55.310257",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0262",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.167",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T06:22:40.487709",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T06:22:40.651419",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0263",
+      "playbook": "reputacion_externa",
+      "ip": "69.6.222.101",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T06:24:11.074356",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T06:24:11.267962",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0264",
+      "playbook": "reputacion_externa",
+      "ip": "130.131.220.95",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T06:24:22.645380",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T06:24:22.837487",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0265",
+      "playbook": "reputacion_externa",
+      "ip": "72.240.125.133",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T06:28:46.182657",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T06:28:46.372705",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0266",
+      "playbook": "reputacion_externa",
+      "ip": "213.206.207.146",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T06:32:33.909281",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T06:32:34.108626",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0267",
+      "playbook": "reputacion_externa",
+      "ip": "101.47.156.21",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T06:40:38.971178",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T06:40:39.180676",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0268",
+      "playbook": "reputacion_externa",
+      "ip": "103.172.28.62",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T08:11:53.464469",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T08:11:53.640665",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0269",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.164",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T08:17:05.162045",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T08:17:05.367403",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0270",
+      "playbook": "reputacion_externa",
+      "ip": "14.103.116.87",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T08:20:11.793977",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T08:20:11.990566",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0271",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.39",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T10:04:07.698163",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T10:04:07.906490",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0272",
+      "playbook": "reputacion_externa",
+      "ip": "184.168.21.211",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T10:31:59.783368",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T10:31:59.962871",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0273",
+      "playbook": "reputacion_externa",
+      "ip": "163.7.13.17",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T10:32:33.038574",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T10:32:33.226369",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0274",
+      "playbook": "reputacion_externa",
+      "ip": "115.190.185.243",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T10:54:07.994131",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T10:54:08.198582",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0275",
+      "playbook": "reputacion_externa",
+      "ip": "160.153.189.18",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T11:42:49.384688",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T11:42:49.592472",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0276",
+      "playbook": "reputacion_externa",
+      "ip": "94.154.43.70",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T11:50:59.061237",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T11:50:59.267383",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0277",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.65",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T11:56:09.978864",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T11:56:10.160706",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0278",
+      "playbook": "reputacion_externa",
+      "ip": "120.48.181.68",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T11:57:52.480609",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T11:57:52.674732",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0279",
+      "playbook": "reputacion_externa",
+      "ip": "115.178.75.242",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T12:29:52.133822",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T12:29:52.349591",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0280",
+      "playbook": "reputacion_externa",
+      "ip": "220.123.33.105",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T12:32:57.811249",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T12:32:57.991233",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0281",
+      "playbook": "reputacion_externa",
+      "ip": "103.78.0.229",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T12:33:54.397171",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T12:33:54.592940",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0282",
+      "playbook": "reputacion_externa",
+      "ip": "40.124.179.252",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T12:49:14.178603",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T12:49:14.375733",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0283",
+      "playbook": "reputacion_externa",
+      "ip": "20.124.82.36",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T13:39:28.214945",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T13:39:28.412042",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0284",
+      "playbook": "reputacion_externa",
+      "ip": "129.121.126.188",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T14:33:41.380173",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T14:33:41.575530",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0285",
+      "playbook": "reputacion_externa",
+      "ip": "85.133.193.72",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T14:35:04.980097",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T14:35:05.161935",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0286",
+      "playbook": "reputacion_externa",
+      "ip": "162.243.147.237",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T14:48:15.553960",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T14:48:15.743023",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0287",
+      "playbook": "reputacion_externa",
+      "ip": "161.248.202.88",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T14:52:50.720438",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T14:52:50.902019",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0288",
+      "playbook": "reputacion_externa",
+      "ip": "31.59.174.59",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T15:07:33.451282",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T15:07:33.629964",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0289",
+      "playbook": "reputacion_externa",
+      "ip": "95.188.91.101",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T15:29:22.520453",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T15:29:22.730818",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0290",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.42",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T16:19:27.327363",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T16:19:27.507398",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0291",
+      "playbook": "reputacion_externa",
+      "ip": "117.50.178.180",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T16:20:00.166224",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T16:20:00.318256",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0292",
+      "playbook": "reputacion_externa",
+      "ip": "45.78.224.85",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T16:48:49.066148",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T16:48:49.272555",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0293",
+      "playbook": "reputacion_externa",
+      "ip": "200.37.103.36",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T17:10:25.991900",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T17:10:26.190099",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0294",
+      "playbook": "reputacion_externa",
+      "ip": "124.40.252.3",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T17:13:42.000165",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T17:13:42.155994",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0295",
+      "playbook": "reputacion_externa",
+      "ip": "140.246.70.45",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T17:25:27.022069",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T17:25:27.188830",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0296",
+      "playbook": "reputacion_externa",
+      "ip": "109.94.173.183",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T17:26:28.787453",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T17:26:28.999058",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0297",
+      "playbook": "reputacion_externa",
+      "ip": "103.146.23.23",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T17:29:43.032483",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T17:29:43.243545",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0298",
+      "playbook": "reputacion_externa",
+      "ip": "20.119.76.17",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T17:59:05.497492",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T17:59:05.680358",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0299",
+      "playbook": "reputacion_externa",
+      "ip": "46.24.47.94",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T18:36:39.307060",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T18:36:39.521041",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0300",
+      "playbook": "reputacion_externa",
+      "ip": "50.116.26.161",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T18:39:30.946359",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T18:39:31.166762",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0301",
+      "playbook": "reputacion_externa",
+      "ip": "106.12.144.153",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T18:51:33.480035",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T18:51:33.669826",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0302",
+      "playbook": "reputacion_externa",
+      "ip": "103.95.40.58",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T18:51:34.470688",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T18:51:34.625697",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0303",
+      "playbook": "reputacion_externa",
+      "ip": "52.237.80.79",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T19:44:55.258071",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T19:44:55.454054",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0304",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.114",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T19:46:35.272128",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T19:46:35.483472",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0305",
+      "playbook": "reputacion_externa",
+      "ip": "203.170.192.251",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T19:51:36.766371",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T19:51:36.971775",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0306",
+      "playbook": "reputacion_externa",
+      "ip": "113.177.27.200",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T19:59:08.810263",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T19:59:09.007537",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0307",
+      "playbook": "reputacion_externa",
+      "ip": "94.154.43.57",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T20:17:20.594547",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T20:17:20.791283",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0308",
+      "playbook": "reputacion_externa",
+      "ip": "163.7.9.84",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T20:58:36.354073",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T20:58:36.567426",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0309",
+      "playbook": "reputacion_externa",
+      "ip": "200.196.50.91",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T20:58:52.969591",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T20:58:53.179780",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0310",
+      "playbook": "reputacion_externa",
+      "ip": "43.157.200.91",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T21:14:46.927654",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T21:14:47.117366",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0311",
+      "playbook": "reputacion_externa",
+      "ip": "172.172.170.199",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T21:21:48.957830",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T21:21:49.116422",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0312",
+      "playbook": "reputacion_externa",
+      "ip": "45.148.10.61",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T22:24:49.805011",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T22:24:50.010544",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0313",
+      "playbook": "reputacion_externa",
+      "ip": "180.167.207.234",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T23:30:52.017638",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T23:30:52.218775",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0314",
+      "playbook": "reputacion_externa",
+      "ip": "120.48.60.44",
+      "ticket_id": "",
+      "timestamp": "2026-10-03T23:46:55.196085",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-03T23:46:55.397992",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0315",
+      "playbook": "reputacion_externa",
+      "ip": "40.124.186.190",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T00:57:33.138705",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T00:57:33.331105",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0316",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.116",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T02:54:02.442593",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T02:54:02.627116",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0317",
+      "playbook": "reputacion_externa",
+      "ip": "187.141.71.166",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T03:41:01.982258",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T03:41:02.161534",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0318",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.148",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T03:46:57.539219",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T03:46:57.744808",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0319",
+      "playbook": "reputacion_externa",
+      "ip": "52.140.125.9",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T04:35:27.088796",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T04:35:27.250201",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0320",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.158",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T04:36:04.026031",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T04:36:04.218796",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0321",
+      "playbook": "reputacion_externa",
+      "ip": "103.226.138.138",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T04:54:21.844164",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T04:54:22.020469",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0322",
+      "playbook": "reputacion_externa",
+      "ip": "118.145.144.95",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T05:13:07.430368",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T05:13:07.620417",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0323",
+      "playbook": "reputacion_externa",
+      "ip": "120.48.39.143",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T05:18:09.398157",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T05:18:09.600357",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0324",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.80",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T05:19:48.934352",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T05:19:49.094053",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0325",
+      "playbook": "reputacion_externa",
+      "ip": "80.94.95.109",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T08:16:44.249175",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T08:16:44.449951",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0326",
+      "playbook": "reputacion_externa",
+      "ip": "172.208.65.31",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T08:33:12.048059",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T08:33:12.257802",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0327",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.156",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T09:04:37.996993",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T09:04:38.174560",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0328",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.145",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T09:15:12.987826",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T09:15:13.187406",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0329",
+      "playbook": "reputacion_externa",
+      "ip": "120.48.108.72",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T09:31:07.765323",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T09:31:07.967809",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0330",
+      "playbook": "reputacion_externa",
+      "ip": "103.176.20.115",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T09:50:56.258769",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T09:50:56.459663",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0331",
+      "playbook": "reputacion_externa",
+      "ip": "40.81.225.82",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T09:51:41.873608",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T09:51:42.071409",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0332",
+      "playbook": "reputacion_externa",
+      "ip": "80.94.92.128",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T09:58:51.547502",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T09:58:51.740009",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0333",
+      "playbook": "reputacion_externa",
+      "ip": "78.138.168.46",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T10:09:16.480486",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T10:09:16.679717",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0334",
+      "playbook": "reputacion_externa",
+      "ip": "160.251.202.50",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T10:33:21.125572",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T10:33:21.300315",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0335",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.177",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T10:39:21.895837",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T10:39:22.090271",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0336",
+      "playbook": "reputacion_externa",
+      "ip": "91.231.218.149",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T11:54:58.726153",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T11:54:58.932642",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0337",
+      "playbook": "reputacion_externa",
+      "ip": "42.96.19.37",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T11:55:22.785838",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T11:55:22.972106",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0338",
+      "playbook": "reputacion_externa",
+      "ip": "197.5.145.150",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T11:56:38.741543",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T11:56:38.920735",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0339",
+      "playbook": "reputacion_externa",
+      "ip": "69.5.20.232",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T12:24:15.642263",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T12:24:15.827090",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0340",
+      "playbook": "reputacion_externa",
+      "ip": "4.148.9.194",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T13:39:15.240776",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T13:39:15.461516",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0341",
+      "playbook": "reputacion_externa",
+      "ip": "115.190.213.206",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T14:19:28.762020",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T14:19:28.963677",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0342",
+      "playbook": "reputacion_externa",
+      "ip": "40.124.84.171",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T14:51:54.363321",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T14:51:54.528812",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0343",
+      "playbook": "reputacion_externa",
+      "ip": "103.69.96.120",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T14:52:29.642947",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T14:52:29.822544",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0344",
+      "playbook": "reputacion_externa",
+      "ip": "20.12.41.6",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T15:05:05.059726",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T15:05:05.239686",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0345",
+      "playbook": "reputacion_externa",
+      "ip": "103.82.21.8",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T15:05:39.640971",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T15:05:39.829172",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0346",
+      "playbook": "reputacion_externa",
+      "ip": "181.188.237.217",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T15:43:17.727893",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T15:43:17.936942",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0347",
+      "playbook": "reputacion_externa",
+      "ip": "129.121.143.84",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T16:49:33.707283",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T16:49:33.899681",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0348",
+      "playbook": "reputacion_externa",
+      "ip": "175.6.109.238",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T17:25:36.296228",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T17:25:36.520003",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0349",
+      "playbook": "reputacion_externa",
+      "ip": "1.222.42.237",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T22:10:29.688788",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T22:10:29.898259",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0350",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.48",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T23:09:57.620754",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T23:09:57.846010",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0351",
+      "playbook": "reputacion_externa",
+      "ip": "101.96.195.62",
+      "ticket_id": "",
+      "timestamp": "2026-10-04T23:34:39.896290",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-04T23:34:40.080995",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0352",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.175",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T00:52:07.317969",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T00:52:07.516276",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0353",
+      "playbook": "reputacion_externa",
+      "ip": "125.21.59.218",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T01:39:09.379167",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T01:39:09.584870",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0354",
+      "playbook": "reputacion_externa",
+      "ip": "123.52.175.207",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T01:47:33.563719",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T01:47:33.728454",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0355",
+      "playbook": "reputacion_externa",
+      "ip": "43.173.73.95",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T01:48:46.453345",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T01:48:46.669463",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0356",
+      "playbook": "reputacion_externa",
+      "ip": "167.71.72.95",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T02:35:20.767493",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T02:35:20.982023",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0357",
+      "playbook": "reputacion_externa",
+      "ip": "129.121.142.145",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T02:36:08.428168",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T02:36:08.620966",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0358",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.73",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T02:49:53.102567",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T02:49:53.322898",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0359",
+      "playbook": "reputacion_externa",
+      "ip": "115.190.253.92",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T02:59:53.843086",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T02:59:53.970389",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0360",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.38",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T03:28:44.909631",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T03:28:45.089668",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0361",
+      "playbook": "reputacion_externa",
+      "ip": "51.91.96.79",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T04:12:08.935981",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T04:12:09.112720",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0362",
+      "playbook": "reputacion_externa",
+      "ip": "107.150.105.10",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T04:22:28.800685",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T04:22:29.004073",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0363",
+      "playbook": "reputacion_externa",
+      "ip": "106.13.228.234",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T04:29:06.154794",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T04:29:06.365228",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0364",
+      "playbook": "reputacion_externa",
+      "ip": "74.162.106.25",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T04:31:57.041784",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T04:31:57.260357",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0365",
+      "playbook": "reputacion_externa",
+      "ip": "161.132.47.66",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T04:51:59.928106",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T04:52:00.118397",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0366",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.135",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T05:03:19.023032",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T05:03:19.203073",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0367",
+      "playbook": "reputacion_externa",
+      "ip": "165.154.147.69",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T05:14:01.687491",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T05:14:01.861549",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0368",
+      "playbook": "reputacion_externa",
+      "ip": "41.128.181.199",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T05:48:09.039377",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T05:48:09.208448",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0369",
+      "playbook": "reputacion_externa",
+      "ip": "155.94.233.59",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T05:48:13.670108",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T05:48:13.875662",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0370",
+      "playbook": "reputacion_externa",
+      "ip": "45.17.39.120",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T05:49:06.935697",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T05:49:07.146271",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0371",
+      "playbook": "reputacion_externa",
+      "ip": "94.154.43.63",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T06:01:25.747713",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T06:01:25.947681",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0372",
+      "playbook": "reputacion_externa",
+      "ip": "103.149.93.4",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T06:54:40.736671",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T06:54:40.920368",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0373",
+      "playbook": "reputacion_externa",
+      "ip": "65.181.127.40",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T07:26:50.850618",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T07:26:51.057105",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0374",
+      "playbook": "reputacion_externa",
+      "ip": "201.76.120.30",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T08:46:28.301162",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T08:46:28.522927",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0375",
+      "playbook": "reputacion_externa",
+      "ip": "122.51.81.21",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T09:06:27.079983",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T09:06:27.268200",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0376",
+      "playbook": "reputacion_externa",
+      "ip": "20.65.146.94",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T11:14:47.044511",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T11:14:47.261182",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0377",
+      "playbook": "reputacion_externa",
+      "ip": "40.119.46.5",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T11:56:05.967243",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T11:56:06.156456",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0378",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.69",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T12:51:10.594497",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T12:51:10.796883",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0379",
+      "playbook": "reputacion_externa",
+      "ip": "103.63.25.111",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T13:19:01.556782",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T13:19:01.760456",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0380",
+      "playbook": "reputacion_externa",
+      "ip": "123.122.46.140",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T13:19:40.725372",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T13:19:40.879266",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0381",
+      "playbook": "reputacion_externa",
+      "ip": "202.79.29.108",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T13:31:13.527502",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T13:31:13.732541",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0382",
+      "playbook": "reputacion_externa",
+      "ip": "103.82.20.128",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T13:32:14.564358",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T13:32:14.695744",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0383",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.178",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T13:53:01.624139",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T13:53:01.806778",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0384",
+      "playbook": "reputacion_externa",
+      "ip": "176.65.148.112",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T14:54:18.635941",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T14:54:18.832864",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0385",
+      "playbook": "reputacion_externa",
+      "ip": "66.116.224.33",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T15:05:46.221613",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T15:05:46.422851",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0386",
+      "playbook": "reputacion_externa",
+      "ip": "36.66.16.233",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T15:23:24.009666",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T15:23:24.219497",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0387",
+      "playbook": "reputacion_externa",
+      "ip": "149.165.174.70",
+      "ticket_id": "",
+      "timestamp": "2026-10-05T16:47:28.157574",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-05T16:47:28.354788",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0388",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.112",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T02:36:57.959018",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T02:36:58.166020",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0389",
+      "playbook": "reputacion_externa",
+      "ip": "187.103.105.17",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T03:15:58.946729",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T03:15:59.164536",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0390",
+      "playbook": "reputacion_externa",
+      "ip": "101.96.196.4",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T03:28:00.425308",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T03:28:00.594936",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0391",
+      "playbook": "reputacion_externa",
+      "ip": "57.128.239.181",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T04:19:01.330396",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T04:19:01.532569",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0392",
+      "playbook": "reputacion_externa",
+      "ip": "106.251.244.178",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T04:23:01.852241",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T04:23:02.044694",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0393",
+      "playbook": "reputacion_externa",
+      "ip": "103.72.98.15",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T04:23:02.600000",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T04:23:02.784973",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0394",
+      "playbook": "reputacion_externa",
+      "ip": "180.76.243.197",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T05:10:03.507959",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T05:10:03.709248",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0395",
+      "playbook": "reputacion_externa",
+      "ip": "104.248.132.98",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T05:19:04.434156",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T05:19:04.600298",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0396",
+      "playbook": "reputacion_externa",
+      "ip": "129.121.139.106",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T05:20:05.220569",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T05:20:05.367586",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0397",
+      "playbook": "reputacion_externa",
+      "ip": "77.91.69.178",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T05:21:05.922720",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T05:21:06.096984",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0398",
+      "playbook": "reputacion_externa",
+      "ip": "58.222.244.226",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T05:26:07.138250",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T05:26:07.334775",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0399",
+      "playbook": "reputacion_externa",
+      "ip": "152.32.229.251",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T06:31:08.029365",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T06:31:08.212825",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0400",
+      "playbook": "reputacion_externa",
+      "ip": "87.106.44.172",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T06:53:08.840343",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T06:53:09.047898",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0401",
+      "playbook": "reputacion_externa",
+      "ip": "61.43.121.132",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T07:22:11.753116",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T07:22:11.926395",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0402",
+      "playbook": "reputacion_externa",
+      "ip": "123.56.8.132",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T08:24:12.739752",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T08:24:12.887253",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0403",
+      "playbook": "reputacion_externa",
+      "ip": "45.78.230.231",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T08:35:13.211501",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T08:35:13.406390",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0404",
+      "playbook": "reputacion_externa",
+      "ip": "182.69.183.149",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T09:34:14.087560",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T09:34:14.284288",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0405",
+      "playbook": "reputacion_externa",
+      "ip": "168.167.228.123",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T09:37:19.392000",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T09:37:19.606619",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0406",
+      "playbook": "reputacion_externa",
+      "ip": "103.53.158.121",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T09:38:20.175521",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T09:38:20.372860",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0407",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.66",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T15:42:21.588442",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T15:42:21.754389",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0408",
+      "playbook": "reputacion_externa",
+      "ip": "103.59.94.117",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T16:41:24.522634",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T16:41:24.702018",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0409",
+      "playbook": "reputacion_externa",
+      "ip": "104.208.108.166",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T17:23:25.372149",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T17:23:25.568118",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0410",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.36",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T17:23:26.241430",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T17:23:26.454792",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0411",
+      "playbook": "reputacion_externa",
+      "ip": "102.23.122.235",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T17:32:27.532334",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T17:32:27.704980",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0412",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.127",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T17:37:28.273493",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T17:37:28.467336",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0413",
+      "playbook": "reputacion_externa",
+      "ip": "14.29.170.54",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T18:26:29.873594",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T18:26:30.021978",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0414",
+      "playbook": "reputacion_externa",
+      "ip": "182.43.76.120",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T18:30:30.578901",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T18:30:30.784084",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0415",
+      "playbook": "reputacion_externa",
+      "ip": "79.124.58.82",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T19:24:31.427704",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T19:24:31.598740",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0416",
+      "playbook": "reputacion_externa",
+      "ip": "116.1.149.196",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T20:39:32.784445",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T20:39:32.960711",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0417",
+      "playbook": "reputacion_externa",
+      "ip": "43.135.160.129",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T20:40:33.550245",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T20:40:33.714742",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0418",
+      "playbook": "reputacion_externa",
+      "ip": "168.138.178.238",
+      "ticket_id": "",
+      "timestamp": "2026-10-06T23:41:34.476087",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-06T23:41:34.638766",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0419",
+      "playbook": "reputacion_externa",
+      "ip": "89.249.85.117",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T00:14:35.321440",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T00:14:35.546683",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0420",
+      "playbook": "reputacion_externa",
+      "ip": "182.149.104.197",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T02:13:36.814754",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T02:13:37.031799",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0421",
+      "playbook": "reputacion_externa",
+      "ip": "43.247.250.114",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T02:16:38.098733",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T02:16:38.286457",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0422",
+      "playbook": "reputacion_externa",
+      "ip": "5.89.75.194",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T04:13:39.404664",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T04:13:39.595219",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0423",
+      "playbook": "reputacion_externa",
+      "ip": "43.130.1.43",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T04:14:40.193849",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T04:14:40.386418",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0424",
+      "playbook": "reputacion_externa",
+      "ip": "175.203.57.19",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T05:24:42.105442",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T05:24:42.256618",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0425",
+      "playbook": "reputacion_externa",
+      "ip": "216.202.170.56",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T07:19:43.940564",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T07:19:44.131466",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0426",
+      "playbook": "reputacion_externa",
+      "ip": "103.224.85.73",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T07:33:45.695472",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T07:33:45.884346",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0427",
+      "playbook": "reputacion_externa",
+      "ip": "185.173.160.204",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T08:10:46.766309",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T08:10:46.968110",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0428",
+      "playbook": "reputacion_externa",
+      "ip": "103.189.89.196",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T08:14:47.851098",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T08:14:48.016569",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0429",
+      "playbook": "reputacion_externa",
+      "ip": "147.90.234.19",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T08:17:48.600312",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T08:17:48.797751",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0430",
+      "playbook": "reputacion_externa",
+      "ip": "211.149.143.207",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T08:22:49.823558",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T08:22:50.012066",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0431",
+      "playbook": "reputacion_externa",
+      "ip": "101.126.53.14",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T08:24:50.540570",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T08:24:50.709999",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0432",
+      "playbook": "reputacion_externa",
+      "ip": "61.155.106.101",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T08:27:51.183667",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T08:27:51.378075",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0433",
+      "playbook": "reputacion_externa",
+      "ip": "212.56.213.212",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T09:39:53.333719",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T09:39:53.519926",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0434",
+      "playbook": "reputacion_externa",
+      "ip": "115.190.181.18",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T09:46:54.636557",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T09:46:54.846615",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0435",
+      "playbook": "reputacion_externa",
+      "ip": "40.71.90.11",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T09:49:55.425887",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T09:49:55.603820",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0436",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.133",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T10:58:57.016178",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T10:58:57.223189",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0437",
+      "playbook": "reputacion_externa",
+      "ip": "106.75.177.125",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T13:17:58.635554",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T13:17:58.822331",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0438",
+      "playbook": "reputacion_externa",
+      "ip": "106.12.146.250",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T14:22:01.020117",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T14:22:01.185971",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0439",
+      "playbook": "reputacion_externa",
+      "ip": "144.225.187.68",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T14:23:01.850963",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T14:23:02.007668",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0440",
+      "playbook": "reputacion_externa",
+      "ip": "101.126.67.70",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T14:42:03.146607",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T14:42:03.336157",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0441",
+      "playbook": "reputacion_externa",
+      "ip": "119.92.70.82",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T14:44:04.079336",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T14:44:04.257681",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0442",
+      "playbook": "reputacion_externa",
+      "ip": "98.71.8.129",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T16:23:04.988337",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T16:23:05.145642",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0443",
+      "playbook": "reputacion_externa",
+      "ip": "189.149.254.122",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T17:24:06.452023",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T17:24:06.662061",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0444",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.134",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T17:24:07.217234",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T17:24:07.413693",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0445",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.118",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T17:51:09.002823",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T17:51:09.178076",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0446",
+      "playbook": "reputacion_externa",
+      "ip": "43.134.84.150",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T19:54:10.325165",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T19:54:10.512519",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0447",
+      "playbook": "reputacion_externa",
+      "ip": "221.161.235.168",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T20:26:11.734538",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T20:26:11.930669",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0448",
+      "playbook": "reputacion_externa",
+      "ip": "175.12.108.55",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T20:48:13.175906",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T20:48:13.361548",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0449",
+      "playbook": "reputacion_externa",
+      "ip": "120.48.102.75",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T20:50:14.469018",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T20:50:14.658352",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0450",
+      "playbook": "reputacion_externa",
+      "ip": "106.13.95.77",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T20:53:15.962147",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T20:53:16.157863",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0451",
+      "playbook": "reputacion_externa",
+      "ip": "121.40.119.125",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T20:53:17.005992",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T20:53:17.186558",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0452",
+      "playbook": "reputacion_externa",
+      "ip": "37.187.35.26",
+      "ticket_id": "",
+      "timestamp": "2026-10-07T21:55:18.167889",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-07T21:55:18.386573",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0453",
+      "playbook": "reputacion_externa",
+      "ip": "64.118.135.14",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T00:28:20.694886",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T00:28:20.870937",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0454",
+      "playbook": "reputacion_externa",
+      "ip": "4.224.40.94",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T01:09:21.496721",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T01:09:21.707526",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0455",
+      "playbook": "reputacion_externa",
+      "ip": "203.176.95.143",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T02:29:22.683104",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T02:29:22.878561",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0456",
+      "playbook": "reputacion_externa",
+      "ip": "219.77.169.219",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T02:31:23.944082",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T02:31:24.126756",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0457",
+      "playbook": "reputacion_externa",
+      "ip": "152.32.220.188",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T04:58:25.165841",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T04:58:25.389193",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0458",
+      "playbook": "reputacion_externa",
+      "ip": "103.154.77.48",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T04:59:26.488080",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T04:59:26.645829",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0459",
+      "playbook": "reputacion_externa",
+      "ip": "185.196.220.132",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T06:02:27.808606",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T06:02:28.007650",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0460",
+      "playbook": "reputacion_externa",
+      "ip": "202.46.28.140",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T08:19:28.902584",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T08:19:29.114232",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0461",
+      "playbook": "reputacion_externa",
+      "ip": "74.118.81.174",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T10:50:29.882000",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T10:50:30.072417",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0462",
+      "playbook": "reputacion_externa",
+      "ip": "47.84.32.213",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T11:17:31.033738",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T11:17:31.219942",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0463",
+      "playbook": "reputacion_externa",
+      "ip": "186.158.183.66",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T13:53:32.638692",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T13:53:32.840971",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0464",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.155",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T14:24:34.179345",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T14:24:34.389105",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0465",
+      "playbook": "reputacion_externa",
+      "ip": "130.12.180.32",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T14:47:35.054434",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T14:47:35.262154",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0466",
+      "playbook": "reputacion_externa",
+      "ip": "220.250.52.94",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T15:09:36.332070",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T15:09:36.490585",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0467",
+      "playbook": "reputacion_externa",
+      "ip": "43.135.149.32",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T15:13:37.212978",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T15:13:37.403694",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0468",
+      "playbook": "reputacion_externa",
+      "ip": "171.244.141.86",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T15:15:38.549277",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T15:15:38.756217",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0469",
+      "playbook": "reputacion_externa",
+      "ip": "185.208.172.54",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T16:20:39.583329",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T16:20:39.744190",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0470",
+      "playbook": "reputacion_externa",
+      "ip": "45.207.209.16",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T17:45:40.493144",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T17:45:40.714292",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0471",
+      "playbook": "reputacion_externa",
+      "ip": "218.78.46.81",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T17:50:41.815738",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T17:50:41.992308",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0472",
+      "playbook": "reputacion_externa",
+      "ip": "103.70.40.36",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T19:14:43.554430",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T19:14:43.753527",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0473",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.142",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T20:48:44.493062",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T20:48:44.654985",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0474",
+      "playbook": "reputacion_externa",
+      "ip": "152.32.204.21",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T21:44:45.273287",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T21:44:45.468232",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0475",
+      "playbook": "reputacion_externa",
+      "ip": "89.219.34.204",
+      "ticket_id": "",
+      "timestamp": "2026-10-08T23:13:46.711112",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-08T23:13:46.917331",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0476",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.142",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T00:33:48.098642",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T00:33:48.282390",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0477",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.171",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T00:47:08.263660",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T00:47:08.463881",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0478",
+      "playbook": "reputacion_externa",
+      "ip": "117.50.122.20",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T00:50:14.418341",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T00:50:14.620433",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0479",
+      "playbook": "reputacion_externa",
+      "ip": "20.77.26.9",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T02:08:45.907721",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T02:08:46.106990",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0480",
+      "playbook": "reputacion_externa",
+      "ip": "180.76.233.177",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T03:58:46.781250",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T03:58:46.954581",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0481",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.103",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T03:59:47.439587",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T03:59:47.627025",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0482",
+      "playbook": "reputacion_externa",
+      "ip": "171.220.244.134",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T07:58:48.731075",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T07:58:48.941859",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0483",
+      "playbook": "reputacion_externa",
+      "ip": "46.253.45.10",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T11:50:35.848653",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T11:50:36.041052",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0484",
+      "playbook": "reputacion_externa",
+      "ip": "143.20.60.56",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T11:51:36.629059",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T11:51:36.811536",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0485",
+      "playbook": "reputacion_externa",
+      "ip": "103.108.67.180",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T12:59:37.481901",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T12:59:37.665053",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0486",
+      "playbook": "reputacion_externa",
+      "ip": "154.92.17.128",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T13:41:39.273657",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T13:41:39.447567",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0487",
+      "playbook": "reputacion_externa",
+      "ip": "170.106.106.125",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T16:24:40.340943",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T16:24:40.549974",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0488",
+      "playbook": "reputacion_externa",
+      "ip": "43.173.110.79",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T16:25:41.144095",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T16:25:41.344717",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0489",
+      "playbook": "reputacion_externa",
+      "ip": "103.123.53.88",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T16:25:42.431353",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T16:25:42.639275",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0490",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.125",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T16:47:09.667971",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T16:47:09.895474",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0491",
+      "playbook": "reputacion_externa",
+      "ip": "43.247.250.124",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T17:09:27.801459",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T17:09:28.001521",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0492",
+      "playbook": "reputacion_externa",
+      "ip": "14.177.234.46",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T17:15:28.357968",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T17:15:28.578654",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0493",
+      "playbook": "reputacion_externa",
+      "ip": "46.188.119.26",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T19:49:30.150108",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T19:49:30.355563",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0494",
+      "playbook": "reputacion_externa",
+      "ip": "124.174.82.178",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T20:11:31.494695",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T20:11:31.679712",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0495",
+      "playbook": "reputacion_externa",
+      "ip": "202.165.25.206",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T20:13:32.681549",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T20:13:32.879300",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0496",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.106",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T20:59:33.931819",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T20:59:34.128165",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0497",
+      "playbook": "reputacion_externa",
+      "ip": "40.112.183.29",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T21:51:34.876846",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T21:51:35.064113",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0498",
+      "playbook": "reputacion_externa",
+      "ip": "163.7.3.26",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T21:55:36.172023",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T21:55:36.367332",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0499",
+      "playbook": "reputacion_externa",
+      "ip": "180.76.146.178",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T22:23:37.490823",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T22:23:37.695611",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0500",
+      "playbook": "reputacion_externa",
+      "ip": "14.103.18.123",
+      "ticket_id": "",
+      "timestamp": "2026-10-09T23:34:39.138031",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-09T23:34:39.311481",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0501",
+      "playbook": "reputacion_externa",
+      "ip": "58.147.171.11",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T01:16:10.816333",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T01:16:10.994774",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0502",
+      "playbook": "reputacion_externa",
+      "ip": "217.165.62.169",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T02:31:12.399947",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T02:31:12.592829",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0503",
+      "playbook": "reputacion_externa",
+      "ip": "179.27.97.205",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T03:28:51.138889",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T03:28:51.338539",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0504",
+      "playbook": "reputacion_externa",
+      "ip": "129.121.136.31",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T04:14:52.041090",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T04:14:52.215874",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0505",
+      "playbook": "reputacion_externa",
+      "ip": "36.133.53.52",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T04:34:17.100881",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T04:34:17.305938",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0506",
+      "playbook": "reputacion_externa",
+      "ip": "221.7.248.141",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T04:36:21.058478",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T04:36:21.284928",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0507",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.31",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T04:45:34.273005",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T04:45:34.478407",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0508",
+      "playbook": "reputacion_externa",
+      "ip": "103.154.62.14",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T05:34:59.805943",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T05:34:59.970794",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0509",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.150",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T07:11:01.579528",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T07:11:01.789019",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0510",
+      "playbook": "reputacion_externa",
+      "ip": "187.52.212.235",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T09:32:03.423682",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T09:32:03.598147",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0511",
+      "playbook": "reputacion_externa",
+      "ip": "45.9.16.66",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T09:36:04.235192",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T09:36:04.426344",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0512",
+      "playbook": "reputacion_externa",
+      "ip": "118.122.147.195",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T10:12:05.546043",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T10:12:05.739466",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0513",
+      "playbook": "reputacion_externa",
+      "ip": "129.121.111.123",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T10:12:06.219891",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T10:12:06.401539",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0514",
+      "playbook": "reputacion_externa",
+      "ip": "181.234.162.177",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T10:14:06.991848",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T10:14:07.198138",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0515",
+      "playbook": "reputacion_externa",
+      "ip": "181.228.80.171",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T10:31:27.041240",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T10:31:27.243488",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0516",
+      "playbook": "reputacion_externa",
+      "ip": "42.96.20.16",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T10:32:28.946842",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T10:32:29.176020",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0517",
+      "playbook": "reputacion_externa",
+      "ip": "14.103.117.81",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T10:41:44.802039",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T10:41:45.005255",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0518",
+      "playbook": "reputacion_externa",
+      "ip": "51.75.27.218",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T11:15:36.831246",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T11:15:37.028025",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0519",
+      "playbook": "reputacion_externa",
+      "ip": "137.23.28.31",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T11:18:40.843097",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T11:18:41.046689",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0520",
+      "playbook": "reputacion_externa",
+      "ip": "102.210.149.105",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T13:16:38.973476",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T13:16:39.161146",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0521",
+      "playbook": "reputacion_externa",
+      "ip": "101.47.155.9",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T14:17:39.838216",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T14:17:40.008548",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0522",
+      "playbook": "reputacion_externa",
+      "ip": "147.90.234.14",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T15:47:13.900529",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T15:47:14.080821",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0523",
+      "playbook": "reputacion_externa",
+      "ip": "144.31.146.233",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T15:48:17.950315",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T15:48:18.152619",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0524",
+      "playbook": "reputacion_externa",
+      "ip": "159.112.138.47",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T15:53:39.861782",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T15:53:40.018291",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0525",
+      "playbook": "reputacion_externa",
+      "ip": "125.122.37.247",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T15:59:02.681424",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T15:59:02.870984",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0526",
+      "playbook": "reputacion_externa",
+      "ip": "195.86.192.66",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T16:34:03.646745",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T16:34:03.819148",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0527",
+      "playbook": "reputacion_externa",
+      "ip": "43.172.117.24",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T17:12:04.809586",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T17:12:04.979131",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0528",
+      "playbook": "reputacion_externa",
+      "ip": "198.12.148.211",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T17:49:05.677707",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T17:49:05.865745",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0529",
+      "playbook": "reputacion_externa",
+      "ip": "188.132.230.188",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T18:55:17.840163",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T18:55:18.016486",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0530",
+      "playbook": "reputacion_externa",
+      "ip": "103.155.47.50",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T20:19:19.417511",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T20:19:19.589661",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0531",
+      "playbook": "reputacion_externa",
+      "ip": "129.121.141.3",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T20:19:20.357527",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T20:19:20.524678",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0532",
+      "playbook": "reputacion_externa",
+      "ip": "103.83.87.185",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T21:08:18.767468",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T21:08:18.969983",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0533",
+      "playbook": "reputacion_externa",
+      "ip": "150.5.169.176",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T22:27:33.129733",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T22:27:33.344479",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0534",
+      "playbook": "reputacion_externa",
+      "ip": "85.185.201.10",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T22:27:34.405326",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T22:27:34.611647",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0535",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.168",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T22:43:54.167459",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T22:43:54.389427",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0536",
+      "playbook": "reputacion_externa",
+      "ip": "91.92.199.36",
+      "ticket_id": "",
+      "timestamp": "2026-10-10T23:36:17.897121",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-10T23:36:18.102927",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0537",
+      "playbook": "reputacion_externa",
+      "ip": "143.198.161.227",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T00:41:19.111221",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T00:41:19.308320",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0538",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.110",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T01:04:19.884240",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T01:04:20.063226",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0539",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.74",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T02:31:11.616604",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T02:31:11.803084",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0540",
+      "playbook": "reputacion_externa",
+      "ip": "20.116.34.103",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T02:34:16.682114",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T02:34:16.865633",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0541",
+      "playbook": "reputacion_externa",
+      "ip": "107.0.200.227",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T02:37:22.486973",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T02:37:22.691622",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0542",
+      "playbook": "reputacion_externa",
+      "ip": "152.32.141.154",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T03:09:02.259258",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T03:09:02.451676",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0543",
+      "playbook": "reputacion_externa",
+      "ip": "129.150.49.21",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T03:23:03.012726",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T03:23:03.207120",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0544",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.77",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T06:28:00.180069",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T06:28:00.355538",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0545",
+      "playbook": "reputacion_externa",
+      "ip": "189.165.4.166",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T06:55:15.674084",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T06:55:15.859134",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0546",
+      "playbook": "reputacion_externa",
+      "ip": "117.50.46.117",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T08:20:21.964222",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T08:20:22.157550",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0547",
+      "playbook": "reputacion_externa",
+      "ip": "209.99.185.184",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T08:21:22.722601",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T08:21:22.890306",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0548",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.124",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T09:49:17.014470",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T09:49:17.202862",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0549",
+      "playbook": "reputacion_externa",
+      "ip": "36.26.74.162",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T10:12:18.378850",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T10:12:18.571885",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0550",
+      "playbook": "reputacion_externa",
+      "ip": "60.199.224.2",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T10:20:19.672562",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T10:20:19.851199",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0551",
+      "playbook": "reputacion_externa",
+      "ip": "139.185.55.154",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T10:39:20.540525",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T10:39:20.732658",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0552",
+      "playbook": "reputacion_externa",
+      "ip": "50.114.236.21",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T12:13:22.244760",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T12:13:22.443063",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0553",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.156",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T13:42:27.453441",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T13:42:27.657932",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0554",
+      "playbook": "reputacion_externa",
+      "ip": "170.106.72.136",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T14:16:10.562888",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T14:16:10.770075",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0555",
+      "playbook": "reputacion_externa",
+      "ip": "51.79.211.80",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T14:17:14.314159",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T14:17:14.513734",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0556",
+      "playbook": "reputacion_externa",
+      "ip": "123.59.7.18",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T14:26:51.582673",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T14:26:51.780574",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0557",
+      "playbook": "reputacion_externa",
+      "ip": "118.145.246.44",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T16:49:03.667958",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T16:49:03.870645",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0558",
+      "playbook": "reputacion_externa",
+      "ip": "222.110.147.58",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T17:36:08.027684",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T17:36:08.214095",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0559",
+      "playbook": "reputacion_externa",
+      "ip": "165.231.143.109",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T17:38:14.545245",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T17:38:14.758806",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0560",
+      "playbook": "reputacion_externa",
+      "ip": "124.174.39.136",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T19:31:14.652064",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T19:31:14.841119",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0561",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.166",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T19:36:15.476863",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T19:36:15.662404",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0562",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.139",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T21:05:04.035434",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T21:05:04.215310",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0563",
+      "playbook": "reputacion_externa",
+      "ip": "164.92.251.172",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T21:14:05.021379",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T21:14:05.196765",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0564",
+      "playbook": "reputacion_externa",
+      "ip": "142.93.193.158",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T21:16:05.766622",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T21:16:05.962393",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0565",
+      "playbook": "reputacion_externa",
+      "ip": "59.36.75.227",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T21:27:06.653227",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T21:27:06.845340",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0566",
+      "playbook": "reputacion_externa",
+      "ip": "14.63.217.28",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T22:21:07.748425",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T22:21:07.905410",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0567",
+      "playbook": "reputacion_externa",
+      "ip": "152.32.189.59",
+      "ticket_id": "",
+      "timestamp": "2026-10-11T22:50:08.912809",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-11T22:50:09.120485",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0568",
+      "playbook": "reputacion_externa",
+      "ip": "114.98.230.202",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T01:26:23.990137",
+      "estado": "ERROR",
+      "acciones": [],
+      "error": "HTTPSConnectionPool(host='api.hetzner.cloud', port=443): Max retries exceeded with url: /v1/firewalls/10850215/actions/set_rules (Caused by SSLError(SSLError(1, '[SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecognized name (_ssl.c:1000)')))"
+    },
+    {
+      "id": "PB-0569",
+      "playbook": "ssh_brute_force",
+      "ip": "114.98.230.202",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T01:28:12.030098",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T01:28:12.379758"
+        }
+      ]
+    },
+    {
+      "id": "PB-0570",
+      "playbook": "port_scan",
+      "ip": "114.98.230.202",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T01:28:12.431349",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T01:28:12.628761"
+        }
+      ]
+    },
+    {
+      "id": "PB-0571",
+      "playbook": "reputacion_externa",
+      "ip": "151.59.7.174",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T01:31:03.237951",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T01:31:03.431958",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0572",
+      "playbook": "reputacion_externa",
+      "ip": "114.219.157.97",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T02:35:44.845189",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T02:35:45.037282",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0573",
+      "playbook": "reputacion_externa",
+      "ip": "118.145.114.113",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T03:28:42.747875",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T03:28:42.891672",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0574",
+      "playbook": "reputacion_externa",
+      "ip": "20.160.86.7",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T04:53:38.381825",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T04:53:38.561876",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0575",
+      "playbook": "reputacion_externa",
+      "ip": "220.80.223.144",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T04:59:39.635586",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T04:59:39.818173",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0576",
+      "playbook": "reputacion_externa",
+      "ip": "90.192.46.99",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T07:45:41.096268",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T07:45:41.280230",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0577",
+      "playbook": "reputacion_externa",
+      "ip": "218.51.148.194",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T11:20:42.336722",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T11:20:42.540677",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0578",
+      "playbook": "reputacion_externa",
+      "ip": "152.32.218.149",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T11:23:46.908949",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T11:23:47.090107",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0579",
+      "playbook": "reputacion_externa",
+      "ip": "103.208.219.38",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T11:25:49.807197",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T11:25:49.971208",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0580",
+      "playbook": "reputacion_externa",
+      "ip": "103.60.242.169",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T11:26:52.377178",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T11:26:52.592881",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0581",
+      "playbook": "reputacion_externa",
+      "ip": "203.57.238.39",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T11:27:55.769470",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T11:27:55.966388",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0582",
+      "playbook": "reputacion_externa",
+      "ip": "202.165.14.135",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T12:22:22.759634",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T12:22:22.952976",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0583",
+      "playbook": "reputacion_externa",
+      "ip": "14.29.198.130",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T12:56:24.425768",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T12:56:24.606309",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0584",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.136",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T13:41:25.257625",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T13:41:25.451990",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0585",
+      "playbook": "reputacion_externa",
+      "ip": "101.47.8.113",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T14:38:26.085444",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T14:38:26.292706",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0586",
+      "playbook": "reputacion_externa",
+      "ip": "116.255.227.108",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T14:38:27.387722",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T14:38:27.598362",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0587",
+      "playbook": "reputacion_externa",
+      "ip": "87.106.29.151",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T14:49:40.210883",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T14:49:40.398562",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0588",
+      "playbook": "reputacion_externa",
+      "ip": "187.212.59.26",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T14:50:42.277022",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T14:50:42.479895",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0589",
+      "playbook": "reputacion_externa",
+      "ip": "41.111.183.207",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T14:52:46.474188",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T14:52:46.666488",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0590",
+      "playbook": "reputacion_externa",
+      "ip": "14.103.117.97",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T14:59:56.867014",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T14:59:57.057612",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0591",
+      "playbook": "reputacion_externa",
+      "ip": "123.253.162.254",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T15:37:58.453312",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T15:37:58.651197",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0592",
+      "playbook": "reputacion_externa",
+      "ip": "179.57.170.71",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T18:47:59.540706",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T18:47:59.744786",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0593",
+      "playbook": "reputacion_externa",
+      "ip": "43.226.39.182",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T18:51:03.727652",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T18:51:03.917562",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0594",
+      "playbook": "reputacion_externa",
+      "ip": "118.196.114.236",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T19:17:23.944307",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T19:17:24.128640",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0595",
+      "playbook": "reputacion_externa",
+      "ip": "106.75.226.5",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T19:24:25.300714",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T19:24:25.492548",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0596",
+      "playbook": "reputacion_externa",
+      "ip": "119.96.159.237",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T19:40:26.620549",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T19:40:26.847375",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0597",
+      "playbook": "reputacion_externa",
+      "ip": "45.140.192.23",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T19:41:28.901891",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T19:41:29.110797",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0598",
+      "playbook": "reputacion_externa",
+      "ip": "223.247.153.211",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T21:33:01.171644",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T21:33:01.365184",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0599",
+      "playbook": "reputacion_externa",
+      "ip": "117.62.22.127",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T21:34:05.331259",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T21:34:05.511130",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0600",
+      "playbook": "reputacion_externa",
+      "ip": "34.123.134.194",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T21:36:15.919075",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T21:36:16.095248",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0601",
+      "playbook": "reputacion_externa",
+      "ip": "157.10.100.12",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T21:37:21.569245",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T21:37:21.750156",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0602",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.146",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T22:21:10.320556",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T22:21:10.529244",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0603",
+      "playbook": "reputacion_externa",
+      "ip": "98.70.127.17",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T22:59:02.254143",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T22:59:02.429358",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0604",
+      "playbook": "reputacion_externa",
+      "ip": "114.34.106.146",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T23:24:49.405840",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T23:24:49.623612",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0605",
+      "playbook": "reputacion_externa",
+      "ip": "45.78.204.254",
+      "ticket_id": "",
+      "timestamp": "2026-10-12T23:35:32.786644",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-12T23:35:32.976955",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0606",
+      "playbook": "reputacion_externa",
+      "ip": "45.115.26.20",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T01:47:32.546246",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T01:47:32.699205",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0607",
+      "playbook": "reputacion_externa",
+      "ip": "77.239.124.152",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T02:02:55.214609",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T02:02:55.416875",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0608",
+      "playbook": "reputacion_externa",
+      "ip": "103.233.206.154",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T02:37:57.390577",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T02:37:57.555192",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0609",
+      "playbook": "reputacion_externa",
+      "ip": "171.254.93.44",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T03:14:41.281047",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T03:14:41.460680",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0610",
+      "playbook": "reputacion_externa",
+      "ip": "117.50.119.17",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T03:46:14.227167",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T03:46:14.434757",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0611",
+      "playbook": "reputacion_externa",
+      "ip": "109.160.32.153",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T03:46:14.968288",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T03:46:15.131088",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0612",
+      "playbook": "reputacion_externa",
+      "ip": "87.107.129.28",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T07:35:13.618823",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T07:35:13.793690",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0613",
+      "playbook": "reputacion_externa",
+      "ip": "185.227.152.135",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T07:38:18.645080",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T07:38:18.860812",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0614",
+      "playbook": "reputacion_externa",
+      "ip": "203.145.143.163",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T08:15:19.180233",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T08:15:19.374602",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0615",
+      "playbook": "reputacion_externa",
+      "ip": "125.142.37.91",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T08:16:20.953780",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T08:16:21.162602",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0616",
+      "playbook": "reputacion_externa",
+      "ip": "51.254.130.161",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T09:31:53.730011",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T09:31:53.932694",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0617",
+      "playbook": "reputacion_externa",
+      "ip": "161.10.69.230",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T09:35:01.020613",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T09:35:01.226409",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0618",
+      "playbook": "reputacion_externa",
+      "ip": "114.12.17.98",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T10:18:12.391440",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T10:18:12.558682",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0619",
+      "playbook": "reputacion_externa",
+      "ip": "172.200.195.165",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T10:18:13.106418",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T10:18:13.263506",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0620",
+      "playbook": "reputacion_externa",
+      "ip": "50.114.236.89",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T10:22:25.652043",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T10:22:25.845043",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0621",
+      "playbook": "reputacion_externa",
+      "ip": "92.27.157.252",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T10:23:30.942750",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T10:23:31.149740",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
+    },
+    {
+      "id": "PB-0622",
+      "playbook": "reputacion_externa",
+      "ip": "112.161.75.207",
+      "ticket_id": "",
+      "timestamp": "2026-10-13T10:24:34.152265",
+      "estado": "COMPLETADO",
+      "acciones": [
+        {
+          "accion": "BLOQUEAR_HETZNER",
+          "estado": "OK",
+          "timestamp": "2026-10-13T10:24:34.305116",
+          "detalle": "AbuseIPDB 100% | Pais:  | ISP:  | Reportes: 0"
+        }
+      ]
     }
   ]
 }

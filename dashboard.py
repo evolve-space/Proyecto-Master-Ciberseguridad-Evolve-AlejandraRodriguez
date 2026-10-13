@@ -73,12 +73,220 @@ def tabla_oscura(df, **kwargs):
     """
     st.markdown(html, unsafe_allow_html=True)
 
+
+# ── Modales de detalle reutilizables (click en IP / ticket / playbook) ────────
+
+@st.dialog("Detalle de IP", width="large")
+def mostrar_detalle_ip(ip: str):
+    st.markdown(f"### `{ip}`")
+
+    try:
+        ips_bloqueadas_resp = requests.get("http://localhost:8000/ips/bloqueadas", headers=HEADERS, timeout=5).json()
+        ips_bloqueadas_set = set(ips_bloqueadas_resp) if isinstance(ips_bloqueadas_resp, list) else set()
+    except Exception:
+        ips_bloqueadas_set = set()
+    try:
+        cache_local = set(json.load(open("/root/asoar/blocked_ips_cache.json"))) if os.path.exists("/root/asoar/blocked_ips_cache.json") else set()
+    except Exception:
+        cache_local = set()
+    bloqueada = ip in ips_bloqueadas_set or ip in cache_local
+    st.markdown(f"**Estado de bloqueo:** {'🔴 Bloqueada' if bloqueada else '🟢 No bloqueada'}")
+
+    try:
+        tickets_ip = requests.get("http://localhost:8000/tickets", headers=HEADERS, timeout=5).json()
+        tickets_ip = [t for t in tickets_ip if t.get("ip") == ip]
+    except Exception:
+        tickets_ip = []
+
+    if tickets_ip:
+        abuse_score = tickets_ip[0].get("abuse_score", 0)
+        abuse_pais = tickets_ip[0].get("abuse_pais", "")
+        abuse_isp = tickets_ip[0].get("abuse_isp", "")
+        st.markdown(f"**AbuseIPDB:** {abuse_score}% | **País:** {abuse_pais or '—'} | **ISP:** {abuse_isp or '—'}")
+
+    st.markdown("---")
+    st.markdown(f"**Tickets asociados ({len(tickets_ip)}):**")
+    if tickets_ip:
+        for t in tickets_ip:
+            ts = t["creado_en"][:16].replace("T", " ")
+            st.markdown(f"- `{t['id']}` — {t['titulo']} | {t['estado']} | {t['prioridad']} | {ts}")
+    else:
+        st.info("No hay tickets asociados a esta IP.")
+
+    st.markdown("---")
+    try:
+        campanas_ip = requests.get("http://localhost:8000/apt/campanas", headers=HEADERS, timeout=5).json()
+        campanas_ip = [c for c in campanas_ip if c.get("ip") == ip]
+    except Exception:
+        campanas_ip = []
+    st.markdown(f"**Detecciones LSTM ({len(campanas_ip)}):**")
+    if campanas_ip:
+        for c in campanas_ip:
+            ts = c.get("timestamp", "")[:16].replace("T", " ")
+            st.markdown(f"- {ts} — Fase: **{c.get('fase_mitre','—')}** | Confianza: {c.get('confianza',0)}% | Riesgo: {c.get('nivel_riesgo','—')}")
+    else:
+        st.info("No hay detecciones LSTM registradas para esta IP.")
+
+    st.markdown("---")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Investigar en Forense", key=f"dialog_pivot_forense_{ip}", use_container_width=True):
+            st.session_state.pagina = "Análisis Forense"
+            st.session_state.ip_forense_pivot = ip
+            st.rerun()
+    with col2:
+        if not bloqueada:
+            if st.button("Bloquear IP", key=f"dialog_bloquear_{ip}", use_container_width=True, type="primary"):
+                try:
+                    requests.post(f"http://localhost:8000/bloquear/{ip}", headers=HEADERS, timeout=10)
+                    st.success(f"IP {ip} bloqueada.")
+                    st.rerun()
+                except Exception as e:
+                    st.error(f"Error al bloquear: {e}")
+
+@st.dialog("Detalle de Ticket", width="large")
+def mostrar_detalle_ticket(ticket_id: str):
+    try:
+        tickets_all = requests.get("http://localhost:8000/tickets", headers=HEADERS, timeout=5).json()
+        t = next((x for x in tickets_all if x["id"] == ticket_id), None)
+    except Exception:
+        t = None
+
+    if not t:
+        st.error(f"No se encontró el ticket {ticket_id}.")
+        return
+
+    ts = t["creado_en"][:16].replace("T", " ")
+    st.markdown(f"### {t['id']} — {t['titulo']}")
+    st.markdown(f"**Estado:** {t['estado']} | **Prioridad:** {t['prioridad']} | **Creado:** {ts}")
+    st.markdown(f"**Descripción:** {t['descripcion']}")
+    st.markdown("---")
+
+    ip_t = t.get("ip", "")
+    if ip_t:
+        st.markdown(f"**IP:** ")
+        if st.button(ip_t, key=f"dialog_ticket_ip_{t['id']}"):
+            mostrar_detalle_ip(ip_t)
+        st.markdown(f"**Fase MITRE:** {t.get('fase_mitre','—')} | **Confianza LSTM:** {t.get('confianza',0)}% | **AbuseIPDB:** {t.get('abuse_score',0)}%")
+
+    if t.get("notas"):
+        st.markdown("---")
+        st.markdown("**Notas:**")
+        for n in t["notas"]:
+            st.markdown(f"- *{n['timestamp'][:16].replace('T',' ')}*: {n['texto']}")
+
+    if t.get("historial"):
+        st.markdown("---")
+        st.markdown("**Historial de estados:**")
+        for h in t["historial"]:
+            st.markdown(f"- {h['timestamp'][:16].replace('T',' ')} → **{h['estado']}** — {h.get('nota','')}")
+
+@st.dialog("Detalle de Ejecución Playbook", width="large")
+def mostrar_detalle_playbook(pb: dict):
+    st.markdown(f"### {pb['id']} — {pb['playbook'].upper()}")
+    st.markdown(f"**Estado:** {pb.get('estado','—')} | **Timestamp:** {pb.get('timestamp','')[:16].replace('T',' ')}")
+    ip_pb = pb.get("ip", "")
+    if ip_pb:
+        if st.button(ip_pb, key=f"dialog_pb_ip_{pb['id']}"):
+            mostrar_detalle_ip(ip_pb)
+    for k, v in pb.items():
+        if k not in ("id", "playbook", "estado", "timestamp", "ip"):
+            st.markdown(f"**{k.replace('_',' ').title()}:** {v}")
+
 st.set_page_config(
     page_title="Noctua Predictive. — Autonomous Security Operations",
     page_icon="/root/asoar/static/favicon.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+
+# -- Tema oscuro para widgets nativos (modal st.dialog + tabla st.dataframe) --
+st.markdown("""
+<style>
+/* noctua-tema-nativo */
+
+/* Modal st.dialog oscuro */
+div[data-testid="stDialog"] div[role="dialog"] {
+    background-color: #0d1117 !important;
+    border: 1px solid #30363d !important;
+    color: #c9d1d9 !important;
+}
+div[data-testid="stDialog"] div[role="dialog"] * {
+    color: #c9d1d9;
+}
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] code {
+    background-color: #161b22 !important;
+    color: #79c0ff !important;
+}
+div[data-testid="stDialog"] hr {
+    border-color: #30363d !important;
+}
+
+/* Tabla nativa st.dataframe (glide-data-grid) en oscuro */
+[data-testid="stDataFrame"] {
+    --gdg-bg-cell: #0d1117;
+    --gdg-bg-cell-medium: #161b22;
+    --gdg-bg-header: #161b22;
+    --gdg-bg-header-has-focus: #1c2128;
+    --gdg-bg-header-hovered: #1c2128;
+    --gdg-text-dark: #c9d1d9;
+    --gdg-text-medium: #c9d1d9;
+    --gdg-text-light: #8b949e;
+    --gdg-text-header: #c9d1d9;
+    --gdg-text-header-selected: #ffffff;
+    --gdg-border-color: #30363d;
+    --gdg-horizontal-border-color: #30363d;
+    --gdg-bg-bubble: #161b22;
+    --gdg-bg-search-result: #1c2128;
+    --gdg-accent-color: #388bfd;
+    --gdg-accent-light: rgba(56,139,253,0.25);
+}
+[data-testid="stDataFrame"] > div {
+    border: 1px solid #30363d !important;
+    border-radius: 8px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
+
+# -- Estilo: botones que se ven como texto-enlace clicable --------------------
+st.markdown("""
+<style>
+div[class*="st-key-linkbtn-"] button {
+    background: none !important;
+    border: none !important;
+    color: #79c0ff !important;
+    text-decoration: underline !important;
+    font-family: monospace !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+div[class*="st-key-linkbtn-"] button:hover {
+    color: #a5d6ff !important;
+}
+/* Modal (st.dialog) con tema oscuro Noctua */
+div[data-testid="stDialog"] div[role="dialog"] {
+    background-color: #0d1117 !important;
+    border: 1px solid #30363d !important;
+    color: #c9d1d9 !important;
+}
+div[data-testid="stDialog"] div[role="dialog"] * {
+    color: #c9d1d9;
+}
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] code {
+    background-color: #161b22 !important;
+    color: #79c0ff !important;
+}
+div[data-testid="stDialog"] hr {
+    border-color: #30363d !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 st.markdown("""
 <style>
@@ -851,6 +1059,34 @@ st.markdown("""<style>
 
 
 @st.cache_data(ttl=300)
+def contar_alertas_total():
+    """Cuenta TODAS las alertas de los logs (no solo la ventana de 15000).
+    Devuelve el total real; aproxima por numero de lineas de evento."""
+    try:
+        result = subprocess.run(
+            ["bash", "-c", "{ find /var/ossec/logs/alerts -name '*.json.gz' -exec zcat {} \\; 2>/dev/null; cat /var/ossec/logs/alerts/alerts.json 2>/dev/null; } | wc -l"],
+            capture_output=True, text=True, timeout=120
+        )
+        return int((result.stdout.strip() or "0").split()[0])
+    except Exception:
+        return 0
+
+
+@st.cache_data(ttl=300)
+def contar_niveles():
+    """Cuenta alertas de nivel alto (>=10) y critico (>=12) sobre TODOS los logs."""
+    try:
+        result = subprocess.run(
+            ["bash", "-c", "{ find /var/ossec/logs/alerts -name '*.json.gz' -exec zcat {} \\; 2>/dev/null; cat /var/ossec/logs/alerts/alerts.json 2>/dev/null; } | awk 'match($0,/\"level\":[0-9]+/){lv=substr($0,RSTART+8,RLENGTH-8)+0; if(lv>=10)a++; if(lv>=12)c++} END{print (a+0)\" \"(c+0)}'"],
+            capture_output=True, text=True, timeout=180
+        )
+        parts = (result.stdout.strip() or "0 0").split()
+        return int(parts[0]), int(parts[1])
+    except Exception:
+        return 0, 0
+
+
+@st.cache_data(ttl=300)
 def cargar_alertas_wazuh():
     try:
         result = subprocess.run(
@@ -1153,9 +1389,8 @@ if pagina == "Panel General":
     if df.empty:
         st.warning("No se encontraron alertas en Wazuh. Verifica que el servicio este activo.")
     else:
-        total = len(df)
-        criticas = len(df[df["nivel"] >= 12])
-        altas = len(df[df["nivel"] >= 10])
+        total = contar_alertas_total()
+        altas, criticas = contar_niveles()
         bloqueadas_count = len(ips_bloqueadas)
         col1, col2, col3, col4 = st.columns(4)
         with col1:
@@ -1340,7 +1575,7 @@ elif pagina == "Alertas y Eventos":
         with col1:
             st.markdown(f"""<div class="metric-card" style="border-top:3px solid #388bfd;">
                 <p class="metric-label">Total Alertas</p>
-                <p class="metric-value">{len(df)}</p>
+                <p class="metric-value">{contar_alertas_total()}</p>
             </div>""", unsafe_allow_html=True)
         with col2:
             n_alto = len(df[df["nivel"] >= 10])
@@ -1430,7 +1665,24 @@ elif pagina == "Alertas y Eventos":
         df_show = df_f[["timestamp","tipo","ip","nivel","agente","id_regla","accion"]].copy()
         df_show["timestamp"] = df_show["timestamp"].dt.strftime("%d/%m/%Y %H:%M")
         df_show.columns = ["Fecha/Hora","Tipo","IP","Nivel","Agente","Regla","Estado"]
-        tabla_oscura(df_show, use_container_width=True, hide_index=True)
+        _ev_alertas = st.dataframe(
+            df_show,
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="single-row",
+            key="tabla_alertas_eventos",
+        )
+        _order_al = st.session_state.get("_order_al", [])
+        _sel_al = _ev_alertas.selection.rows if _ev_alertas and _ev_alertas.selection else []
+        if _sel_al and _sel_al[0] < len(_order_al):
+            _ip_al = str(_order_al[_sel_al[0]])
+            if _ip_al and _ip_al not in ("N/A", "—", "nan") and st.session_state.get("_ip_modal_al") != _ip_al:
+                st.session_state["_ip_modal_al"] = _ip_al
+                mostrar_detalle_ip(_ip_al)
+        elif not _sel_al:
+            st.session_state["_ip_modal_al"] = None
+        st.session_state["_order_al"] = list(df_show["IP"])
 
         # Pivoting al forense
         ips_alertas = df_f[df_f["ip"] != "N/A"]["ip"].dropna().unique().tolist()
@@ -1495,7 +1747,26 @@ elif pagina == "IPs Bloqueadas":
                         continue
         
         df_ips = pd.DataFrame(rows)
-        tabla_oscura(df_ips, use_container_width=True, hide_index=True)
+        if not df_ips.empty and "IP" in df_ips.columns:
+            df_ips = df_ips.sort_values("IP").reset_index(drop=True)
+        _ev_black = st.dataframe(
+            df_ips,
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="single-row",
+            key="tabla_blacklist",
+        )
+        _order_bl = st.session_state.get("_order_bl", [])
+        _sel_bl = _ev_black.selection.rows if _ev_black and _ev_black.selection else []
+        if _sel_bl and _sel_bl[0] < len(_order_bl):
+            _ip_bl = str(_order_bl[_sel_bl[0]])
+            if _ip_bl and _ip_bl not in ("N/A", "—", "nan") and st.session_state.get("_ip_modal_bl") != _ip_bl:
+                st.session_state["_ip_modal_bl"] = _ip_bl
+                mostrar_detalle_ip(_ip_bl)
+        elif not _sel_bl:
+            st.session_state["_ip_modal_bl"] = None
+        st.session_state["_order_bl"] = list(df_ips["IP"])
     else:
         st.info("No hay IPs bloqueadas actualmente.")
     import geoip2.database
@@ -1686,6 +1957,13 @@ elif pagina == "Playbooks":
             for pb in reversed(historial[-10:]):
                 color = "#3fb950" if pb.get("estado") == "COMPLETADO" else "#f85149" if pb.get("estado") == "ERROR" else "#d29922"
                 with st.expander(f"{pb['id']} — {pb['playbook'].upper()} | {pb['ip']} | {pb['estado']}"):
+                    _c1, _c2 = st.columns([1, 1])
+                    with _c1:
+                        if st.button(pb['ip'], key=f"linkbtn-pb-ip-{pb['id']}", use_container_width=True):
+                            mostrar_detalle_ip(pb['ip'])
+                    with _c2:
+                        if st.button("Ver detalle completo", key=f"linkbtn-pb-{pb['id']}", use_container_width=True):
+                            mostrar_detalle_playbook(pb)
                     ctx = pb.get("contexto", {})
                     narrativa = ctx.get("narrativa", "")
                     if narrativa:
@@ -3137,7 +3415,24 @@ elif pagina == "Detección APT":
         col_order = [c for c in col_order if c in df_apt.columns]
         df_apt = df_apt[col_order]
         df_apt.columns = [c.replace("_", " ").title() for c in col_order]
-        tabla_oscura(df_apt, use_container_width=True, hide_index=True)
+        evento_apt = st.dataframe(
+            df_apt,
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="single-row",
+            key="tabla_campanas_apt",
+        )
+        _order_apt = st.session_state.get("_order_apt", [])
+        filas_sel = evento_apt.selection.rows if evento_apt and evento_apt.selection else []
+        if filas_sel and filas_sel[0] < len(_order_apt):
+            ip_seleccionada = _order_apt[filas_sel[0]]
+            if ip_seleccionada and st.session_state.get("_ip_modal_apt") != ip_seleccionada:
+                st.session_state["_ip_modal_apt"] = ip_seleccionada
+                mostrar_detalle_ip(ip_seleccionada)
+        elif not filas_sel:
+            st.session_state["_ip_modal_apt"] = None
+        st.session_state["_order_apt"] = [c.get("ip", "") for c in campanas]
 
         if len(campanas) > 1:
             st.markdown('<div class="section-header">Timeline de Campana APT</div>', unsafe_allow_html=True)
@@ -4072,13 +4367,8 @@ elif pagina == "Gestión de Incidentes":
                             ip_ticket = t.get('ip', '')
                             if ip_ticket and ip_ticket != '—':
                                 st.markdown("<br>", unsafe_allow_html=True)
-                                st.markdown(f"""
-                                <div style="background:#0d1117;border:1px solid #388bfd;
-                                            border-radius:4px;padding:6px 10px;text-align:center;
-                                            font-family:monospace;font-size:0.85rem;
-                                            color:#79c0ff;font-weight:600;">
-                                    {ip_ticket}
-                                </div>""", unsafe_allow_html=True)
+                                if st.button(ip_ticket, key=f"linkbtn-ip-ticket-{t['id']}", use_container_width=True):
+                                    mostrar_detalle_ip(ip_ticket)
                                 if st.button("Investigar en Forense", key=f"pivot_forense_{t['id']}", use_container_width=True):
                                     st.session_state.pagina = "Análisis Forense"
                                     st.session_state.ip_forense_pivot = ip_ticket

@@ -99,7 +99,7 @@ Path(MODELS_PATH).mkdir(parents=True, exist_ok=True)
 
 
 # ── 1. Carga de alertas Wazuh ─────────────────────────────────────────────────
-def cargar_alertas_wazuh(horas_atras: int = 168) -> pd.DataFrame:
+def cargar_alertas_wazuh(horas_atras: int = 2640) -> pd.DataFrame:
     """
     Lee los logs de alertas de Wazuh de las ultimas N horas.
     Devuelve un DataFrame con los eventos normalizados.
@@ -314,7 +314,7 @@ def etiquetar_ventanas(meta: list) -> np.ndarray:
 
 
 # ── 5. Pipeline completo ──────────────────────────────────────────────────────
-def ejecutar_pipeline(horas_atras: int = 168, ventana_h: int = 6,
+def ejecutar_pipeline(horas_atras: int = 2640, ventana_h: int = 6,
                       seq_len: int = 32) -> dict:
     """
     Ejecuta el pipeline completo:
@@ -380,6 +380,6 @@ def ejecutar_pipeline(horas_atras: int = 168, ventana_h: int = 6,
 
 
 if __name__ == "__main__":
-    resultado = ejecutar_pipeline(horas_atras=1440, ventana_h=6, seq_len=32)
+    resultado = ejecutar_pipeline(horas_atras=2640, ventana_h=6, seq_len=32)
     if "error" not in resultado:
         print(f"Pipeline completado. Shape X: {resultado['X'].shape}")

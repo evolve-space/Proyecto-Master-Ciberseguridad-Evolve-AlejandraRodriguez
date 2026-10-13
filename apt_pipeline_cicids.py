@@ -250,8 +250,8 @@ def combinar_con_wazuh(resultado_cicids: dict) -> dict:
     X_cicids = resultado_cicids["X"]
     y_cicids = resultado_cicids["y"]
 
-    X_wazuh_path = f"{MODELS_PATH}/X_pipeline.npy"
-    y_wazuh_path = f"{MODELS_PATH}/y_pipeline.npy"
+    X_path = f"{MODELS_PATH}/X_combined.npy"
+    y_path = f"{MODELS_PATH}/y_combined.npy"
 
     if not os.path.exists(X_wazuh_path):
         print("[CICIDS] No hay datos Wazuh disponibles, usando solo CICIDS2018")
@@ -289,13 +289,17 @@ if __name__ == "__main__":
         print("ERROR: No se pudo cargar el dataset")
         exit(1)
 
-    resultado = preprocesar_cicids(df, seq_len=32, max_por_clase=3000)
+    resultado = preprocesar_cicids(df, seq_len=32, max_por_clase=80)
 
     if "error" in resultado:
         print(f"ERROR: {resultado['error']}")
         exit(1)
 
     resultado_final = combinar_con_wazuh(resultado)
+
+    np.save(f"{MODELS_PATH}/X_combined.npy", resultado_final["X"])
+    np.save(f"{MODELS_PATH}/y_combined.npy", resultado_final["y"])
+    print(f"[CICIDS] Dataset combinado guardado en {MODELS_PATH}/X_combined.npy y y_combined.npy")
 
     print(f"\nPipeline CICIDS2018 completado:")
     print(f"  Ventanas totales: {resultado_final['n_ventanas']}")
