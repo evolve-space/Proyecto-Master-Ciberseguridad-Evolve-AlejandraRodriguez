@@ -23,6 +23,19 @@ SEQ_LEN     = 32
 
 ZEEK_CONN_LOG = "/opt/zeek/logs/current/conn.log"
 
+# IPs propias/confiables: no deben generar detecciones (evita que el SOC se detecte a si mismo)
+WHITELIST_PATH = "/root/asoar/ips_whitelist.json"
+def _cargar_whitelist():
+    base = {"91.98.126.215", "127.0.0.1", "localhost", "::1"}
+    try:
+        with open(WHITELIST_PATH) as _f:
+            base |= set(json.load(_f))
+    except Exception:
+        pass
+    return base
+IPS_WHITELIST = _cargar_whitelist()
+MONITOR_ONLY = os.getenv("NOCTUA_MONITOR_ONLY", "0") == "1"  # modo observacion: detecta y crea tickets pero NO bloquea
+
 def buscar_conexion_zeek(ip: str, timestamp_alerta: str = None, ventana_segundos: int = 30) -> dict:
     """
     Busca una conexion de Zeek correlacionada con una IP dentro de una ventana
@@ -394,6 +407,8 @@ class DetectorAPT:
             return {"apt_activo": False, "motivo": "Modelo no cargado"}
         
         ip = alerta.get("ip", "")
+        if ip in IPS_WHITELIST:
+            return {"apt_activo": False, "motivo": f"IP {ip} en lista blanca"}
         vector = self._alerta_a_vector(alerta)
         
         # Buffer independiente por IP — sin padding, secuencia real
@@ -455,6 +470,7 @@ class DetectorAPT:
             print(f"[APT DETECTADO] Fase: {fase} | Confianza: {confianza}% | Riesgo: {nivel_riesgo}")
             
             # Generar explicacion XAI para esta deteccion
+            explicacion_xai = {}
             try:
                 import sys
                 sys.path.insert(0, '/root/asoar')
@@ -462,7 +478,7 @@ class DetectorAPT:
                 explicador = obtener_explicador()
                 if explicador:
                     ventana_xai = np.array(secuencia_ip, dtype=np.float32)
-                    explicador.explicar_ventana(
+                    explicacion_xai = explicador.explicar_ventana(
                         ventana=ventana_xai,
                         fase_predicha=fase,
                         confianza=confianza,
@@ -474,16 +490,29 @@ class DetectorAPT:
 
             # Crear ticket SOC automaticamente — solo si no hay uno activo para esta IP
             try:
-                from apt_tickets import crear_ticket, _cargar
+                from apt_tickets import crear_ticket, _cargar, _guardar, _ahora
                 ip = alerta.get("ip", "")
                 if ip and ip not in ["", "desconocida", "0.0.0.0"]:
                     data = _cargar()
                     tickets_activos = [t for t in data.get("tickets", [])
                                       if t.get("ip") == ip
-                                      and t.get("estado") in ["Abierto", "Investigando"]
-                                      and (datetime.now() - datetime.fromisoformat(t["creado_en"].replace("Z","").split("+")[0])).total_seconds() < 7200]
+                                      and t.get("fase_mitre") == fase
+                                      and t.get("estado") in ["Abierto", "Investigando"]]
                     abuse_score_detector = alerta.get("abuse_score", 0)
-                    if not tickets_activos and abuse_score_detector < 50:
+                    if tickets_activos:
+                        try:
+                            _t = tickets_activos[0]; _now = _ahora()
+                            _t["confianza"] = max(_t.get("confianza",0) or 0, confianza or 0)
+                            _t["actualizado_en"] = _now
+                            if explicacion_xai.get("narrativa"):
+                                _t["xai_narrativa"] = explicacion_xai.get("narrativa","")
+                                _t["xai_features"] = explicacion_xai.get("top_features",[])
+                            _t.setdefault("notas",[]).append({"texto": "Nueva deteccion consolidada (confianza %s%%, fase %s)." % (confianza, fase), "timestamp": _now})
+                            _guardar(data)
+                            print("[TICKET] Consolidado en %s (IP %s)" % (_t.get("id"), ip))
+                        except Exception as _eu:
+                            print("[TICKET] Error consolidando: %s" % _eu)
+                    elif not tickets_activos and abuse_score_detector < 50:
                         # Indicio de comportamiento anomalo detectado SOLO por el LSTM,
                         # sin respaldo de reputacion externa (AbuseIPDB < 50).
                         # No es una APT confirmada: es una senal de vigilancia temprana.
@@ -503,7 +532,9 @@ class DetectorAPT:
                                 confianza=confianza,
                                 abuse_score=abuse_score_detector,
                                 abuse_pais="",
-                                abuse_isp=""
+                                abuse_isp="",
+                                xai_narrativa=explicacion_xai.get("narrativa",""),
+                                xai_features=explicacion_xai.get("top_features",[])
                             )
                             print(f"[TICKET] Ticket de BAJA prioridad creado (LSTM puro, sin reputacion) para IP {ip}")
                         except Exception as eb:
@@ -576,7 +607,9 @@ class DetectorAPT:
                                 confianza=confianza,
                                 abuse_score=abuse_score,
                                 abuse_pais=abuse_pais,
-                                abuse_isp=abuse_isp
+                                abuse_isp=abuse_isp,
+                                xai_narrativa=explicacion_xai.get("narrativa",""),
+                                xai_features=explicacion_xai.get("top_features",[])
                             )
                             print(f"[TICKET] Ticket SOC creado para IP {ip}")
                             # Lanzar playbook automaticamente si AbuseIPDB >= 90%
@@ -620,8 +653,12 @@ class DetectorAPT:
                                                 ),
                                             }
                                         }
-                                        bloquear_ip_hetzner(ip)
-                                        ejecucion_pb["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": dt.now().isoformat()})
+                                        if MONITOR_ONLY:
+                                            print("[MONITOR-ONLY] Bloqueo OMITIDO para %s; se habria bloqueado en Hetzner." % ip)
+                                            ejecucion_pb["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OMITIDO_MONITOR_ONLY", "timestamp": dt.now().isoformat()})
+                                        else:
+                                            bloquear_ip_hetzner(ip)
+                                            ejecucion_pb["acciones"].append({"accion": "BLOQUEAR_HETZNER", "estado": "OK", "timestamp": dt.now().isoformat()})
                                         actualizar_ticket_por_ip(ip, "ip_maliciosa", ejecucion_pb)
                                         ejecucion_pb["estado"] = "COMPLETADO"
                                         pb_data = cargar_playbooks()

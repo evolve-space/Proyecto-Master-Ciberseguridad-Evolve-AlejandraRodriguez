@@ -738,7 +738,7 @@ async def calcular_cumplimiento(hostname: str, api_key: str = Depends(verificar_
         {"control": "Art.15", "nombre": "Precision y robustez", "cumple": APT_DISPONIBLE, "detalle": f"Modelo LSTM con reentrenamiento automatico activo"},
         {"control": "Art.17", "nombre": "Sistema de gestion de calidad", "cumple": True, "detalle": "Historial de versiones y backup automatico del modelo"},
         {"control": "Art.64", "nombre": "Registros y trazabilidad", "cumple": XAI_DISPONIBLE, "detalle": "Explicaciones XAI auditables guardadas en xai_explicaciones.json"},
-        {"control": "Anexo III", "nombre": "Sistema de alto riesgo", "cumple": True, "detalle": "Sistema de ciberseguridad clasificado como alto riesgo bajo EU AI Act"},
+        {"control": "Anexo III", "nombre": "Evaluacion de clasificacion de riesgo", "cumple": True, "detalle": "Sistema disenado conforme a los principios del EU AI Act; evaluado y NO clasificado como sistema de alto riesgo del Anexo III"},
     ]
 
     return {

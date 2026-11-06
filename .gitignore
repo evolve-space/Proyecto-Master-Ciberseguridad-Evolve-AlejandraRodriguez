@@ -38,3 +38,16 @@ tickets.json
 xai_explicaciones.json
 # backups de parches
 *.bak_*
+
+# --- Limpieza 2026-11 ---
+*.bak*
+abuse_cache_dashboard.json
+zeek_scan_state.json
+ips_whitelist.json
+# PoC: datos pesados fuera del repo (se mantienen scripts .py y json pequenos)
+poc/**/*.pcap
+poc/**/*.pcapng
+poc/**/*.npz
+poc/**/*.npy
+poc/**/*.log
+poc/

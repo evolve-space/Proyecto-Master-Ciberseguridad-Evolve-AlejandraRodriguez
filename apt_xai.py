@@ -73,7 +73,7 @@ class ExplicadorAPT:
 
     def _guardar_explicaciones(self):
         with open(XAI_LOG, "w") as f:
-            json.dump(self.explicaciones[-50:], f, indent=2, default=str)
+            json.dump(self.explicaciones[-2000:], f, indent=2, default=str)
 
     def _inicializar_explainer(self):
         """

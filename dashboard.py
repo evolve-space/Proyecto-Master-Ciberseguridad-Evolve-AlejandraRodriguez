@@ -1077,7 +1077,7 @@ def contar_niveles():
     """Cuenta alertas de nivel alto (>=10) y critico (>=12) sobre TODOS los logs."""
     try:
         result = subprocess.run(
-            ["bash", "-c", "{ find /var/ossec/logs/alerts -name '*.json.gz' -exec zcat {} \\; 2>/dev/null; cat /var/ossec/logs/alerts/alerts.json 2>/dev/null; } | awk 'match($0,/\"level\":[0-9]+/){lv=substr($0,RSTART+8,RLENGTH-8)+0; if(lv>=10)a++; if(lv>=12)c++} END{print (a+0)\" \"(c+0)}'"],
+            ["bash", "-c", "{ find /var/ossec/logs/alerts -name '*.json.gz' -exec zcat {} \\; 2>/dev/null; cat /var/ossec/logs/alerts/alerts.json 2>/dev/null; } | awk 'match($0,/\"level\":[0-9]+/){lv=substr($0,RSTART+8,RLENGTH-8)+0; isv=($0 ~ /vulnerability-detector/); if(lv>=10 && !isv)a++; if(lv>=12 && !isv)c++} END{print (a+0)\" \"(c+0)}'"],
             capture_output=True, text=True, timeout=180
         )
         parts = (result.stdout.strip() or "0 0").split()
@@ -1410,7 +1410,7 @@ if pagina == "Panel General":
                 <p style="font-size:3rem; font-weight:700; color:{color_alto}; margin:4px 0 0 0;">{altas}</p>
             </div>""", unsafe_allow_html=True)
             if st.button("Ver nivel alto", key="btn_altas", use_container_width=True, type="primary"):
-                st.session_state.pagina = "Alertas y Eventos"; st.rerun()
+                st.session_state.pagina = "Alertas y Eventos"; st.session_state.filtro_nivel = 10; st.rerun()
         with col3:
             if criticas > 0:
                 st.markdown(f"""
@@ -1425,7 +1425,7 @@ if pagina == "Panel General":
                     <p style="font-size:3rem; font-weight:700; color:#bdc3c7; margin:4px 0 0 0;">{criticas}</p>
                 </div>""", unsafe_allow_html=True)
             if st.button("Ver criticos", key="btn_criticas", use_container_width=True, type="secondary"):
-                st.session_state.pagina = "Alertas y Eventos"; st.rerun()
+                st.session_state.pagina = "Alertas y Eventos"; st.session_state.filtro_nivel = 12; st.rerun()
         with col4:
             st.markdown(f"""
             <div class="metric-card" style="border-top:3px solid #6c3483; background:#161b22;">
@@ -1644,7 +1644,8 @@ elif pagina == "Alertas y Eventos":
         # ── Filtros ────────────────────────────────────────────────────
         col1, col2, col3 = st.columns(3)
         with col1:
-            filtro_nivel = st.slider("Nivel mínimo", 0, 15, 7)
+            st.session_state.setdefault("filtro_nivel", 7)
+            filtro_nivel = st.slider("Nivel mínimo", 0, 15, key="filtro_nivel")
         with col2:
             opciones_accion = ["Todas"] + list(df["accion"].unique())
             filtro_accion = st.selectbox("Estado", opciones_accion)
@@ -1663,8 +1664,10 @@ elif pagina == "Alertas y Eventos":
 
         # ── Tabla con pivoting ─────────────────────────────────────────
         df_show = df_f[["timestamp","tipo","ip","nivel","agente","id_regla","accion"]].copy()
+        df_show["severidad"] = df_show["nivel"].apply(lambda n: "CRITICO" if n>=12 else "ALTO" if n>=10 else "MEDIO" if n>=7 else "BAJO")
         df_show["timestamp"] = df_show["timestamp"].dt.strftime("%d/%m/%Y %H:%M")
-        df_show.columns = ["Fecha/Hora","Tipo","IP","Nivel","Agente","Regla","Estado"]
+        df_show = df_show[["timestamp","tipo","ip","nivel","severidad","agente","id_regla","accion"]]
+        df_show.columns = ["Fecha/Hora","Tipo","IP","Nivel","Severidad","Agente","Regla","Estado"]
         _ev_alertas = st.dataframe(
             df_show,
             use_container_width=True,
@@ -3623,11 +3626,12 @@ elif pagina == "Análisis Forense":
         # Busqueda forense en todo el archivo Suricata (sin limite de lineas)
         alertas_sur_ip = []
         try:
-            resultado_grep = subprocess.run(
-                ["bash", "-c", f"{{ tail -c 50M /var/log/suricata/eve.json; zcat /var/log/suricata/eve.json.*.gz 2>/dev/null; }} | grep '{ip_forense}'"],
-                capture_output=True, text=True, errors="ignore",
-                timeout=60
-            )
+            with st.spinner("Rastreando evidencias de red en Suricata (puede tardar unos segundos)..."):
+                resultado_grep = subprocess.run(
+                    ["bash", "-c", f"{{ tail -c 50M /var/log/suricata/eve.json; zcat /var/log/suricata/eve.json.*.gz 2>/dev/null; }} | grep '{ip_forense}'"],
+                    capture_output=True, text=True, errors="ignore",
+                    timeout=60
+                )
             for line in resultado_grep.stdout.splitlines():
                 try:
                     e = json.loads(line)

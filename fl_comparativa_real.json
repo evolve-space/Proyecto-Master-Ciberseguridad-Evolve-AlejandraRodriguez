@@ -1,0 +1,64 @@
+{
+  "fecha": "2026-10-14T16:42:43.542891",
+  "fuente_datos": "X_combined",
+  "n_train": 55,
+  "n_test": 17,
+  "n_clases": 12,
+  "centralizado": {
+    "acc": 0.5294,
+    "f1_macro": 0.4816
+  },
+  "federado": {
+    "acc": 0.5294,
+    "f1_macro": 0.4412,
+    "n_nodos": 3,
+    "n_rondas": 20,
+    "reparto": "non-IID",
+    "distribucion_nodos": [
+      [
+        4,
+        15,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        7,
+        7,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        4,
+        0,
+        0,
+        0,
+        10
+      ]
+    ]
+  },
+  "brecha_acc": -0.0,
+  "brecha_f1": -0.0404
+}
